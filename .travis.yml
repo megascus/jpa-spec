@@ -1,0 +1,13 @@
+language: java
+jdk:
+- oraclejdk8
+script:
+- cd javax.persistence-api
+- mvn javadoc:javadoc 
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_API_TOKEN
+  on:
+    branch: translation
+

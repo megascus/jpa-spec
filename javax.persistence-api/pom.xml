@@ -241,6 +241,8 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
                     <additionalparam>-Xdoclint:all</additionalparam>
+                    <reportOutputDirectory>../docs</reportOutputDirectory>
+                    <locale>ja_JP</locale>
                 </configuration>
                 <executions>
                     <execution>
