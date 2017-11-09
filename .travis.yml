@@ -3,7 +3,8 @@ jdk:
 - oraclejdk8
 script:
 - cd javax.persistence-api
-- mvn javadoc:javadoc 
+- mvn javadoc:javadoc
+- cd ..
 deploy:
   provider: pages
   skip_cleanup: true
