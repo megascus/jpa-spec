@@ -16,31 +16,26 @@
 package javax.persistence;
 
 /**
- * The validation mode to be used by the provider for the persistence
- * unit.
+ * 永続性ユニットのプロバイダによって使用される検証モードです。
  * 
  * @since Java Persistence 2.0
  */
 public enum ValidationMode {
    
     /**
-     * If a Bean Validation provider is present in the environment,
-     * the persistence provider must perform the automatic validation
-     * of entities.  If no Bean Validation provider is present in the
-     * environment, no lifecycle event validation takes place.
-     * This is the default behavior.
+     * Bean Vdalidationプロバイダが環境により提供されている場合、永続性プロバイダは自動的にエンティティの検証を行わなければいけません。
+     * Bean Validationプロバイダが環境から提供されていない場合、ライフサイクルイベントでの検証は行われません。
+     * これはデフォルトの動作です。
      */
     AUTO,
 
     /**
-     * The persistence provider must perform the lifecycle event
-     * validation.  It is an error if there is no Bean Validation
-     * provider present in the environment.
+     * 永続性プロバイダはライフサイクルイベントによる検証を行わなければいけません。Bean Validationプロバイダが環境から提供されてない場合はエラーになります。
      */
     CALLBACK,
 
     /**
-     * The persistence provider must not perform lifecycle event validation.
+     * 永続性プロバイダはライフサイクルイベントによる検証を行ってはいけません。
      */
     NONE
     }
