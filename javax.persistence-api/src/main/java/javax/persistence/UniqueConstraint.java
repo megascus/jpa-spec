@@ -20,8 +20,7 @@ import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies that a unique constraint is to be included in
- * the generated DDL for a primary or secondary table.
+ * プライマリもしくはセカンダリテーブルのために生成されたDDLに含めるユニーク制約を指定します。
  *
  * <pre>
  *    Example:
@@ -40,13 +39,13 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface UniqueConstraint {
 
-    /** (Optional) Constraint name.  A provider-chosen name will be chosen
-     * if a name is not specified.
+    /** 
+     * (オプション)制約名。名前が指定されていない場合はプロバイダが指定した名前が選択されます。
      *
      * @since Java Persistence 2.0
      */
     String name() default "";
 
-    /** (Required) An array of the column names that make up the constraint. */
+    /** (必須)制約を構成する列名の配列。 */
     String[] columnNames();
 }
