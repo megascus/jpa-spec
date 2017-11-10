@@ -22,8 +22,9 @@ import java.util.Calendar;
 import java.util.stream.Stream;
 
 /**
- * Interface used to control the execution of typed queries.
- * @param <X> query result type
+ * 型付きクエリーの実行を制御するためのインタフェースです。
+ * 
+ * @param <X> クエリーの結果の型
  *
  * @see Query
  * @see Parameter
@@ -33,51 +34,32 @@ import java.util.stream.Stream;
 public interface TypedQuery<X> extends Query {
 	
     /**
-     * Execute a SELECT query and return the query results
-     * as a typed List.
-     * @return a list of the results
-     * @throws IllegalStateException if called for a Java
-     *         Persistence query language UPDATE or DELETE statement
-     * @throws QueryTimeoutException if the query execution exceeds
-     *         the query timeout value set and only the statement is
-     *         rolled back
-     * @throws TransactionRequiredException if a lock mode other than
-     *         <code>NONE</code> has been set and there is no transaction
-     *         or the persistence context has not been joined to the
-     *         transaction
-     * @throws PessimisticLockException if pessimistic locking
-     *         fails and the transaction is rolled back
-     * @throws LockTimeoutException if pessimistic locking
-     *         fails and only the statement is rolled back
-     * @throws PersistenceException if the query execution exceeds 
-     *         the query timeout value set and the transaction 
-     *         is rolled back 
+     * SELECTクエリーを実行し、問合せ結果を型付きリストとして返します。
+     * @return 結果のリスト
+     * @throws IllegalStateException Java Persistenceクエリー言語のUPDATEまたはDELETE文で呼び出された場合
+     * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
+     * @throws TransactionRequiredException <code>NONE</code>以外のロックモードが設定されトランザクションが存在しない場合、
+     * または永続性コンテキストがトランザクションに参加していない場合
+     * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされる場合
+     * @throws LockTimeoutException 悲観ロックに失敗し、そのステートメントのみロールバックされる場合
+     * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
      */
     List<X> getResultList();
 
     /**
-     * Execute a SELECT query and return the query results
-     * as a typed <code>java.util.stream.Stream</code>.
-     * By default this method delegates to <code>getResultList().stream()</code>,
-     * however persistence provider may choose to override this method
-     * to provide additional capabilities.
+     * SELECTクエリーを実行し、問合せ結果を型付き<code>java.util.stream.Stream</code>として戻します。
+     * 
+     * デフォルトでは、このメソッドは<code>getResultList().stream()</code>に委譲しますが、
+     * 永続性プロバイダはこのメソッドをオーバーライドして追加の機能を提供することもできます。
      *
-     * @return a stream of the results
-     * @throws IllegalStateException if called for a Java
-     *         Persistence query language UPDATE or DELETE statement
-     * @throws QueryTimeoutException if the query execution exceeds
-     *         the query timeout value set and only the statement is
-     *         rolled back
-     * @throws TransactionRequiredException if a lock mode other than
-     *         <code>NONE</code> has been set and there is no transaction
-     *         or the persistence context has not been joined to the transaction
-     * @throws PessimisticLockException if pessimistic locking
-     *         fails and the transaction is rolled back
-     * @throws LockTimeoutException if pessimistic locking
-     *         fails and only the statement is rolled back
-     * @throws PersistenceException if the query execution exceeds
-     *         the query timeout value set and the transaction
-     *         is rolled back
+     * @return 結果のストリーム
+     * @throws IllegalStateException Java Persistenceクエリー言語のUPDATEまたはDELETE文で呼び出された場合
+     * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
+     * @throws TransactionRequiredException <code>NONE</code>以外のロックモードが設定されトランザクションが存在しない場合、
+     * または永続性コンテキストがトランザクションに参加していない場合
+     * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされる場合
+     * @throws LockTimeoutException 悲観ロックに失敗し、そのステートメントのみロールバックされる場合
+     * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
      * @see Stream
      * @see #getResultList()
      * @since 2.2
@@ -87,190 +69,159 @@ public interface TypedQuery<X> extends Query {
     }
 
     /**
-     * Execute a SELECT query that returns a single result.
-     * @return the result
-     * @throws NoResultException if there is no result
-     * @throws NonUniqueResultException if more than one result
-     * @throws IllegalStateException if called for a Java
-     *         Persistence query language UPDATE or DELETE statement
-     * @throws QueryTimeoutException if the query execution exceeds
-     *         the query timeout value set and only the statement is
-     *         rolled back
-     * @throws TransactionRequiredException if a lock mode other than
-     *         <code>NONE</code> has been set and there is no transaction
-     *         or the persistence context has not been joined to the
-     *         transaction
-     * @throws PessimisticLockException if pessimistic locking
-     *         fails and the transaction is rolled back
-     * @throws LockTimeoutException if pessimistic locking
-     *         fails and only the statement is rolled back
-     * @throws PersistenceException if the query execution exceeds 
-     *         the query timeout value set and the transaction 
-     *         is rolled back 
+     * 一つの結果を返すSELECTクエリーを実行します。
+     * @return 結果
+     * @throws NoResultException 結果がなかった場合
+     * @throws NonUniqueResultException 2つ以上の結果があった場合
+     * @throws IllegalStateException Java Persistenceクエリー言語のUPDATEまたはDELETE文で呼び出された場合
+     * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
+     * @throws TransactionRequiredException <code>NONE</code>以外のロックモードが設定されトランザクションが存在しない場合、
+     * または永続性コンテキストがトランザクションに参加していない場合
+     * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされる場合
+     * @throws LockTimeoutException 悲観ロックに失敗し、そのステートメントのみロールバックされる場合
+     * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
      */
     X getSingleResult();
 
     /**
-     * Set the maximum number of results to retrieve.
-     * @param maxResult  maximum number of results to retrieve
-     * @return the same query instance
-     * @throws IllegalArgumentException if the argument is negative
+     * 検索結果の最大件数を設定します。
+     * @param maxResult 検索結果の最大件数
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException 引数が負数だった場合
      */
     TypedQuery<X> setMaxResults(int maxResult);
 
     /**
-     * Set the position of the first result to retrieve.
-     * @param startPosition position of the first result, 
-     *        numbered from 0
-     * @return the same query instance
-     * @throws IllegalArgumentException if the argument is negative
+     * 検索結果の最初のポジションを設定します。
+     * @param startPosition 検索結果の0から始まる最初のポジション
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException 引数が負数だった場合
      */
     TypedQuery<X> setFirstResult(int startPosition);
 
     /**
-     * Set a query property or hint. The hints elements may be used 
-     * to specify query properties and hints. Properties defined by
-     * this specification must be observed by the provider. 
-     * Vendor-specific hints that are not recognized by a provider
-     * must be silently ignored. Portable applications should not
-     * rely on the standard timeout hint. Depending on the database
-     * in use and the locking mechanisms used by the provider,
-     * this hint may or may not be observed.
-     * @param hintName  name of property or hint
-     * @param value  value for the property or hint
-     * @return the same query instance
-     * @throws IllegalArgumentException if the second argument is not
-     *         valid for the implementation
+     * クエリーのプロパティもしくはヒントを設定します。
+     * 
+     * ヒント要素はクエリーのプロパティとヒントを指定するために使用できます。
+     * この仕様で定義されているプロパティはプロバイダによって監視されなければなりません。
+     * プロバイダによって認識されないベンダー固有のヒントは、暗黙のうちに無視されなければなりません。
+     * ポータブルアプリケーションは標準のタイムアウトのヒントに頼るべきではありません。
+     * 使用されているデータベースおよびプロバイダが使用しているロックメカニズムによっては、このヒントが監視されるかどうかはわかりません。
+     * @param hintName  プロパティもしくはヒントの名前
+     * @param value  プロパティもしくはヒントのための値
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException 二つ目の引数が実装に適合しない場合
      */
     TypedQuery<X> setHint(String hintName, Object value);
 
     /**
-     * Bind the value of a <code>Parameter</code> object.
-     * @param param  parameter object
-     * @param value  parameter value
-     * @return the same query instance
-     * @throws IllegalArgumentException if the parameter
-     *         does not correspond to a parameter of the
-     *         query
+     * <code>Parameter</code>オブジェクトの値をバインドします。
+     * @param param  パラメーターオブジェクト
+     * @param value  パラメーターの値
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException パラメーターがクエリーのパラメーターに対応しない場合
      */
      <T> TypedQuery<X> setParameter(Parameter<T> param, T value);
 
     /**
-     * Bind an instance of <code>java.util.Calendar</code> to a <code>Parameter</code> object.
-     * @param param  parameter object
-     * @param value  parameter value
-     * @param temporalType  temporal type
-     * @return the same query instance
-     * @throws IllegalArgumentException if the parameter does not
-     *         correspond to a parameter of the query
+     * <code>java.util.Calendar</code>のインスタンスを<code>Parameter</code>オブジェクトにバインドします。
+     * @param param  パラメーターオブジェクト
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException パラメーターがクエリーのパラメーターに対応しない場合
      */
     TypedQuery<X> setParameter(Parameter<Calendar> param, 
                                Calendar value,  
                                TemporalType temporalType);
 
     /**
-     * Bind an instance of <code>java.util.Date</code> to a <code>Parameter</code> object.
-     * @param param  parameter object
-     * @param value  parameter value
-     * @param temporalType  temporal type
-     * @return the same query instance
-     * @throws IllegalArgumentException if the parameter does not
-     *         correspond to a parameter of the query
+     * <code>java.util.Date</code>のインスタンスを<code>Parameter</code>オブジェクトにバインドします。
+     * @param param  パラメーターオブジェクト
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException パラメーターがクエリーのパラメーターに対応しない場合
      */
     TypedQuery<X> setParameter(Parameter<Date> param, Date value,  
                                TemporalType temporalType);
 
     /**
-     * Bind an argument value to a named parameter.
-     * @param name  parameter name
-     * @param value  parameter value
-     * @return the same query instance
-     * @throws IllegalArgumentException if the parameter name does 
-     *         not correspond to a parameter of the query or if
-     *         the argument is of incorrect type
+     * 引数の値を名前付きパラメーターにバインドします。
+     * @param name  パラメーターの名前
+     * @param value  パラメーターの値
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException パラメーター名がクエリーのパラメーターに対応しない場合、もしくは引数が不正な型の場合
      */
     TypedQuery<X> setParameter(String name, Object value);
 
     /**
-     * Bind an instance of <code>java.util.Calendar</code> to a named parameter.
-     * @param name  parameter name
-     * @param value  parameter value
-     * @param temporalType  temporal type
-     * @return the same query instance
-     * @throws IllegalArgumentException if the parameter name does
-     *         not correspond to a parameter of the query or if 
-     *         the value argument is of incorrect type
+     * <code>java.util.Calendar</code>のインスタンスを名前付きパラメーターにバインドします。
+     * @param name  パラメーターの名前
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException パラメーター名がクエリーのパラメーターに対応しない場合、もしくは引数が不正な型の場合
      */
     TypedQuery<X> setParameter(String name, Calendar value, 
                                TemporalType temporalType);
 
     /**
-     * Bind an instance of <code>java.util.Date</code> to a named parameter.
-     * @param name   parameter name
-     * @param value  parameter value
-     * @param temporalType  temporal type
-     * @return the same query instance
-     * @throws IllegalArgumentException if the parameter name does
-     *         not correspond to a parameter of the query or if 
-     *         the value argument is of incorrect type
+     * <code>java.util.Date</code>のインスタンスを名前付きパラメーターにバインドします。
+     * @param name   パラメーターの名前
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException パラメーター名がクエリーのパラメーターに対応しない場合、もしくは引数が不正な型の場合
      */
     TypedQuery<X> setParameter(String name, Date value, 
                                TemporalType temporalType);
 
     /**
-     * Bind an argument value to a positional parameter.
-     * @param position  position
-     * @param value  parameter value
-     * @return the same query instance
-     * @throws IllegalArgumentException if position does not
-     *         correspond to a positional parameter of the
-     *         query or if the argument is of incorrect type
+     * 位置指定のパラメーターに引数の値をバインドします。
+     * @param position  位置
+     * @param value  パラメーターの値
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException positionがクエリーの位置指定のパラメーターに対応しない場合、もしくは引数が不正な型の場合
      */
     TypedQuery<X> setParameter(int position, Object value);
 
     /**
-     * Bind an instance of <code>java.util.Calendar</code> to a positional
-     * parameter.
-     * @param position  position
-     * @param value  parameter value
-     * @param temporalType  temporal type
-     * @return the same query instance
-     * @throws IllegalArgumentException if position does not
-     *         correspond to a positional parameter of the query
-     *         or if the value argument is of incorrect type
+     * 位置指定のパラメーターに<code>java.util.Calendar</code>の値をバインドします。
+     * @param position  位置
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException positionがクエリーの位置指定のパラメーターに対応しない場合、もしくは引数が不正な型の場合
      */
     TypedQuery<X> setParameter(int position, Calendar value,  
                                TemporalType temporalType);
 
     /**
-     * Bind an instance of <code>java.util.Date</code> to a positional parameter.
-     * @param position  position
-     * @param value  parameter value
-     * @param temporalType  temporal type
-     * @return the same query instance
-     * @throws IllegalArgumentException if position does not
-     *         correspond to a positional parameter of the query
-     *         or if the value argument is of incorrect type
+     * 位置指定のパラメーターに<code>java.util.Date</code>の値をバインドします。
+     * @param position  位置
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException positionがクエリーの位置指定のパラメーターに対応しない場合、もしくは引数が不正な型の場合
      */
     TypedQuery<X> setParameter(int position, Date value,  
                                TemporalType temporalType);
 
      /**
-      * Set the flush mode type to be used for the query execution.
-      * The flush mode type applies to the query regardless of the
-      * flush mode type in use for the entity manager.
-      * @param flushMode  flush mode
-      * @return the same query instance
+      * クエリーの実行に使用されるフラッシュモードタイプを設定します。
+      *
+      * フラッシュモードタイプはエンティティマネージャーで使用中のフラッシュモードタイプと関係なくクエリーに適用されます。
+      * @param flushMode  フラッシュモード
+      * @return 同じクエリーのインスタンス
       */
      TypedQuery<X> setFlushMode(FlushModeType flushMode);
 
      /**
-      * Set the lock mode type to be used for the query execution.
-      * @param lockMode  lock mode
-      * @return the same query instance
-      * @throws IllegalStateException if the query is found not to 
-      *         be a Java Persistence query language SELECT query
-      *         or a CriteriaQuery query
+      * クエリーの実行に使用されるロックモードタイプを設定します。
+      * @param lockMode  ロックモード
+      * @return 同じクエリーのインスタンス
+      * @throws IllegalStateException クエリーがJava Persistenceクエリー言語のSELECTクエリーかCriteriaQueryクエリーでないと判明した場合
       */
      TypedQuery<X> setLockMode(LockModeType lockMode);
 
