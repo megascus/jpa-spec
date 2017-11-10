@@ -15,6 +15,6 @@
  ******************************************************************************/ 
 
 /**
- * Java Persistence Metamodel API
+ * Java Persistence メタモデル API
  */
 package javax.persistence.metamodel;

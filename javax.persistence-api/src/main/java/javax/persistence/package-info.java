@@ -15,6 +15,6 @@
  ******************************************************************************/ 
 
 /**
- * Java Persistence is the API for the management for persistence and object/relational mapping.
+ * Java Persistenceは永続性とオブジェクト/リレーショナル マッピングの管理のためのAPIです。
  */
 package javax.persistence;

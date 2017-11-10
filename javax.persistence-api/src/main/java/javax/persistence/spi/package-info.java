@@ -15,6 +15,6 @@
  ******************************************************************************/ 
 
 /**
- * SPI for Java Persistence providers
+ * Java永続性プロバイダのためのSPI
  */
 package javax.persistence.spi;
