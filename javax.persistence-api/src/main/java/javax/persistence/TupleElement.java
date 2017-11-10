@@ -16,9 +16,8 @@
 package javax.persistence;
 
 /**
- * The <code>TupleElement</code> interface defines an element that is returned in
- * a query result tuple.
- * @param <X> the type of the element
+ * <code>TupleElement</code>インターフェースはクエリーの結果タプルから返される要素を定義します。
+ * @param <X> 要素の型
  *
  * @see Tuple
  *
@@ -27,15 +26,14 @@ package javax.persistence;
 public interface TupleElement<X> {
     
     /**
-     * Return the Java type of the tuple element.
-     * @return the Java type of the tuple element
+     * タプル要素のJavaの型を返します。
+     * @return タプル要素のJavaの型
      */
     Class<? extends X> getJavaType();
 
     /**
-     * Return the alias assigned to the tuple element or null, 
-     * if no alias has been assigned.
-     * @return alias
+     * タプル要素に割り当てられたエイリアスを返します。nullの場合はエイリアスが割り当てられてません。
+     * @return エイリアス
      */
     String getAlias();
 }
