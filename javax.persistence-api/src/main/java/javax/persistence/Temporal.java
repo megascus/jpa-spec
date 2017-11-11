@@ -22,15 +22,12 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * This annotation must be specified for persistent fields 
- * or properties of type <code>java.util.Date</code> and 
- * <code>java.util.Calendar</code>. It may only be specified for fields 
- * or properties of these types.
+ * このアノテーションは<code>java.util.Date</code>型および<code>java.util.Calendar</code>型の永続フィールドまたはプロパティに対して指定する必要があります。
  * 
- * <p> The <code>Temporal</code> annotation may be used in 
- * conjunction with the {@link Basic} annotation, the {@link Id}
- * annotation, or the {@link ElementCollection} annotation (when
- * the element collection value is of such a temporal type.
+ * これらの型のフィールドまたはプロパティに対してのみ指定できます。
+ * 
+ * <p><code>Temporal</code>アノテーションは{@link Basic}アノテーションや{@link Id}アノテーション、
+ * {@link ElementCollection}アノテーション(要素のコレクションの値がそのような時制の型である場合)と同時に使用できます。
  *
  * <pre>
  *     Example:
@@ -45,6 +42,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface Temporal {
 
-    /** The type used in mapping <code>java.util.Date</code> or <code>java.util.Calendar</code>. */
+    /** <code>java.util.Date</code> や <code>java.util.Calendar</code>のマッピングに使用される型。 */
     TemporalType value();
 }

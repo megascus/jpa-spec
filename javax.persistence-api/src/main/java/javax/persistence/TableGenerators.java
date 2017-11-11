@@ -23,7 +23,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * Used to group <code>TableGenerator</code> annotations.
+ * <code>TableGenerator</code>アノテーションをまとめるのに使用します。
  *
  * @see TableGenerator
  * @since Java Persistence 2.2
