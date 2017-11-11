@@ -21,12 +21,11 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies the primary table for the annotated entity. Additional
- * tables may be specified using {@link SecondaryTable} or {@link
- * SecondaryTables} annotation.
- *
- * <p> If no <code>Table</code> annotation is specified for an entity 
- * class, the default values apply.
+ * アノテーションをつけられたエンティティのためのプライマリテーブルを指定します。
+ * 
+ * 追加のテーブルは{@link SecondaryTable} や{@link SecondaryTables}のアノテーションを使用することで指定することができます。
+ * 
+ * <p>エンティティクラスに<code>Table</code>アノテーションが指定されない場合はデフォルトの値が適用されます。
  *
  * <pre>
  *    Example:
@@ -43,36 +42,40 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface Table {
 
     /**
-     * (Optional) The name of the table.
-     * <p> Defaults to the entity name.
+     * (オプション) テーブルの名前。
+     * 
+     * <p> デフォルトの値はエンティティの名前です。
      */
     String name() default "";
 
-    /** (Optional) The catalog of the table.
-     * <p> Defaults to the default catalog.
+    /** (オプション) テーブルの含まれるカタログ。
+     * 
+     * <p> デフォルトでは既定のカタログです。
      */
     String catalog() default "";
 
-    /** (Optional) The schema of the table.
-     * <p> Defaults to the default schema for user.
+    /** (オプション) テーブルの含まれるスキーマ。
+     * 
+     * <p> デフォルトではユーザーにとっての規定のスキーマです。
      */
     String schema() default "";
 
     /**
-     * (Optional) Unique constraints that are to be placed on 
-     * the table. These are only used if table generation is in 
-     * effect. These constraints apply in addition to any constraints 
-     * specified by the <code>Column</code> and <code>JoinColumn</code> 
-     * annotations and constraints entailed by primary key mappings.
-     * <p> Defaults to no additional constraints.
+     * (オプション) テーブルに配置される固有の制約。 
+     * 
+     * これらはテーブルの生成が有効な場合にのみ使用されます。
+     * これらの制約は<code>Column</code>および<code>JoinColumn</code>アノテーションで指定された制約や、
+     * 主キーのマッピングによって制約される制約とは別に適用されます。
+     * 
+     * <p>デフォルトでは追加の制約はありません。
      */
     UniqueConstraint[] uniqueConstraints() default {};
 
     /**
-     * (Optional) Indexes for the table.  These are only used if
-     * table generation is in effect.  Note that it is not necessary
-     * to specify an index for a primary key, as the primary key
-     * index will be created automatically.
+     * (オプション) テーブルのためのインデックス。
+     * 
+     * これらはテーブルの生成が有効な場合にのみ使用されます。
+     * 主キー索引は自動的に作成されるため、主キーの索引を指定する必要はないことに注意してください。
      *
      * @since Java Persistence 2.1 
      */

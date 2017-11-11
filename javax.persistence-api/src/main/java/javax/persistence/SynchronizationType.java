@@ -15,18 +15,16 @@
 package javax.persistence;
 
 /**
- * Specifies whether the persistence context is always automatically 
- * synchronized with the current transaction or whether the persistence context
- * must be explicitly joined to the current transaction by means of the
- * {@link EntityManager#joinTransaction} method.
+ * 永続化コンテキストが現在のトランザクションと常に自動的に同期するかどうか、
+ * または永続化コンテキストを{@link EntityManager#joinTransaction}メソッドを使用して現在のトランザクションに明示的に参加する必要があるかどうかを指定します。
  *
  * @since Java Persistence 2.1
  */
 public enum SynchronizationType {
 
-    /** Persistence context is automatically synchronized with the current transaction */
+    /** 永続化コンテキストは現在のトランザクションと常に自動的に同期します。 */
     SYNCHRONIZED,
 
-    /** Persistence context must be explicitly joined to the current transaction */
+    /** 永続化コンテキストは現在のトランザクションに明示的に参加する必要があります。 */
     UNSYNCHRONIZED,
 }
