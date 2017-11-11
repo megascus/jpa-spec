@@ -26,12 +26,10 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Repeatable;
 
 /**
- * Defines a primary key generator that may be 
- * referenced by name when a generator element is specified for 
- * the {@link GeneratedValue} annotation. A table generator 
- * may be specified on the entity class or on the primary key 
- * field or property. The scope of the generator name is global 
- * to the persistence unit (across all generator types).
+ * {@link GeneratedValue}アノテーションにgenerator要素が指定されたときに、名前で参照される主キージェネレーターを定義します。
+ * 
+ * テーブルジェネレーターはエンティティクラスまたは主キーのフィールドまたはプロパティで指定できます。
+ * ジェネレーター名のスコープは、永続性ユニット(すべてのジェネレーターの型全体)に対してグローバルです。
  *
  * <pre>
  *    Example 1:
@@ -78,73 +76,76 @@ import java.lang.annotation.Repeatable;
 public @interface TableGenerator {
 
     /** 
-     * (Required) A unique generator name that can be referenced 
-     * by one or more classes to be the generator for id values.
+     * (必須) 1つ以上のクラスがID値のジェネレーターとして参照できるジェネレーターの一意な名前。
      */
     String name();
 
     /** 
-     * (Optional) Name of table that stores the generated id values. 
-     * <p> Defaults to a name chosen by persistence provider.
+     * (オプション) 生成されたID値を格納するテーブルの名前。
+     * 
+     * <p>デフォルトでは永続性プロバイダによって指定された名前になります。
      */
     String table() default "";
 
-    /** (Optional) The catalog of the table. 
-     * <p> Defaults to the default catalog.
+    /** 
+     * (オプション) テーブルの含まれるカタログ。
+     * 
+     * <p>既定のカタログがデフォルト値です。
      */
     String catalog() default "";
 
-    /** (Optional) The schema of the table. 
-     * <p> Defaults to the default schema for user.
+    /** 
+     * (オプション) テーブルの含まれるスキーマ。
+     * 
+     * <p>ユーザーにとっての既定のスキーマがデフォルト値です。
      */
     String schema() default "";
 
     /** 
-     * (Optional) Name of the primary key column in the table.
-     * <p> Defaults to a provider-chosen name.
+     * (オプション) テーブル内の主キーの列の名前。
+     * 
+     * <p>デフォルトでは永続性プロバイダによって選ばれます。
      */
     String pkColumnName() default "";
 
     /** 
-     * (Optional) Name of the column that stores the last value generated.
-     * <p> Defaults to a provider-chosen name.
+     * (オプション) 生成された最後の値を格納する列の名前。
+     * 
+     * <p>デフォルトでは永続性プロバイダによって選ばれます。
      */
     String valueColumnName() default "";
 
     /**
-     * (Optional) The primary key value in the generator table 
-     * that distinguishes this set of generated values from others 
-     * that may be stored in the table.
-     * <p> Defaults to a provider-chosen value to store in the 
-     * primary key column of the generator table
+     * (オプション) 生成された値のセットをテーブルに格納されている可能性のある他のものと区別するジェネレーターテーブルの主キーの値。
+     * 
+     * <p>デフォルトでは、永続性プロバイダによって選ばれた値がジェネレーターテーブルの主キーの列に格納されます
      */
     String pkColumnValue() default "";
 
     /** 
-     * (Optional) The initial value to be used to initialize the column
-     * that stores the last value generated.
+     * (オプション) 生成された最後の値を格納する列を初期化するために使用される初期値。
      */
     int initialValue() default 0;
 
     /**
-     * (Optional) The amount to increment by when allocating id 
-     * numbers from the generator.
+     * (オプション) ジェネレーターが生成した値からID番号を割り当てるときにインクリメントする量。
      */
     int allocationSize() default 50;
 
     /**
-     * (Optional) Unique constraints that are to be placed on the 
-     * table. These are only used if table generation is in effect. 
-     * These constraints apply in addition to primary key constraints.
-     * <p> Defaults to no additional constraints.
+     * (オプション) テーブルに配置される固有の制約。
+     * 
+     * これらはテーブルの生成が有効な場合にのみ使用されます。これらの制約は主キーの制約とは別に適用されます。
+     * 
+     * <p>デフォルトでは、追加の制約はありません。
      */
     UniqueConstraint[] uniqueConstraints() default {};
 
     /**
-     * (Optional) Indexes for the table.  These are only used if
-     * table generation is in effect.  Note that it is not necessary
-     * to specify an index for a primary key, as the primary key
-     * index will be created automatically.
+     * (オプション) テーブルのためのインデックス。
+     * 
+     * これらはテーブルの生成が有効な場合にのみ使用されます。
+     * 主キー索引は自動的に作成されるため、主キーの索引を指定する必要はないことに注意してください。
      *
      * @since Java Persistence 2.1 
      */
