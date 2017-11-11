@@ -16,27 +16,23 @@
 package javax.persistence;
 
 /**
- * Thrown by the persistence provider when a transaction is required but is not
- * active.
+ * トランザクションが必要であるがアクティブでないときに永続性プロバイダによってスローされます。
  * 
  * @since Java Persistence 1.0
  */
 public class TransactionRequiredException extends PersistenceException {
 
 	/**
-	 * Constructs a new <code>TransactionRequiredException</code> exception with
-	 * <code>null</code> as its detail message.
+	 * 詳細なメッセージとして<code>null</code>を指定して新しい<code>TransactionRequiredException</code>例外を生成します。
 	 */
 	public TransactionRequiredException() {
 		super();
 	}
 
 	/**
-	 * Constructs a new <code>TransactionRequiredException</code> exception with
-	 * the specified detail message.
+	 * 指定された詳細なメッセージで新しい<code>TransactionRequiredException</code>例外を生成します。
 	 * 
-	 * @param message
-	 *            the detail message.
+	 * @param message 詳細なメッセージ
 	 */
 	public TransactionRequiredException(String message) {
 		super(message);

@@ -22,9 +22,9 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies that the property or field is not persistent. It is used
- * to annotate a property or field of an entity class, mapped
- * superclass, or embeddable class.
+ * プロパティまたはフィールドに永続的ではないことを指定します。
+ * 
+ * エンティティクラス({{@link Entity})、マップされたスーパークラス({{@link MappedSuperclass})、または埋め込み可能なクラス({{@link Embeddable})のプロパティまたはフィールドにアノテーションを付けるために使用されます。
  *
  * <pre>
  *    Example:

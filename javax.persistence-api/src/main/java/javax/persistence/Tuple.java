@@ -18,7 +18,7 @@ package javax.persistence;
 import java.util.List;
 
 /**
- * Interface for extracting the elements of a query result tuple.
+ * クエリーの結果タプルの要素を抽出するためのインタフェース。
  *
  * @see TupleElement
  *
@@ -27,70 +27,60 @@ import java.util.List;
 public interface Tuple {
 
     /**
-     * Get the value of the specified tuple element.
-     * @param tupleElement  tuple element
-     * @return value of tuple element
-     * @throws IllegalArgumentException if tuple element
-     *         does not correspond to an element in the
-     *         query result tuple
+     * 指定されたタプル要素の値を取得します。
+     * @param tupleElement  タプル要素
+     * @return タプル要素の値
+     * @throws IllegalArgumentException タプル要素がこのクエリーの結果タプル内の要素に対応しない場合
      */
     <X> X get(TupleElement<X> tupleElement);
 
     /**
-     * Get the value of the tuple element to which the
-     * specified alias has been assigned.
-     * @param alias  alias assigned to tuple element
-     * @param type of the tuple element
-     * @return value of the tuple element
-     * @throws IllegalArgumentException if alias
-     *         does not correspond to an element in the
-     *         query result tuple or element cannot be
-     *         assigned to the specified type
+     * 指定されたエイリアスで割り当てられているタプル要素の値を取得します。
+     * @param alias  タプル要素に割り当てられているエイリアス
+     * @param type タプル要素の型
+     * @return  タプル要素の値
+     * @throws IllegalArgumentException エイリアスがクエリーの結果タプル内の要素に対応しない場合、または指定された型に要素を割り当てることができない場合
      */
     <X> X get(String alias, Class<X> type); 
 
     /**
-     * Get the value of the tuple element to which the
-     * specified alias has been assigned.
-     * @param alias  alias assigned to tuple element
-     * @return value of the tuple element
-     * @throws IllegalArgumentException if alias
-     *         does not correspond to an element in the
-     *         query result tuple
+     * 指定されたエイリアスで割り当てられているタプル要素の値を取得します。
+     * @param alias  タプル要素に割り当てられているエイリアス
+     * @return タプル要素の値
+     * @throws IllegalArgumentException エイリアスがクエリーの結果タプル内の要素に対応しない場合
      */
     Object get(String alias); 
 
     /**
-     * Get the value of the element at the specified
-     * position in the result tuple. The first position is 0.
-     * @param i  position in result tuple
-     * @param type  type of the tuple element
-     * @return value of the tuple element
-     * @throws IllegalArgumentException if i exceeds
-     *         length of result tuple  or element cannot be
-     *         assigned to the specified type
+     * 結果タプルの指定された位置の要素の値を取得します。
+     * 
+     * 最初の位置は0です。
+     * @param i  結果タプルの位置
+     * @param type  タプル要素の型
+     * @return タプル要素の値
+     * @throws IllegalArgumentException iが結果タプルの長さを超えた場合、または指定された型に要素を代入できない場合
      */
     <X> X get(int i, Class<X> type);
 
     /**
-     * Get the value of the element at the specified
-     * position in the result tuple. The first position is 0.
-     * @param i  position in result tuple
-     * @return value of the tuple element
-     * @throws IllegalArgumentException if i exceeds
-     *         length of result tuple
+     * 結果タプルの指定された位置の要素の値を取得します。
+     * 
+     * 最初の位置は0です。
+     * @param i  結果タプルの位置
+     * @return タプル要素の値
+     * @throws IllegalArgumentException iが結果タプルの長さを超えた場合
      */
     Object get(int i);
 
     /**
-     * Return the values of the result tuple elements as an array.
-     * @return tuple element values
+     * 結果タプル要素の値を配列として返します。
+     * @return タプル要素の値
      */
     Object[] toArray();
 
     /**
-     * Return the tuple elements.
-     * @return tuple elements
+     * タプル要素を返します。
+     * @return タプル要素
      */
     List<TupleElement<?>> getElements();
 }

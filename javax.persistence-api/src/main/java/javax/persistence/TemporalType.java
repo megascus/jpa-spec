@@ -16,19 +16,18 @@
 package javax.persistence;
 
 /**
- * Type used to indicate a specific mapping of <code>java.util.Date</code> 
- * or <code>java.util.Calendar</code>.
+ * <code>java.util.Date</code>または<code>java.util.Calendar</code>への特別なマッピングを示すために使用される型です。
  *
  * @since Java Persistence 1.0
  */
 public enum TemporalType {
 
-    /** Map as <code>java.sql.Date</code> */
+    /** <code>java.sql.Date</code>としてマップします。 */
     DATE, 
 
-    /** Map as <code>java.sql.Time</code> */
+    /** <code>java.sql.Time</code>としてマップします。 */
     TIME, 
 
-    /** Map as <code>java.sql.Timestamp</code> */
+    /** <code>java.sql.Timestamp</code>としてマップします。 */
     TIMESTAMP
 }
