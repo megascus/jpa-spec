@@ -19,11 +19,11 @@ import javax.persistence.metamodel.Attribute;
 import java.util.List;
 
 /**
- * This type represents a subgraph for an attribute node that
- * corresponds to a Managed Type. Using this class, an entity subgraph
- * can be embedded within an EntityGraph.
+ * この型はマネージドタイプに対応する属性ノードのサブグラフを表します。
+ * 
+ * このクラスを使用する事でEntityGraph内にエンティティサブグラフを埋め込むことができます。
  *
- * @param <T> The type of the attribute.
+ * @param <T> 属性の型
  *
  * @see EntityGraph
  * @see AttributeNode
@@ -34,168 +34,139 @@ import java.util.List;
 public interface Subgraph<T> {
 
     /**
-     * Add one or more attribute nodes to the entity graph.
+     * エンティティグラフに1つ以上の属性ノードを追加します。
      *
-     * @param attributeName  name of the attribute     
-     * @throws IllegalArgumentException if the attribute is not an 
-     *         attribute of this managed type.
-     * @throws IllegalStateException if the EntityGraph has been 
-     *         statically defined
+     * @param attributeName  属性の名前     
+     * @throws IllegalArgumentException この属性がこのマネージドタイプの属性でない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public void addAttributeNodes(String ... attributeName);
 
     /**
-     * Add one or more attribute nodes to the entity graph.
-     * @param attribute  attribute
+     * エンティティグラフに1つ以上の属性ノードを追加します。
+     * @param attribute  属性
      *
-     * @throws IllegalStateException if this EntityGraph has been 
-     *         statically defined
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public void addAttributeNodes(Attribute<T, ?> ... attribute);
 
     /**
-     * Add a node to the graph that corresponds to a managed
-     * type. This allows for construction of multi-node entity graphs
-     * that include related managed types.
+     * マネージドタイプに対応するノードをグラフに追加します。
+     * 
+     * これにより関連するマネージドタイプを含むマルチノードのエンティティグラフの構築が可能になります。
      *
-     * @param attribute  attribute
-     * @return subgraph for the attribute
-     * @throws IllegalArgumentException if the attribute's target 
-     *         type is not a managed type
-     * @throws IllegalStateException if the EntityGraph has been 
-     *         statically defined
+     * @param attribute  属性
+     * @return 属性のためのsubgraph
+     * @throws IllegalArgumentException この属性のターゲットタイプがマネージドタイプでない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <X> Subgraph<X> addSubgraph(Attribute<T, X> attribute);
 
     /**
-     * Add a node to the graph that corresponds to a managed
-     * type with inheritance.  This allows for multiple subclass
-     * subgraphs to be defined for this node of the entity
-     * graph. Subclass subgraphs will automatically include the specified
-     * attributes of superclass subgraphs
+     * 継承のあるマネージドタイプに対応するノードをグラフに追加します。
+     * 
+     * これによりエンティティグラフのこのノードに対して複数のサブクラスのsubgraphを定義することを可能になります。
+     * サブクラスのsubgraphには指定されたスーパークラスのsubgraphの属性が自動的に含まれます。
      *
-     * @param attribute  attribute
-     * @param type  entity subclass
-     * @return subgraph for the attribute
-     * @throws IllegalArgumentException if the attribute's target 
-     *         type is not a managed type
-     * @throws IllegalStateException if this EntityGraph has been 
-     *         statically defined
+     * @param attribute  属性
+     * @param type  エンティティのサブクラス
+     * @return 属性のためのsubgraph
+     * @throws IllegalArgumentException この属性のターゲットタイプがマネージドタイプでない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <X> Subgraph<? extends X> addSubgraph(Attribute<T, X> attribute, Class<? extends X> type);
 
     /**
-     * Add a node to the graph that corresponds to a managed
-     * type. This allows for construction of multi-node entity graphs
-     * that include related managed types.
+     * マネージドタイプに対応するノードをグラフに追加します。
+     * 
+     * これにより関連するマネージドタイプを含むマルチノードのエンティティグラフの構築が可能になります。
      *
-     * @param attributeName  name of the attribute 
-     * @return subgraph for the attribute
-     * @throws IllegalArgumentException if the attribute is not an 
-     *         attribute of this managed type.
-     * @throws IllegalArgumentException if the attribute's target 
-     *         type is not a managed type
-     * @throws IllegalStateException if this EntityGraph has been 
-     *         statically defined
+     * @param attributeName  属性の名前
+     * @return 属性のためのsubgraph
+     * @throws IllegalArgumentException この属性がこのマネージドタイプの属性でない場合
+     * @throws IllegalArgumentException この属性のターゲットタイプがマネージドタイプでない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <X> Subgraph<X> addSubgraph(String attributeName);
 
     /**
-     * Add a node to the graph that corresponds to a managed
-     * type with inheritance.  This allows for multiple subclass
-     * subgraphs to be defined for this node of the entity
-     * graph. Subclass subgraphs will automatically include the
-     * specified attributes of superclass subgraphs
+     * 継承のあるマネージドタイプに対応するノードをグラフに追加します。
+     * 
+     * これによりエンティティグラフのこのノードに対して複数のサブクラスのsubgraphを定義することを可能になります。
+     * サブクラスのsubgraphには指定されたスーパークラスのsubgraphの属性が自動的に含まれます。
      *
-     * @param attributeName  name of the attribute 
-     * @param type  entity subclass
-     * @return subgraph for the attribute
-     * @throws IllegalArgumentException if the attribute is not 
-     *         an attribute of this managed type.
-     * @throws IllegalArgumentException if the attribute's target 
-     *         type is not a managed type
-     * @throws IllegalStateException if this EntityGraph has been 
-     *         statically defined
+     * @param attributeName  属性の名前
+     * @param type  エンティティのサブクラス
+     * @return 属性のためのsubgraph
+     * @throws IllegalArgumentException この属性がこのマネージドタイプの属性でない場合
+     * @throws IllegalArgumentException この属性のターゲットタイプがマネージドタイプでない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <X> Subgraph<X> addSubgraph(String attributeName, Class<X> type);
 
     /**
-     * Add a node to the graph that corresponds to a map key
-     * that is a managed type. This allows for construction of
-     * multinode entity graphs that include related managed types.
+     * マネージドタイプであるマップキーに対応するノードをグラフに追加します。
+     * 
+     * これにより関連するマネージドタイプを含むマルチノードのエンティティグラフの構築が可能になります。
      *
-     * @param attribute  attribute
-     * @return subgraph for the key attribute
-     * @throws IllegalArgumentException if the attribute's target 
-     *         type is not a managed type entity
-     * @throws IllegalStateException if this EntityGraph has been 
-     *         statically defined
+     * @param attribute  属性
+     * @return キー属性のためのsubgraph
+     * @throws IllegalArgumentException この属性のターゲットタイプがマネージドタイプエンティティでない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <X> Subgraph<X> addKeySubgraph(Attribute<T, X> attribute);
 
     /**
-     * Add a node to the graph that corresponds to a map key
-     * that is a managed type with inheritance. This allows for
-     * construction of multi-node entity graphs that include related
-     * managed types.  Subclass subgraphs will automatically include
-     * the specified attributes of superclass subgraphs
+     * 継承を持つマネージドタイプであるマップキーに対応するノードをグラフに追加します。
+     * 
+     * これによりエンティティグラフのこのノードに対して複数のサブクラスのsubgraphを定義することを可能になります。
+     * サブクラスのsubgraphには指定されたスーパークラスのsubgraphの属性が自動的に含まれます。
      *
-     * @param attribute  attribute
-     * @param type  entity subclass
-     * @return subgraph for the attribute
-     * @throws IllegalArgumentException if the attribute's target 
-     *         type is not a managed type entity
-     * @throws IllegalStateException if this EntityGraph has been 
-     *         statically defined
+     * @param attribute  属性
+     * @param type  エンティティのサブクラス
+     * @return 属性のためのsubgraph
+     * @throws IllegalArgumentException この属性のターゲットタイプがマネージドタイプエンティティでない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <X> Subgraph<? extends X> addKeySubgraph(Attribute<T, X> attribute, Class<? extends X> type);
 
     /**
-     * Add a node to the graph that corresponds to a map key
-     * that is a managed type. This allows for construction of
-     * multi-node entity graphs that include related managed types.
+     * マネージドタイプであるマップキーに対応するノードをグラフに追加します。
+     * 
+     * これにより関連するマネージドタイプを含むマルチノードのエンティティグラフの構築が可能になります。
      *
-     * @param attributeName  name of the attribute
-     * @return subgraph for the key attribute
-     * @throws IllegalArgumentException if the attribute is not an 
-     *         attribute of this entity.
-     * @throws IllegalArgumentException if the attribute's target 
-     *         type is not a managed type
-     * @throws IllegalStateException if this EntityGraph has been
-     *          statically defined
+     * @param attributeName  属性の名前
+     * @return キー属性のためのsubgraph
+     * @throws IllegalArgumentException この属性がこのエンティティの属性でない場合
+     * @throws IllegalArgumentException この属性のターゲットタイプがマネージドタイプでない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <X> Subgraph<X> addKeySubgraph(String attributeName);
 
     /**
-     * Add a node to the graph that corresponds to a map key
-     * that is a managed type with inheritance. This allows for
-     * construction of multi-node entity graphs that include related
-     * managed types.  Subclass subgraphs will include the specified
-     * attributes of superclass subgraphs
+     * 継承を持つマネージドタイプであるマップキーに対応するノードをグラフに追加します。
+     * 
+     * これによりエンティティグラフのこのノードに対して複数のサブクラスのsubgraphを定義することを可能になります。
+     * サブクラスのsubgraphには指定されたスーパークラスのsubgraphの属性が自動的に含まれます。
      *
-     * @param attributeName  name of the attribute
-     * @param type  entity subclass
-     * @return subgraph for the attribute
-     * @throws IllegalArgumentException if the attribute is not an 
-     *         attribute of this entity.
-     * @throws IllegalArgumentException if the attribute's target
-     *         type is not a managed type
-     * @throws IllegalStateException if this EntityGraph has been 
-     *         statically defined
+     * @param attributeName  属性の名前
+     * @param type  エンティティのサブクラス
+     * @return 属性のためのsubgraph
+     * @throws IllegalArgumentException 属性がこのエンティティの属性でない場合
+     * @throws IllegalArgumentException この属性のターゲットタイプがマネージドタイプでない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <X> Subgraph<X> addKeySubgraph(String attributeName, Class<X> type);
 
     /**
-     * Return the attribute nodes corresponding to the attributes of
-     * this managed type that are included in the subgraph.
-     * @return list of attribute nodes included in the subgraph or
-     * empty List if none have been defined
+     * subgraphに含まれるこのマネージドタイプの属性に対応する属性ノードを返します。
+     * @return subgraphに含まれる属性ノードのリスト、定義されていない場合は空のリスト
      */
     public List<AttributeNode<?>> getAttributeNodes();
 
     /**
-     * Return the type for which this subgraph was defined.
-     * @return managed type referenced by the subgraph
+     * このsubgraphが定義された型を返します。
+     * @return subgraphによって参照されるマネージドタイプ
      */
     public Class<T> getClassType();
 }
