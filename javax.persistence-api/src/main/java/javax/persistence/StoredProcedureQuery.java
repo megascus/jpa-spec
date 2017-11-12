@@ -75,26 +75,26 @@ import java.util.List;
 public interface StoredProcedureQuery extends Query {
 
     /**
-     * Set a query property or hint. The hints elements may be used 
-     * to specify query properties and hints. Properties defined by
-     * this specification must be observed by the provider. 
-     * Vendor-specific hints that are not recognized by a provider
-     * must be silently ignored. Portable applications should not
-     * rely on the standard timeout hint. Depending on the database
-     * in use, this hint may or may not be observed.
+     * クエリーのプロパティもしくはヒントを設定します。
+     * 
+     * ヒント要素はクエリーのプロパティとヒントを指定するために使用できます。
+     * この仕様で定義されているプロパティはプロバイダによって監視されなければなりません。
+     * プロバイダによって認識されないベンダー固有のヒントは、暗黙のうちに無視されなければなりません。
+     * ポータブルアプリケーションは標準のタイムアウトのヒントに頼るべきではありません。
+     * 使用されているデータベースおよびプロバイダによっては、このヒントが監視されるかどうかはわかりません。
      * @param hintName  name of the property or hint
      * @param value  value for the property or hint
-     * @return the same query instance
+     * @return 同じクエリーのインスタンス
      * @throws IllegalArgumentException if the second argument is not
      *         valid for the implementation
      */
     StoredProcedureQuery setHint(String hintName, Object value);
 
     /**
-     * Bind the value of a <code>Parameter</code> object.
-     * @param param  parameter object
-     * @param value  parameter value
-     * @return the same query instance
+     * <code>Parameter</code>オブジェクトの値をバインドします。
+     * @param param  パラメーターオブジェクト
+     * @param value  パラメーターの値
+     * @return 同じクエリーのインスタンス
      * @throws IllegalArgumentException if the parameter does not
      *         correspond to a parameter of the query
      */
@@ -106,7 +106,7 @@ public interface StoredProcedureQuery extends Query {
      * @param param parameter object
      * @param value  parameter value
      * @param temporalType  temporal type
-     * @return the same query instance
+     * @return 同じクエリーのインスタンス
      * @throws IllegalArgumentException if the parameter does not
      *         correspond to a parameter of the query
      */
@@ -119,7 +119,7 @@ public interface StoredProcedureQuery extends Query {
      * @param param parameter object
      * @param value  parameter value
      * @param temporalType  temporal type
-     * @return the same query instance
+     * @return 同じクエリーのインスタンス
      * @throws IllegalArgumentException if the parameter does not
      *         correspond to a parameter of the query
      */
@@ -131,7 +131,7 @@ public interface StoredProcedureQuery extends Query {
      * Bind an argument value to a named parameter.
      * @param name  parameter name
      * @param value  parameter value
-     * @return the same query instance
+     * @return 同じクエリーのインスタンス
      * @throws IllegalArgumentException if the parameter name does 
      *         not correspond to a parameter of the query or if the
      *         argument is of incorrect type
@@ -143,7 +143,7 @@ public interface StoredProcedureQuery extends Query {
      * @param name  parameter name
      * @param value  parameter value
      * @param temporalType  temporal type
-     * @return the same query instance
+     * @return 同じクエリーのインスタンス
      * @throws IllegalArgumentException if the parameter name does 
      *         not correspond to a parameter of the query or if the
      *         value argument is of incorrect type
@@ -157,7 +157,7 @@ public interface StoredProcedureQuery extends Query {
      * @param name  parameter name
      * @param value  parameter value
      * @param temporalType  temporal type
-     * @return the same query instance
+     * @return 同じクエリーのインスタンス
      * @throws IllegalArgumentException if the parameter name does 
      *         not correspond to a parameter of the query or if the
      *         value argument is of incorrect type
@@ -170,7 +170,7 @@ public interface StoredProcedureQuery extends Query {
      * Bind an argument value to a positional parameter.
      * @param position  position
      * @param value  parameter value
-     * @return the same query instance
+     * @return 同じクエリーのインスタンス
      * @throws IllegalArgumentException if position does not
      *         correspond to a positional parameter of the query
      *         or if the argument is of incorrect type
@@ -183,7 +183,7 @@ public interface StoredProcedureQuery extends Query {
      * @param position  position
      * @param value  parameter value
      * @param temporalType  temporal type
-     * @return the same query instance
+     * @return 同じクエリーのインスタンス
      * @throws IllegalArgumentException if position does not
      *         correspond to a positional parameter of the query or
      *         if the value argument is of incorrect type
@@ -197,7 +197,7 @@ public interface StoredProcedureQuery extends Query {
      * @param position  position
      * @param value  parameter value
      * @param temporalType  temporal type
-     * @return the same query instance
+     * @return 同じクエリーのインスタンス
      * @throws IllegalArgumentException if position does not
      *         correspond to a positional parameter of the query or
      *         if the value argument is of incorrect type
@@ -211,7 +211,7 @@ public interface StoredProcedureQuery extends Query {
      * The flush mode type applies to the query regardless of the
      * flush mode type in use for the entity manager.
      * @param flushMode  flush mode
-     * @return the same query instance
+     * @return 同じクエリーのインスタンス
      */
     StoredProcedureQuery setFlushMode(FlushModeType flushMode);
 
@@ -221,7 +221,7 @@ public interface StoredProcedureQuery extends Query {
      * @param position  parameter position
      * @param type  type of the parameter
      * @param mode  parameter mode 
-     * @return the same query instance
+     * @return 同じクエリーのインスタンス
      */
     StoredProcedureQuery registerStoredProcedureParameter(
 	  int position,
@@ -234,7 +234,7 @@ public interface StoredProcedureQuery extends Query {
      *             specified in metadata
      * @param type  type of the parameter
      * @param mode  parameter mode 
-     * @return the same query instance
+     * @return 同じクエリーのインスタンス
      */
     StoredProcedureQuery registerStoredProcedureParameter(
 	  String parameterName,
