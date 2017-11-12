@@ -19,78 +19,52 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Interface used to control stored procedure query execution.
+ * ストアドプロシージャーのクエリー実行を制御するために使用されるインターフェイスです。
  *
  * <p>
- * Stored procedure query execution may be controlled in accordance with 
- * the following:
+ * ストアドプロシージャーのクエリーの実行は、以下のように制御されるでしょう。
  * <ul>
- * <li>The <code>setParameter</code> methods are used to set the values of 
- * all required <code>IN</code> and <code>INOUT</code> parameters.  
- * It is not required to set the values of stored procedure parameters 
- * for which default values have been defined by the stored procedure.</li>
+ * <li><code>setParameter</code>メソッドはすべての必須な<code>IN</code>パラメーターと<code>INOUT</code>パラメーターの値を設定するために使用されます。
+ * ストアドプロシージャーによってデフォルト値が定義されているストアドプロシージャーのパラメーターの値を設定する必要はありません。</li>
  * <li>
- * When <code>getResultList</code> and <code>getSingleResult</code> are
- * called on a <code>StoredProcedureQuery</code> object, the provider 
- * will call <code>execute</code> on an unexecuted stored procedure 
- * query before processing <code>getResultList</code> or
- * <code>getSingleResult</code>.</li>
+ * <code>StoredProcedureQuery</code>オブジェクトの<code>getResultList</code>やcode>getSingleResult</code>が呼び出されると、
+ * 実行されていないストアドプロシージャーのクエリーに対して
+ * プロバイダは<code>getResultList</code>または<code>getSingleResult</code>を処理する前に、
+ * <code>execute</code>を呼び出すでしょう。</li>
  * <li>
- * When <code>executeUpdate</code> is called on a 
- * <code>StoredProcedureQuery</code> object, the provider will call 
- * <code>execute</code> on an unexecuted stored procedure query
- *  followed by <code>getUpdateCount</code>.  The results of 
- * <code>executeUpdate</code> will be those of <code>getUpdateCount</code>.</li>
+ * <code>StoredProcedureQuery</code>オブジェクトの<code>executeUpdate</code>が呼び出されると、
+ * プロバイダは実行されていないストアドプロシージャーの<code>execute</code>の実行に続いて<code>getUpdateCount</code>を実行します。
+ * <code>executeUpdate</code>の結果は<code>getUpdateCount</code>の結果になるでしょう。</li>
  * <li>
- * The <code>execute</code> method supports both the simple case where 
- * scalar results are passed back only via <code>INOUT</code> and 
- * <code>OUT</code> parameters as well as the most general case 
- * (multiple result sets and/or update counts, possibly also in 
- * combination with output parameter values).</li>
+ * <code>execute</code>メソッドは、最も一般的なケース
+ * (複数の結果セットおよび/または更新カウント、場合によっては出力パラメータ値とも組み合わされる)だけでなく、
+ * スカラー結果が<code>INOUT</code>および<code>OUT</code>パラメータを介して戻される単純なケースもサポートします。</li>
  * <li>
- * The <code>execute</code> method returns true if the first result is a 
- * result set, and false if it is an update count or there are no results 
- * other than through <code>INOUT</code> and <code>OUT</code> parameters, 
- * if any.</li>
+ * <code>execute</code>メソッドは、最初の結果が結果セットの場合はtrueを返し、
+ * 更新カウントの場合や、<code>INOUT</code>および<code>OUT</code>パラメーターがあったとしても、それ以外の結果がない場合はfalseを返します。</li>
  * <li>
- * If the <code>execute</code> method returns true, the pending result set 
- * can be obtained by calling <code>getResultList</code> or
- * <code>getSingleResult</code>.</li>
+ * <code>execute</code>メソッドがtrueを返した場合、保留された結果セットは<code>getResultList</code>や<code>getSingleResult</code>を呼び出すことで取得できます。</li>
  * <li>
- * The <code>hasMoreResults</code> method can then be used to test 
- * for further results.</li>
+ * <code>hasMoreResults</code>メソッドはさらに結果があるかどうかの確認に使用することができます。</li>
  * <li>
- * If <code>execute</code> or <code>hasMoreResults</code> returns false, 
- * the <code>getUpdateCount</code> method can be called to obtain the 
- * pending result if it is an update count.  The <code>getUpdateCount</code>
- * method will return either the update count (zero or greater) or -1 
- * if there is no update count (i.e., either the next result is a result set 
- * or there is no next update count).</li>
+ * <code>execute</code>または<code>hasMoreResults</code>がfalseを返した場合、
+ * <code>getUpdateCount</code>メソッドを呼び出して、更新カウントの場合は保留中の結果を取得できます。
+ * <code>getUpdateCount</code>メソッドは更新カウント(ゼロ以上)を、更新カウントが存在しない場合(つまり、次の結果が結果セットである場合、もしくは次の更新カウントがない場合)は-1を返します。</li>
  * <li>
- * For portability, results that correspond to JDBC result sets and 
- * update counts need to be processed before the values of any 
- * <code>INOUT</code> or <code>OUT</code> parameters are extracted.</li>
+ * 移植性のためには<code>INOUT</code>や<code>OUT</code>パラメータの値が抽出される前に、
+ * JDBC結果セットおよび更新カウントに対応する結果を処理する必要があります。</li>
  * <li>
- * After results returned through <code>getResultList</code> and 
- * <code>getUpdateCount</code> have been exhausted, results returned through 
- * <code>INOUT</code> and <code>OUT</code> parameters can be retrieved.</li>
+ * <code>getResultList</code>や<code>getUpdateCount</code>で返された結果が枯渇した後、
+ * <code>INOUT</code>および<code>OUT</code>パラメーターによって返される結果を取得できます。</li>
  * <li>
- * The <code>getOutputParameterValue</code> methods are used to retrieve 
- * the values passed back from the procedure through <code>INOUT</code> 
- * and <code>OUT</code> parameters.</li>
+ * <code>getOutputParameterValue</code>メソッドは、プロシージャーから<code>INOUT</code>および<code>OUT</code>パラメーターを介して戻された値を取得するために使用されます。</li>
  * <li>
- * When using <code>REF_CURSOR</code> parameters for result sets the
- * update counts should be exhausted before calling <code>getResultList</code>
- * to retrieve the result set.  Alternatively, the <code>REF_CURSOR</code>
- * result set can be retrieved through <code>getOutputParameterValue</code>.
- * Result set mappings will be applied to results corresponding to
- * <code>REF_CURSOR</code> parameters in the order the <code>REF_CURSOR</code>
- * parameters were registered with the query.</li>
+ * 結果セットに<code>REF_CURSOR</code>パラメータを使用する場合、<code>getResultList</code>を呼び出して結果セットを取得する前に更新カウントを枯渇させる必要があります。
+ * 代わりに<code>REF_CURSOR</code>結果セットは<code>getOutputParameterValue</code>を使用して取得できます。
+ * 結果セットのマッピングは<code>REF_CURSOR</code>パラメーターがクエリに登録された順序で<code>REF_CURSOR</code>パラメーターに対応する結果に適用されます。</li>
  * <li>
- * In the simplest case, where results are returned only via 
- * <code>INOUT</code> and <code>OUT</code> parameters, <code>execute</code>
- * can be followed immediately by calls to 
- * <code>getOutputParameterValue</code>.</li>
+ * 結果が<code>INOUT</code>および<code>OUT</code>パラメータを介してのみ返される最も単純なケースでは、
+ * <code>execute</code>に続けてすぐに<code>getOutputParameterValue</code>を呼び出すことができます。</li>
  * </ul>
  *
  * @see Query
