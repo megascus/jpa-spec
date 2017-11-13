@@ -257,13 +257,9 @@ public interface StoredProcedureQuery extends Query {
      * Return true if the first result corresponds to a result set,
      * and false if it is an update count or if there are no results
      * other than through INOUT and OUT parameters, if any.
-     * @return  true if first result corresponds to result set
-     * @throws QueryTimeoutException if the query execution exceeds
-     *         the query timeout value set and only the statement is
-     *         rolled back
-     * @throws PersistenceException if the query execution exceeds 
-     *         the query timeout value set and the transaction 
-     *         is rolled back 
+     * @return 最初の結果が結果セットに関連する場合はtrue
+     * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
+     * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
      */
     boolean execute();
 
@@ -271,17 +267,11 @@ public interface StoredProcedureQuery extends Query {
      * Return the update count of -1 if there is no pending result or
      * if the first result is not an update count.  The provider will
      * call <code>execute</code> on the query if needed.
-     * @return the update count or -1 if there is no pending result
-     * or if the next result is not an update count.
-     * @throws TransactionRequiredException if there is 
-     *         no transaction or the persistence context has not
-     *         been joined to the transaction
-     * @throws QueryTimeoutException if the statement execution 
-     *         exceeds the query timeout value set and only 
-     *         the statement is rolled back
-     * @throws PersistenceException if the query execution exceeds 
-     *         the query timeout value set and the transaction 
-     *         is rolled back 
+     * @return 更新件数か、保留している結果が存在しない場合や次の結果が更新件数でない場合は-1
+     * @throws TransactionRequiredException トランザクションが存在しない場合、
+     * または永続性コンテキストがトランザクションに参加していない場合
+     * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
+     * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合 
      */
     int executeUpdate();
 
@@ -292,14 +282,9 @@ public interface StoredProcedureQuery extends Query {
      * A <code>REF_CURSOR</code> result set, if any, will be retrieved
      * in the order the <code>REF_CURSOR</code> parameter was 
      * registered with the query.
-     * @return a list of the results or null is the next item is not 
-     * a result set
-     * @throws QueryTimeoutException if the query execution exceeds
-     *         the query timeout value set and only the statement is
-     *         rolled back
-     * @throws PersistenceException if the query execution exceeds 
-     *         the query timeout value set and the transaction 
-     *         is rolled back 
+     * @return 結果のリスト、次のアイテムが結果セットでない場合はnull
+     * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
+     * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
      */
     List getResultList();
 
@@ -311,15 +296,10 @@ public interface StoredProcedureQuery extends Query {
      * in the order the <code>REF_CURSOR</code> parameter was 
      * registered with the query.
      * @return the result or null if the next item is not a result set
-     * @throws NoResultException if there is no result in the next
-     *         result set
-     * @throws NonUniqueResultException if more than one result
-     * @throws QueryTimeoutException if the query execution exceeds
-     *         the query timeout value set and only the statement is
-     *         rolled back
-     * @throws PersistenceException if the query execution exceeds 
-     *         the query timeout value set and the transaction 
-     *         is rolled back 
+     * @throws NoResultException 次の結果セットに結果が存在しない場合
+     * @throws NonUniqueResultException 二つ以上の結果が存在した場合
+     * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
+     * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
      */
     Object getSingleResult();
 
@@ -328,26 +308,16 @@ public interface StoredProcedureQuery extends Query {
      * and false if it is an update count or if there are no results
      * other than through INOUT and OUT parameters, if any.
      * @return  true if next result corresponds to result set
-     * @throws QueryTimeoutException if the query execution exceeds
-     *         the query timeout value set and only the statement is
-     *         rolled back
-     * @throws PersistenceException if the query execution exceeds 
-     *         the query timeout value set and the transaction 
-     *         is rolled back 
+     * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
+     * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
      */
     boolean hasMoreResults();
 
     /**
-     * Return the update count or  -1 if there is no pending result
-     * or if the next result is not an update count.
-     * @return  update count or -1 if there is no pending result or if
-     *          the next result is not an update count
-     * @throws QueryTimeoutException if the query execution exceeds
-     *         the query timeout value set and only the statement is
-     *         rolled back
-     * @throws PersistenceException if the query execution exceeds 
-     *         the query timeout value set and the transaction 
-     *         is rolled back 
+     * 更新件数を返すか、保留している結果が存在しない場合や次の結果が更新件数でない場合は-1を返します。
+     * @return  更新件数か、保留している結果が存在しない場合や次の結果が更新件数でない場合は-1
+     * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
+     * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
      */
     int getUpdateCount();
 
