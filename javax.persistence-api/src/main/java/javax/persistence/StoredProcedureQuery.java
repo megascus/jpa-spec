@@ -190,20 +190,21 @@ public interface StoredProcedureQuery extends Query {
                                       TemporalType temporalType);
 
     /**
-     * Set the flush mode type to be used for the query execution.
-     * The flush mode type applies to the query regardless of the
-     * flush mode type in use for the entity manager.
-     * @param flushMode  flush mode
+      * クエリーの実行に使用されるフラッシュモードタイプを設定します。
+      *
+      * フラッシュモードタイプはエンティティマネージャーで使用中のフラッシュモードタイプと関係なくクエリーに適用されます。
+     * @param flushMode  フラッシュモード
      * @return 同じクエリーのインスタンス
      */
     StoredProcedureQuery setFlushMode(FlushModeType flushMode);
 
     /**
-     * Register a positional parameter.
-     * All parameters must be registered.
-     * @param position  parameter position
-     * @param type  type of the parameter
-     * @param mode  parameter mode 
+     * 位置指定のパラメーターのを登録します。
+     * 
+     * すべてのパラメーターを登録する必要があります。
+     * @param position  パラメーターの位置
+     * @param type  パラメーターの型
+     * @param mode  パラメーターの形式
      * @return 同じクエリーのインスタンス
      */
     StoredProcedureQuery registerStoredProcedureParameter(
@@ -212,11 +213,10 @@ public interface StoredProcedureQuery extends Query {
 	  ParameterMode mode);
 
     /**
-     * Register a named parameter.
-     * @param parameterName  name of the parameter as registered or
-     *             specified in metadata
-     * @param type  type of the parameter
-     * @param mode  parameter mode 
+     * 名前付きパラメーターを登録します。
+     * @param parameterName  登録されているかメタデータで指定されているパラメーターの名前
+     * @param type  パラメーターの型
+     * @param mode  パラメーターの形式
      * @return 同じクエリーのインスタンス
      */
     StoredProcedureQuery registerStoredProcedureParameter(
