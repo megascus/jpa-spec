@@ -16,41 +16,41 @@
 package javax.persistence;
 
 /**
- * Specifies how the provider must use a second-level cache for the
- * persistence unit.  Corresponds to the value of the <code>persistence.xml</code>
- * <code>shared-cache-mode</code> element, and returned as the result of
- * {@link javax.persistence.spi.PersistenceUnitInfo#getSharedCacheMode()}.
+ * プロバイダが永続性ユニットにレベル2のキャッシュを使用する方法を指定します。
+ * 
+ * <code>persistence.xml</code>の<code>shared-cache-mode</code>要素の値に対応し、
+ * {@link javax.persistence.spi.PersistenceUnitInfo#getSharedCacheMode()}の結果として返されます。
  * 
  * @since Java Persistence 2.0
  */
 public enum SharedCacheMode {
 
     /**
-     * All entities and entity-related state and data are cached.
+     * すべてのエンティティとエンティティ関連の状態とデータがキャッシュされます。
      */
     ALL, 
 
     /**
-     * Caching is disabled for the persistence unit.
+     * 永続性ユニットのキャッシュは無効です。
      */
     NONE, 
 
     /**
-     * Caching is enabled for all entities for <code>Cacheable(true)</code>
-     * is specified.  All other entities are not cached.
+     * <code>Cacheable(true)</code>が指定されているすべてのエンティティでキャッシュが有効になっています。
+     * 
+     * 他のすべてのエンティティはキャッシュされません。
      */
     ENABLE_SELECTIVE, 
 
     /**
-     * Caching is enabled for all entities except those for which
-     * <code>Cacheable(false)</code> is specified.  Entities for which
-     * <code>Cacheable(false)</code> is specified are not cached.
+     * <code>Cacheable(false)</code>が指定されていないすべてのエンティティでキャッシュが有効になります。 
+     * 
+     * <code>Cacheable(false)</code>が指定されているエンティティはキャッシュされません。
      */
     DISABLE_SELECTIVE, 
 
     /**
-     * 
-     * Caching behavior is undefined: provider-specific defaults may apply.
+     * キャッシュの動作は定義されていません。プロバイダ指定のデフォルトが適用される可能性があります。
      */
     UNSPECIFIED
 }
