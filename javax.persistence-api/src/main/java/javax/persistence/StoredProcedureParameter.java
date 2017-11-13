@@ -19,8 +19,9 @@ import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies a parameter of a named stored procedure query.  All
- * parameters of a named stored procedure query must be specified.
+ * 名前付きストアドプロシージャーのクエリーのパラメーターを指定します。
+ * 
+ * 名前付きストアドプロシージャーのクエリーのパラメーターはすべて指定される必要があります。
  *
  * @see NamedStoredProcedureQuery
  * @see ParameterMode 
@@ -32,20 +33,20 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface StoredProcedureParameter { 
 
     /** 
-     *  The name of the parameter as defined by the stored procedure in the database.
-     *  If a name is not specified, it is assumed that the stored procedure uses
-     *  positional parameters.
+     *  データベース内のストアドプロシージャーによって定義されたパラメータの名前。
+     * 
+     *  名前が指定されていない場合、ストアードプロシージャーは位置指定のパラメーターを使用するものとみなされます。
      */
     String name() default "";
 
     /**
-     *  Specifies whether the parameter is an IN, INOUT, OUT, or REF_CURSOR parameter.
-     *  REF_CURSOR parameters are used by some databases to return result sets from
-     *  a stored procedure.
+     *  パラメーターがINまたはINOUT、OUT、REF_CURSORのいずれであるかを指定します。
+     * 
+     *  REF_CURSORパラメータは、ストアドプロシージャーから結果セットを返すために、一部のデータベースで使用されます。
      */
     ParameterMode mode() default ParameterMode.IN;
 
-    /** JDBC type of the paramter. */
+    /** パラメーターのJDBC型 */
     Class type();
 
 }
