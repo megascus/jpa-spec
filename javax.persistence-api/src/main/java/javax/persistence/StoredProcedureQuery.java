@@ -82,11 +82,10 @@ public interface StoredProcedureQuery extends Query {
      * プロバイダによって認識されないベンダー固有のヒントは、暗黙のうちに無視されなければなりません。
      * ポータブルアプリケーションは標準のタイムアウトのヒントに頼るべきではありません。
      * 使用されているデータベースおよびプロバイダによっては、このヒントが監視されるかどうかはわかりません。
-     * @param hintName  name of the property or hint
-     * @param value  value for the property or hint
+     * @param hintName  プロパティもしくはヒントの名前
+     * @param value  プロパティもしくはヒントのための値
      * @return 同じクエリーのインスタンス
-     * @throws IllegalArgumentException if the second argument is not
-     *         valid for the implementation
+     * @throws IllegalArgumentException 二つ目の引数が実装に適合しない場合
      */
     StoredProcedureQuery setHint(String hintName, Object value);
 
@@ -95,33 +94,30 @@ public interface StoredProcedureQuery extends Query {
      * @param param  パラメーターオブジェクト
      * @param value  パラメーターの値
      * @return 同じクエリーのインスタンス
-     * @throws IllegalArgumentException if the parameter does not
-     *         correspond to a parameter of the query
+     * @throws IllegalArgumentException クエリーのパラメーターに対応するパラメーターが存在しない場合
      */
     <T> StoredProcedureQuery setParameter(Parameter<T> param, 
                                           T value);
 
     /**
-     * Bind an instance of <code>java.util.Calendar</code> to a <code>Parameter</code> object.
-     * @param param parameter object
-     * @param value  parameter value
-     * @param temporalType  temporal type
+     * <code>Parameter</code>オブジェクトに<code>java.util.Calendar</code>のインスタンスをバインドします。
+     * @param param パラメーターオブジェクト
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
      * @return 同じクエリーのインスタンス
-     * @throws IllegalArgumentException if the parameter does not
-     *         correspond to a parameter of the query
+     * @throws IllegalArgumentException クエリーのパラメーターに対応するパラメーターが存在しない場合
      */
     StoredProcedureQuery setParameter(Parameter<Calendar> param,
                                       Calendar value, 
                                       TemporalType temporalType);
 
     /**
-     * Bind an instance of <code>java.util.Date</code> to a <code>Parameter</code> object.
-     * @param param parameter object
-     * @param value  parameter value
-     * @param temporalType  temporal type
+     * <code>Parameter</code>オブジェクトに<code>java.util.Date</code>のインスタンスをバインドします。
+     * @param param パラメーターオブジェクト
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
      * @return 同じクエリーのインスタンス
-     * @throws IllegalArgumentException if the parameter does not
-     *         correspond to a parameter of the query
+     * @throws IllegalArgumentException クエリーのパラメーターに対応するパラメーターが存在しない場合
      */
     StoredProcedureQuery setParameter(Parameter<Date> param, 
                                       Date value, 
