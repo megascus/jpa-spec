@@ -27,7 +27,7 @@ import java.util.List;
  * <li><code>setParameter</code>メソッドはすべての必須な<code>IN</code>パラメーターと<code>INOUT</code>パラメーターの値を設定するために使用されます。
  * ストアドプロシージャーによってデフォルト値が定義されているストアドプロシージャーのパラメーターの値を設定する必要はありません。</li>
  * <li>
- * <code>StoredProcedureQuery</code>オブジェクトの<code>getResultList</code>やcode>getSingleResult</code>が呼び出されると、
+ * <code>StoredProcedureQuery</code>オブジェクトの<code>getResultList</code>や<code>getSingleResult</code>が呼び出されると、
  * 実行されていないストアドプロシージャーのクエリーに対して
  * プロバイダは<code>getResultList</code>または<code>getSingleResult</code>を処理する前に、
  * <code>execute</code>を呼び出すでしょう。</li>
