@@ -37,29 +37,29 @@ import java.util.List;
  * <code>executeUpdate</code>の結果は<code>getUpdateCount</code>の結果になるでしょう。</li>
  * <li>
  * <code>execute</code>メソッドは、最も一般的なケース
- * (複数の結果セットおよび/または更新カウント、場合によっては出力パラメータ値とも組み合わされる)だけでなく、
+ * (複数の結果セットおよび/または更新件数、場合によっては出力パラメータ値とも組み合わされる)だけでなく、
  * スカラー結果が<code>INOUT</code>および<code>OUT</code>パラメータを介して戻される単純なケースもサポートします。</li>
  * <li>
  * <code>execute</code>メソッドは、最初の結果が結果セットの場合はtrueを返し、
- * 更新カウントの場合や、<code>INOUT</code>および<code>OUT</code>パラメーターがあったとしても、それ以外の結果がない場合はfalseを返します。</li>
+ * 更新件数の場合や、<code>INOUT</code>および<code>OUT</code>パラメーターがあったとしても、それ以外の結果がない場合はfalseを返します。</li>
  * <li>
  * <code>execute</code>メソッドがtrueを返した場合、保留された結果セットは<code>getResultList</code>や<code>getSingleResult</code>を呼び出すことで取得できます。</li>
  * <li>
  * <code>hasMoreResults</code>メソッドはさらに結果があるかどうかの確認に使用することができます。</li>
  * <li>
  * <code>execute</code>または<code>hasMoreResults</code>がfalseを返した場合、
- * <code>getUpdateCount</code>メソッドを呼び出して、更新カウントの場合は保留中の結果を取得できます。
- * <code>getUpdateCount</code>メソッドは更新カウント(ゼロ以上)を、更新カウントが存在しない場合(つまり、次の結果が結果セットである場合、もしくは次の更新カウントがない場合)は-1を返します。</li>
+ * <code>getUpdateCount</code>メソッドを呼び出して、更新件数の場合は保留中の結果を取得できます。
+ * <code>getUpdateCount</code>メソッドは更新件数(ゼロ以上)を、更新件数が存在しない場合(つまり、次の結果が結果セットである場合、もしくは次の更新件数がない場合)は-1を返します。</li>
  * <li>
  * 移植性のためには<code>INOUT</code>や<code>OUT</code>パラメータの値が抽出される前に、
- * JDBC結果セットおよび更新カウントに対応する結果を処理する必要があります。</li>
+ * JDBC結果セットおよび更新件数に対応する結果を処理する必要があります。</li>
  * <li>
  * <code>getResultList</code>や<code>getUpdateCount</code>で返された結果が枯渇した後、
  * <code>INOUT</code>および<code>OUT</code>パラメーターによって返される結果を取得できます。</li>
  * <li>
  * <code>getOutputParameterValue</code>メソッドは、プロシージャーから<code>INOUT</code>および<code>OUT</code>パラメーターを介して戻された値を取得するために使用されます。</li>
  * <li>
- * 結果セットに<code>REF_CURSOR</code>パラメータを使用する場合、<code>getResultList</code>を呼び出して結果セットを取得する前に更新カウントを枯渇させる必要があります。
+ * 結果セットに<code>REF_CURSOR</code>パラメータを使用する場合、<code>getResultList</code>を呼び出して結果セットを取得する前に更新件数を枯渇させる必要があります。
  * 代わりに<code>REF_CURSOR</code>結果セットは<code>getOutputParameterValue</code>を使用して取得できます。
  * 結果セットのマッピングは<code>REF_CURSOR</code>パラメーターがクエリに登録された順序で<code>REF_CURSOR</code>パラメーターに対応する結果に適用されます。</li>
  * <li>
@@ -225,38 +225,27 @@ public interface StoredProcedureQuery extends Query {
 	  ParameterMode mode);
 
     /**
-     *  Retrieve a value passed back from the procedure
-     *  through an INOUT or OUT parameter.
-     *  For portability, all results corresponding to result sets
-     *  and update counts must be retrieved before the values of 
-     *  output parameters.
-     *  @param position  parameter position
-     *  @return the result that is passed back through the parameter
-     *  @throws IllegalArgumentException if the position does
-     *          not correspond to a parameter of the query or is
-     *          not an INOUT or OUT parameter
+     *  プロシージャーからINOUTまたはOUTパラメーターを介して戻された値を戻します。
+     * 
+     *  移植性のためには結果セットと更新件数に対応するすべての結果を出力パラメータの値よりも前に取得する必要があります。
+     *  @param position  パラメーターの位置
+     *  @return パラメーターを介して返された結果
+     *  @throws IllegalArgumentException 位置がクエリーのパラメーターに対応しない場合、またはINOUTまたはOUTパラメータでない場合
      */
     Object getOutputParameterValue(int position);
 
     /**
-     *  Retrieve a value passed back from the procedure
-     *  through an INOUT or OUT parameter.
-     *  For portability, all results corresponding to result sets
-     *  and update counts must be retrieved before the values of 
-     *  output parameters.
-     *  @param parameterName  name of the parameter as registered or
-     *              specified in metadata
-     *  @return the result that is passed back through the parameter
-     *  @throws IllegalArgumentException if the parameter name does
-     *          not correspond to a parameter of the query or is
-     *          not an INOUT or OUT parameter
+     *  プロシージャーからINOUTまたはOUTパラメーターを介して戻された値を戻します。
+     * 
+     *  移植性のためには結果セットと更新件数に対応するすべての結果を出力パラメータの値よりも前に取得する必要があります。
+     *  @param parameterName  メタデータに登録または指定されたパラメーターの名前
+     *  @return パラメーターを介して返された結果
+     *  @throws IllegalArgumentException パラメーター名がクエリーのパラメーターに対応しない場合、またはINOUTまたはOUTパラメータでない場合
      */
     Object getOutputParameterValue(String parameterName);
 
     /**
-     * Return true if the first result corresponds to a result set,
-     * and false if it is an update count or if there are no results
-     * other than through INOUT and OUT parameters, if any.
+     * 最初の結果が結果セットに対応する場合はtrueを返し、更新件数の場合や、INOUTおよびOUTパラメーター以外の結果が存在しない場合はfalseを返します。
      * @return 最初の結果が結果セットに関連する場合はtrue
      * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
      * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
@@ -264,9 +253,9 @@ public interface StoredProcedureQuery extends Query {
     boolean execute();
 
     /**
-     * Return the update count of -1 if there is no pending result or
-     * if the first result is not an update count.  The provider will
-     * call <code>execute</code> on the query if needed.
+     * 保留中の結果がない場合や最初の結果が更新件数でない場合は、更新件数-1を返します。
+     * 
+     * プロバイダは必要に応じてクエリーの<code>execute</code>を呼び出します。
      * @return 更新件数か、保留している結果が存在しない場合や次の結果が更新件数でない場合は-1
      * @throws TransactionRequiredException トランザクションが存在しない場合、
      * または永続性コンテキストがトランザクションに参加していない場合
@@ -276,12 +265,10 @@ public interface StoredProcedureQuery extends Query {
     int executeUpdate();
 
     /**
-     * Retrieve the list of results from the next result set.
-     * The provider will call <code>execute</code> on the query
-     * if needed.
-     * A <code>REF_CURSOR</code> result set, if any, will be retrieved
-     * in the order the <code>REF_CURSOR</code> parameter was 
-     * registered with the query.
+     * 次の結果セットから結果のリストを取得します。
+     * 
+     * プロバイダは、必要に応じてクエリーの<code>execute</code>を呼び出します。
+     * <code>REF_CURSOR</code>結果セットが存在する場合は<code>REF_CURSOR</code>パラメーターがクエリーに登録された順に取得されます。
      * @return 結果のリスト、次のアイテムが結果セットでない場合はnull
      * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
      * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
@@ -289,13 +276,11 @@ public interface StoredProcedureQuery extends Query {
     List getResultList();
 
     /**
-     * Retrieve a single result from the next result set.
-     * The provider will call <code>execute</code> on the query
-     * if needed.
-     * A <code>REF_CURSOR</code> result set, if any, will be retrieved
-     * in the order the <code>REF_CURSOR</code> parameter was 
-     * registered with the query.
-     * @return the result or null if the next item is not a result set
+     * 次の結果セットから単一の結果を取得します。
+     * 
+     * プロバイダは、必要に応じてクエリーの<code>execute</code>を呼び出します。
+     * <code>REF_CURSOR</code>結果セットが存在する場合は<code>REF_CURSOR</code>パラメーターがクエリーに登録された順に取得されます。
+     * @return 結果の値、次のアイテムが結果セットでない場合はnull
      * @throws NoResultException 次の結果セットに結果が存在しない場合
      * @throws NonUniqueResultException 二つ以上の結果が存在した場合
      * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
@@ -304,10 +289,8 @@ public interface StoredProcedureQuery extends Query {
     Object getSingleResult();
 
     /**
-     * Return true if the next result corresponds to a result set,
-     * and false if it is an update count or if there are no results
-     * other than through INOUT and OUT parameters, if any.
-     * @return  true if next result corresponds to result set
+     * 次の結果が結果セットに対応する場合はtrueを返し、更新件数の場合や、INOUTおよびOUTパラメーター以外の結果が存在しない場合はfalseを返します。
+     * @return  次の結果が結果セットに対応する場合はtrue
      * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
      * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
      */
