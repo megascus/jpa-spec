@@ -157,40 +157,33 @@ public interface StoredProcedureQuery extends Query {
                                       TemporalType temporalType);
 
     /**
-     * Bind an argument value to a positional parameter.
-     * @param position  position
-     * @param value  parameter value
+     * 位置指定のパラメーターに引数の値をバインドします。
+     * @param position  位置
+     * @param value  パラメーターの値
      * @return 同じクエリーのインスタンス
-     * @throws IllegalArgumentException if position does not
-     *         correspond to a positional parameter of the query
-     *         or if the argument is of incorrect type
+     * @throws IllegalArgumentException 位置に適合する位置指定のパラメーターがクエリーに存在しないか、引数が不正な型の場合
      */
     StoredProcedureQuery setParameter(int position, Object value);
 
     /**
-     * Bind an instance of <code>java.util.Calendar</code> to a positional
-     * parameter.
-     * @param position  position
-     * @param value  parameter value
-     * @param temporalType  temporal type
+     * 位置指定のパラメーターに<code>java.util.Calendar</code>のインスタンスをバインドします。
+     * @param position  位置
+     * @param value パラメーターの値
+     * @param temporalType  時制の型
      * @return 同じクエリーのインスタンス
-     * @throws IllegalArgumentException if position does not
-     *         correspond to a positional parameter of the query or
-     *         if the value argument is of incorrect type
+     * @throws IllegalArgumentException 位置に適合する位置指定のパラメーターがクエリーに存在しないか、引数が不正な型の場合
      */
     StoredProcedureQuery setParameter(int position, 
                                       Calendar value,  
                                       TemporalType temporalType);
 
     /**
-     * Bind an instance of <code>java.util.Date</code> to a positional parameter.
-     * @param position  position
-     * @param value  parameter value
-     * @param temporalType  temporal type
+     * 位置指定のパラメーターに<code>java.util.Date</code>のインスタンスをバインドします。
+     * @param position  位置
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
      * @return 同じクエリーのインスタンス
-     * @throws IllegalArgumentException if position does not
-     *         correspond to a positional parameter of the query or
-     *         if the value argument is of incorrect type
+     * @throws IllegalArgumentException 位置に適合する位置指定のパラメーターがクエリーに存在しないか、引数が不正な型の場合
      */
     StoredProcedureQuery setParameter(int position, 
                                       Date value,  
