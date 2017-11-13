@@ -124,39 +124,33 @@ public interface StoredProcedureQuery extends Query {
                                       TemporalType temporalType);
 
     /**
-     * Bind an argument value to a named parameter.
-     * @param name  parameter name
-     * @param value  parameter value
+     * 名前付きパラメーターに引数の値をバインドします。
+     * @param name  パラメーターの名前
+     * @param value  パラメーターの値
      * @return 同じクエリーのインスタンス
-     * @throws IllegalArgumentException if the parameter name does 
-     *         not correspond to a parameter of the query or if the
-     *         argument is of incorrect type
+     * @throws IllegalArgumentException パラメーター名に適合するパラメーターがクエリーに存在しないか、引数が不正な型の場合
      */
     StoredProcedureQuery setParameter(String name, Object value);
 
     /**
-     * Bind an instance of <code>java.util.Calendar</code> to a named parameter.
-     * @param name  parameter name
-     * @param value  parameter value
-     * @param temporalType  temporal type
+     * 名前付きパラメーターに<code>java.util.Calendar</code>のインスタンスをバインドします。
+     * @param name  パラメーターの名前
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
      * @return 同じクエリーのインスタンス
-     * @throws IllegalArgumentException if the parameter name does 
-     *         not correspond to a parameter of the query or if the
-     *         value argument is of incorrect type
+     * @throws IllegalArgumentException パラメーター名に適合するパラメーターがクエリーに存在しないか、引数が不正な型の場合
      */
     StoredProcedureQuery setParameter(String name, 
                                       Calendar value, 
                                       TemporalType temporalType);
 
     /**
-     * Bind an instance of <code>java.util.Date</code> to a named parameter.
-     * @param name  parameter name
-     * @param value  parameter value
-     * @param temporalType  temporal type
+     * 名前付きパラメーターに<code>java.util.Date</code>のインスタンスをバインドします。
+     * @param name  パラメーターの名前
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
      * @return 同じクエリーのインスタンス
-     * @throws IllegalArgumentException if the parameter name does 
-     *         not correspond to a parameter of the query or if the
-     *         value argument is of incorrect type
+     * @throws IllegalArgumentException パラメーター名に適合するパラメーターがクエリーに存在しないか、引数が不正な型の場合
      */
     StoredProcedureQuery setParameter(String name, 
                                       Date value, 
