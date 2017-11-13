@@ -21,10 +21,10 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies multiple secondary tables for an entity.
+ * エンティティに対して複数のセカンダリテーブルを指定します。
  *
  * <pre>
- *    Example 1: Multiple secondary tables assuming primary key columns are named the same in all tables.
+ *    Example 1: 主キーの名前がすべてのテーブルで同じと仮定された複数のセカンダリテーブル
  *
  *    &#064;Entity
  *    &#064;Table(name="EMPLOYEE")
@@ -35,7 +35,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *    public class Employee { ... }
  *    
  *
- *    Example 2: Multiple secondary tables with differently named primary key columns. 
+ *    Example 2: 異なる名前の主キー列を持つ複数のセカンダリテーブル 
  *
  *    &#064;Entity
  *    &#064;Table(name="EMPLOYEE")
@@ -55,6 +55,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 public @interface SecondaryTables {
 
-    /** (Required) The secondary tables for an entity. */
+    /** (必須) エンティティのセカンダリテーブル。 */
     SecondaryTable[] value();
 }

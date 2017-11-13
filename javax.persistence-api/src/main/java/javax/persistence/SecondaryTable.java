@@ -37,7 +37,7 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
  * primary table.
  *
  * <pre>
- *    Example 1: Single secondary table with a single primary key column.
+ *    Example 1: 単一の主キーカラムの単一のセカンダリテーブル
  *
  *    &#064;Entity
  *    &#064;Table(name="CUSTOMER")
@@ -46,7 +46,7 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
  *    public class Customer { ... } 
  *
  *
- *    Example 2: Single secondary table with multiple primary key columns.
+ *    Example 2: 複合主キーを使用した単一のセカンダリテーブル
  *
  *    &#064;Entity
  *    &#064;Table(name="CUSTOMER")
