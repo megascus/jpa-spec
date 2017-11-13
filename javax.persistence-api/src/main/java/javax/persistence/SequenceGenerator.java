@@ -26,12 +26,10 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Repeatable;
 
 /**
- * Defines a primary key generator that may be referenced by name when
- * a generator element is specified for the {@link GeneratedValue}
- * annotation. A sequence generator may be specified on the entity
- * class or on the primary key field or property. The scope of the
- * generator name is global to the persistence unit (across all
- * generator types).
+ * {@link GeneratedValue}アノテーションにgenerator要素が指定されたときに、名前で参照される主キージェネレーターを定義します。
+ * 
+ * シーケンスジェネレーターはエンティティクラスまたは主キーのフィールドまたはプロパティで指定できます。
+ * ジェネレーター名のスコープは、永続性ユニット(すべてのジェネレーターの型全体)に対してグローバルです。
  *
  * <pre>
  *   Example:
@@ -47,40 +45,36 @@ import java.lang.annotation.Repeatable;
 public @interface SequenceGenerator {
 
     /** 
-     * (Required) A unique generator name that can be referenced 
-     * by one or more classes to be the generator for primary key 
-     * values.
+     * (必須) 1つ以上のクラスが主キー値のジェネレーターとして参照できるジェネレーターの一意な名前。
      */
     String name();
 
     /**
-     * (Optional) The name of the database sequence object from 
-     * which to obtain primary key values.
-     * <p> Defaults to a provider-chosen value.
+     * (オプション) 主キーの値を取得するデータベースのシーケンスオブジェクトの名前。
+     * 
+     * <p>デフォルトではデータベースが設定した値になります。
      */
     String sequenceName() default "";
 
-    /** (Optional) The catalog of the sequence generator. 
+    /** (オプション) シーケンスジェネレーターの含まれるカタログ。
      *
      * @since Java Persistence 2.0
      */
     String catalog() default "";
 
-    /** (Optional) The schema of the sequence generator. 
+    /** (オプション) シーケンスジェネレーターの含まれるスキーマ。
      *
      * @since Java Persistence 2.0
      */
     String schema() default "";
 
     /** 
-     * (Optional) The value from which the sequence object 
-     * is to start generating.
+     * (オプション) シーケンスオブジェクトの生成を始める値
      */
     int initialValue() default 1;
 
     /**
-     * (Optional) The amount to increment by when allocating 
-     * sequence numbers from the sequence.
+     * (オプション) シーケンスからシーケンス番号を割り当てるときに増加する量。
      */
     int allocationSize() default 50;
 }
