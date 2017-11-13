@@ -23,8 +23,7 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /** 
- * Specifies the mapping of the result of a native SQL query or stored 
- * procedure.
+ * ネイティブSQLクエリーやストアドプロシージャーの結果のマッピングを指定します。
  *
  * <pre>
  *    Example:
@@ -62,21 +61,19 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface SqlResultSetMapping { 
 
     /** 
-     * The name given to the result set mapping, and used to refer 
-     * to it in the methods of the {@link Query} and 
-     * {@link StoredProcedureQuery} APIs.
+     * 結果セットのマッピングに与えられる名前で、{@link Query}および{@link StoredProcedureQuery} APIのメソッドでそれを参照するために使用されます。
      */
     String name(); 
 
-    /** Specifies the result set mapping to entities. */
+    /** エンティティへの結果セットのマッピングを指定します。 */
     EntityResult[] entities() default {};
 
     /** 
-     * Specifies the result set mapping to constructors. 
+     * コンストラクタへの結果セットのマッピングを指定します。
      * @since Java Persistence 2.1
      */
     ConstructorResult[] classes() default {};
 
-    /** Specifies the result set mapping to scalar values. */
+    /** スカラー値への結果セットのマッピングを指定します。 */
     ColumnResult[] columns() default {};
 }

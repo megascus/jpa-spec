@@ -21,7 +21,7 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Is used to define one or more {@link SqlResultSetMapping} annotations.
+ * 1つ以上の{@link SqlResultSetMapping}アノテーションを定義するために使用されます。
  *
  * @since Java Persistence 1.0
  */
@@ -29,6 +29,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface SqlResultSetMappings { 
 
-    /** One or more <code>SqlResultSetMapping</code> annotations. */
+    /** 1つ以上の<code>SqlResultSetMapping</code>アノテーション。 */
     SqlResultSetMapping[] value();
 }
