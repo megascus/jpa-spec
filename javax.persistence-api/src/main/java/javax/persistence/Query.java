@@ -85,28 +85,21 @@ public interface Query {
     Object getSingleResult();
 
     /**
-     * Execute an update or delete statement.
-     * @return the number of entities updated or deleted
-     * @throws IllegalStateException if called for a Java
-     *         Persistence query language SELECT statement or for
-     *         a criteria query
-     * @throws TransactionRequiredException if there is 
-     *         no transaction or the persistence context has not
-     *         been joined to the transaction
-     * @throws QueryTimeoutException if the statement execution 
-     *         exceeds the query timeout value set and only 
-     *         the statement is rolled back
-     * @throws PersistenceException if the query execution exceeds 
-     *         the query timeout value set and the transaction 
-     *         is rolled back 
+     * 更新または削除ステートメントを実行します。
+     * @return エンティティが更新や削除された数
+     * @throws IllegalStateException Java Persistenceクエリー言語のSELECT文もしくはクライテリアクエリーで呼び出された場合
+     * @throws TransactionRequiredException トランザクションが存在しない場合、
+     * または永続性コンテキストがトランザクションに参加していない場合
+     * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
+     * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
      */
     int executeUpdate();
 
     /**
-     * Set the maximum number of results to retrieve.
-     * @param maxResult  maximum number of results to retrieve
-     * @return the same query instance
-     * @throws IllegalArgumentException if the argument is negative
+     * 取得する結果の最大件数を設定します。
+     * @param maxResult  取得する結果の最大件数
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException 引数が負の数の場合
      */
     Query setMaxResults(int maxResult);
 
