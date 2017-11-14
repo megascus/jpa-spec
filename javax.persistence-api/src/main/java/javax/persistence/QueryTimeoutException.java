@@ -16,49 +16,44 @@
 package javax.persistence;
 
 /**
- * Thrown by the persistence provider when a query times out
- * and only the statement is rolled back.
- * The current transaction, if one is active, will be not
- * be marked for rollback.
+ * クエリーがタイムアウトし、ステートメントのみがロールバックされたときに永続化プロバイダから投げられます。
+ * 
+ * 現在のトランザクションがアクティブでもロールバックのマークは付けられません。
  *
  * @since Java Persistence 2.0
  */
 public class QueryTimeoutException extends PersistenceException {
 
-    /** The query object that caused the exception */
+    /** この例外の原因となったクエリーオブジェクト */
     Query query;
 
     /** 
-     * Constructs a new <code>QueryTimeoutException</code> exception 
-     * with <code>null</code> as its detail message.
+     * 新しい<code>QueryTimeoutException</code>例外を<code>null</code>を詳細なメッセージとして生成します。
      */
     public QueryTimeoutException() {
         super();
     }
 
     /** 
-     * Constructs a new <code>QueryTimeoutException</code> exception 
-     * with the specified detail message.
-     * @param   message   the detail message.
+     * 新しい<code>QueryTimeoutException</code>例外を指定された詳細メッセージで生成します。
+     * @param   message   詳細メッセージ
      */
     public QueryTimeoutException(String message) {
         super(message);
     }
 
     /** 
-     * Constructs a new <code>QueryTimeoutException</code> exception 
-     * with the specified detail message and cause.
-     * @param   message   the detail message.
-     * @param   cause     the cause.
+     * 新しい<code>QueryTimeoutException</code>例外を指定された詳細メッセージと原因例外で生成します。
+     * @param   message   詳細メッセージ
+     * @param   cause     原因例外
      */
     public QueryTimeoutException(String message, Throwable cause) {
         super(message, cause);
     }
 
     /** 
-     * Constructs a new <code>QueryTimeoutException</code> exception 
-     * with the specified cause.
-     * @param   cause     the cause.
+     * 新しい<code>QueryTimeoutException</code>例外を指定された原因例外で生成します。
+     * @param   cause     原因例外
      */
     public QueryTimeoutException(Throwable cause) {
         super(cause);
@@ -66,20 +61,18 @@ public class QueryTimeoutException extends PersistenceException {
 
 
     /** 
-     * Constructs a new <code>QueryTimeoutException</code> exception 
-     * with the specified query.
-     * @param   query     the query.
+     * 新しい<code>QueryTimeoutException</code>例外を指定されたクエリーで生成します。
+     * @param   query     クエリー
      */
     public QueryTimeoutException(Query query) {
         this.query = query;
     }
 
     /** 
-     * Constructs a new <code>QueryTimeoutException</code> exception 
-     * with the specified detail message, cause, and query.
-     * @param   message   the detail message.
-     * @param   cause     the cause.
-     * @param   query     the query.
+     * 新しい<code>QueryTimeoutException</code>例外を指定された詳細メッセージと原因例外とクエリーで生成します。
+     * @param   message   詳細メッセージ
+     * @param   cause     原因例外
+     * @param   query     クエリー
      */
     public QueryTimeoutException(String message, Throwable cause, Query query) {
         super(message, cause);
@@ -87,8 +80,8 @@ public class QueryTimeoutException extends PersistenceException {
     }
     
     /**
-     * Returns the query that caused this exception.
-     * @return the query.
+     * この例外の原因となったクエリーを返します。
+     * @return クエリー
      */
     public Query getQuery() {
         return this.query;
