@@ -15,8 +15,8 @@
  ******************************************************************************/ 
 package javax.persistence;
 /**
- * Thrown by the persistence provider when 
- * {@link EntityTransaction#commit() EntityTransaction.commit()} fails.
+ * 永続化プロバイダにより
+ * {@link EntityTransaction#commit() EntityTransaction.commit()} が失敗したときに投げられます。
  *
  * @see javax.persistence.EntityTransaction#commit()
  *
@@ -25,36 +25,32 @@ package javax.persistence;
 public class RollbackException extends PersistenceException {
 	
         /** 
-         * Constructs a new <code>RollbackException</code> exception 
-         * with <code>null</code> as its detail message.
+         * 新しい<code>RollbackException</code>例外を<code>null</code>を詳細なメッセージとして生成します。
          */
 	public RollbackException() {
 		super();
 	}
 
         /** 
-         * Constructs a new <code>RollbackException</code> exception 
-         * with the specified detail message.
-         * @param   message   the detail message.
+         * 新しい<code>RollbackException</code>例外を指定された詳細メッセージで生成します。
+         * @param   message   詳細メッセージ
          */
 	public RollbackException(String message) {
 		super(message);
 	}
 
         /** 
-         * Constructs a new <code>RollbackException</code> exception 
-         * with the specified detail message and cause.
-         * @param   message   the detail message.
-         * @param   cause     the cause.
+         * 新しい<code>RollbackException</code>例外を指定された詳細メッセージと原因例外で生成します。
+         * @param   message   詳細メッセージ
+         * @param   cause     原因例外
          */
 	public RollbackException(String message, Throwable cause) {
 		super(message, cause);
 	}
 	
         /** 
-         * Constructs a new <code>RollbackException</code> exception 
-         * with the specified cause.
-         * @param   cause     the cause.
+         * 新しい<code>RollbackException</code>例外を指定された原因例外で生成します。
+         * @param   cause     原因例外
          */
 	public RollbackException(Throwable cause) {
 		super(cause);
