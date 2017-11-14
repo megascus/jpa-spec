@@ -24,17 +24,12 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 
 /**
- * Specifies a secondary table for the annotated entity
- * class. Specifying one or more secondary tables indicates that the
- * data for the entity class is stored across multiple tables.
+ * アノテーションの付いたエンティティクラスのセカンダリテーブルを指定します。
+ * 
+ * ひとつ以上のセカンダリテーブルを指定することでエンティティクラスのデータが複数のテーブルにまたがって保管されることを示します。
  *
- * <p> If no <code>SecondaryTable</code> annotation is specified, 
- * it is assumed that all persistent fields or properties of the 
- * entity are mapped to the primary table. If no primary key join 
- * columns are specified, the join columns are assumed to reference 
- * the primary key columns of the primary table, and have the same 
- * names and types as the referenced primary key columns of the 
- * primary table.
+ * <p> <code>SecondaryTable</code>が指定されてない場合は、エンティティのすべての永続化フィールドもしくはプロパティはプライマリテーブルにマップされるものとみなされます。
+ * 主キー結合列が指定されていない場合、結合列はプライマリテーブルの主キー列を参照し、プライマリテーブルで参照された主キー列と同じ名前と型を持つと見なされます。
  *
  * <pre>
  *    Example 1: 単一の主キーカラムの単一のセカンダリテーブル
@@ -65,55 +60,54 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 
 public @interface SecondaryTable {
 
-    /** (Required) The name of the table. */
+    /** (必須) テーブルの名前。 */
     String name();
 
-    /** (Optional) The catalog of the table.
-     * <p> Defaults to the default catalog.
+    /**
+     * (オプション) テーブルの含まれるカタログ。
+     * 
+     * <p> デフォルトでは既定のカタログです。
      */
     String catalog() default "";
 
-    /** (Optional) The schema of the table.
-     * <p> Defaults to the default schema for user.
+    /**
+     * (オプション) テーブルの含まれるスキーマ。
+     * 
+     * <p> デフォルトではユーザーにとっての規定のスキーマです。
      */
     String schema() default "";
 
     /** 
-     * (Optional) The columns that are used to join with 
-     * the primary table.
-     * <p> Defaults to the column(s) of the same name(s) 
-     * as the primary key column(s) in the primary table.
+     * (オプション) プライマリテーブルとの結合に使われるカラム。
+     * 
+     * <p> デフォルトではプライマリテーブルの(複数単数問わず)主キーカラムと同じ名前のカラムになります。 
      */
     PrimaryKeyJoinColumn[] pkJoinColumns() default {};
 
     /**
-     *  (Optional) Used to specify or control the generation of a
-     *   foreign key constraint for the columns corresponding to the
-     *   <code>pkJoinColumns</code> element when table generation is
-     *   in effect.  If both this element and the
-     *   <code>foreignKey</code> element of any of the
-     *   <code>pkJoinColumns</code> elements are specified, the
-     *   behavior is undefined.  If no foreign key annotation element
-     *   is specified in either location, the persistence provider's
-     *   default foreign key strategy will apply.
+     *  (オプション) テーブルの生成が有効なときに<code>pkJoinColumns</code>要素に対応するカラムの外部キー制約の生成を指定または制御するために使用されます。
+     * 
+     * この要素と<code>pkJoinColumns</code>要素のいずれかにおいての<code>foreignKey</code>要素が同時に指定されている場合の動作は未定義です。
+     * いずれの場所にも外部キーアノテーション要素が指定されていない場合、永続化プロバイダのデフォルトの外部キー方式が適用されるでしょう。
      *
      *  @since Java Persistence 2.1
      */
     ForeignKey foreignKey() default @ForeignKey(PROVIDER_DEFAULT);
 
     /**
-     * (Optional) Unique constraints that are to be placed on the 
-     * table. These are typically only used if table generation 
-     * is in effect. These constraints apply in addition to any 
-     * constraints specified by the <code>Column</code> and <code>JoinColumn</code> 
-     * annotations and constraints entailed by primary key mappings.
-     * <p> Defaults to no additional constraints.
+     * (オプション) テーブルに配置されるユニーク制約。
+     * 
+     * これらは通常、テーブルの生成が有効な場合にのみ使用されます。
+     * これらの制約は、<code>Column</code>および<code>JoinColumn</code> アノテーションで指定された制約および主のマッピングによって作られる制約とは別に適用されます。
+     * 
+     * <p>デフォルトでは追加の制約はありません。
      */
     UniqueConstraint[] uniqueConstraints() default {};
 
     /**
-     * (Optional) Indexes for the table.  These are only used if
-     * table generation is in effect. 
+     * (オプション) テーブルのインデックス。
+     * 
+     * これらはテーブルの生成が有効な場合にのみ使用されます。
      *
      * @since Java Persistence 2.1 
      */
