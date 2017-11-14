@@ -131,19 +131,17 @@ public interface Query {
     int getFirstResult();
 
     /**
-     * Set a query property or hint. The hints elements may be used 
-     * to specify query properties and hints. Properties defined by
-     * this specification must be observed by the provider. 
-     * Vendor-specific hints that are not recognized by a provider
-     * must be silently ignored. Portable applications should not
-     * rely on the standard timeout hint. Depending on the database
-     * in use and the locking mechanisms used by the provider,
-     * this hint may or may not be observed.
-     * @param hintName  name of the property or hint
-     * @param value  value for the property or hint
-     * @return the same query instance
-     * @throws IllegalArgumentException if the second argument is not
-     *         valid for the implementation
+     * クエリーのプロパティもしくはヒントを設定します。
+     * 
+     * ヒント要素はクエリーのプロパティとヒントを指定するために使用できます。
+     * この仕様で定義されているプロパティはプロバイダによって監視されなければなりません。
+     * プロバイダによって認識されないベンダー固有のヒントは、暗黙のうちに無視されなければなりません。
+     * ポータブルアプリケーションは標準のタイムアウトのヒントに頼るべきではありません。
+     * 使用されているデータベースおよびプロバイダによっては、このヒントが監視されるかどうかはわかりません。
+     * @param hintName  プロパティもしくはヒントの名前
+     * @param value  プロパティもしくはヒントのための値
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException 二つ目の引数が実装に適合しない場合
      */
     Query setHint(String hintName, Object value);
 
