@@ -20,10 +20,9 @@ import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Used to supply a query property or hint to the {@link NamedQuery} or {@link
- * NamedNativeQuery} annotation.
+ * {@link NamedQuery}や{@link NamedNativeQuery}アノテーションにクエリープロパティやヒントを供給するために使用されます。
  *
- * <p> Vendor-specific hints that are not recognized by a provider are ignored.
+ * <p> プロバイダーによって認識されないベンダー固有のヒントは無視されます。
  *
  * @since Java Persistence 1.0
  */
@@ -31,9 +30,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface QueryHint { 
 
-    /** Name of the hint. */
+    /** ヒントの名前。 */
     String name(); 
 
-    /** Value of the hint. */
+    /** ヒントの値。 */
     String value();
 }
