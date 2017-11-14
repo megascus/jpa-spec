@@ -35,50 +35,32 @@ import java.util.stream.Stream;
 public interface Query {
 
     /**
-     * Execute a SELECT query and return the query results
-     * as an untyped List.
-     * @return a list of the results
-     * @throws IllegalStateException if called for a Java
-     *         Persistence query language UPDATE or DELETE statement
-     * @throws QueryTimeoutException if the query execution exceeds
-     *         the query timeout value set and only the statement is
-     *         rolled back
-     * @throws TransactionRequiredException if a lock mode other than
-     *         <code>NONE</code> has been set and there is no transaction
-     *         or the persistence context has not been joined to the transaction
-     * @throws PessimisticLockException if pessimistic locking
-     *         fails and the transaction is rolled back
-     * @throws LockTimeoutException if pessimistic locking
-     *         fails and only the statement is rolled back
-     * @throws PersistenceException if the query execution exceeds 
-     *         the query timeout value set and the transaction 
-     *         is rolled back 
+     * SELECTクエリーを実行し、問合せ結果を型のないリストとして返します。
+     * @return 結果のリスト
+     * @throws IllegalStateException Java Persistenceクエリー言語のUPDATEまたはDELETE文で呼び出された場合
+     * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
+     * @throws TransactionRequiredException <code>NONE</code>以外のロックモードが設定されトランザクションが存在しない場合、
+     * または永続性コンテキストがトランザクションに参加していない場合
+     * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされる場合
+     * @throws LockTimeoutException 悲観ロックに失敗し、そのステートメントのみロールバックされる場合
+     * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
      */
     List getResultList();
 
     /**
-     * Execute a SELECT query and return the query results
-     * as an untyped <code>java.util.stream.Stream</code>.
-     * By default this method delegates to <code>getResultList().stream()</code>,
-     * however persistence provider may choose to override this method
-     * to provide additional capabilities.
+     * SELECTクエリーを実行し、問合せ結果を型のない<code>java.util.stream.Stream</code>として戻します。
+     * 
+     * デフォルトでは、このメソッドは<code>getResultList().stream()</code>に委譲しますが、
+     * 永続性プロバイダはこのメソッドをオーバーライドして追加の機能を提供することもできます。
      *
-     * @return a stream of the results
-     * @throws IllegalStateException if called for a Java
-     *         Persistence query language UPDATE or DELETE statement
-     * @throws QueryTimeoutException if the query execution exceeds
-     *         the query timeout value set and only the statement is
-     *         rolled back
-     * @throws TransactionRequiredException if a lock mode other than
-     *         <code>NONE</code> has been set and there is no transaction
-     *         or the persistence context has not been joined to the transaction
-     * @throws PessimisticLockException if pessimistic locking
-     *         fails and the transaction is rolled back
-     * @throws LockTimeoutException if pessimistic locking
-     *         fails and only the statement is rolled back
-     * @throws PersistenceException if the query execution exceeds
-     *         the query timeout value set and the transaction
-     *         is rolled back
+     * @return 結果のストリーム
+     * @throws IllegalStateException Java Persistenceクエリー言語のUPDATEまたはDELETE文で呼び出された場合
+     * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
+     * @throws TransactionRequiredException <code>NONE</code>以外のロックモードが設定されトランザクションが存在しない場合、
+     * または永続性コンテキストがトランザクションに参加していない場合
+     * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされる場合
+     * @throws LockTimeoutException 悲観ロックに失敗し、そのステートメントのみロールバックされる場合
+     * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
      * @see Stream
      * @see #getResultList()
      * @since 2.2
@@ -88,25 +70,17 @@ public interface Query {
     }
 
     /**
-     * Execute a SELECT query that returns a single untyped result.
-     * @return the result
-     * @throws NoResultException if there is no result
-     * @throws NonUniqueResultException if more than one result
-     * @throws IllegalStateException if called for a Java
-     *         Persistence query language UPDATE or DELETE statement
-     * @throws QueryTimeoutException if the query execution exceeds
-     *         the query timeout value set and only the statement is
-     *         rolled back
-     * @throws TransactionRequiredException if a lock mode other than
-     *         <code>NONE</code> has been set and there is no transaction
-     *         or the persistence context has not been joined to the transaction
-     * @throws PessimisticLockException if pessimistic locking
-     *         fails and the transaction is rolled back
-     * @throws LockTimeoutException if pessimistic locking
-     *         fails and only the statement is rolled back
-     * @throws PersistenceException if the query execution exceeds 
-     *         the query timeout value set and the transaction 
-     *         is rolled back 
+     * 一つの型のない結果を返すSELECTクエリーを実行します。
+     * @return 結果
+     * @throws NoResultException 結果がなかった場合
+     * @throws NonUniqueResultException 2つ以上の結果があった場合
+     * @throws IllegalStateException Java Persistenceクエリー言語のUPDATEまたはDELETE文で呼び出された場合
+     * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
+     * @throws TransactionRequiredException <code>NONE</code>以外のロックモードが設定されトランザクションが存在しない場合、
+     * または永続性コンテキストがトランザクションに参加していない場合
+     * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされる場合
+     * @throws LockTimeoutException 悲観ロックに失敗し、そのステートメントのみロールバックされる場合
+     * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
      */
     Object getSingleResult();
 
