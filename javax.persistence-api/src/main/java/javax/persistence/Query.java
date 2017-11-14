@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 /**
- * Interface used to control query execution.
+ * クエリー実行のコントロールに使用するインターフェースです。
  *
  * @see TypedQuery
  * @see StoredProcedureQuery
