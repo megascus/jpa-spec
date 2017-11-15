@@ -104,28 +104,27 @@ public interface Query {
     Query setMaxResults(int maxResult);
 
     /**
-     * The maximum number of results the query object was set to
-     * retrieve. Returns <code>Integer.MAX_VALUE</code> if <code>setMaxResults</code> was not
-     * applied to the query object.
-     * @return maximum number of results
+     * クエリーオブジェクトが取得するように設定された結果の最大件数。
+     * 
+     * <code>setMaxResults</code>がクエリーオブジェクトで呼び出されていなかった場合は<code>Integer.MAX_VALUE</code>を返します。
+     * @return 結果の最大件数
      * @since Java Persistence 2.0
      */
     int getMaxResults();
 
     /**
-     * Set the position of the first result to retrieve.
-     * @param startPosition position of the first result, 
-     * numbered from 0
-     * @return the same query instance
-     * @throws IllegalArgumentException if the argument is negative
+     * 検索結果を取得する最初のポジションを設定します。
+     * @param startPosition 検索結果の0から始まる最初のポジション
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException 引数が負数だった場合
      */
     Query setFirstResult(int startPosition);
 
     /**
-     * The position of the first result the query object was set to
-     * retrieve. Returns 0 if <code>setFirstResult</code> was not applied to the
-     * query object.
-     * @return position of the first result
+     * クエリーオブジェクトが取得するように設定された結果の最初のポジション。
+     * 
+     * <code>setFirstResult</code>がクエリーオブジェクトで呼び出されていなかった場合は0を返します。
+     * @return 結果の最初のポジション
      * @since Java Persistence 2.0
      */
     int getFirstResult();
@@ -146,122 +145,104 @@ public interface Query {
     Query setHint(String hintName, Object value);
 
     /**
-     * Get the properties and hints and associated values that are 
-     * in effect for the query instance.
-     * @return query properties and hints
+     * クエリーインスタンスで有効なプロパティとヒントと関連する値を取得します。
+     * @return クエリーのプロパティとヒント
      * @since Java Persistence 2.0
      */
     Map<String, Object> getHints();
 
     /**
-     * Bind the value of a <code>Parameter</code> object.
-     * @param param  parameter object
-     * @param value  parameter value
-     * @return the same query instance
-     * @throws IllegalArgumentException if the parameter
-     *         does not correspond to a parameter of the
-     *         query
+     * <code>Parameter</code>オブジェクトの値をバインドします。
+     * @param param  パラメーターオブジェクト
+     * @param value  パラメーターの値
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException パラメーターがクエリーのパラメーターに対応しない場合
      * @since Java Persistence 2.0
      */
     <T> Query setParameter(Parameter<T> param, T value);
 
     /**
-     * Bind an instance of <code>java.util.Calendar</code> to a <code>Parameter</code> object.
-     * @param param parameter object
-     * @param value  parameter value
-     * @param temporalType  temporal type
-     * @return the same query instance
-     * @throws IllegalArgumentException if the parameter does not
-     *         correspond to a parameter of the query
+     * <code>java.util.Calendar</code>のインスタンスを<code>Parameter</code>オブジェクトにバインドします。
+     * @param param  パラメーターオブジェクト
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException パラメーターがクエリーのパラメーターに対応しない場合
      * @since Java Persistence 2.0
      */
     Query setParameter(Parameter<Calendar> param, Calendar value, 
                        TemporalType temporalType);
 
     /**
-     * Bind an instance of <code>java.util.Date</code> to a <code>Parameter</code> object.
-     * @param param parameter object
-     * @param value  parameter value
-     * @param temporalType  temporal type
-     * @return the same query instance
-     * @throws IllegalArgumentException if the parameter does not
-     *         correspond to a parameter of the query
+     * <code>java.util.Date</code>のインスタンスを<code>Parameter</code>オブジェクトにバインドします。
+     * @param param  パラメーターオブジェクト
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException パラメーターがクエリーのパラメーターに対応しない場合
      * @since Java Persistence 2.0
      */
     Query setParameter(Parameter<Date> param, Date value, 
                        TemporalType temporalType);
 
     /**
-     * Bind an argument value to a named parameter.
-     * @param name  parameter name
-     * @param value  parameter value
-     * @return the same query instance
-     * @throws IllegalArgumentException if the parameter name does 
-     *         not correspond to a parameter of the query or if
-     *         the argument is of incorrect type
+     * 引数の値を名前付きパラメーターにバインドします。
+     * @param name  パラメーターの名前
+     * @param value  パラメーターの値
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException パラメーター名がクエリーのパラメーターに対応しない場合、もしくは引数が不正な型の場合
      */
     Query setParameter(String name, Object value);
 
     /**
-     * Bind an instance of <code>java.util.Calendar</code> to a named parameter.
-     * @param name  parameter name
-     * @param value  parameter value
-     * @param temporalType  temporal type
-     * @return the same query instance
-     * @throws IllegalArgumentException if the parameter name does 
-     *         not correspond to a parameter of the query or if
-     *         the value argument is of incorrect type
+     * <code>java.util.Calendar</code>のインスタンスを名前付きパラメーターにバインドします。
+     * @param name  パラメーターの名前
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException パラメーター名がクエリーのパラメーターに対応しない場合、もしくは引数が不正な型の場合
      */
     Query setParameter(String name, Calendar value, 
                        TemporalType temporalType);
 
     /**
-     * Bind an instance of <code>java.util.Date</code> to a named parameter.
-     * @param name  parameter name
-     * @param value  parameter value
-     * @param temporalType  temporal type
-     * @return the same query instance
-     * @throws IllegalArgumentException if the parameter name does 
-     *         not correspond to a parameter of the query or if
-     *         the value argument is of incorrect type
+     * <code>java.util.Date</code>のインスタンスを名前付きパラメーターにバインドします。
+     * @param name   パラメーターの名前
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException パラメーター名がクエリーのパラメーターに対応しない場合、もしくは引数が不正な型の場合
      */
     Query setParameter(String name, Date value, 
                        TemporalType temporalType);
 
     /**
-     * Bind an argument value to a positional parameter.
-     * @param position  position
-     * @param value  parameter value
-     * @return the same query instance
-     * @throws IllegalArgumentException if position does not
-     *         correspond to a positional parameter of the
-     *         query or if the argument is of incorrect type
+     * 位置指定のパラメーターに引数の値をバインドします。
+     * @param position  位置
+     * @param value  パラメーターの値
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException positionがクエリーの位置指定のパラメーターに対応しない場合、もしくは引数が不正な型の場合
      */
     Query setParameter(int position, Object value);
 
     /**
-     * Bind an instance of <code>java.util.Calendar</code> to a positional
-     * parameter.
-     * @param position  position
-     * @param value  parameter value
-     * @param temporalType  temporal type
-     * @return the same query instance
-     * @throws IllegalArgumentException if position does not
-     *         correspond to a positional parameter of the query or
-     *         if the value argument is of incorrect type
+     * 位置指定のパラメーターに<code>java.util.Calendar</code>の値をバインドします。
+     * @param position  位置
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException positionがクエリーの位置指定のパラメーターに対応しない場合、もしくは引数が不正な型の場合
      */
     Query setParameter(int position, Calendar value,  
                        TemporalType temporalType);
 
     /**
-     * Bind an instance of <code>java.util.Date</code> to a positional parameter.
-     * @param position  position
-     * @param value  parameter value
-     * @param temporalType  temporal type
-     * @return the same query instance
-     * @throws IllegalArgumentException if position does not
-     *         correspond to a positional parameter of the query or
-     *         if the value argument is of incorrect type
+     * 位置指定のパラメーターに<code>java.util.Date</code>の値をバインドします。
+     * @param position  位置
+     * @param value  パラメーターの値
+     * @param temporalType  時制の型
+     * @return 同じクエリーのインスタンス
+     * @throws IllegalArgumentException positionがクエリーの位置指定のパラメーターに対応しない場合、もしくは引数が不正な型の場合
      */
     Query setParameter(int position, Date value,  
                        TemporalType temporalType);
@@ -396,11 +377,11 @@ public interface Query {
     Object getParameterValue(int position);
 
     /**
-     * Set the flush mode type to be used for the query execution.
-     * The flush mode type applies to the query regardless of the
-     * flush mode type in use for the entity manager.
-     * @param flushMode  flush mode
-     * @return the same query instance
+      * クエリーの実行に使用されるフラッシュモードタイプを設定します。
+      *
+      * フラッシュモードタイプはエンティティマネージャーで使用中のフラッシュモードタイプと関係なくクエリーに適用されます。
+      * @param flushMode  フラッシュモード
+      * @return 同じクエリーのインスタンス
      */
     Query setFlushMode(FlushModeType flushMode);
 
@@ -414,12 +395,10 @@ public interface Query {
     FlushModeType getFlushMode();
 
     /**
-     * Set the lock mode type to be used for the query execution.
-     * @param lockMode  lock mode
-     * @return the same query instance
-     * @throws IllegalStateException if the query is found not to be 
-     *         a Java Persistence query language SELECT query
-     *         or a CriteriaQuery query
+      * クエリーの実行に使用されるロックモードタイプを設定します。
+      * @param lockMode  ロックモード
+      * @return 同じクエリーのインスタンス
+      * @throws IllegalStateException クエリーがJava Persistenceクエリー言語のSELECTクエリーかCriteriaQueryクエリーでないと判明した場合
      * @since Java Persistence 2.0
      */
     Query setLockMode(LockModeType lockMode);
@@ -428,9 +407,7 @@ public interface Query {
      * Get the current lock mode for the query.  Returns null if a lock
      * mode has not been set on the query object.
      * @return lock mode
-     * @throws IllegalStateException if the query is found not to be
-     *         a Java Persistence query language SELECT query or
-     *         a Criteria API query
+     * @throws IllegalStateException クエリーがJava Persistenceクエリー言語のSELECTクエリーかCriteriaQueryクエリーでないと判明した場合
      * @since Java Persistence 2.0
      */
     LockModeType getLockMode();
@@ -444,9 +421,8 @@ public interface Query {
      *             normally either the underlying query 
      *             implementation class or an interface that it 
      *             implements.
-     * @return an instance of the specified class
-     * @throws PersistenceException if the provider does not support
-     *         the call
+     * @return 指定されたクラスのインスタンス
+     * @throws PersistenceException プロバイダがこの呼び出しをサポートしない場合
      * @since Java Persistence 2.0
      */
     <T> T unwrap(Class<T> cls);
