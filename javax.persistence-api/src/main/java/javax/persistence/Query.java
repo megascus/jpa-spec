@@ -386,10 +386,10 @@ public interface Query {
     Query setFlushMode(FlushModeType flushMode);
 
     /**
-     * Get the flush mode in effect for the query execution. 
-     * If a flush mode has not been set for the query object, 
-     * returns the flush mode in effect for the entity manager.
-     * @return flush mode
+     * クエリーの実行に有効なフラッシュモードを取得します。
+     * 
+     * クエリーオブジェクトにフラッシュモードが設定されていない場合は、エンティティマネージャーで有効なフラッシュモードを返します。
+     * @return フラッシュモード
      * @since Java Persistence 2.0
      */
     FlushModeType getFlushMode();
@@ -404,25 +404,22 @@ public interface Query {
     Query setLockMode(LockModeType lockMode);
 
     /**
-     * Get the current lock mode for the query.  Returns null if a lock
-     * mode has not been set on the query object.
-     * @return lock mode
+     * クエリーの現在のロックモードを取得します。
+     * 
+     * nullが返ってくる場合はクエリーオブジェクトにロックモードが設定されていません。
+     * @return ロックモード
      * @throws IllegalStateException クエリーがJava Persistenceクエリー言語のSELECTクエリーかCriteriaQueryクエリーでないと判明した場合
      * @since Java Persistence 2.0
      */
     LockModeType getLockMode();
 
     /**
-     * Return an object of the specified type to allow access to 
-     * the provider-specific API.  If the provider's query 
-     * implementation does not support the specified class, the 
-     * <code>PersistenceException</code> is thrown.
-     * @param cls  the class of the object to be returned.  This is
-     *             normally either the underlying query 
-     *             implementation class or an interface that it 
-     *             implements.
+     * プロバイダ固有のAPIにアクセスできるように、指定された型のオブジェクトを返します。
+     * 
+     * プロバイダのクエリー実装が指定されたクラスをサポートしていない場合、 <code>PersistenceException</code>が投げられます。
+     * @param cls  返されるオブジェクトのクラス、通常だと基礎となるクエリーの実装クラスか実装するインターフェイスのいずれかです。
      * @return 指定されたクラスのインスタンス
-     * @throws PersistenceException プロバイダがこの呼び出しをサポートしない場合
+     * @throws PersistenceException プロバイダが呼び出しをサポートしない場合
      * @since Java Persistence 2.0
      */
     <T> T unwrap(Class<T> cls);
