@@ -248,82 +248,62 @@ public interface Query {
                        TemporalType temporalType);
 
     /**
-     * Get the parameter objects corresponding to the declared
-     * parameters of the query.
-     * Returns empty set if the query has no parameters.
-     * This method is not required to be supported for native
-     * queries.
-     * @return set of the parameter objects
-     * @throws IllegalStateException if invoked on a native
-     *         query when the implementation does not support 
-     *         this use
+     * クエリーの宣言されたパラメーターに対応するパラメーターオブジェクトを取得します。
+     * 
+     * クエリーにパラメーターがない場合は空のセットを返します。
+     * このメソッドはネイティブクエリーではサポートされない場合があります。
+     * @return パラメーターオブジェクトのSet
+     * @throws IllegalStateException 実装がこの使用をサポートしていないネイティブクエリーで呼び出された場合
      * @since Java Persistence 2.0
      */
     Set<Parameter<?>> getParameters();
 
     /**
-     * Get the parameter object corresponding to the declared
-     * parameter of the given name.
-     * This method is not required to be supported for native
-     * queries.
-     * @param name  parameter name
-     * @return parameter object
-     * @throws IllegalArgumentException if the parameter of the
-     *         specified name does not exist
-     * @throws IllegalStateException if invoked on a native
-     *         query when the implementation does not support 
-     *         this use
+     * 与えられた名前の宣言されたパラメーターに対応するパラメーターオブジェクトを取得します。 
+     * 
+     * このメソッドはネイティブクエリーではサポートされない場合があります。
+     * @param name  パラメーターの名前
+     * @return パラメーターオブジェクト
+     * @throws IllegalArgumentException 指定した名前のパラメーターが存在しない場合
+     * @throws IllegalStateException 実装がこの使用をサポートしていないネイティブクエリーで呼び出された場合
      * @since Java Persistence 2.0
      */
     Parameter<?> getParameter(String name);
 
     /**
-     * Get the parameter object corresponding to the declared
-     * parameter of the given name and type.
-     * This method is required to be supported for criteria queries
-     * only.
-     * @param name  parameter name
-     * @param type  type
-     * @return parameter object
-     * @throws IllegalArgumentException if the parameter of the
-     *         specified name does not exist or is not assignable
-     *         to the type
-     * @throws IllegalStateException if invoked on a native
-     *         query or Java Persistence query language query when
-     *         the implementation does not support this use
+     * 与えられた名前と型の宣言されたパラメーターに対応するパラメーターオブジェクトを取得します。 
+     * 
+     * このメソッドはクライテリアクエリー以外ではサポートされない場合があります。
+     * @param name  パラメーターの名前
+     * @param type  型
+     * @return パラメーターオブジェクト
+     * @throws IllegalArgumentException 指定した名前のパラメーターが存在しないか、型が割り当て不能な場合
+     * @throws IllegalStateException 実装がこの使用をサポートしてないネイティブクエリーかJPQLクエリーで呼び出された場合
      * @since Java Persistence 2.0
      */
     <T> Parameter<T> getParameter(String name, Class<T> type);
 
     /**
-     * Get the parameter object corresponding to the declared
-     * positional parameter with the given position.
-     * This method is not required to be supported for native
-     * queries.
-     * @param position  position
-     * @return parameter object
-     * @throws IllegalArgumentException if the parameter with the
-     *         specified position does not exist
-     * @throws IllegalStateException if invoked on a native
-     *         query when the implementation does not support 
-     *         this use
+     * 宣言された位置のパラメーターに対応するパラメータオブジェクトを指​​定された位置で取得します。
+     * 
+     * このメソッドはネイティブクエリーではサポートされない場合があります。
+     * @param position  位置
+     * @return パラメーターオブジェクト
+     * @throws IllegalArgumentException 指定した位置のパラメーターが存在しない場合
+     * @throws IllegalStateException 実装がこの使用をサポートしていないネイティブクエリーで呼び出された場合
      * @since Java Persistence 2.0
      */
     Parameter<?> getParameter(int position);
 
     /**
-     * Get the parameter object corresponding to the declared
-     * positional parameter with the given position and type.
-     * This method is not required to be supported by the provider.
-     * @param position  position
-     * @param type  type
-     * @return parameter object
-     * @throws IllegalArgumentException if the parameter with the
-     *         specified position does not exist or is not assignable
-     *         to the type
-     * @throws IllegalStateException if invoked on a native
-     *         query or Java Persistence query language query when
-     *         the implementation does not support this use
+     * 宣言された位置のパラメーターに対応するパラメータオブジェクトを指​​定された位置と型で取得します。
+     * 
+     * このメソッドはプロバイダによってはサポートされない場合があります。
+     * @param position  位置
+     * @param type  型
+     * @return パラメーターオブジェクト
+     * @throws IllegalArgumentException 指定した位置のパラメーターが存在しないか、型が割り当て不能な場合
+     * @throws IllegalStateException 実装がこの使用をサポートしてないネイティブクエリーかJPQLクエリーで呼び出された場合
      * @since Java Persistence 2.0
      */
     <T> Parameter<T> getParameter(int position, Class<T> type);
