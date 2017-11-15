@@ -329,49 +329,45 @@ public interface Query {
     <T> Parameter<T> getParameter(int position, Class<T> type);
 
     /**
-     * Return a boolean indicating whether a value has been bound 
-     * to the parameter.
-     * @param param parameter object
-     * @return boolean indicating whether parameter has been bound
+     * 値がパラメータにバインドされているかどうかを示すbooleanを返します。
+     * @param param パラメーターオブジェクト
+     * @return パラメータがバインドされているかどうかを示すboolean
      * @since Java Persistence 2.0
      */
     boolean isBound(Parameter<?> param);
 
     /**
-     * Return the input value bound to the parameter.
-     * (Note that OUT parameters are unbound.)
-     * @param param parameter object
-     * @return parameter value
-     * @throws IllegalArgumentException if the parameter is not 
-     *         a parameter of the query
-     * @throws IllegalStateException if the parameter has not been
-     *         been bound
+     * パラメーターにバインドされた入力値を返します。 
+     * 
+     * (注意：OUTパラメータはバインドされていません。)
+     * @param param パラメーターオブジェクト
+     * @return パラメーターの値
+     * @throws IllegalArgumentException パラメーターがクエリーのパラメーターでない場合
+     * @throws IllegalStateException パラメーターがバインドされてない場合
      * @since Java Persistence 2.0
      */
     <T> T getParameterValue(Parameter<T> param);
 
     /**
-     * Return the input value bound to the named parameter.
-     * (Note that OUT parameters are unbound.)
-     * @param name  parameter name
-     * @return parameter value
-     * @throws IllegalStateException if the parameter has not been
-     *         been bound
-     * @throws IllegalArgumentException if the parameter of the
-     *         specified name does not exist
+     * 名前付きパラメーターにバインドされた入力値を返します。 
+     * 
+     * (注意：OUTパラメータはバインドされていません。)
+     * @param name  パラメーターの名前
+     * @return パラメーターの値
+     * @throws IllegalStateException パラメーターがバインドされてない場合
+     * @throws IllegalArgumentException 指定された名前のパラメーターが存在しない場合
      * @since Java Persistence 2.0
      */
     Object getParameterValue(String name);
 
     /**
-     * Return the input value bound to the positional parameter.
-     * (Note that OUT parameters are unbound.)
-     * @param position  position
-     * @return parameter value
-     * @throws IllegalStateException if the parameter has not been
-     *         been bound
-     * @throws IllegalArgumentException if the parameter with the
-     *         specified position does not exist
+     * 位置パラメーターにバインドされた入力値を返します。 
+     * 
+     * (注意：OUTパラメータはバインドされていません。)
+     * @param position  位置
+     * @return パラメーターの値
+     * @throws IllegalStateException パラメーターがバインドされてない場合
+     * @throws IllegalArgumentException 指定された位置にパラメーターが存在しない場合
      * @since Java Persistence 2.0
      */
     Object getParameterValue(int position);
