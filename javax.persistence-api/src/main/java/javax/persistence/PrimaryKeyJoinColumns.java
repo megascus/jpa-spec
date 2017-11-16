@@ -24,8 +24,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 
 /**
- * Groups {@link PrimaryKeyJoinColumn} annotations.
- * It is used to map composite foreign keys.
+ * {@link PrimaryKeyJoinColumn}アノテーションをまとめます。
+ * 
+ * 複合外部キーをマップするために使用されます。
  *
  * <pre>
  *    Example: ValuedCustomer subclass
@@ -51,17 +52,14 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 
 public @interface PrimaryKeyJoinColumns {
 
-    /** One or more <code>PrimaryKeyJoinColumn</code> annotations. */
+    /** 1つ以上の<code>PrimaryKeyJoinColumn</code>アノテーション。 */
     PrimaryKeyJoinColumn[] value();
 
     /**
-     *  (Optional) Used to specify or control the generation of a
-     *  foreign key constraint when table generation is in effect. 
-     *  If both this element and the <code>foreignKey</code> element 
-     *  of any of the <code>PrimaryKeyJoinColumn</code> elements are specified, 
-     *  the behavior is undefined.  If no foreign key annotation element
-     *  is specified in either location, the persistence provider's
-     *  default foreign key strategy will apply.
+     *  (オプション) テーブルの生成が有効なときに外部キー制約の生成を指定または制御するために使用されます。
+     * 
+     *  この要素と<code>PrimaryKeyJoinColumn</code>要素内のいずれかのforeignKey要素の両方が指定されている場合の動作は未定義です。
+     *  どの場所でも外部キー注釈要素が指定されていない場合、永続化プロバイダのデフォルトの外部キー方式が適用されます。
      *
      *  @since Java Persistence 2.1
      */
