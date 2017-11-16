@@ -26,8 +26,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 
 /**
- * Specifies a primary key column that is used as a foreign key to
- * join to another table.
+ * 他のテーブルに結合するための外部キーとして使用される主キーカラムを指定します。
  *
  * <p> It is used to join the primary table of an entity subclass 
  * in the {@link InheritanceType#JOINED JOINED} mapping strategy 
