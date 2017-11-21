@@ -28,19 +28,13 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 /**
  * 他のテーブルに結合するための外部キーとして使用される主キーカラムを指定します。
  *
- * <p> It is used to join the primary table of an entity subclass 
- * in the {@link InheritanceType#JOINED JOINED} mapping strategy 
- * to the primary table of its superclass; it is used within a 
- * {@link SecondaryTable} annotation to join a secondary table 
- * to a primary table; and it may be used in a {@link OneToOne} 
- * mapping in which the primary key of the referencing entity 
- * is used as a foreign key to the referenced entity. 
+ * <p>これは{@link InheritanceType#JOINED JOINED}マッピングストラテジーのエンティティーのサブクラスのプライマリテーブルを、
+ * そのスーパークラスのプライマリテーブルに結合するために使用されます。
+ * もしくはセカンダリテーブルをプライマリテーブルに結合するために{@link SecondaryTable}アノテーション内で使用されます。
+ * もしくは参照元エンティティの主キーが参照先エンティティへの外部キーとして使用される{@link OneToOne}マッピングで使用できます。
  *
- * <p> If no <code>PrimaryKeyJoinColumn</code> annotation is 
- * specified for a subclass in the <code>JOINED</code>
- * mapping strategy, the foreign key columns are assumed 
- * to have the same names as the primary key columns of the 
- * primary table of the superclass.
+ * <p><code>JOINED</code>マッピングストラテジーのエンティティのサブクラスに<code>PrimaryKeyJoinColumn</code>アノテーションが指定されていない場合、
+ * サブクラスの外部キー列はスーパークラスのプライマリテーブルの主キー列と同じ名前を持つとみなされます。 
  *
  * <pre>
  *
@@ -73,43 +67,36 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 public @interface PrimaryKeyJoinColumn {
 
     /** 
-     * (Optional) The name of the primary key column of the current table.
-     * <p> Defaults to the same name as the primary key column 
-     * of the primary table of the superclass (<code>JOINED</code> mapping strategy); the same 
-     * name as the primary key column of the primary table 
-     * (<code>SecondaryTable</code> mapping); or the same name as the 
-     * primary key column for the table for the referencing entity 
-     * (<code>OneToOne</code> mapping).
+     * (オプション) 現在のテーブルの主キー列の名前。
+     * 
+     * <p>デフォルトでは(<code>JOINED</code>マッピングストラテジーの場合は)スーパークラスのプライマリテーブルの主キー列と同じ名前になります。
+     * または(SecondaryTableマッピングの場合は)プライマリテーブルの主キー列と同じ名前になります。
+     * または(OneToOneマッピングの場合は)参照元エンティティのテーブルの主キー列と同じ名前になります。
      */
     String name() default "";
 
     /** 
-     * (Optional) The name of the primary key column of the table
-     * being joined to.  <p> Defaults to the same name as the primary
-     * key column of the primary table of the superclass
-     * (<code>JOINED</code> mapping strategy); the same name as the
-     * primary key column of the primary table
-     * (<code>SecondaryTable</code> mapping); or the same name as the
-     * primary key column for the table for the referencing entity
-     * (<code>OneToOne</code> mapping).
+     * (オプション) 結合先のテーブルの主キー列の名前。
+     * 
+     * <p>デフォルトでは(<code>JOINED</code>マッピングストラテジーの場合は)スーパークラスのプライマリテーブルの主キー列と同じ名前になります。
+     * または(SecondaryTableマッピングの場合は)プライマリテーブルの主キー列と同じ名前になります。
+     * または(OneToOneマッピングの場合は)参照元エンティティのテーブルの主キー列と同じ名前になります。
      */
     String referencedColumnName() default "";
 
     /**
-     * (Optional) The SQL fragment that is used when generating the 
-     * DDL for the column. This should not be specified for a 
-     * <code>OneToOne</code> primary key association.
-     * <p> Defaults to the generated SQL to create a column of the 
-     * inferred type.
+     * (オプション) カラムのDDLを生成するときに使用されるSQLフラグメント。
+     * 
+     * これは<code>OneToOne</code>の主キーの関連付けでは使用しないでください。
+     * 
+     * <p>デフォルトではカラムを推測された型で作成するために生成されたSQLです。
      */
     String columnDefinition() default "";
 
     /**
-     *  (Optional) Used to specify or control the generation of a
-     *  foreign key constraint for the primary key join column 
-     *  when table generation is in effect.  If
-     *  this element is not specified, the persistence provider's
-     *  default foreign key strategy will apply.
+     *  (オプション) 表の生成が有効な場合に主キー結合列の外部キー制約の生成を指定または制御するために使用されます。
+     * 
+     * この要素が指定されていない場合は永続性プロバイダのデフォルトの外部キー方式が適用されます。
      *
      *  @since Java Persistence 2.1
      */

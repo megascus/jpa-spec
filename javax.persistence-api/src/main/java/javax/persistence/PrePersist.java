@@ -21,10 +21,11 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies a callback method for the corresponding 
- * lifecycle event. This annotation may be applied to methods 
- * of an entity class, a mapped superclass, or a callback 
- * listener class.
+ * 対応するライフサイクルイベントのコールバックメソッドを指定します。
+ * 
+ * このアノテーションは、エンティティクラス({@link Entity}アノテーションのつけられたクラス)、
+ * マップされたスーパークラス({@link MappedSuperclass}アノテーションのつけられたクラス)、
+ * またはコールバックリスナークラス({@link EntityListeners}アノテーションで指定されたクラス)のメソッドに適用できます。
  *
  * @since Java Persistence 1.0
  */
