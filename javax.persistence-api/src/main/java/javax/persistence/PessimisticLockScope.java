@@ -38,18 +38,14 @@ public enum PessimisticLockScope {
     NORMAL,
 
     /**
-     * In addition to the behavior for
-     * <code>PessimisticLockScope.NORMAL</code>, element collections
-     * and relationships owned by the entity that are contained in
-     * join tables will be locked if the
-     * <code>javax.persistence.lock.scope</code> property is specified
-     * with a value of <code>PessimisticLockScope.EXTENDED</code>.
-     * The state of entities referenced by such relationships will not
-     * be locked (unless those entities are explicitly locked).
-     * Locking such a relationship or element collection generally locks only
-     * the rows in the join table or collection table for that
-     * relationship or collection.  This means that phantoms will be
-     * possible.
+     * <code>javax.persistence.lock.scope</code>プロパティの値として<code>PessimisticLockScope.EXTENDED</code>が指定されている場合、
+     * <code>PessimisticLockScope.NORMAL</code>の振る舞いに加えて要素コレクションやエンティティが所有する結合テーブルに含まれる関係はロックされます。
+     * 
+     * そのような関係によって参照されるエンティティの状態は(エンティティが明示的にロックされている場合を除いて)ロックされません。
+     * 一般に、そのような関係や要素コレクションをロックすると、その関係やコレクションの結合表またはコレクション表の行のみがロックされます。
+     * これはファントムリードが発生する可能性があることを意味します。
+     * 
+     * <p>訳注：{@code OneToMeny}等でエンティティの関連を作成すると、{@code JoinColumn}を指定しない場合は結合表(中間テーブルと呼ばれることも多い)が作成されますが、中間テーブルまでしかロックされません。
      */
     EXTENDED
 }
