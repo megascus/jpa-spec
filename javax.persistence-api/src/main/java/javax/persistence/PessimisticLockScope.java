@@ -16,33 +16,24 @@
 package javax.persistence;
 
 /**
- * Defines the values of the <code>javax.persistence.lock.scope</code>
- * property for pessimistic locking.  This property may be passed as
- * an argument to the methods of the {@link EntityManager},
- * {@link Query}, and {@link TypedQuery} interfaces that
- * allow lock modes to be specified or used with the
- * {@link NamedQuery} annotation.
+ * 悲観ロックのための<code>javax.persistence.lock.scope</code>プロパティの値を定義します。
+ * 
+ * このプロパティは{@link EntityManager}や{@link Query}、{@link TypedQuery}インターフェースのメソッドでロックモードを指定するために引数として渡したり、
+ * {@link NamedQuery}アノテーションと同時に使用することができます。
  *
  * @since Java Persistence 2.0
  */
 public enum PessimisticLockScope {
 
     /**
-     * This value defines the default behavior for pessimistic locking.
-     *
-     * <p>The persistence provider must lock the database row(s) that
-     * correspond to the non-collection-valued persistent state of
-     * that instance.  If a joined inheritance strategy is used, or if
-     * the entity is otherwise mapped to a secondary table, this
-     * entails locking the row(s) for the entity instance in the
-     * additional table(s).  Entity relationships for which the locked
-     * entity contains the foreign key will also be locked, but not
-     * the state of the referenced entities (unless those entities are
-     * explicitly locked).  Element collections and relationships for
-     * which the entity does not contain the foreign key (such as
-     * relationships that are mapped to join tables or unidirectional
-     * one-to-many relationships for which the target entity contains
-     * the foreign key) will not be locked by default.
+     * この値は悲観ロックのデフォルトの動作を定義します。
+     * 
+     * <p>永続性プロバイダーはそのインスタンスのコレクションの値を除いた永続性状態に対応するデータベース行をロックするべきです。
+     * 表結合をする継承ストラテジーが使用されている場合やエンティティがセカンダリーテーブルも使用してマッピングされている場合は、
+     * 必然的に追加の表の行をエンティティのインスタンスのためにロックします。
+     * ロックされたエンティティの外部キーを含む関連もロックされますが、参照されているエンティティの状態は(エンティティが明示的にロックされている場合を除いて)ロックされません。
+     * エンティティが外部キーを含まない要素コレクションや関連
+     * (結合テーブルにマッピングされた関連や、ターゲットのエンティティが外部キーを含む一方向の一対多関連など)はデフォルトではロックされません。
      */
     NORMAL,
 
