@@ -22,7 +22,7 @@ import static java.lang.annotation.RetentionPolicy.*;
 
 
 /**
- * Declares one or more {@link PersistenceUnit} annotations.
+ * 一つ以上の{@link PersistenceUnit}アノテーションを宣言します。
  *
  * @since Java Persistence 1.0
  */
@@ -31,7 +31,7 @@ import static java.lang.annotation.RetentionPolicy.*;
 @Retention(RUNTIME)
 public @interface PersistenceUnits {
 
-    /** (Required) One or more {@link PersistenceUnit} annotations. */
+    /** (必須) 一つ以上の{@link PersistenceUnit}アノテーション。 */
     PersistenceUnit[] value();
 
 }
