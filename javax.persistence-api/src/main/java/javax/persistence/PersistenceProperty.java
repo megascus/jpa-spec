@@ -20,13 +20,12 @@ import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.*;
 
 /**
- * Describes a single container or persistence provider property.  Used in {@link 
- * PersistenceContext}.
+ * 単一のコンテナや永続化プロバイダのプロパティを指定します。
  * 
- * <p> Vendor specific properties may be included in the set of 
- * properties, and are passed to the persistence provider by the 
- * container when the entity manager is created. Properties that 
- * are not recognized by a vendor will be ignored.
+ * {@link PersistenceContext}内で使用してください。
+ * 
+ * <p> ベンダー固有の設定をプロパティーのSetに含めることができ、エンティティマネージャーが作成された時にコンテナによって永続性プロバイダに渡されます。
+ * ベンダーによって認知されていないプロパティは無視されるでしょう。
  *
  * @since Java Persistence 1.0
  */
@@ -34,10 +33,10 @@ import static java.lang.annotation.RetentionPolicy.*;
 @Retention(RUNTIME)
 public @interface PersistenceProperty {
 
-    /** The name of the property */
+    /** プロパティの名前 */
     String name();
 
-    /** The value of the property */
+    /** プロパティの値 */
     String value();
 
 }
