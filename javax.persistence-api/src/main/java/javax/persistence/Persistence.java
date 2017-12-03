@@ -25,48 +25,38 @@ import javax.persistence.spi.PersistenceProviderResolverHolder;
 import javax.persistence.spi.LoadState;
 
 /**
- * Bootstrap class that is used to obtain an {@link EntityManagerFactory}
- * in Java SE environments.  It may also be used to cause schema
- * generation to occur.
+ * Java SE環境で{@link EntityManagerFactory}を得るために使用されるブートストラップクラスです。
  * 
- * <p> The <code>Persistence</code> class is available in a Java EE
- * container environment as well; however, support for the Java SE
- * bootstrapping APIs is not required in container environments.
+ * また、スキーマの生成を行わせるために使用することもできます。
  * 
- * <p> The <code>Persistence</code> class is used to obtain a {@link
- * javax.persistence.PersistenceUtil PersistenceUtil} instance in both
- * Java EE and Java SE environments.
+ * <p> <code>Persistence</code>クラスはJava EEコンテナ環境でも使用できます。
+ * しかしながらコンテナ環境ではJava SEブートストラップAPIのサポートは必須ではありません。
+ * 
+ * <p> <code>Persistence</code>クラスはJava EE環境とJava SE環境の両方で
+ * {@link javax.persistence.PersistenceUtil PersistenceUtil}のインスタンスを取得するために使用されます。
  *
  * @since Java Persistence 1.0
  */
 public class Persistence {
     
     /**
-     * Create and return an EntityManagerFactory for the named
-     * persistence unit.
+     * 指定された名前の永続化ユニットのためのEntityManagerFactoryを作成し、返します。
      * 
-     * @param persistenceUnitName
-     *            the name of the persistence unit
-     * @return the factory that creates EntityManagers configured according to
-     *         the specified persistence unit
+     * @param persistenceUnitName 永続化ユニットの名前
+     * @return 指定された永続化ユニットに従って構成されたEntityManagerを作成するファクトリー
      */
     public static EntityManagerFactory createEntityManagerFactory(String persistenceUnitName) {
         return createEntityManagerFactory(persistenceUnitName, null);
     }
 
     /**
-     * Create and return an EntityManagerFactory for the named persistence unit
-     * using the given properties.
+     * 与えられたプロパティを使用した指定された名前の永続化ユニットのためのEntityManagerFactoryを作成し、返します。
      * 
-     * @param persistenceUnitName
-     *            the name of the persistence unit
-     * @param properties
-     *            Additional properties to use when creating the factory. 
-     *            These properties may include properties to control
-     *            schema generation.  The values of these properties override 
-     *            any values that may have been configured elsewhere.
-     * @return the factory that creates EntityManagers configured according to
-     *         the specified persistence unit.
+     * @param persistenceUnitName 永続化ユニットの名前
+     * @param properties ファクトリーを作成する時に使用される追加のプロパティ。
+     *            このプロパティはスキーマ生成のコントロールのためのプロパティを含めることができます。
+     *            このプロパティの値は他の場所で設定されている値を上書きします。
+     * @return 指定された永続化ユニットに従って設定されたEntityManagerを作成するファクトリー
      */
     public static EntityManagerFactory createEntityManagerFactory(String persistenceUnitName, Map properties) {
 
@@ -89,20 +79,13 @@ public class Persistence {
 
 
     /**
-     * Create database schemas and/or tables and/or create DDL
-     * scripts as determined by the supplied properties.
-     * <p>
-     * Called when schema generation is to occur as a separate phase
-     * from creation of the entity manager factory.
-     * <p>
-     * @param persistenceUnitName the name of the persistence unit
-     * @param map properties for schema generation;  these may
-     *             also contain provider-specific properties.  The
-     *             value of these properties override any values that
-     *             may have been configured elsewhere..             
-     * @throws PersistenceException if insufficient or inconsistent
-     *         configuration information is provided or if schema
-     *         generation otherwise fails.
+     * 指定されたプロパティから決定されるデータベーススキーマと/もしくはテーブルを作成するか/もしくはDDLスクリプトを作成します。
+     * 
+     * <p>スキーマ生成がエンティティマネージャファクトリの作成とは別のフェーズとして実行されるときに呼び出されます。
+     * @param persistenceUnitName 永続化ユニットの名前
+     * @param map スキーマ生成のプロパティ、それらはプロバイダ固有のプロパティを含めることができます。
+     *            このプロパティの値は他の場所で設定されている値を上書きします。
+     * @throws PersistenceException 提供された構成情報が不十分か矛盾があった場合、またはスキーマ生成が失敗した場合
      *
      * @since Java Persistence 2.1
      */
@@ -121,8 +104,8 @@ public class Persistence {
     
 
     /**
-     * Return the PersistenceUtil instance
-     * @return PersistenceUtil instance
+     * PersistenceUtilのインスタンスを返します。
+     * @return PersistenceUtilのインスタンス
      * @since Java Persistence 2.0
      */
     public static PersistenceUtil getPersistenceUtil() {
@@ -131,7 +114,7 @@ public class Persistence {
 
     
     /**
-     * Implementation of PersistenceUtil interface
+     * PersistenceUtilインターフェースの実装です。
      * @since Java Persistence 2.0
      */
     private static class PersistenceUtilImpl implements PersistenceUtil {
@@ -182,7 +165,7 @@ public class Persistence {
     }
 
     /**
-     * This final String is deprecated and should be removed and is only here for TCK backward compatibility
+     * このfinalな文字列は非推奨で、削除されるべきです。これはTCK下位互換のためにのみ存在します。
      * @since Java Persistence 1.0
      * @deprecated
      */
@@ -190,7 +173,7 @@ public class Persistence {
     public static final String PERSISTENCE_PROVIDER = "javax.persistence.spi.PeristenceProvider";
     
     /**
-     * This instance variable is deprecated and should be removed and is only here for TCK backward compatibility
+     * このインスタンス変数は非推奨で、削除されるべきです。これはTCK下位互換のためにのみ存在します。
      * @since Java Persistence 1.0
      * @deprecated
      */
