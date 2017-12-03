@@ -17,48 +17,43 @@ package javax.persistence;
 
 
 /**
- * Thrown by the persistence provider when a problem occurs.
- * All instances of <code>PersistenceException</code> except for instances of 
- * {@link NoResultException}, {@link NonUniqueResultException},
- * {@link LockTimeoutException}, and {@link QueryTimeoutException} will cause 
- * the current transaction, if one is active and the persistence context has
- * been joined to it, to be marked for rollback.
+ * 問題が発生したときに永続性プロバイダによって投げれます。
+ * 
+ * {@link NoResultException}と{@link NonUniqueResultException}、{@link LockTimeoutException}、{@link QueryTimeoutException}を除いた
+ * <code>PersistenceException</code>のインスタンスは現在のトランザクションがアクティブで、永続性コンテキストがそれに参加している場合、
+ * ロールバックのマークが付けられる原因となります。
  *
  * @since Java Persistence 1.0
  */
 public class PersistenceException extends RuntimeException {
 
         /** 
-         * Constructs a new <code>PersistenceException</code> exception 
-         * with <code>null</code> as its detail message.
+         * 新しい<code>PersistenceException</code>例外を<code>null</code>を詳細メッセージとして生成します。
          */
 	public PersistenceException() {
 		super();
 	}
 
-        /** 
-         * Constructs a new <code>PersistenceException</code> exception 
-         * with the specified detail message.
-         * @param   message   the detail message.
+        /**
+         * 新しい<code>PersistenceException</code>例外を指定された詳細メッセージで生成します。
+         * @param   message   詳細メッセージ
          */
 	public PersistenceException(String message) {
 		super(message);
 	}
 
-        /** 
-         * Constructs a new <code>PersistenceException</code> exception 
-         * with the specified detail message and cause.
-         * @param   message   the detail message.
-         * @param   cause     the cause.
+        /**
+         * 新しい<code>PersistenceException</code>例外を指定された詳細メッセージと原因で生成します。
+         * @param   message   詳細メッセージ
+         * @param   cause     原因
          */
 	public PersistenceException(String message, Throwable cause) {
 		super(message, cause);
 	}
 	
         /** 
-         * Constructs a new <code>PersistenceException</code> exception 
-         * with the specified cause.
-         * @param   cause     the cause.
+         * 新しい<code>PersistenceException</code>例外を指定されたと原因で生成します。
+         * @param   cause     原因
          */
 	public PersistenceException(Throwable cause) {
 		super(cause);
