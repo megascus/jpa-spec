@@ -15,7 +15,7 @@
 package javax.persistence; 
 
 /**
- * Specifies the mode of a parameter of a stored procedure query.
+ * ストアドプロシージャのクエリーのパラメーターのモードを指定します。
  *
  * @see StoredProcedureQuery
  * @see StoredProcedureParameter
@@ -25,23 +25,24 @@ package javax.persistence;
 public enum ParameterMode {
 
     /**
-     *  Stored procedure input parameter
+     * ストアドプロシージャの入力パラメーター
      */
     IN,
 
     /**
-     *  Stored procedure input/output parameter
+     * ストアドプロシージャの入力/出力パラメーター
      */
     INOUT,
 
     /**
-     *  Stored procedure output parameter
+     * ストアドプロシージャの出力パラメーター
      */
     OUT,
 
     /**
-     *  Stored procedure reference cursor parameter.   Some databases use
-     *  REF_CURSOR parameters to return result sets from stored procedures.
+     * ストアドプロシージャの参照カーソルパラメーター。
+     * 
+     * いくつかのデータベースではREF_CURSORパラメーターをストアドプロシージャからの結果セットを戻すために使用できます。
      */
     REF_CURSOR,
 
