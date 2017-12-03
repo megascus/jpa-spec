@@ -16,39 +16,32 @@
 package javax.persistence;
 
 /**
- * Utility interface between the application and the persistence
- * provider(s). 
+ * アプリケーションと永続性ユニットの間のユーティリティインターフェースです。
  * 
- * <p> The <code>PersistenceUtil</code> interface instance obtained from the 
- * {@link Persistence} class is used to determine the load state of an 
- * entity or entity attribute regardless of which persistence 
- * provider in the environment created the entity.
+ * <p> このインタフェースのメソッドは、この永続ユニットまたは新しいエンティティインスタンスのエンティティマネージャから取得または管理されたエンティティインスタンスに対してのみ呼び出す必要があります。
+ * <code>PersistenceUtil</code>インターフェースのインスタンスは{@link Persistence}クラスから得られ、エンティティが作成された環境の永続性プロバイダに関係なくエンティティやエンティティの属性のロード状態を測定するために使用されます。
  *
  * @since Java Persistence 2.0
  */
 public interface PersistenceUtil {
 
     /**
-     * Determine the load state of a given persistent attribute.
-     * @param entity  entity containing the attribute
-     * @param attributeName name of attribute whose load state is
-     *        to be determined
-     * @return false if entity's state has not been loaded or
-     *  if the attribute state has not been loaded, else true
+     * 与えられたエンティティの属性のロード状態を測定します。
+     * @param entity  属性が含まれるエンティティ
+     * @param attributeName ロード状態を測定される属性の名前
+     * @return エンティティがロードされてない状態の場合や属性がロードされてない状態の場合はfalse、そうでない場合はtrue
      */
     public boolean isLoaded(Object entity, String attributeName);
 
     /**
-     * Determine the load state of an entity.
-     * This method can be used to determine the load state 
-     * of an entity passed as a reference.  An entity is
-     * considered loaded if all attributes for which 
-     * <code>FetchType.EAGER</code> has been specified have been loaded.
-     * <p> The <code>isLoaded(Object, String)</code> method should be used to 
-     * determine the load state of an attribute.
-     * Not doing so might lead to unintended loading of state.
-     * @param entity whose load state is to be determined
-     * @return false if the entity has not been loaded, else true
+     * 与えられたエンティティのロード状態を測定します。
+     * 
+     * このメソッドはリファレンスが渡されるエンティティのロード状態を測定するために使用できます。
+     * <code>FetchType.EAGER</code>が指定されているすべての属性がロードされているときにエンティティはロードされているとみなされます。
+     * <p> 属性のロード状態を測定するためには<code>isLoaded(Object, String)</code>メソッドを使用する必要があります。
+     * そうしない場合、意図しない状態のロードにつながる可能性があります。
+     * @param entity ロード状態を測定されるエンティティ
+     * @return エンティティがロードされていない場合はfalse、そうでない場合はtrue
      */
     public boolean isLoaded(Object entity);
 }
