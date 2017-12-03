@@ -17,6 +17,8 @@ package javax.persistence;
 
 /**
  * <code>java.util.Date</code>または<code>java.util.Calendar</code>への特別なマッピングを示すために使用される型です。
+ * 
+ * <p>訳注：Java 8から増えたDate and Time APIのLocalDate等では使用する必要はありません。
  *
  * @since Java Persistence 1.0
  */
