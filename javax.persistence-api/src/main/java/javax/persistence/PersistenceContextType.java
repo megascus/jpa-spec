@@ -16,17 +16,17 @@
 package javax.persistence;
 
 /**
- * Specifies whether a transaction-scoped or extended 
- * persistence context is to be used in {@link PersistenceContext}. 
- * If not specified, a transaction-scoped persistence context is used.
+ * {@link PersistenceContext}でトランザクションスコープまたは拡張された永続化コンテキストを使用するかどうかを指定します。
+ * 
+ * 指定されていない場合はトランザクションスコープの永続化コンテキストが使用されます。
  *
  * @since Java Persistence 1.0
  */
 public enum PersistenceContextType {
 
-    /** Transaction-scoped persistence context */
+    /** トランザクションスコープの永続化コンテキスト */
     TRANSACTION,
 
-    /** Extended persistence context */
+    /** 拡張された永続化コンテキスト */
     EXTENDED
 }

@@ -21,9 +21,9 @@ import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.*;
 
 /**
- * Declares one or more {@link PersistenceContext} annotations.
- * It is used to express a dependency on container-managed
- * entity manager persistence contexts.
+ * 1つ以上の{@link PersistenceContext}アノテーションを宣言します。
+ * 
+ * コンテナ管理のエンティティマネージャーの永続化コンテキストに依存することを表すために使用されます。
  *
  *@see PersistenceContext
  *
@@ -33,7 +33,7 @@ import static java.lang.annotation.RetentionPolicy.*;
 @Retention(RUNTIME)
 public @interface PersistenceContexts {
 
-    /** (Required) One or more <code>PersistenceContext</code> annotations. */
+    /** (必須) 1つ以上の<code>PersistenceContext</code>アノテーション */
     PersistenceContext[] value();
 
 }
