@@ -23,8 +23,7 @@ import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.*;
 
 /**
- * Expresses a dependency on a container-managed {@link EntityManager} and its
- * associated persistence context.
+ * コンテナ管理の{@link EntityManager}および関連する永続化コンテキストの依存関係を表現します。
  *
  * @since Java Persistence 1.0
  */
@@ -35,41 +34,34 @@ import static java.lang.annotation.RetentionPolicy.*;
 public @interface PersistenceContext {
 
     /**
-     * (Optional) The name by which the entity manager is to be accessed in the 
-     * environment referencing context; not needed when dependency 
-     * injection is used.
+     * (オプション) 環境参照のコンテキストでエンティティマネージャにアクセスする際の名前。DIを使用する場合は指定不要です。
      */
     String name() default "";
 
     /**
-     * (Optional) The name of the persistence unit as defined in the
-     * <code>persistence.xml</code> file. If the <code>unitName</code> element is
-     * specified, the persistence unit for the entity manager that is
-     * accessible in JNDI must have the same name.
+     * (オプション) <code>persistence.xml</code>に定義された永続化ユニットの名前。
+     * 
+     * <code>unitName</code>エレメントが指定されている場合、エンティティマネージャーのための永続化ユニットはJNDIで同じ名前でアクセスできなければなりません。
      */
     String unitName() default "";
 
     /**
-     * (Optional) Specifies whether a transaction-scoped persistence context 
-     * or an extended persistence context is to be used.
+     * (オプション) トランザクションスコープの永続化コンテキストもしくは拡張された永続化コンテキストのどちらを使用するか指定します。
      */
     PersistenceContextType type() default PersistenceContextType.TRANSACTION;
 
     /**
-     * (Optional) Specifies whether the persistence context is always
-     * automatically synchronized with the current transaction or whether
-     * the persistence context must be explicitly joined to the current
-     * transaction by means of the EntityManager 
-     * {@link EntityManager#joinTransaction joinTransaction} method.
+     * (オプション) 永続化コンテキストが常に現在のトランザクションと自動的に同期をするか、
+     * 永続化コンテキストはEntityManagerの{@link EntityManager#joinTransaction joinTransaction}メソッドを使用して明示的にトランザクションに参加する必要があるかを指定します。
      * @since Java Persistence 2.1
      */
     SynchronizationType synchronization() default SynchronizationType.SYNCHRONIZED;
 
     /**
-     * (Optional) Properties for the container or persistence
-     * provider.  Vendor specific properties may be included in this
-     * set of properties.  Properties that are not recognized by
-     * a vendor are ignored.  
+     * (オプション) コンテナや永続化プロバイダのためのプロパティー。
+     * 
+     * ベンダー固有のプロパティーはこのプロパティーのセットに含めることができます。
+     * ベンダーによって認識されていないプロパティーは無視されます。
      */ 
     PersistenceProperty[] properties() default {};
 }
