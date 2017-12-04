@@ -22,43 +22,30 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies the ordering of the elements of a collection valued
- * association or element collection at the point when the association
- * or collection is retrieved.
+ * コレクション値の関連もしくはコレクションが取得された時点でのそれらの順序を指定します。
  * 
- * <p> The syntax of the <code>value</code> ordering element is an 
- * <code>orderby_list</code>, as follows:
+ * <p> <code>orderby_list</code>の<code>value</code>順序要素の構文は以下の通りです。
  * 
  * <pre>
  *    orderby_list::= orderby_item [,orderby_item]*
  *    orderby_item::= [property_or_field_name] [ASC | DESC]
  * </pre>
  * 
- * <p> If <code>ASC</code> or <code>DESC</code> is not specified, 
- * <code>ASC</code> (ascending order) is assumed.
+ * <p> <code>ASC</code>も<code>DESC</code>も指定されていない場合、<code>ASC</code> (昇順)が指定されます。
  *
- * <p> If the ordering element is not specified for an entity association,
- * ordering by the primary key of the associated entity is assumed.
+ * <p> エンティティの関連に順序要素が指定されていない場合、関連したエンティティの主キーによる順序付けが想定されます。
  *
- * <p> The property or field name must correspond to that of a 
- * persistent property or field of the associated class or embedded class
- * within it.  The properties or fields used in the ordering must correspond to 
- * columns for which comparison operators are supported.
+ * <p> プロパティーまたはフィールド名は、関連するクラスまたはその内部の組み込みクラスの永続化プロパティーまたはフィールドの名前に対応する必要があります。
+ * 順序付けで使用されるプロパティーまたはフィールドは、比較演算子がサポートされるカラムに対応していなければなりません。
  *
- * <p> The dot (".") notation is used to refer to an attribute within an
- * embedded attribute.  The value of each identifier used with the dot
- * notation is the name of the respective embedded field or property.
+ * <p> ドット(".")表記は、組み込み属性内の属性を参照するために使用されます。
+ * ドット表記で使用される各識別子の値は、それぞれの組み込みフィールドまたはプロパティの名前です。
  *
- * <p> The <code>OrderBy</code> annotation may be applied to an element
- * collection. When <code>OrderBy</code> is applied to an element collection of
- * basic type, the ordering will be by value of the basic objects and
- * the property or field name is not used. When specifying an ordering
- * over an element collection of embeddable type, the dot notation
- * must be used to specify the attribute or attributes that determine
- * the ordering.  
+ * <p> <code>OrderBy</codeアノテーションは要素コレクションに適用することができます。
+ * <code>OrderBy</code>が基本型の要素コレクションに適用された場合、順序付けは基本型の値で行われ、プロパティーやフィールド名は使用されないでしょう。
+ * 順序付けが組み込み型の要素コレクションに順序付けを指定する時には、順序を決定する属性を指定するためにドット表記を使用する必要があります。
  *
- * <p> The <code>OrderBy</code> annotation is not used when an order
- * column is specified.
+ * <code>OrderBy</code>アノテーションは<code>OrderColumn</code>が指定されている場合は使用しません。
  *
  * 
  * <pre>
@@ -120,18 +107,18 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface OrderBy {
 
    /**
-    * An <code>orderby_list</code>.  Specified as follows:
+    * <code>orderby_list</code>。
+    *
+    * 以下のように指定します。
     *
     * <pre>
     *    orderby_list::= orderby_item [,orderby_item]*
     *    orderby_item::= [property_or_field_name] [ASC | DESC]
     * </pre>
     *
-    * <p> If <code>ASC</code> or <code>DESC</code> is not specified,
-    * <code>ASC</code> (ascending order) is assumed.
+    * <p> <code>ASC</code>も<code>DESC</code>も指定されていない場合、<code>ASC</code> (昇順)が指定されます。
     *
-    * <p> If the ordering element is not specified, ordering by
-    * the primary key of the associated entity is assumed.
+    * <p> 順序要素が指定されていない場合、関連したエンティティの主キーによる順序付けが想定されます。
     */
     String value() default "";
 }
