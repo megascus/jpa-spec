@@ -16,10 +16,9 @@
 package javax.persistence;
 
 /**
- * Thrown by the persistence provider when an optimistic locking conflict
- * occurs. This exception may be thrown as part of an API call, a flush or at
- * commit time. The current transaction, if one is active, will be marked for
- * rollback.
+ * 楽観ロックで競合が発生したときに永続化プロバイダによって投げられます。
+ * この例外はフラッシュやコミット時のAPI呼び出しの一部として投げられます。
+ * 現在のトランザクションがアクティブである場合はロールバックするようにマークされます。
  * 
  * @see EntityManager#find(Class, Object, LockModeType)
  * @see EntityManager#find(Class, Object, LockModeType, java.util.Map)
@@ -31,11 +30,12 @@ package javax.persistence;
 public class OptimisticLockException extends PersistenceException {
 
 	/**
-	 * The object that caused the exception
+	 * このオブジェクトの原因となった例外
 	 */
 	Object entity;
 
 	/**
+	 * 新しい<code>OptimisticLockException</code>例外を<code>null</code>を詳細メッセージとして生成します。
 	 * Constructs a new <code>OptimisticLockException</code> exception with
 	 * <code>null</code> as its detail message.
 	 */
@@ -44,61 +44,43 @@ public class OptimisticLockException extends PersistenceException {
 	}
 
 	/**
-	 * Constructs a new <code>OptimisticLockException</code> exception with the
-	 * specified detail message.
-	 * 
-	 * @param message
-	 *            the detail message.
+     * 新しい<code>OptimisticLockException</code>例外を指定された詳細メッセージで生成します。
+     * @param   message   詳細メッセージ
 	 */
 	public OptimisticLockException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Constructs a new <code>OptimisticLockException</code> exception with the
-	 * specified detail message and cause.
-	 * 
-	 * @param message
-	 *            the detail message.
-	 * @param cause
-	 *            the cause.
+     * 新しい<code>OptimisticLockException</code>例外を指定された詳細メッセージと原因で生成します。
+     * @param   message   詳細メッセージ
+     * @param   cause     原因
 	 */
 	public OptimisticLockException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Constructs a new <code>OptimisticLockException</code> exception with the
-	 * specified cause.
-	 * 
-	 * @param cause
-	 *            the cause.
+     * 新しい<code>OptimisticLockException</code>例外を指定された原因で生成します。
+     * @param   cause     原因
 	 */
 	public OptimisticLockException(Throwable cause) {
 		super(cause);
 	}
 
 	/**
-	 * Constructs a new <code>OptimisticLockException</code> exception with the
-	 * specified entity.
-	 * 
-	 * @param entity
-	 *            the entity.
+     * 新しい<code>OptimisticLockException</code>例外を指定されたエンティティで生成します。
+     * @param   entity     エンティティ
 	 */
 	public OptimisticLockException(Object entity) {
 		this.entity = entity;
 	}
 
 	/**
-	 * Constructs a new <code>OptimisticLockException</code> exception with the
-	 * specified detail message, cause, and entity.
-	 * 
-	 * @param message
-	 *            the detail message.
-	 * @param cause
-	 *            the cause.
-	 * @param entity
-	 *            the entity.
+     * 新しい<code>OptimisticLockException</code>例外を指定された詳細メッセージと原因とエンティティで生成します。
+     * @param   message   詳細メッセージ
+     * @param   cause     原因
+     * @param   entity     エンティティ
 	 */
 	public OptimisticLockException(String message, Throwable cause, Object entity) {
 		super(message, cause);
@@ -106,9 +88,8 @@ public class OptimisticLockException extends PersistenceException {
 	}
 
 	/**
-	 * Returns the entity that caused this exception.
-	 * 
-	 * @return the entity.
+     * この例外の原因となったエンティティを返します。
+     * @return エンティティ
 	 */
 	public Object getEntity() {
 		return this.entity;
