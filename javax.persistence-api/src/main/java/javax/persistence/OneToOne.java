@@ -26,7 +26,7 @@ import static javax.persistence.FetchType.EAGER;
 /**
  * 1対1の多重度を持つ別のエンティティへの単一値の関連付けを指定します。
  * 
- * 通常は関連するターゲットエンティティは参照されているオブジェクトの型から推論できるため明示的に指定する必要はありません。
+ * 通常は関連する対象のエンティティは参照されているオブジェクトの型から推論できるため明示的に指定する必要はありません。
  * 関係が双方向である場合、被所有側のエンティティは<code>OneToOne</code>アノテーションの<code>mappedBy</code>要素を使用して、
  * 所有側のエンティティの関係を示すフィールドまたはプロパティを指定する必要があります。
  * 
@@ -52,7 +52,7 @@ import static javax.persistence.FetchType.EAGER;
  *    public Customer getCustomer() { return customer; }
  *
  *
- *    Example 2: ソースとターゲットの両方が同じ主キー値を共有することを前提とした1対1の関連付け
+ *    Example 2: ソースと対象の両方が同じ主キー値を共有することを前提とした1対1の関連付け
  *
  *    // On Employee class:
  *
@@ -115,7 +115,7 @@ public @interface OneToOne {
     Class targetEntity() default void.class;
 
     /**
-     * (オプション) 関連付けのターゲットにカスケードする必要のある操作。
+     * (オプション) 関連付けの対象にカスケードする必要のある操作。
      *
      * <p> デフォルトではすべての操作はカスケードされません。
      */
