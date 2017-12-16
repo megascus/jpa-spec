@@ -16,12 +16,9 @@
 package javax.persistence;
 
 /**
- * Thrown by the persistence provider when {@link
- * Query#getSingleResult Query.getSingleResult()} or {@link
- * TypedQuery#getSingleResult TypedQuery.getSingleResult()} is executed on a
- * query and there is more than one result from the query. This
- * exception will not cause the current transaction, if one is active,
- * to be marked for rollback.
+ * クエリーの{@link Query#getSingleResult Query.getSingleResult()}や{@link TypedQuery#getSingleResult TypedQuery.getSingleResult()}が実行され、
+ * 2件以上の結果が返ってきた場合に永続化プロバイダによって投げられます。
+ * この例外では現在のトランザクションがアクティブな場合にロールバックするというマークは付きません。
  *
  * @see Query#getSingleResult()
  * @see TypedQuery#getSingleResult()
@@ -31,17 +28,16 @@ package javax.persistence;
 public class NonUniqueResultException extends PersistenceException {
 
         /** 
-         * Constructs a new <code>NonUniqueResultException</code> exception 
-         * with <code>null</code> as its detail message.
+         * 新しい<code>NonUniqueResultException</code>例外を<code>null</code>を詳細メッセージとして生成します。
          */
 	public NonUniqueResultException() {
 		super();
 	}
 
         /** 
-         * Constructs a new <code>NonUniqueResultException</code> exception 
-         * with the specified detail message.
-         * @param   message   the detail message.
+	 * 新しい<code>NonUniqueResultException</code>例外を指定された詳細メッセージで生成します。
+	 * 
+	 * @param message 詳細メッセージ
          */
 	public NonUniqueResultException(String message) {
 		super(message);
