@@ -20,9 +20,10 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies multiple named stored procedure queries.  Query names
- * are scoped to the persistence unit.  The <code>NamedStoredProcedureQueries</code> 
- * annotation can be applied to an entity or mapped superclass.
+ * 複数の名前付きストアドプロシージャを指定します。
+ * 
+ * クエリーの名前は永続化ユニット内で共有されます。
+ * <p><code>NamedStoredProcedureQuery</code>アノテーションはエンティティ({@link Entity}の付いたクラス)やマップドスーパークラス({@link MappedSuperclass}の付いたクラス)に適用できます。
  *
  * @see NamedStoredProcedureQuery
  *
@@ -32,6 +33,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface NamedStoredProcedureQueries { 
 
-    /** (Required) Array of <code>NamedStoredProcedureQuery</code> annotations. */
+    /** (必須) <code>NamedStoredProcedureQuery</code>アノテーションの配列。 */
     NamedStoredProcedureQuery[] value ();
 }
