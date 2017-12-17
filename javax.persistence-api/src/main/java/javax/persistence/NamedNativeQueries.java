@@ -21,9 +21,9 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies multiple native SQL named queries.  Query names
- * are scoped to the persistence unit.  The <code>NamedNativeQueries</code> 
- * annotation can be applied to an entity or mapped superclass.
+ * 複数のネイティブSQLクエリーを指定します。
+ * クエリーの名前は永続化ユニット内で共有されます。
+ * <code>NamedNativeQueries</code> アノテーションはエンティティ({@link Entity}の付いたクラス)やマップドスーパークラス({@link MappedSuperclass}の付いたクラス)に適用できます。
  *
  * @see NamedNativeQuery
  *
@@ -33,6 +33,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface NamedNativeQueries { 
 
-    /** (Required) Array of <code>NamedNativeQuery</code> annotations. */
+    /** (必須) <code>NamedNativeQuery</code>アノテーションの配列。 */
     NamedNativeQuery[] value ();
 }

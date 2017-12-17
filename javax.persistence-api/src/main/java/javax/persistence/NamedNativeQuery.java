@@ -23,10 +23,9 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies a named native SQL query.
- * Query names are scoped to the persistence unit.
- * The <code>NamedNativeQuery</code> annotation can be applied to an 
- * entity or mapped superclass.
+ * 名前付きネイティブSQLクエリーを指定します。
+ * クエリーの名前は永続化ユニット内で共有されます。
+ * <code>NamedNativeQuery</code>アノテーションはエンティティ({@link Entity}の付いたクラス)やマップドスーパークラス({@link MappedSuperclass}の付いたクラス)に適用できます。
  *
  * @since Java Persistence 1.0
  */
@@ -36,20 +35,19 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface NamedNativeQuery { 
 
     /**
-     * The name used to refer to the query with the {@link EntityManager} 
-     * methods that create query objects.
+     * クエリーオブジェクトを作成する {@link EntityManager}のメソッドでクエリを参照するために使用される名前。
      */
     String name();
 
-    /** The SQL query string. */
+    /** SQLクエリー文字列 */
     String query();
 
-    /** Query properties and hints.  (May include vendor-specific query hints.) */
+    /** クエリーのプロパティーとヒント。(ベンダー固有のクエリーのヒントが含まれます。) */
     QueryHint[] hints() default {};
 
-    /** The class of the result. */
+    /** 結果のクラス。 */
     Class resultClass() default void.class; 
 
-    /** The name of a {@link SqlResultSetMapping}, as defined in metadata. */
+    /** メタデータの中で定義された{@link SqlResultSetMapping}の名前。 */
     String resultSetMapping() default "";
 }
