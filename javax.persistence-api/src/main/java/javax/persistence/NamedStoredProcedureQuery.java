@@ -22,46 +22,33 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;  
 
 /**
- * Specifies and names a stored procedure, its parameters, and its result type.
+ * ストアドプロシージャとそのパラメーターと結果の型を指定し、名前を付けます。
  *
- * <p>The <code>NamedStoredProcedureQuery</code> annotation can be applied to an 
- * entity or mapped superclass.
+ * <p><code>NamedStoredProcedureQuery</code>アノテーションはエンティティ({@link Entity}の付いたクラス)やマップドスーパークラス({@link MappedSuperclass}の付いたクラス)に適用できます。
  *
- * <p>The <code>name</code> element is the name that is passed as an argument to the
- * {@link EntityManager#createNamedStoredProcedureQuery}
- * method to create an executable <code>StoredProcedureQuery</code> object.
- * Names are scoped to the persistence unit.
+ * <p><code>name</code>要素は{@link EntityManager#createNamedStoredProcedureQuery}メソッドに実行可能な<code>StoredProcedureQuery</code>オブジェクトを作成するときに引数として渡される名前です。
+ * 名前は永続化ユニット内で共有されます。
  *
- * <p>The <code>procedureName</code> element is the name of the stored procedure in
- * the database.
+ * <p><code>procedureName</code>要素はデータベース内でのストアドプロシージャの名前です。
  *
- * <p>The parameters of the stored procedure are specified by the
- * <code>parameters</code> element. All parameters must be specified in the order in
- * which they occur in the parameter list of the stored procedure.
+ * <p>ストアドプロシージャのパラメーターは<code>parameters</code>要素で指定します。
+ * すべてのパラメーターをストアドプロシージャのパラメーターリスト内に出現する順序で指定する必要があります。
  *
- * <p>The <code>resultClasses</code> element refers to the class (or classes) that are
- * used to map the results. The <code>resultSetMappings</code> element names one or
- * more result set mappings, as defined by the {@link SqlResultSetMapping}
- * annotation.
+ * <p><code>resultClasses</code>要素は結果をマッピングするために使用されるクラスを示します。
+ * {@link SqlResultSetMapping}アノテーションで定義されているのと同じで<code>resultSetMappings</code>要素は1つ以上の結果セットのマッピングを指定します。
  *
- * <p>If there are multiple result sets, it is assumed that they will be
- * mapped using the same mechanism &#8212; e.g., either all via a set of
- * result class mappings or all via a set of result set mappings. The
- * order of the specification of these mappings must be the same as
- * the order in which the result sets will be returned by the stored
- * procedure invocation. If the stored procedure returns one or more
- * result sets and no <code>resultClasses</code> or <code>resultSetMappings</code>
- * element is specified, any result set will be returned as a list of type
- * Object[]. The combining of different strategies for the mapping of
- * stored procedure result sets is undefined.
+ * <p>複数の結果セットがある場合、それらは同じメカニズムを使用してマッピングされると想定されます。
+ * たとえば、結果クラスマッピングのセットもしくは結果セットマッピングのセットのどちらかすべてを介してマッピングされます。
+ * これらのマッピングの指定の順序はストアドプロシージャの呼び出しによって結果セットが戻される順序と同じでなければなりません。
+ * ストアドプロシージャが1つ以上の結果セットを返し、<code>resultClasses</code>や<code>resultSetMappings</code>要素のいずれも指定されていない場合、
+ * 結果セットはObjectの配列のリストとして返されます。
+ * ストアドプロシージャの結果セットのマッピングに異なる戦略を組み合わせる方法は定義されていません。
  *
- * <p>The <code>hints</code> element may be used to specify query properties and
- * hints. Properties defined by this specification must be observed by
- * the provider. Vendor-specific hints that are not recognized by a
- * provider must be ignored.
+ * <p><code>hints</code>要素はクエリーのプロパティやヒントを指定するのに使用できます。
+ * この仕様(JPA Spec.)では定義されているプロパティはプロバイダによって監視されなければなりません。
+ * プロバイダによって認識されないベンダー固有のヒントは無視される必要があります。
  *
- * <p>All parameters of a named stored procedure query must be specified
- * using the <code>StoredProcedureParameter</code> annotation.
+ * <p>名前付きストアドプロシージャクエリー内のすべてのパラメーターを<code>StoredProcedureParameter</code>を使用して指定する必要があります。
  *
  * @see StoredProcedureQuery
  * @see StoredProcedureParameter
@@ -74,28 +61,27 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface NamedStoredProcedureQuery { 
 
     /**
-     * The name used to refer to the query with the {@link EntityManager} 
-     * methods that create stored procedure query objects.
+     * {@link EntityManager}のメソッドでストアドプロシージャのクエリーオブジェクトを作成するときの参照として使用される名前。
      */
     String name();
 
-    /** The name of the stored procedure in the database. */
+    /** データベース内のストアドプロシージャの名前。 */
     String procedureName();
 
     /**
-     *  Information about all parameters of the stored procedure.
-     *  All parameters must be specified in the order in which they
-     *  occur in the parameter list of the stored procedure.
+     * ストアドプロシージャのすべてのパラメーターの情報。
+     * 
+     * すべてのパラメーターはストアドプロシージャのパラメーターリスト内に出現する順序で指定する必要があります。
      */
     StoredProcedureParameter[] parameters() default {};
 
-    /** The class or classes that are used to map the results. */
+    /** 結果のマッピングに使用されるクラス。 */
     Class[] resultClasses() default {}; 
 
-    /** The names of one or more result set mappings, as defined in metadata. */
+    /** メタデータとして定義される一つ以上の結果セットのマッピングの名前。 */
     String[] resultSetMappings() default {};
 
-    /** Query properties and hints.  (May include vendor-specific query hints.) */
+    /** クエリーのプロパティとヒント。(ベンダー固有のクエリーのヒントが含まれます。) */
     QueryHint[] hints() default {};
 
 }
