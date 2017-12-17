@@ -241,6 +241,10 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
                     <additionalparam>-Xdoclint:all</additionalparam>
+                    <bottom>
+<![CDATA[Translated by <a href="https://twitter.com/megascus">@megascus</a>.
+]]>
+                    </bottom>
                     <reportOutputDirectory>../docs</reportOutputDirectory>
                     <locale>ja_JP</locale>
                 </configuration>
