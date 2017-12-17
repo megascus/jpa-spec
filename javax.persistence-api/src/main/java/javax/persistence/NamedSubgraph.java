@@ -20,13 +20,11 @@ import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * A <code>NamedSubgraph</code> is a member element of a
- * <code>NamedEntityGraph</code>.  The <code>NamedSubgraph</code> is
- * only referenced from within a NamedEntityGraph and can not be
- * referenced independently.  It is referenced by its <code>name</code>
- * from a <code>NamedAttributeNode</code> element of the 
- * <code>NamedEntityGraph</code>.
- *
+ * <code>NamedSubgraph</code>は<code>NamedEntityGraph</code>のメンバー要素です。
+ * 
+ * <code>NamedSubgraph</code>はNamedEntityGraph内からのみ参照され、単独で参照することはできません。
+ * <code>NamedSubgraph</code>は<code>NamedEntityGraph</code>の<code>NamedAttributeNode</code>要素からその<code>name</code>で参照されます。
+ * 
  * @see NamedEntityGraph
  * @see NamedAttributeNode
  *
@@ -37,23 +35,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface NamedSubgraph {
 
     /**
-     * (Required) The name of the subgraph as referenced from a
-     * NamedAttributeNode element.
+     * (必須) NamedAttributeNode要素から参照されるサブグラフの名前。
      */
     String name();
 
     /**
-     * (Optional) The type represented by this subgraph.  The element
-     * must be specified when this subgraph is extending a definition
-     * on behalf of a subclass.
+     * (オプション) このサブグラフによって表される型。
+     * 
+     * このサブグラフがサブクラスに代わって定義を拡張しているときは要素を指定する必要があります。
      */
     Class type() default void.class;
 
     /** 
-     * (Required) The list of the attributes of the class that must
-     * be included.  If the named subgraph corresponds to a subclass
-     * of the class referenced by the corresponding attribute node,
-     * then only subclass-specific attributes are listed.
+     * (必須) 含まなければならないクラスの属性のリスト。
+     * 
+     * 名前付きサブグラフが対応する属性ノードによって参照されるクラスのサブクラスに対応する場合、サブクラス固有の属性のみがリストされます。
      */
     NamedAttributeNode[] attributeNodes();
 }
