@@ -242,7 +242,7 @@
                 <configuration>
                     <additionalparam>-Xdoclint:all</additionalparam>
                     <bottom>
-<![CDATA[Translated by <a href="https://twitter.com/megascus">@megascus</a>.
+<![CDATA[Translated by <a href="https://twitter.com/megascus" target="_top">@megascus</a>.
 ]]>
                     </bottom>
                     <reportOutputDirectory>../docs</reportOutputDirectory>
