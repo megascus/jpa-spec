@@ -23,7 +23,7 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Used to specify the path and boundaries for a find operation or query.
+ * 検索操作やクエリーのパスと境界を指定するために使用されます。
  *
  * @since Java Persistence 2.1
  */
@@ -33,38 +33,34 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface NamedEntityGraph {
 
     /**
-     * (Optional) The name of the entity graph.
-     * Defaults to the entity name of the root entity.
+     * (オプション) エンティティグラフの名前。
+     * デフォルトはルートエンティティのエンティティ名です。
      */
     String name() default "";
 
     /**
-     * (Optional) A list of attributes of the entity that are included in
-     *  this graph.
+     * (オプション) このグラフに含まれるエンティティの属性のリスト。
      */
     NamedAttributeNode[] attributeNodes() default {};
 
     /**
-     * (Optional) Includes all of the attributes of the annotated
-     * entity class as attribute nodes in the NamedEntityGraph without
-     * the need to explicitly list them.  Included attributes can
-     * still be fully specified by an attribute node referencing a
-     * subgraph.
+     * (オプション) アノテーションの付いたエンティティクラスのすべての属性を明示的にNamedEntityGraphの属性ノードとして一覧化する必要なしに含めます。
+     * 
+     * 含められた属性はサブグラフを参照する属性ノードによって完全に指定することができます。
      */
     boolean includeAllAttributes() default false;
 
     /**
-     * (Optional) A list of subgraphs that are included in the
-     * entity graph. These are referenced by name from NamedAttributeNode
-     * definitions.
+     * (オプション) エンティティグラフに含まれるサブグラフのリスト。
+     * 
+     * これらは、NamedAttributeNode定義から名前で参照されます。
      */
     NamedSubgraph[] subgraphs() default {};
 
     /**
-     * (Optional) A list of subgraphs that will add additional
-     * attributes for subclasses of the annotated entity class to the
-     * entity graph.  Specified attributes from superclasses are
-     * included in subclasses.
+     * (オプション) アノテーションの付いたエンティティクラスのサブクラスの追加の属性をエンティティグラフに追加するサブグラフのリスト。
+     * 
+     * スーパークラスの指定された属性はサブクラスに含まれます。
      */
     NamedSubgraph[] subclassSubgraphs() default {};
 }

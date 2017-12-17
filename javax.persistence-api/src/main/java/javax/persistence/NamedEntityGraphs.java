@@ -21,7 +21,7 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Used to group <code>NamedEntityGraph</code> annotations.  
+ * <code>NamedEntityGraph</code>アノテーションをグループ化するのに使用します。 
  *
  * @see NamedEntityGraph
  * @since Java Persistence 2.1
