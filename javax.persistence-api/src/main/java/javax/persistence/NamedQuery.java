@@ -24,12 +24,11 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /** 
- * Specifies a static, named query in the Java Persistence query language.
- * Query names are scoped to the persistence unit.
- * The <code>NamedQuery</code> annotation can be applied to an entity or mapped superclass.
+ * JPQL(Java Persistence query language)の名前付きクエリーを静的に指定します。
+ * クエリーの名前は永続化ユニット内で共有されます。
+ *  <p><code>NamedQuery</code>アノテーションはエンティティ({@link Entity}の付いたクラス)やマップドスーパークラス({@link MappedSuperclass}の付いたクラス)に適用できます。
  *
- * <p> The following is an example of the definition of a named query 
- * in the Java Persistence query language:
+ * <p> 以下はJPQLの名前付きクエリーの定義の例です。
  *
  * <pre>
  *    &#064;NamedQuery(
@@ -38,7 +37,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *    )
  * </pre>
  *
- * <p> The following is an example of the use of a named query:
+ * <p> 以下は名前付きクエリーの使用方法の例です。
  *
  * <pre>
  *    &#064;PersistenceContext
@@ -57,26 +56,25 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface NamedQuery {
 
     /** 
-     * (Required) The name used to refer to the query with the {@link EntityManager} 
-     * methods that create query objects. 
+     * (必須) クエリーオブジェクトを作成する {@link EntityManager}のメソッドでクエリを参照するために使用される名前。
      */
     String name();
 
-    /** (Required) 
-     * The query string in the Java Persistence query language. 
+    /** 
+     * (必須) JPQLのクエリー文字列。
      */
     String query();
 
     /** 
-     * (Optional) The lock mode type to use in query execution.  If a <code>lockMode</code>
-     * other than <code>LockModeType.NONE</code> is specified, the query must be executed in
-     * a transaction and the persistence context joined to the transaction.
+     * (オプション) クエリー実行で使用されるロックモードタイプ。
+     * <code>lockMode</code>に<code>LockModeType.NONE</code>以外が指定されている場合、クエリーはトランザクション内で実行されなければならず、
+     * 永続化コンテキストはトランザクションに参加する必要があります。
      * @since Java Persistence 2.0
      */
     LockModeType lockMode() default NONE;
     
-    /** (Optional) Query properties and hints.  May include
-     * vendor-specific query hints. 
+    /**
+     * (オプション) クエリープロパティとヒント。ベンダー固有のヒントを含めることができます。
      */
     QueryHint[] hints() default {};
 }
