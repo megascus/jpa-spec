@@ -23,13 +23,11 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 
 /**
- * Supports composite map keys that reference entities.  
- * <p> The <code>MapKeyJoinColumns</code> annotation groups
- * <code>MapKeyJoinColumn</code> annotations.  When the
- * <code>MapKeyJoinColumns</code> annotation is used, both the
- * <code>name</code> and the <code>referencedColumnName</code>
- * elements must be specified in each of the grouped
- * <code>MapKeyJoinColumn</code> annotations.
+ * エンティティを参照する複合マップキーをサポートします。
+ * 
+ * <p> <code>MapKeyJoinColumns</code>アノテーションは<code>MapKeyJoinColumn</code>アノテーションをまとめます。
+ * <code>MapKeyJoinColumns</code>アノテーションを使用する場合、
+ * まとめられた<code>MapKeyJoinColumn</code>アノテーションごとに<code>name</code>と<code>referencedColumnName</code>要素の両方を指定する必要があります。
  * 
  * @see MapKeyJoinColumn
  * @see ForeignKey
@@ -40,20 +38,15 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 @Retention(RUNTIME)
 public @interface MapKeyJoinColumns {
 	/**
-	 * (Required) The map key join columns that are used to map to the entity
-	 * that is the map key.
+	 * (必須) マップキーのエンティティをマッピングするのに使用されるマップキー結合カラム。
 	 */
 	MapKeyJoinColumn[] value();
 
         /**
-         *  (Optional) Used to specify or control the generation of a
-         *  foreign key constraint when table generation is in effect.
-         *  If both this element and the <code>foreignKey</code>
-         *  element of any of the <code>MapKeyJoinColumn</code>
-         *  elements are specified, the behavior is undefined.  If no
-         *  foreign key annotation element is specified in either
-         *  location, the persistence provider's default foreign key
-         *  strategy will apply.
+         *  (オプション) テーブル作成が有効なときに作成される外部キー制約を指定もしくはコントロールするために使用されます。
+         * 
+         *  この要素といずれかの<code>MapKeyJoinColumn</code>要素内の<code>foreignKey</code>要素の両方が指定されていた場合のふるまいは定義されません。
+         *  両方の場所で外部キーアノテーション要素が指定されていない場合は永続化プロバイダのデフォルトの外部キー戦略が適用されます。
          *
          *  @since Java Persistence 2.1
          */
