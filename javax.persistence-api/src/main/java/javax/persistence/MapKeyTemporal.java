@@ -22,14 +22,12 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * This annotation must be specified for persistent map keys of type 
- * {@link java.util.Date} and {@link java.util.Calendar}. It may only be 
- * specified for map keys of these types.
+ * このアノテーションは{@link java.util.Date}型と{@link java.util.Calendar}型の永続マップキーに対して指定する必要があります。
  * 
- * <p> The <code>MapKeyTemporal</code> annotation can be applied to an
- * element collection or relationship of type <code>java.util.Map</code>
- * in conjunction with the <code>ElementCollection</code>,
- * <code>OneToMany</code>, or <code>ManyToMany</code> annotation.
+ * このアノテーションはこれらのタイプのマップキーに対してのみ指定できます。
+ * 
+ * <p> <code>MapKeyTemporal</code>アノテーションは、<code>ElementCollection</code>もしくは<code>OneToMany</code>、<code>ManyToMany</code>アノテーションとともに、 
+ * <code>java.util.Map</code>型の要素コレクションもしくは関係に適用できます。
  *
  * <pre>
  *     Example:
@@ -45,9 +43,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface MapKeyTemporal {
 
-    /** (Required) The type used in mapping
-     * <code>java.util.Date</code> or
-     * <code>java.util.Calendar</code>. 
+    /** (必須) マッピングに使用する型、
+     * <code>java.util.Date</code>もしくは
+     * <code>java.util.Calendar</code>。 
      */
     TemporalType value();
 }
