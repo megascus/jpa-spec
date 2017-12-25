@@ -20,8 +20,7 @@ import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * A <code>NamedAttributeNode</code> is a member element of a
- * <code>NamedEntityGraph</code>.
+ * <code>NamedAttributeNode</code>は<code>NamedEntityGraph</code>のメンバー属性です。
  *
  * @see NamedEntityGraph
  * @see NamedSubgraph
@@ -33,41 +32,33 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface NamedAttributeNode {
 
     /**
-     * (Required) The name of the attribute that must be included in the graph.
+     * (必須) グラフに含まれなければいけない属性の名前。
      */
     String value();
 
     /**
-     * (Optional) If the attribute references a managed type that has
-     * its own AttributeNodes, this element is used to refer to that
-     * NamedSubgraph definition.  
-     * If the target type has inheritance, multiple subgraphs can
-     * be specified.  These additional subgraphs are intended to add
-     * subclass-specific attributes.  Superclass subgraph entries will
-     * be merged into subclass subgraphs.  
-     *
-     * <p> The value of this element is the name of the subgraph as
-     * specified by the <code>name</code> element of the corresponding
-     * <code>NamedSubgraph</code> element.  If multiple subgraphs are
-     * specified due to inheritance, they are referenced by this name.
+     * (オプション) 属性が独自のAttributeNodeを持つマネージドタイプ(エンティティ等)を参照する場合、
+     * この要素はそのNamedSubgraphの定義を参照するために使用されます。
+     * 
+     * そのマネージドタイプが継承されたクラスを持つ場合は、複数のサブグラフを指定できます。
+     * これらの追加のサブグラフは、サブクラス固有の属性を追加することを意図しています。
+     * スーパークラスのサブグラフ項目はサブクラスのサブグラフにマージされます。
+     * 
+     * <p> この要素の値は<code>NamedSubgraph</code>要素に対応する<code>name</code>要素によって指定されたサブグラフの名前(name)です。
+     * 複数のサブグラフが継承のために指定されている場合、それらはこの名前で参照されます。
      */
     String subgraph() default "";
 
    /**
-    * (Optional) If the attribute references a Map type, this element
-    * can be used to specify a subgraph for the Key in the case of an
-    * Entity key type.  A keySubgraph can not be specified without the
-    * Map attribute also being specified.  If the target type has
-    * inheritance, multiple subgraphs can be specified.  These
-    * additional subgraphs are intended to add subclass-specific
-    * attributes.  Superclass subgraph entries will be merged into
-    * subclass subgraphs.  
+    * (オプション) 属性がMap型を参照する場合、エンティティキータイプの場合にこの要素を使用してキーのサブグラフを指定できます。
+    *
+    * keySubgraphはMap属性が指定されていない場合は指定できません。
+    * そのマネージドタイプが継承されたクラスを持つ場合は、複数のサブグラフを指定できます。
+    * これらの追加のサブグラフは、サブクラス固有の属性を追加することを意図しています。
+    * スーパークラスのサブグラフ項目はサブクラスのサブグラフにマージされます。
     * 
-    * <p> The value of this element is the name of the key subgraph as
-    * specified by the <code>name</code> element of the corresponding
-    * <code>NamedSubgraph</code> element.  If multiple key subgraphs
-    * are specified due to inheritance, they are referenced by this
-    * name.
+    * <p> この要素の値は<code>NamedSubgraph</code>要素に対応する<code>name</code>要素によって指定されたサブグラフの名前(name)です。
+    * 複数のサブグラフが継承のために指定されている場合、それらはこの名前で参照されます。
     */
     String keySubgraph() default "";
 }
