@@ -33,7 +33,7 @@ import static javax.persistence.FetchType.EAGER;
  * <p> <code>ManyToOne</code>アノテーションは組み込みクラス({@link Embeddable}の付いたクラス)からエンティティクラスへの関係を指定するために組み込みクラス内で使用できます。
  * 関係が双方向である場合、被所有側の<code>OneToMany</code>エンティティでは<code>OneToMany</code>アノテーションの<code>mappedBy</code>要素を使用して
  * 所有側のエンティティの関係を示すフィールドまたはプロパティを指定する必要があります。
- * 組み込み属性内のリレーションシップ属性を示すには、<code>mappedBy</code>要素でドット(".")表記を使用する必要があります。
+ * 組み込み属性内の関係属性を示すには、<code>mappedBy</code>要素でドット(".")表記を使用する必要があります。
  * ドット表記で使用される各識別子の値は、それぞれの組み込みフィールドまたはプロパティの名前です。
  * 
  * <pre>
