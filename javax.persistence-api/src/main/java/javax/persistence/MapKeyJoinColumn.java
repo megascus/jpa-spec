@@ -131,12 +131,12 @@ public @interface MapKeyJoinColumn {
 	boolean nullable() default false;
 
 	/**
-	 * (オプション) 永続化プロバイダによって生成されるSQL INSERT文にこのカラムを含めるかどうか。
+	 * (オプション) 永続化プロバイダによって生成されたSQL INSERTステートメントにカラムが含まれるかどうか。
 	 */
 	boolean insertable() default true;
 
 	/**
-	 * (オプション) 永続化プロバイダによって生成されるSQL UPDATE文にこのカラムを含めるかどうか。
+	 * (オプション) 永続化プロバイダによって生成されたSQL UPDATEステートメントにカラムが含まれるかどうか。
 	 */
 	boolean updatable() default true;
 
