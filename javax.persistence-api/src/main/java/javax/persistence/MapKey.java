@@ -22,17 +22,12 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies the map key for associations of type 
- * {@link java.util.Map java.util.Map} when the map key is itself the primary
- * key or a persistent field or property of the entity that is
- * the value of the map.
+ * マップキー自体が主キーである場合に{@link java.util.Map java.util.Map}型の関連付けのためのマップキーを指定するか、
+ * マップの値であるエンティティの永続フィールドまたはプロパティを指定します。
  * 
- * <p> If a persistent field or property other than the primary 
- * key is used as a map key then it is expected to have a 
- * uniqueness constraint associated with it.
+ * <p> 主キー以外の永続フィールドまたはプロパティがマップキーとして使用される場合でもそれに関連付けられた一意制約があることが予期されます。
  *
- * <p> The {@link MapKeyClass} annotation is not used when
- * <code>MapKey</code> is specified and vice versa.
+ * <p>{@link MapKeyClass}アノテーションと<code>MapKey</code>アノテーションは同時に使われることはありません。
  *
  * <pre>
  *
@@ -42,7 +37,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *    public class Department {
  *        ...
  *        &#064;OneToMany(mappedBy="department")
- *        &#064;MapKey  // map key is primary key
+ *        &#064;MapKey  // マップキーは主キー
  *        public Map&#060;Integer, Employee&#062; getEmployees() {... }
  *        ...
  *    }
@@ -86,14 +81,10 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface MapKey {
 
     /**
-     * (Optional) The name of the persistent field or property of the 
-     * associated entity that is used as the map key. 
-     * <p> Default: If the 
-     * <code>name</code> element is not specified, the primary key of the 
-     * associated entity is used as the map key. If the 
-     * primary key is a composite primary key and is mapped 
-     * as <code>IdClass</code>, an instance of the primary key 
-     * class is used as the key.
+     * (オプション) マップキーとして使用される関連エンティティの永続フィールドまたはプロパティの名前。
+     * 
+     * <p> デフォルト： <code>name</code>要素が指定されていない場合は関連エンティティの主キーがマップキーとして使用されます。
+     * 主キーが複合主キーであり、<code>IdClass</code>としてマッピングされている場合は主キークラスのインスタンスがキーとして使用されます。
      */
     String name() default "";
 }
