@@ -22,17 +22,15 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies the type of the map key for associations of type
- * <code>java.util.Map</code>.  The map key can be a basic type, an
- * embeddable class, or an entity. If the map is specified using Java
- * generics, the <code>MapKeyClass</code> annotation and associated
- * type need not be specified; otherwise they must be specified.
+ * <code>java.util.Map</code>型の関連付けのマップキーの型を指定します。
  * 
- * <p> The <code>MapKeyClass</code> annotation is used in conjunction
- * with <code>ElementCollection</code> or one of the collection-valued
- * relationship annotations (<code>OneToMany</code> or <code>ManyToMany</code>).
- * The <code>MapKey</code> annotation is not used when
- * <code>MapKeyClass</code> is specified and vice versa.
+ * マップキーは基本型や組み込みクラス、もしくはエンティティにすることができます。
+ * マップがJavaジェネリクスを使用して指定されている場合は、<code>MapKeyClass</code>アノテーションおよび関連型を指定する必要はありません。
+ * それ以外の場合は指定する必要があります。
+ * 
+ * <code>MapKeyClass</code>アノテーションは<code>ElementCollection</code>やコレクション値の関係アノテーション(<code>OneToMany</code>または<code>ManyToMany</code>)
+ * と共に使用されます。
+ * <code>MapKey</code>アノテーションと<code>MapKeyClass</code>アノテーションは同時に使われることはありません。
  *
  * <pre>
  *
@@ -44,13 +42,13 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *       ...
  *       &#064;ElementCollection(targetClass=String.class)
  *       &#064;MapKeyClass(String.class)
- *       Map images;  // map from image name to image filename
+ *       Map images;  // imageの名前からimageのファイル名へのmap
  *       ...
  *    }
  *
  *    Example 2:
  *
- *    // MapKeyClass and target type of relationship can be defaulted
+ *    // MapKeyClassと関係のターゲット形がデフォルトにできる場合
  *
  *    &#064;Entity
  *    public class Item {
@@ -74,7 +72,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *
  *     Example 4:
  *
- *     // MapKeyClass and target type of relationship are defaulted
+ *     // MapKeyClassと関係のターゲット形がデフォルトにできる場合
  *
  *     &#064;Entity
  *     public class Company {
@@ -94,6 +92,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target( { METHOD, FIELD })
 @Retention(RUNTIME)
 public @interface MapKeyClass {
-	/**(Required) The type of the map key.*/
+	/**(必須) マップキーの型*/
 	Class value();
 }
