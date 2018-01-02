@@ -64,31 +64,22 @@ package javax.persistence;
  * <li> P2 (ノンリピータブルリード): トランザクションT1が行を読み取り、T1がコミットもしくはロールバックされる前に別のトランザクションT2がその行を変更または削除します。
  * </ul>
  *
- * <p> A lock with <code>LockModeType.PESSIMISTIC_WRITE</code> can be obtained on
- * an entity instance to force serialization among transactions
- * attempting to update the entity data. A lock with
- * <code>LockModeType.PESSIMISTIC_READ</code> can be used to query data using
- * repeatable-read semantics without the need to reread the data at
- * the end of the transaction to obtain a lock, and without blocking
- * other transactions reading the data. A lock with
- * <code>LockModeType.PESSIMISTIC_WRITE</code> can be used when querying data and
- * there is a high likelihood of deadlock or update failure among
- * concurrent updating transactions.
+ * <code>LockModeType.PESSIMISTIC_WRITE</code>のロックをエンティティのインスタンスで取得する事で
+ * エンティティデータを更新を試みるトランザクションの処理を強制的に直列化することができます。 
+ * L<code>LockModeType.PESSIMISTIC_READ</code>のロックを使用する事で、 トランザクションの終了時にデータを再読み込みしてロックを取得する必要がなく、
+ * また他のトランザクションのデータを読み取りをブロックすることもなく、反復可能な読み取りセマンティクスを使用してデータを問い合わせできます。
+ * <code>LockModeType.PESSIMISTIC_WRITE</code>のロックは、データの問い合わせに使用できますが、
+ * 並行更新トランザクション間でデッドロックや更新の失敗の可能性が高くなります。
  * 
- * <p> The persistence implementation must support use of locks of type
- * <code>LockModeType.PESSIMISTIC_READ</code> 
- * <code>LockModeType.PESSIMISTIC_WRITE</code> on a non-versioned entity as well as
- * on a versioned entity.
+ * <p> JPAの実装ではバージョン管理されたエンティティと同様にバージョン管理されていないエンティティで<code>LockModeType.PESSIMISTIC_READ</code>
+ * <code>LockModeType.PESSIMISTIC_WRITE</code>型のロックの使用をサポートする必要があります。
  *
- * <p> When the lock cannot be obtained, and the database locking
- * failure results in transaction-level rollback, the provider must
- * throw the {@link PessimisticLockException} and ensure that the JTA
- * transaction or <code>EntityTransaction</code> has been marked for rollback.
+ * <p> ロックを取得できず、データベースのロックの失敗によりトランザクションレベルのロールバックが発生した場合、プロバイダは{@link PessimisticLockException}を投げ、
+ * JTAトランザクションまたは<code>EntityTransaction</code>にロールバックのマークが付いていることを保証する必要があります。
  * 
- * <p> When the lock cannot be obtained, and the database locking
- * failure results in only statement-level rollback, the provider must
- * throw the {@link LockTimeoutException} (and must not mark the transaction
- * for rollback).
+ * <p> ロックを取得できず、データベースのロックの失敗によりステートメントレベルのロールバックのみが発生した場合、
+ * プロバイダは{@link LockTimeoutException}を投げる必要があります。
+ * (トランザクションにロールバックをマークしてはいけません)
  *
  * @since Java Persistence 1.0
  *
