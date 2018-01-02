@@ -23,12 +23,12 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 
 /**
- * Specifies the mapping for composite foreign keys. This annotation 
- * groups <code>JoinColumn</code> annotations for the same relationship.
+ * 複合外部キーのマッピングを指定します。
+ * 
+ * このアノテーションは同じ関係の<code>JoinColumn</code>アノテーションをまとめます。
  *
- * <p> When the <code>JoinColumns</code> annotation is used, 
- * both the <code>name</code> and the <code>referencedColumnName</code> elements 
- * must be specified in each such <code>JoinColumn</code> annotation.
+ * <p> <code>JoinColumns</code>アノテーションが使用されるときは
+ * <code>JoinColumn</code>アノテーションのすべてで<code>name</code>要素と<code>referencedColumnName</code>要素の両方を指定する必要があります。
  *
  * <pre>
  *
@@ -51,18 +51,15 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 public @interface JoinColumns {
 
     /**
-     * The join columns that map the relationship.
+     * この関係をマッピングする結合列。
      */
     JoinColumn[] value();
 
     /**
-     *  (Optional) Used to specify or control the generation of a
-     *  foreign key constraint when table generation is in effect. 
-     *  If both this element and the <code>foreignKey</code> element 
-     *  of any of the <code>JoinColumn</code> elements are specified, 
-     *  the behavior is undefined.  If no foreign key annotation element
-     *  is specified in either location, the persistence provider's
-     *  default foreign key strategy will apply.
+     * (オプション) 表の生成が有効な場合に外部キー制約の生成を指定または制御するために使用されます。
+     * 
+     * この要素と<code>joinColumn</code>要素のいずれかの<code>foreignKey</code>要素の両方が指定されていた場合の挙動は未定義です。
+     * いずれの場所にも外部キーのアノテーション要素が指定されていない場合は、永続化プロバイダーのデフォルトの外部キー戦略が適用されます。
      *
      *  @since Java Persistence 2.1
      */
