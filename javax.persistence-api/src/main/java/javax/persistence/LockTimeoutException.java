@@ -16,69 +16,61 @@
 package javax.persistence;
 
 /**
- * Thrown by the persistence provider when an pessimistic locking
- * conflict occurs that does not result in transaction rollback. This
- * exception may be thrown as part of an API call, at, flush or at
- * commit time. The current transaction, if one is active, will be not
- * be marked for rollback.
+ * トランザクションのロールバックを引き起こさない結果で悲観ロックが発生したときに永続化プロバイダによって投げられます。
+ * この例外はフラッシュやコミット時のAPI呼び出しの一部として投げられます。
+ * 現在のトランザクションがアクティブである場合にロールバックするようにはマークされません。
  *
  * @since Java Persistence 2.0
  */
 public class LockTimeoutException extends PersistenceException {
-    /** The object that caused the exception */
+    /** この例外の原因となったオブジェクト */
     Object entity;
 
     /** 
-     * Constructs a new <code>LockTimeoutException</code> exception 
-     * with <code>null</code> as its detail message.
+     * 新しい<code>LockTimeoutException</code>例外を<code>null</code>を詳細メッセージとして生成します。
      */
     public LockTimeoutException() {
         super();
     }
 
     /** 
-     * Constructs a new <code>LockTimeoutException</code> exception 
-     * with the specified detail message.
-     * @param   message   the detail message.
+     * 新しい<code>LockTimeoutException</code>例外を指定された詳細メッセージで生成します。
+     * @param   message   詳細メッセージ
      */
     public LockTimeoutException(String message) {
         super(message);
     }
 
     /** 
-     * Constructs a new <code>LockTimeoutException</code> exception 
-     * with the specified detail message and cause.
-     * @param   message   the detail message.
-     * @param   cause     the cause.
+     * 新しい<code>LockTimeoutException</code>例外を指定された詳細メッセージと原因で生成します。
+     * @param   message   詳細メッセージ
+     * @param   cause     原因
      */
     public LockTimeoutException(String message, Throwable cause) {
         super(message, cause);
     }
 
     /** 
-     * Constructs a new <code>LockTimeoutException</code> exception 
-     * with the specified cause.
-     * @param   cause     the cause.
+     * 新しい<code>LockTimeoutException</code>例外を指定された原因で生成します。
+     * @param   cause     原因
      */
     public LockTimeoutException(Throwable cause) {
         super(cause);
     }
 
     /** 
-     * Constructs a new <code>LockTimeoutException</code> exception 
-     * with the specified object.
-     * @param   entity     the entity.
+     * 新しい<code>LockTimeoutException</code>例外を指定されたオブジェクトで生成します。
+     * @param   entity     エンティティ
      */
     public LockTimeoutException(Object entity) {
         this.entity = entity;
     }
 
     /** 
-     * Constructs a new <code>LockTimeoutException</code> exception 
-     * with the specified detail message, cause, and entity.
-     * @param   message   the detail message.
-     * @param   cause     the cause.
-     * @param   entity     the entity.
+     * 新しい<code>LockTimeoutException</code>例外を指定された詳細メッセージと原因とエンティティで生成します。
+     * @param   message   詳細メッセージ
+     * @param   cause     原因
+     * @param   entity     エンティティ
      */
     public LockTimeoutException(String message, Throwable cause, Object entity) {
         super(message, cause);
@@ -86,8 +78,8 @@ public class LockTimeoutException extends PersistenceException {
     }
     
     /**
-     * Returns the object that caused this exception.
-     * @return the entity
+     *この例外の原因となったオブジェクトを返します。
+     * @return エンティティ
      */
     public Object getObject() {
         return this.entity;

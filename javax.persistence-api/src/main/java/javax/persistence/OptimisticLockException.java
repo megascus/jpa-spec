@@ -30,14 +30,12 @@ package javax.persistence;
 public class OptimisticLockException extends PersistenceException {
 
 	/**
-	 * このオブジェクトの原因となった例外
+	 * この例外の原因となったオブジェクト
 	 */
 	Object entity;
 
 	/**
 	 * 新しい<code>OptimisticLockException</code>例外を<code>null</code>を詳細メッセージとして生成します。
-	 * Constructs a new <code>OptimisticLockException</code> exception with
-	 * <code>null</code> as its detail message.
 	 */
 	public OptimisticLockException() {
 		super();

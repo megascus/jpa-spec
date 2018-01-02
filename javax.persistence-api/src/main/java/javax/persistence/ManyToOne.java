@@ -24,26 +24,18 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.FetchType.EAGER;
 
 /**
- * Specifies a single-valued association to another entity class that
- * has many-to-one multiplicity. It is not normally necessary to
- * specify the target entity explicitly since it can usually be
- * inferred from the type of the object being referenced.  If the
- * relationship is bidirectional, the non-owning
- * <code>OneToMany</code> entity side must used the
- * <code>mappedBy</code> element to specify the relationship field or
- * property of the entity that is the owner of the relationship.
- *
- * <p> The <code>ManyToOne</code> annotation may be used within an
- * embeddable class to specify a relationship from the embeddable
- * class to an entity class. If the relationship is bidirectional, the
- * non-owning <code>OneToMany</code> entity side must use the <code>mappedBy</code>
- * element of the <code>OneToMany</code> annotation to specify the
- * relationship field or property of the embeddable field or property
- * on the owning side of the relationship. The dot (".") notation
- * syntax must be used in the <code>mappedBy</code> element to indicate the
- * relationship attribute within the embedded attribute.  The value of
- * each identifier used with the dot notation is the name of the
- * respective embedded field or property.
+ * 多対1の多重度を持つ別のエンティティへの単一値の関連付けを指定します。
+ * 
+ * 通常は関連する対象のエンティティは参照されているオブジェクトの型から推論できるため明示的に指定する必要はありません。
+ * 関係が双方向である場合、被所有側の<code>OneToMany</code>エンティティでは<code>mappedBy</code>要素を使用して、
+ * 所有側のエンティティの関係を示すエンティティのフィールドまたはプロパティを指定する必要があります。
+ * 
+ * <p> <code>ManyToOne</code>アノテーションは組み込みクラス({@link Embeddable}の付いたクラス)からエンティティクラスへの関係を指定するために組み込みクラス内で使用できます。
+ * 関係が双方向である場合、被所有側の<code>OneToMany</code>エンティティでは<code>OneToMany</code>アノテーションの<code>mappedBy</code>要素を使用して
+ * 所有側のエンティティの関係を示すフィールドまたはプロパティを指定する必要があります。
+ * 組み込み属性内の関係属性を示すには、<code>mappedBy</code>要素でドット(".")表記を使用する必要があります。
+ * ドット表記で使用される各識別子の値は、それぞれの組み込みフィールドまたはプロパティの名前です。
+ * 
  * <pre>
  *
  *     Example 1:
@@ -85,34 +77,33 @@ import static javax.persistence.FetchType.EAGER;
 public @interface ManyToOne {
 
     /** 
-     * (Optional) The entity class that is the target of 
-     * the association. 
+     * (オプション) 関連付けの対象となるエンティティクラス。
      *
-     * <p> Defaults to the type of the field or property 
-     * that stores the association. 
+     * <p> デフォルトでは関連付けを格納するフィールドまたはプロパティの型になります。
      */
     Class targetEntity() default void.class;
 
     /**
-     * (Optional) The operations that must be cascaded to 
-     * the target of the association.
+     * (オプション) 関連付けの対象にカスケードする必要のある操作。
      *
-     * <p> By default no operations are cascaded.
+     * <p> デフォルトではすべての操作はカスケードされません。
      */
     CascadeType[] cascade() default {};
 
     /** 
-     * (Optional) Whether the association should be lazily 
-     * loaded or must be eagerly fetched. The EAGER
-     * strategy is a requirement on the persistence provider runtime that 
-     * the associated entity must be eagerly fetched. The LAZY 
-     * strategy is a hint to the persistence provider runtime.
+     * (オプション) 関連付けを遅延ロード(LAZY)するか、即座に取得(EAGER)する必要があるかどうか。
+     * 
+     * EAGER戦略は永続性プロバイダーの実行時に関連エンティティを即座に取得するべきだとする要件です。
+     * LAZY戦略は持続性プロバイダーの実行時のヒントです。
+     * 
+     * <p>訳注：つまりEAGERは必ず有効になり、LAZYが有効になるかは実装に依存します。
      */
     FetchType fetch() default EAGER;
 
     /** 
-     * (Optional) Whether the association is optional. If set 
-     * to false then a non-null relationship must always exist.
+     * (オプション) 関連付けがオプションかどうか。
+     * 
+     * もしfalseである場合、この関連は常にnullでない必要があります。
      */
     boolean optional() default true;
 }

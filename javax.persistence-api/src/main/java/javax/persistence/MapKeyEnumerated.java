@@ -23,15 +23,11 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.EnumType.ORDINAL;
 
 /**
- * Specifies the enum type for a map key whose basic type is an enumerated type.
+ * 基本型が列挙型であるマップキーのEnumの型を指定します。
  * 
- * The <code>MapKeyEnumerated</code> annotation can be applied to an 
- * element collection or relationship of type <code>java.util.Map</code>, in 
- * conjunction with the <code>ElementCollection</code>, <code>OneToMany</code>, or 
- * <code>ManyToMany</code> annotation.
- * If the enumerated type is not specified or the <code>MapKeyEnumerated</code>
- * annotation is not used, the enumerated type is assumed to be
- * <code>ORDINAL</code>.
+ * <code>MapKeyEnumerated</code>アノテーションは<code>ElementCollection</code>もしくは<code>OneToMany</code>、<code>ManyToMany</code>アノテーションと共に、
+ * <code>java.util.Map</code>型の要素コレクションや関係に適用できます。
+ * 列挙型が指定されていないか、<code>MapKeyEnumerated</code>アノテーションが使用されていない場合、列挙型は<code>ORDINAL</code>であるとみなされます。
  *
  * <pre>
  *   Example:
@@ -60,6 +56,6 @@ import static javax.persistence.EnumType.ORDINAL;
 @Target({METHOD, FIELD}) @Retention(RUNTIME)
 public @interface MapKeyEnumerated {
     
-    /** (Optional) The type used in mapping a map key enum type. */
+    /** (オプション) マップキーのEnumの型のマッピングに使用される型。 */
     EnumType value() default ORDINAL;
 }

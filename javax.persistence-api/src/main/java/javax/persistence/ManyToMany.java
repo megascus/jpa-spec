@@ -24,31 +24,20 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.FetchType.LAZY;
 
 /**
- * Specifies a many-valued association with many-to-many multiplicity. 
+ * 多対多の多重度を持つ複数値の関連付けを指定します。
  *
- * <p> Every many-to-many association has two sides, the owning side
- * and the non-owning, or inverse, side.  The join table is specified
- * on the owning side. If the association is bidirectional, either
- * side may be designated as the owning side.  If the relationship is
- * bidirectional, the non-owning side must use the <code>mappedBy</code> element of
- * the <code>ManyToMany</code> annotation to specify the relationship field or
- * property of the owning side.
+ * <p>すべての多対多関連は二つの側を持ちます。所有側と被所有側もしくは逆側です。
+ * 結合テーブルは所有側で指定されます。
+ * 関係が双方向である場合、被所有側は<code>ManyToMany</code>アノテーションの<code>mappedBy</code>要素を使用して、
+ * 所有側の関係フィールドまたはプロパティを指定する必要があります。
  *
- * <p> The join table for the relationship, if not defaulted, is
- * specified on the owning side.
+ * <p> 関係の結合テーブルは、デフォルトでない場合は所有側で指定します。
  *
- * <p> The <code>ManyToMany</code> annotation may be used within an
- * embeddable class contained within an entity class to specify a
- * relationship to a collection of entities. If the relationship is
- * bidirectional and the entity containing the embeddable class is the
- * owner of the relationship, the non-owning side must use the
- * <code>mappedBy</code> element of the <code>ManyToMany</code>
- * annotation to specify the relationship field or property of the
- * embeddable class. The dot (".") notation syntax must be used in the
- * <code>mappedBy</code> element to indicate the relationship
- * attribute within the embedded attribute.  The value of each
- * identifier used with the dot notation is the name of the respective
- * embedded field or property.
+ * <p> <code>ManyToMany</code>アノテーションはエンティティクラス内に含まれる組み込みクラス内で使用されたエンティティのコレクションへの関係を指定することができます。
+ * 関係が双方向であり、組み込みクラスを含むエンティティが関係の所有側である場合、被所有側は組み込みクラスの関係フィールドまたはプロパティを指定するために<code>ManyToMany</code>
+ * アノテーションの<code>mappedBy</code>要素を使用する必要があります。
+ * 組み込み属性内の関係属性を示すには、<code>mappedBy</code>要素でドット(".")表記を使用する必要があります。
+ * ドット表記で使用される各識別子の値は、それぞれの組み込みフィールドまたはプロパティの名前です。
  *
  * <pre>
  *
@@ -105,39 +94,36 @@ import static javax.persistence.FetchType.LAZY;
 public @interface ManyToMany {
 
     /**
-     * (Optional) The entity class that is the target of the
-     * association. Optional only if the collection-valued
-     * relationship property is defined using Java generics.  Must be
-     * specified otherwise.
-     *
-     * <p> Defaults to the parameterized type of
-     * the collection when defined using generics.
+     * (オプション) 関連付けの対象のエンティティクラス。collectionプロパティがJavaジェネリクスを使用して定義されている場合は指定する必要はありません。そうでない場合は指定する必要があります。
+     * 
+     * <p>ジェネリクスを使用して定義されている場合、デフォルトはコレクションのパラメタライズドタイプです。
      */
     Class targetEntity() default void.class;
 
     /** 
-     * (Optional) The operations that must be cascaded to the target
-     * of the association.  
+     * (オプション) 関連付けの対象にカスケードする必要のある操作。
      *
-     * <p> When the target collection is a {@link java.util.Map
-     * java.util.Map}, the <code>cascade</code> element applies to the
-     * map value.
+     * <p> 対象のコレクションが{@link java.util.Map java.util.Map}である場合、
+     * <code>cascade</code>属性はMapの値に適用されます。
      *
-     * <p> Defaults to no operations being cascaded.
+     * <p> デフォルトではすべての操作はカスケードされません。
      */
     CascadeType[] cascade() default {};
 
-    /** (Optional) Whether the association should be lazily loaded or
-     * must be eagerly fetched. The EAGER strategy is a requirement on
-     * the persistence provider runtime that the associated entities
-     * must be eagerly fetched.  The LAZY strategy is a hint to the
-     * persistence provider runtime.
+    /** 
+     * (オプション) 関連付けを遅延ロード(LAZY)するか、即座に取得(EAGER)する必要があるかどうか。
+     * 
+     * EAGER戦略は永続性プロバイダーの実行時に関連エンティティを即座に取得するべきだとする要件です。
+     * LAZY戦略は持続性プロバイダーの実行時のヒントです。
+     * 
+     * <p>訳注：つまりEAGERは必ず有効になり、LAZYが有効になるかは実装に依存します。
      */
     FetchType fetch() default LAZY;
 
     /** 
-     * The field that owns the relationship. Required unless 
-     * the relationship is unidirectional.
+     * 関係を所有するフィールド。
+     * 
+     * 関係が一方向でない場合は必須です。
      */
     String mappedBy() default "";
 }

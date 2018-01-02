@@ -22,21 +22,16 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Designates a class whose mapping information is applied 
- * to the entities that inherit from it. A mapped superclass 
- * has no separate table defined for it.  
- *
- * <p> A class designated with the <code>MappedSuperclass</code> 
- * annotation can be mapped in the same way as an entity except that the 
- * mappings will apply only to its subclasses since no table 
- * exists for the mapped superclass itself. When applied to the 
- * subclasses the inherited mappings will apply in the context 
- * of the subclass tables. Mapping information may be overridden 
- * in such subclasses by using the <code>AttributeOverride</code> and 
- * <code>AssociationOverride</code> annotations or corresponding XML elements.
+ * このクラスを継承することでエンティティにマッピング情報が適用されるクラスを指定します。
+ * 
+ * マッピングされたスーパークラスには分割されたテーブルが定義されません。
+ * 
+ * <p> <code>MappedSuperclass</code>アノテーションで指定されたクラスは、マップドスーパークラス自体のテーブルが存在せずマッピングはそのサブクラスにのみ適用される点を除き、エンティティと同じ方法でマッピングできます。
+ * サブクラスに適用すると、継承されたマッピングがサブクラスのテーブルのコンテキストで適用されます。
+ * マッピング情報は、<code>AttributeOverride</code>アノテーションまたは<code>AssociationOverride</code>アノテーションまたはそれらに対応するXML要素を使用してそのようなサブクラスでオーバーライドできます。
  *
  * <pre>
- *    Example: Concrete class as a mapped superclass
+ *    Example: マップドスーパークラスとして固められたクラス
  *
  *    &#064;MappedSuperclass
  *    public class Employee {
@@ -52,15 +47,15 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *        public void setAddress(Address addr) { ... }
  *    }
  *    
- *    // Default table is FTEMPLOYEE table
+ *    // デフォルトはFTEMPLOYEEテーブル
  *    &#064;Entity
  *    public class FTEmployee extends Employee {
  *    
- *        // Inherited empId field mapped to FTEMPLOYEE.EMPID
- *        // Inherited version field mapped to FTEMPLOYEE.VERSION
- *        // Inherited address field mapped to FTEMPLOYEE.ADDR fk
+ *        // FTEMPLOYEE.EMPIDにマッピングされた継承されたempIdフィールド
+ *        // FTEMPLOYEE.VERSIONにマッピングされた継承されたversionフィールド
+ *        // FTEMPLOYEE.ADDR(fk)にマッピングされた継承されたaddressフィールド
  *    
- *        // Defaults to FTEMPLOYEE.SALARY
+ *        // デフォルトはFTEMPLOYEE.SALARY
  *        protected Integer salary;
  *    
  *        public FTEmployee() {}
@@ -76,9 +71,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *        joincolumns=&#064;JoinColumn(name="ADDR_ID"))
  *    public class PartTimeEmployee extends Employee {
  *    
- *        // Inherited empId field mapped to PT_EMP.EMPID
- *        // Inherited version field mapped to PT_EMP.VERSION
- *        // address field mapping overridden to PT_EMP.ADDR_ID fk
+ *        // FTEMPLOYEE.EMPIDにマッピングされた継承されたempIdフィールド
+ *        // FTEMPLOYEE.VERSIONにマッピングされた継承されたversionフィールド
+ *        // FTEMPLOYEE.ADDR(fk)にマッピングされた継承されたaddressフィールド
  *        &#064;Column(name="WAGE")
  *        protected Float hourlyWage;
  *    

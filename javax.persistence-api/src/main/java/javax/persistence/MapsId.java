@@ -23,20 +23,15 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Designates a <code>ManyToOne</code> or
- * <code>OneToOne</code> relationship attribute that provides the
- * mapping for an {@link EmbeddedId} primary key, an attribute within
- * an <code>EmbeddedId</code> primary key, or a simple primary key of
- * the parent entity. The <code>value</code> element specifies the
- * attribute within a composite key to which the relationship
- * attribute corresponds. If the entity's primary key is of the same
- * Java type as the primary key of the entity referenced by the
- * relationship, the value attribute is not specified.
+ * {@link EmbeddedId}主キーもしくは<code>EmbeddedId</code>主キー内の属性、単純な親エンティティの主キーによるマッピングを提供する<code>ManyToOne</code>または<code>OneToOne</code>関係の属性を指定します。
+ * 
+ * <code>value</code>要素は、関係の属性が対応する複合キー内の属性を指定します。
+ * エンティティの主キーが関係によって参照されるエンティティの主キーと同じJavaの型である場合、value属性は指定されません。
  * 
  * <pre>
  *    Example:
  *
- *    // parent entity has simple primary key
+ *    // 親エンティティが単純な主キーを持つ場合
  *
  *    &#064;Entity
  *    public class Employee {
@@ -45,19 +40,19 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *       ...
  *    } 
  *
- *    // dependent entity uses EmbeddedId for composite key
+ *    // 依存するエンティティが複合キーのためにEmbeddedIdを使用している場合
  *
  *    &#064;Embeddable
  *    public class DependentId {
  *       String name;
- *       long empid;   // corresponds to primary key type of Employee
+ *       long empid;   // Employeeの主キーの型に対応
  *    }
  *
  *    &#064;Entity
  *    public class Dependent {
  *       &#064;EmbeddedId DependentId id;
  *        ...
- *       &#064;MapsId("empid")  //  maps the empid attribute of embedded id
+ *       &#064;MapsId("empid")  //  組み込まれたID(EmbeddedId)の属性のempidにマッピング
  *       &#064;ManyToOne Employee emp;
  *    }
  * </pre>
@@ -69,9 +64,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface MapsId {
 
     /**
-     * (Optional) The name of the attribute within the composite key
-     * to which the relationship attribute corresponds.  If not
-     * supplied, the relationship maps the entity's primary
-     * key.
+     * (オプション) 関係属性に関連する複合キーに含まれる属性の名前。
+     * 
+     * 指定されない場合、関係はエンティティの主キーでマッピングされます。
      */
    String value() default ""; }
