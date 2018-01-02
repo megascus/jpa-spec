@@ -23,25 +23,18 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 
 /**
- * Specifies the mapping of associations. It is applied to the
- * owning side of an association.  
- *
- * <p> A join table is typically used in the mapping of many-to-many
- * and unidirectional one-to-many associations. It may also be used to
- * map bidirectional many-to-one/one-to-many associations,
- * unidirectional many-to-one relationships, and one-to-one
- * associations (both bidirectional and unidirectional).
- *
- *<p>When a join table is used in mapping a relationship with an
- *embeddable class on the owning side of the relationship, the
- *containing entity rather than the embeddable class is considered the
- *owner of the relationship.
- *
- * <p> If the <code>JoinTable</code> annotation is missing, the 
- * default values of the annotation elements apply.  
- * The name of the join table is assumed to be the table names of the 
- * associated primary tables concatenated together (owning side 
- * first) using an underscore.
+ * 関連のマッピングを指定します。
+ * 
+ * これは関連の所有側に適用されます。
+ * 
+ * <p>通常は結合テーブルは多対多および単方向の1対多の関連付けのマッピングで使用されます。
+ * ただし、双方向多対1や1対多の関連付け、単方向多対1関係および1対1関連(双方向および単方向の両方)をマッピングするためでも使用できます。
+ * 
+ * <p>関係の所有側で組み込みクラスとの関連をマッピングする際に結合テーブルを使用した場合、
+ * 組み込みクラスではなく組み込みクラスを保持するエンティティが関係の所有者とみなされます。
+ * 
+ * <p><code>JoinTable</code>アノテーションがない場合、アノテーションの要素のデフォルト値が適用されます。
+ * 結合テーブルの名前は、関連するプライマリーテーブルの表名が(所有側が最初で)アンダースコアを使用して結合されたものであると見なされます。
  *
  * <pre>
  *
