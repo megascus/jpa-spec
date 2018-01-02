@@ -16,59 +16,38 @@
 package javax.persistence;
 
 /**
- * Lock modes can be specified by means of passing a <code>LockModeType</code>
- * argument to one of the {@link javax.persistence.EntityManager} methods that take locks
- * (<code>lock</code>, <code>find</code>, or <code>refresh</code>) or
- * to the {@link Query#setLockMode Query.setLockMode()} or
- * {@link TypedQuery#setLockMode TypedQuery.setLockMode()} method.
+ * ロックモードはロックを取る{@link javax.persistence.EntityManager}メソッドの1つ(<code>lock</code>や<code>find</code>、<code>refresh</code>)または{@link Query#setLockMode Query.setLockMode()}、{@link TypedQuery#setLockMode TypedQuery.setLockMode()}メソッドのいずれかに<code>LockModeType</code>引数を渡すことによって指定できます。
  * 
- * <p> Lock modes can be used to specify either optimistic or pessimistic locks.
+ * <p> ロックモードは楽観ロック、悲観ロックのどちらかを指定するのに使用されます。
  *
- * <p> Optimistic locks are specified using {@link
- * LockModeType#OPTIMISTIC LockModeType.OPTIMISTIC} and {@link
- * LockModeType#OPTIMISTIC_FORCE_INCREMENT
- * LockModeType.OPTIMISTIC_FORCE_INCREMENT}.  The lock mode type
- * values {@link LockModeType#READ LockModeType.READ} and 
- * {@link LockModeType#WRITE LockModeType.WRITE} are
- * synonyms of <code>OPTIMISTIC</code> and
- * <code>OPTIMISTIC_FORCE_INCREMENT</code> respectively.  The latter
- * are to be preferred for new applications.
+ * <p> 楽観ロックは{@link LockModeType#OPTIMISTIC LockModeType.OPTIMISTIC}および{@link LockModeType#OPTIMISTIC_FORCE_INCREMENT LockModeType.OPTIMISTIC_FORCE_INCREMENT}
+ * を使用して指定されます。
+ * ロックモードの値{@link LockModeType#READ LockModeType.READ}および{@link LockModeType#WRITE LockModeType.WRITE}はそれぞれ<code>OPTIMISTIC</code>
+ * および<code>OPTIMISTIC_FORCE_INCREMENT</code>と同じ意味です。
+ * 新しいアプリケーションでは後者を使用する方が好ましいでしょう。
  *
- * <p> The semantics of requesting locks of type
- * <code>LockModeType.OPTIMISTIC</code> and
- * <code>LockModeType.OPTIMISTIC_FORCE_INCREMENT</code> are the
- * following.
+ * <p> <code>LockModeType.OPTIMISTIC</code>および<code>LockModeType.OPTIMISTIC_FORCE_INCREMENT</code>の要求するロックの意味は次のとおりです。
  *
- * <p> If transaction T1 calls for a lock of type 
- * <code>LockModeType.OPTIMISTIC</code> on a versioned object, 
- * the entity manager must ensure that neither of the following 
- * phenomena can occur:
+ * <p> トランザクションT1がバージョン管理されたオブジェクトで<code>LockModeType.OPTIMISTIC</code>型のロックを呼び出したした場合、
+ * エンティティマネージャーは次のいずれの現象も起こらないようにする必要があります。
  * <ul>
- *   <li> P1 (Dirty read): Transaction T1 modifies a row. 
- * Another transaction T2 then reads that row and obtains 
- * the modified value, before T1 has committed or rolled back. 
- * Transaction T2 eventually commits successfully; it does not 
- * matter whether T1 commits or rolls back and whether it does 
- * so before or after T2 commits.
+ *   <li> P1 (ダーティーリード): トランザクションT1が行を変更し、別のトランザクションT2がその後にその行を読み取り、
+ * T1がコミットまたはロールバックされる前に変更された値を取得します。
+ * トランザクションT2は最終的に正常にコミットされます。
+ * T1がコミットするかロールバックするか、T1が終了するのがT2がコミットする前か後かは問いません。
  *   </li>
- *   <li> P2 (Non-repeatable read): Transaction T1 reads a row. 
- * Another transaction T2 then modifies or deletes that row, 
- * before T1 has committed. Both transactions eventually commit 
- * successfully.
+ *   <li> P2 (ノンリピータブルリード): トランザクションT1が行を読み取り、T1がコミットされる前に別のトランザクションT2がその行を変更または削除します。
+ * 両方のトランザクションは最終的に正常にコミットされます。
  *   </li>
  * </ul>
  *
- * <p> Lock modes must always prevent the phenomena P1 and P2.
+ * <p> ロックモードはP1とP2の両方の現象を防止する必要があります。
  *
- * <p> In addition, calling a lock of type 
- * <code>LockModeType.OPTIMISTIC_FORCE_INCREMENT</code> on a versioned object,
- * will also force an update (increment) to the entity's version
- * column.
+ * <p> さらに、<code>LockModeType.OPTIMISTIC_FORCE_INCREMENT</code>がバージョン管理されたオブジェクトで呼び出された場合は、
+ * エンティティのバージョン列が強制的に更新(インクリメント)されます。
  *
- * <p> The persistence implementation is not required to support
- * the use of optimistic lock modes on non-versioned objects. When it
- * cannot support a such lock call, it must throw the {@link
- * PersistenceException}.
+ * <p> JPAの実装ではバージョン管理されないオブジェクトに対する楽観ロックモードのサポートは必須ではありません。
+ * そのようなロックの呼び出しをサポートしていない場合は{@link PersistenceExceptionを投げる必要があります。
  *
  * <p>The lock modes {@link LockModeType#PESSIMISTIC_READ
  * LockModeType.PESSIMISTIC_READ}, {@link
@@ -87,13 +66,10 @@ package javax.persistence;
  * manager must ensure that neither of the following phenomena can
  * occur: 
  * <ul> 
- * <li> P1 (Dirty read): Transaction T1 modifies a
- * row. Another transaction T2 then reads that row and obtains the
- * modified value, before T1 has committed or rolled back.
+ * <li> P1 (ダーティーリード): トランザクションT1が行を変更し、別のトランザクションT2がその後にその行を読み取り、
+ * T1がコミットまたはロールバックされる前に変更された値を取得します。
  *
- * <li> P2 (Non-repeatable read): Transaction T1 reads a row. Another
- * transaction T2 then modifies or deletes that row, before T1 has
- * committed or rolled back.
+ * <li> P2 (ノンリピータブルリード): トランザクションT1が行を読み取り、T1がコミットもしくはロールバックされる前に別のトランザクションT2がその行を変更または削除します。
  * </ul>
  *
  * <p> A lock with <code>LockModeType.PESSIMISTIC_WRITE</code> can be obtained on
@@ -128,30 +104,30 @@ package javax.persistence;
 public enum LockModeType
 {
     /**
-     *  Synonymous with <code>OPTIMISTIC</code>.
-     *  <code>OPTIMISTIC</code> is to be preferred for new
-     *  applications.
+     *  <code>OPTIMISTIC</code>と同じ意味。
+     * 
+     *  新しいアプリケーションでは<code>OPTIMISTIC</code>が好ましい。
      *
      */
     READ,
 
     /**
-     *  Synonymous with <code>OPTIMISTIC_FORCE_INCREMENT</code>.
-     *  <code>OPTIMISTIC_FORCE_IMCREMENT</code> is to be preferred for new
-     *  applications.
+     *  <code>OPTIMISTIC_FORCE_INCREMENT</code>と同じ意味。
+     * 
+     *  新しいアプリケーションでは<code>OPTIMISTIC_FORCE_IMCREMENT</code>が好ましい。
      *
      */
     WRITE,
 
     /**
-     * Optimistic lock.
+     * 楽観ロック。
      *
      * @since Java Persistence 2.0
      */
     OPTIMISTIC,
 
     /**
-     * Optimistic lock, with version update.
+     * バージョンのアップデートを伴う楽観ロック。
      *
      * @since Java Persistence 2.0
      */
@@ -159,28 +135,28 @@ public enum LockModeType
 
     /**
      *
-     * Pessimistic read lock.
+     * 悲観読み込みロック。
      *
      * @since Java Persistence 2.0
      */
     PESSIMISTIC_READ,
 
     /**
-     * Pessimistic write lock.
+     * 悲観書き込みロック。
      *
      * @since Java Persistence 2.0
      */
     PESSIMISTIC_WRITE,
 
     /**
-     * Pessimistic write lock, with version update.
+     * バージョンのアップデートを伴う悲観書き込みロック。
      *
      * @since Java Persistence 2.0
      */
     PESSIMISTIC_FORCE_INCREMENT,
 
     /**
-     * No lock.
+     * ロックしない。
      *
      * @since Java Persistence 2.0
      */
