@@ -26,7 +26,7 @@ package javax.persistence;
  * および<code>OPTIMISTIC_FORCE_INCREMENT</code>と同じ意味です。
  * 新しいアプリケーションでは後者を使用する方が好ましいでしょう。
  *
- * <p> <code>LockModeType.OPTIMISTIC</code>および<code>LockModeType.OPTIMISTIC_FORCE_INCREMENT</code>の要求するロックの意味は次のとおりです。
+ * <p> <code>LockModeType.OPTIMISTIC</code>および<code>LockModeType.OPTIMISTIC_FORCE_INCREMENT</code>のロックが要求された時の意味は次のとおりです。
  *
  * <p> トランザクションT1がバージョン管理されたオブジェクトで<code>LockModeType.OPTIMISTIC</code>型のロックを呼び出したした場合、
  * エンティティマネージャーは次のいずれの現象も起こらないようにする必要があります。
@@ -49,22 +49,14 @@ package javax.persistence;
  * <p> JPAの実装ではバージョン管理されないオブジェクトに対する楽観ロックモードのサポートは必須ではありません。
  * そのようなロックの呼び出しをサポートしていない場合は{@link PersistenceExceptionを投げる必要があります。
  *
- * <p>The lock modes {@link LockModeType#PESSIMISTIC_READ
- * LockModeType.PESSIMISTIC_READ}, {@link
- * LockModeType#PESSIMISTIC_WRITE LockModeType.PESSIMISTIC_WRITE}, and
- * {@link LockModeType#PESSIMISTIC_FORCE_INCREMENT
- * LockModeType.PESSIMISTIC_FORCE_INCREMENT} are used to immediately
- * obtain long-term database locks.
+ * <p> ロックモード{@link LockModeType#PESSIMISTIC_READ LockModeType.PESSIMISTIC_READ}および{@link LockModeType#PESSIMISTIC_WRITE LockModeType.PESSIMISTIC_WRITE}、
+ * {@link LockModeType#PESSIMISTIC_FORCE_INCREMENT LockModeType.PESSIMISTIC_FORCE_INCREMENT}は長期のデータベースロックを即時に取得するために使用されます。
  *
- * <p> The semantics of requesting locks of type
- * <code>LockModeType.PESSIMISTIC_READ</code>, <code>LockModeType.PESSIMISTIC_WRITE</code>, and
- * <code>LockModeType.PESSIMISTIC_FORCE_INCREMENT</code> are the following.  
+ * <p> <code>LockModeType.PESSIMISTIC_READ</code>および<code>LockModeType.PESSIMISTIC_WRITE</code>、
+ * <code>LockModeType.PESSIMISTIC_FORCE_INCREMENT</code>のロックが要求された時の意味は次のとおりです。
  *
- * <p> If transaction T1 calls for a lock of type
- * <code>LockModeType.PESSIMISTIC_READ</code> or
- * <code>LockModeType.PESSIMISTIC_WRITE</code> on an object, the entity
- * manager must ensure that neither of the following phenomena can
- * occur: 
+ * <p> トランザクションT1がオブジェクトで<code>LockModeType.PESSIMISTIC_READ</code>もしくは<code>LockModeType.PESSIMISTIC_WRITE</code>型のロックを呼び出したした場合、
+ * エンティティマネージャーは次のいずれの現象も起こらないようにする必要があります。
  * <ul> 
  * <li> P1 (ダーティーリード): トランザクションT1が行を変更し、別のトランザクションT2がその後にその行を読み取り、
  * T1がコミットまたはロールバックされる前に変更された値を取得します。
