@@ -49,7 +49,7 @@ package javax.persistence;
  * エンティティのバージョン列が強制的に更新(インクリメント)されます。
  *
  * <p> JPAの実装ではバージョン管理されないオブジェクトに対する楽観ロックモードのサポートは必須ではありません。
- * そのようなロックの呼び出しをサポートしていない場合は{@link PersistenceExceptionを投げる必要があります。
+ * そのようなロックの呼び出しをサポートしていない場合は{@link PersistenceException}を投げる必要があります。
  *
  * <p> ロックモード{@link LockModeType#PESSIMISTIC_READ LockModeType.PESSIMISTIC_READ}および{@link LockModeType#PESSIMISTIC_WRITE LockModeType.PESSIMISTIC_WRITE}、
  * {@link LockModeType#PESSIMISTIC_FORCE_INCREMENT LockModeType.PESSIMISTIC_FORCE_INCREMENT}は長期のデータベースロックを即時に取得するために使用されます。
@@ -68,7 +68,7 @@ package javax.persistence;
  *
  * <code>LockModeType.PESSIMISTIC_WRITE</code>のロックをエンティティのインスタンスで取得する事で
  * エンティティデータを更新を試みるトランザクションの処理を強制的に直列化することができます。 
- * L<code>LockModeType.PESSIMISTIC_READ</code>のロックを使用する事で、 トランザクションの終了時にデータを再読み込みしてロックを取得する必要がなく、
+ * L<code>LockModeType.PESSIMISTIC_READ</code>のロックを使用する事で、トランザクションの終了時にデータを再読み込みしてロックを取得する必要がなく、
  * また他のトランザクションのデータを読み取りをブロックすることもなく、反復可能な読み取りセマンティクスを使用してデータを問い合わせできます。
  * <code>LockModeType.PESSIMISTIC_WRITE</code>のロックは、データの問い合わせに使用できますが、
  * 並行更新トランザクション間でデッドロックや更新の失敗の可能性が高くなります。
