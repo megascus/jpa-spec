@@ -16,7 +16,9 @@
 package javax.persistence;
 
 /**
- * ロックモードはロックを取る{@link javax.persistence.EntityManager}メソッドの1つ(<code>lock</code>や<code>find</code>、<code>refresh</code>)または{@link Query#setLockMode Query.setLockMode()}、{@link TypedQuery#setLockMode TypedQuery.setLockMode()}メソッドのいずれかに<code>LockModeType</code>引数を渡すことによって指定できます。
+ * ロックモードはロックを取る{@link javax.persistence.EntityManager}メソッドの1つ(<code>lock</code>や<code>find</code>、<code>refresh</code>)または
+ * {@link Query#setLockMode Query.setLockMode()}、{@link TypedQuery#setLockMode TypedQuery.setLockMode()}メソッドのいずれかに<code>LockModeType</code>
+ * 引数を渡すことによって指定できます。
  * 
  * <p> ロックモードは楽観ロック、悲観ロックのどちらかを指定するのに使用されます。
  *
