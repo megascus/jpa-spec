@@ -22,19 +22,13 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies that a persistent property or field should be persisted
- * as a large object to a database-supported large object type.
+ * 永続化プロパティまたはフィールドを、データベースがサポートするラージオブジェクト型のラージオブジェクトとして永続化する必要があることを指定します。
+ * 
+ * <p> ポータブルアプリケーションでは、データベースのLOB型にマッピングするときには<code>Lob</code>アノテーションを使用する必要があります。
+ * <code>Lob</code>アノテーションは{@link Basic}アノテーションまたは要素コレクションの値が基本型である場合の{@link ElementCollection}アノテーションと共に使用できます。
+ * <code>Lob</code>は、バイナリまたは文字型のいずれかです。
  *
- * <p> Portable applications should use the <code>Lob</code> annotation
- * when mapping to a database Lob type.  The <code>Lob</code>
- * annotation may be used in conjunction with the {@link Basic}
- * annotation or the {@link ElementCollection} annotation when the
- * element collection value is of basic type. A <code>Lob</code> may
- * be either a binary or character type.
- *
- * <p> The <code>Lob</code> type is inferred from the type of the 
- * persistent field or property, and except for string and 
- * character-based types defaults to Blob.
+ * <p> <code>Lob</code>型は永続化フィールドまたはプロパティの型から推論されますが、文字列および文字型を除いて既定値はBlobになります。
  * <pre>
  *
  *   Example 1:
