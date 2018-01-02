@@ -67,87 +67,71 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 public @interface JoinTable {
 
     /**
-     * (Optional) The name of the join table. 
+     * (オプション) 結合テーブルの名前。 
      * 
-     * <p> Defaults to the concatenated names of
-     * the two associated primary entity tables, 
-     * separated by an underscore.
+     * <p> デフォルトでは関連する二つのプライマリーエンティティテーブルの名前がアンダースコアで結合された名前が使用されます。
      */
     String name() default "";
 
-    /** (Optional) The catalog of the table. 
-     * <p> Defaults to the default catalog.
+    /** (オプション) テーブルのカタログ。
+     *  
+     * <p> デフォルトでは既定のカタログです。
      */
     String catalog() default "";
 
-    /** (Optional) The schema of the table. 
-     * <p> Defaults to the default schema for user.
+    /** (オプション) テーブルのスキーマ。
+     * 
+     * <p> デフォルトではユーザーの規定のスキーマです。
      */
     String schema() default "";
 
     /**
-     * (Optional) The foreign key columns
-     * of the join table which reference the
-     * primary table of the entity owning the
-     * association. (I.e. the owning side of
-     * the association).
+     * (オプション) 関連を所有するエンティティのプライマリテーブルを参照する結合テーブルの外部キー列。(つまり、関連の所有側)
      *
-     * <p> Uses the same defaults as for {@link JoinColumn}.
+     * <p> {@link JoinColumn}と同じデフォルト値を使用します。
      */
     JoinColumn[] joinColumns() default {};
 
     /** 
-     * (Optional) The foreign key columns
-     * of the join table which reference the
-     * primary table of the entity that does
-     * not own the association. (I.e. the
-     * inverse side of the association).
+     * (オプション) 関連を所有しないエンティティのプライマリテーブルを参照する結合テーブルの外部キー列。(つまり、関連の所有の逆側)
      *
-     * <p> Uses the same defaults as for {@link JoinColumn}.
+     * <p> {@link JoinColumn}と同じデフォルト値を使用します。
      */
     JoinColumn[] inverseJoinColumns() default {};
 
     /**
-     *  (Optional) Used to specify or control the generation of a
-     *   foreign key constraint for the columns corresponding to the
-     *   <code>joinColumns</code> element when table generation is in
-     *   effect.  If both this element and the <code>foreignKey</code>
-     *   element of any of the <code>joinColumns</code> elements are
-     *   specified, the behavior is undefined.  If no foreign key
-     *   annotation element is specified in either location, the
-     *   persistence provider's default foreign key strategy will
-     *   apply.
+     * (オプション) 表の生成が有効な場合に<code>joinColumns</code>要素に関係する列のための外部キー制約の生成を指定または制御するために使用されます。
+     * 
+     * この要素と<code>joinColumns</code>要素のいずれかの<code>foreignKey</code>要素の両方が指定されていた場合の挙動は未定義です。
+     * いずれの場所にも外部キーのアノテーション要素が指定されていない場合は、永続化プロバイダーのデフォルトの外部キー戦略が適用されます。
      *
-     *  @since Java Persistence 2.1
+     * @since Java Persistence 2.1
      */
     ForeignKey foreignKey() default @ForeignKey(PROVIDER_DEFAULT);
 
     /**
-     *  (Optional) Used to specify or control the generation of a
-     *  foreign key constraint for the columns corresponding to the
-     *  <code>inverseJoinColumns</code> element when table generation
-     *  is in effect.  If both this element and the
-     *  <code>foreignKey</code> element of any of the
-     *  <code>inverseJoinColumns</code> elements are specified, the
-     *  behavior is undefined.  If no foreign key annotation element
-     *  is specified in either location, the persistence provider's
-     *  default foreign key strategy will apply.
+     * (オプション) 表の生成が有効な場合に<code>inverseJoinColumns</code>要素に関係する列のための外部キー制約の生成を指定または制御するために使用されます。
+     * 
+     * この要素と<code>inverseJoinColumns</code>要素のいずれかの<code>foreignKey</code>要素の両方が指定されていた場合の挙動は未定義です。
+     * いずれの場所にも外部キーのアノテーション要素が指定されていない場合は、永続化プロバイダーのデフォルトの外部キー戦略が適用されます。
      *
-     *  @since Java Persistence 2.1
+     * @since Java Persistence 2.1
      */
     ForeignKey inverseForeignKey() default @ForeignKey(PROVIDER_DEFAULT);
 
     /**
-     * (Optional) Unique constraints that are
-     * to be placed on the table. These are
-     * only used if table generation is in effect.
-     * <p> Defaults to no additional constraints.
+     * (オプション) テーブルに設置されるユニーク制約。
+     * 
+     * これらはテーブルの生成が有効な場合にのみ使用されます。
+     * 
+     * <p> デフォルトでは追加の制約はありません。
      */
     UniqueConstraint[] uniqueConstraints() default {};
 
     /**
-     * (Optional) Indexes for the table.  These are only used if
-     * table generation is in effect. 
+     * (オプション) テーブルのためのインデックス。
+     * 
+     * これらはテーブルの生成が有効な場合にのみ使用されます。
      *
      * @since Java Persistence 2.1 
      */
