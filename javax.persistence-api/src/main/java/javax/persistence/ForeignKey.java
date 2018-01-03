@@ -62,33 +62,27 @@ import static javax.persistence.ConstraintMode.CONSTRAINT;
 public @interface ForeignKey {
 
     /**
-     * (Optional) The name of the foreign key constraint.  If this
-     * is not specified, it defaults to a provider-generated name.
+     * (オプション) 外部キー制約の名前。
+     * 
+     * これが指定されていない場合、プロバイダーが生成した名前がデフォルトです。
      */
     String name() default "";
 
     /**
-     * (Optional) Used to specify whether a foreign key constraint should be
-     *  generated when schema generation is in effect. 
+     * (オプション) スキーマの生成が有効なときに外部キー制約を生成するべきかどうかを指定するために使用します。
      *  <p>
-     *  A value of <code>CONSTRAINT</code> will cause the persistence
-     *  provider to generate a foreign key constraint.  If the
-     *  <code>foreignKeyDefinition</code> element is not specified, the
-     *  provider will generate a constraint whose update
-     *  and delete actions it determines most appropriate for the
-     *  join column(s) to which the foreign key annotation is applied.
+     *  <code>CONSTRAINT</code>の値は永続性プロバイダーに外部キー制約を生成させます。
+     *  <code>foreignKeyDefinition</code>要素が指定されていない場合、
+     *  プロバイダーは外部キーアノテーションが適用される結合列に最も適切に決定される更新アクションと削除アクションを持つ制約を生成します。
      *  <p>
-     *  A value of <code>NO_CONSTRAINT</code> will result in no
-     *  constraint being generated.
-     *  <p>
-     *  A value of <code>PROVIDER_DEFAULT</code> will result in the
-     *  provider's default behavior (which may or may not result
-     *  in the generation of a constraint for the given join column(s).
+     *  <code>NO_CONSTRAINT</code>の値は、制約が生成されません。
+     *  <p><code>PROVIDER_DEFAULT</code>の値は、プロバイダのデフォルトのふるまいになります。
+     *  (指定された結合列に対して制約が生成される場合もされない場合もあります)
      */
     ConstraintMode value() default CONSTRAINT;
 
     /**
-     * (Optional) The foreign key constraint definition.  
+     * (オプション) 外部キー制約の定義。
      */
     String foreignKeyDefinition() default "";
 }
