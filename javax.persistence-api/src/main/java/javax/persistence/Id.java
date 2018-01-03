@@ -22,20 +22,20 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies the primary key of an entity.
- * The field or property to which the <code>Id</code> annotation is applied 
- * should be one of the following types: any Java primitive type; 
- * any primitive wrapper type; 
- * <code>String</code>; 
- * <code>java.util.Date</code>; 
- * <code>java.sql.Date</code>; 
- * <code>java.math.BigDecimal</code>;
- * <code>java.math.BigInteger</code>.
+ * エンティティの主キーを指定します。
+ * 
+ * <code>Id</code>アノテーションが適用されたフィールドまたはプロパティは以下のいずれかの型である必要があります。
+ * <ul>
+ * <li>Javaプリミティブ型のいずれか</li>
+ * <li>Javaプリミティブ型のラッパークラスのいずれか</li>
+ * <li><code>String</code></li>
+ * <li><code>java.util.Date</code></li>
+ * <li><code>java.math.BigDecimal</code></li>
+ * <li><code>java.math.BigInteger</code></li>
+ * </ul>
  *
- * <p>The mapped column for the primary key of the entity is assumed 
- * to be the primary key of the primary table. If no <code>Column</code> annotation 
- * is specified, the primary key column name is assumed to be the name 
- * of the primary key property or field.
+ * <p>エンティティの主キーがマッピングされる列はプライマリーテーブルの主キーであるとみなされます。
+ * <code>Column</code>アノテーションが指定されていない場合、主キー列の名前は主キープロパティもしくはフィールドの名前とみなされます。
  *
  * <pre>
  *   Example:
