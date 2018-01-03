@@ -16,23 +16,21 @@
 package javax.persistence;
 
 /**
- * Defines inheritance strategy options.
+ * 継承戦略のオプションを定義します。
  *
  * @since Java Persistence 1.0
  */
 public enum InheritanceType { 
 
-    /** A single table per class hierarchy. */
+    /** クラス階層で一つのテーブル。 */
     SINGLE_TABLE, 
 
-    /** A table per concrete entity class. */
+    /** 具体的なエンティティクラスごとに一つのテーブル。 */
     TABLE_PER_CLASS, 
 
-    /** 
-     * A strategy in which fields that are specific to a 
-     * subclass are mapped to a separate table than the fields 
-     * that are common to the parent class, and a join is 
-     * performed to instantiate the subclass.
+    /**
+     * サブクラスに固有のフィールドが、親クラスでの共通のフィールドとは別のテーブルにマップされ、
+     * サブクラスをインスタンス化するためにテーブル結合が実行される戦略。
      */
     JOINED 
 }
