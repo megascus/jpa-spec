@@ -59,54 +59,37 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 @Retention(RUNTIME)
 public @interface JoinColumn {
 
-    /** 
-     * (オプション) The name of the foreign key column.
-     * The table in which it is found depends upon the
-     * context. 
+    /**
+     * (オプション) 外部キー列の名前。
+     * 
+     * 見つかるテーブルはコンテキストに依存します。
      * <ul>
-     * <li>If the join is for a OneToOne or ManyToOne
-     *  mapping using a foreign key mapping strategy, 
-     * the foreign key column is in the table of the
-     * source entity or embeddable. 
-     * <li> If the join is for a unidirectional OneToMany mapping
-     * using a foreign key mapping strategy, the foreign key is in the
-     * table of the target entity.  
-     * <li> If the join is for a ManyToMany mapping or for a OneToOne
-     * or bidirectional ManyToOne/OneToMany mapping using a join
-     * table, the foreign key is in a join table.  
-     * <li> If the join is for an element collection, the foreign 
-     * key is in a collection table.
+     * <li> 結合が外部キーマッピング戦略を使用するOneToOneまたはManyToOneマッピングの場合、
+     * 外部キー列はソースエンティティまたは組み込みクラスのテーブルにあります。
+     * <li> 結合が外部キーマッピング方式を使用する単方向OneToManyマッピングの場合、
+     * 外部キーはターゲットエンティティのテーブルにあります。
+     * <li> 結合がManyToManyマッピング、または結合テーブルを使用するOneToOneまたは双方向ManyToOne、OneToManyマッピングの場合、
+     * 外部キーは結合テーブルにあります。
+     * <li> 結合が要素コレクションの場合、外部キーはコレクションテーブルにあります。
      *</ul>
      *
-     * <p> Default (only applies if a single join column is used):
-     * The concatenation of the following: the name of the 
-     * referencing relationship property or field of the referencing 
-     * entity or embeddable class; "_"; the name of the referenced 
-     * primary key column. 
-     * If there is no such referencing relationship property or 
-     * field in the entity, or if the join is for an element collection,
-     * the join column name is formed as the 
-     * concatenation of the following: the name of the entity; "_"; 
-     * the name of the referenced primary key column.
+     * <p> デフォルト(単一の結合列が使用された場合のみ適用される): 
+     * 参照元の関係プロパティの名前または参照元のエンティティまたは埋め込み可能クラスのフィールド + "_" + 参照される主キー列の名前
+     * <br>
+     * エンティティにそのような参照関係プロパティまたはフィールドがない場合、もしくは要素コレクションの結合である場合、結合列名は次のようになります。 
+     * エンティティの名前 + "_" + 参照される主キー列の名前
      */
     String name() default "";
 
     /**
+     * 
      * (オプション) この外部キー列から参照される列の名前。
      * <ul>
-     * <li> When used with entity relationship mappings other
-     * than the cases described here, the referenced column is in the
-     * table of the target entity. 
-     * <li> When used with a unidirectional OneToMany foreign key
-     * mapping, the referenced column is in the table of the source
-     * entity.  
-     * <li> When used inside a <code>JoinTable</code> annotation,
-     * the referenced key column is in the entity table of the owning
-     * entity, or inverse entity if the join is part of the inverse
-     * join definition.  
-     * <li> When used in a <code>CollectionTable</code> mapping, the
-     * referenced column is in the table of the entity containing the
-     * collection.
+     * <li> ここで説明するケース以外のエンティティ関係マッピングで使用する場合、参照先の列はターゲットエンティティのテーブルにあります。
+     * <li> 単方向のOneToMany外部キーマッピングとともに使用する場合、参照される列はソースエンティティのテーブル内にあります。
+     * <li> <code>JoinTable</code>アノテーション内で使用される場合、参照されるキー列は所有側のエンティティのテーブルにあり、
+     * 逆側の結合の定義の一部である場合は逆側のエンティティのテーブルにあります。
+     * <li> <code>CollectionTable</code>マッピングで使用される場合、参照される列はコレクションを含むエンティティのテーブルにあります。
      * </ul>
      *
      * <p> デフォルト (単一の結合列が使用された場合のみ適用される): 
