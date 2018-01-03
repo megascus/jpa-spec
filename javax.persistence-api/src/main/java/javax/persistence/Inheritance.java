@@ -22,11 +22,11 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.InheritanceType.SINGLE_TABLE;
 
 /**
- * Specifies the inheritance strategy to be used for an entity class
- * hierarchy. It is specified on the entity class that is the root of
- * the entity class hierarchy.  If the <code>Inheritance</code> annotation is not
- * specified or if no inheritance type is specified for an entity
- * class hierarchy, the <code>SINGLE_TABLE</code> mapping strategy is used.
+ * エンティティクラスの階層で使用される継承戦略を指定します。
+ * 
+ * これはエンティティクラス階層の最上位のエンティティクラスで指定されます。
+ * <code>Inheritance</code>アノテーションが指定されてない場合、もしくはエンティティクラス階層で継承型が指定されていない場合は、
+ * <code>SINGLE_TABLE</code>マッピングが使用されます。
  *
  * <pre>
  *
@@ -47,6 +47,6 @@ import static javax.persistence.InheritanceType.SINGLE_TABLE;
 
 public @interface Inheritance {
 
-    /** The strategy to be used for the entity inheritance hierarchy. */
+    /** エンティティの継承階層に使用される戦略。 */
     InheritanceType strategy() default SINGLE_TABLE;
 }
