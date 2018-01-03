@@ -19,22 +19,20 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * Used in schema generation to specify creation of an index.
+ * スキーマ生成でインデックスの生成を指定するのに使用されます。
+ * 
  * <p>
- * Note that it is not necessary to specify an index for a primary key,
- * as the primary key index will be created automatically.
+ * 主キーに対するインデックスは自動的に生成されるため、主キーに対するインデックスの指定は必要ないことに注意してください。
  *
  * <p> 
- * The syntax of the <code>columnList</code> element is a 
- * <code>column_list</code>, as follows:
+ * <code>columnList</code>要素の構文は次のような<code>column_list</code>です。:
  * 
  * <pre>
  *    column::= index_column [,index_column]*
  *    index_column::= column_name [ASC | DESC]
  * </pre>
  * 
- * <p> If <code>ASC</code> or <code>DESC</code> is not specified, 
- * <code>ASC</code> (ascending order) is assumed.
+ * <p> <code>ASC</code>も<code>DESC</code>も指定されていない場合、<code>ASC</code>(昇順)が仮定されます。
  *
  * @see Table
  * @see SecondaryTable
@@ -50,18 +48,17 @@ import java.lang.annotation.Target;
 public @interface Index {
 
     /**
-     * (Optional) The name of the index; defaults to a provider-generated name.
+     * (オプション) インデックスの名前、デフォルトはプロバイダーが生成する名前です。
      */
     String name() default "";
 
     /**
-     * (Required) The names of the columns to be included in the index, 
-     * in order.
+     * (オプション)インデックスや順序に含まれる列の名前。
      */
     String columnList();
 
     /**
-     * (Optional) Whether the index is unique.
+     * (オプション) インデックスがユニークかどうか。
      */
     boolean unique() default false;
 
