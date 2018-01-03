@@ -20,16 +20,14 @@ import java.lang.annotation.Target;
 import static javax.persistence.ConstraintMode.CONSTRAINT;
 
 /**
- * Used to specify the handling of foreign key constraints when schema
- * generation is in effect.  If this annotation is not specified, the
- * persistence provider's default foreign key strategy will be used.
+ * スキーマ生成が有効な場合に外部キー制約の処理を指定するために使用されます。
+ * 
+ * このアノテーションが指定されていない場合、永続化プロバイダーのデフォルトの外部キー方式が使用されます。
  * <p>
- * The <code>ConstraintMode</code> value is used to specify whether foreign
- * key constraints should be generated.
+ * <code>ConstraintMode</code>の値は外部キー制約を生成すべきかどうかを指定するために使用されます。
  * <p>
- * The syntax used in the <code>foreignKeyDefinition</code> element 
- * should follow the SQL syntax used by the target database for foreign
- * key constraints.  For example, this may be similar the following:
+ * <code>foreignKeyDefinition</code>要素で使用される構文は、ターゲットデータベースによって外部キー制約で使用されるSQL構文に従う必要があります。
+ * たとえば、次のようなものです。
  * <pre>
  * FOREIGN KEY ( &#060;COLUMN expression&#062; {, &#060;COLUMN expression&#062;}... )
  * REFERENCES &#060;TABLE identifier&#062; [
@@ -38,12 +36,8 @@ import static javax.persistence.ConstraintMode.CONSTRAINT;
  * [ ON DELETE &#060;referential action&#062; ]
  * </pre>
  *
- * When the <code>ConstraintMode</code> value is
- * <code>CONSTRAINT</code>, but the <code>foreignKeyDefinition</code>
- * element is not specified, the provider will generate foreign key
- * constraints whose update and delete actions it determines most
- * appropriate for the join column(s) to which the foreign key
- * annotation is applied.
+ * <code>ConstraintMode</code>の値が<code>CONSTRAINT</code>であるが、<code>foreignKeyDefinition</code>要素が指定されていない場合、
+ * プロバイダーは外部キーアノテーションが適用される結合列に最も適切に決定される更新アクションと削除アクションを持つ制約を生成します。
  *
  * @see JoinColumn
  * @see JoinColumns
