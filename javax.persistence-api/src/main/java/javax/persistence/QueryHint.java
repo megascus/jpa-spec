@@ -22,7 +22,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 /**
  * {@link NamedQuery}や{@link NamedNativeQuery}アノテーションにクエリープロパティやヒントを供給するために使用されます。
  *
- * <p> プロバイダーによって認識されないベンダー固有のヒントは無視されます。
+ * <p> プロバイダによって認識されないベンダー固有のヒントは無視されます。
  *
  * @since Java Persistence 1.0
  */

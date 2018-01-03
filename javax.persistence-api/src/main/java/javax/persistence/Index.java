@@ -48,7 +48,7 @@ import java.lang.annotation.Target;
 public @interface Index {
 
     /**
-     * (オプション) インデックスの名前、デフォルトはプロバイダーが生成する名前です。
+     * (オプション) インデックスの名前、デフォルトはプロバイダが生成する名前です。
      */
     String name() default "";
 

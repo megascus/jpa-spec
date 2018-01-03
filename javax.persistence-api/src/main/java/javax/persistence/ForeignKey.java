@@ -22,7 +22,7 @@ import static javax.persistence.ConstraintMode.CONSTRAINT;
 /**
  * スキーマ生成が有効な場合に外部キー制約の処理を指定するために使用されます。
  * 
- * このアノテーションが指定されていない場合、永続化プロバイダーのデフォルトの外部キー方式が使用されます。
+ * このアノテーションが指定されていない場合、永続化プロバイダのデフォルトの外部キー方式が使用されます。
  * <p>
  * <code>ConstraintMode</code>の値は外部キー制約を生成すべきかどうかを指定するために使用されます。
  * <p>
@@ -37,7 +37,7 @@ import static javax.persistence.ConstraintMode.CONSTRAINT;
  * </pre>
  *
  * <code>ConstraintMode</code>の値が<code>CONSTRAINT</code>であるが、<code>foreignKeyDefinition</code>要素が指定されていない場合、
- * プロバイダーは外部キーアノテーションが適用される結合列に最も適切に決定される更新アクションと削除アクションを持つ制約を生成します。
+ * プロバイダは外部キーアノテーションが適用される結合列に最も適切に決定される更新アクションと削除アクションを持つ制約を生成します。
  *
  * @see JoinColumn
  * @see JoinColumns
@@ -58,16 +58,16 @@ public @interface ForeignKey {
     /**
      * (オプション) 外部キー制約の名前。
      * 
-     * これが指定されていない場合、プロバイダーが生成した名前がデフォルトです。
+     * これが指定されていない場合、プロバイダが生成した名前がデフォルトです。
      */
     String name() default "";
 
     /**
      * (オプション) スキーマの生成が有効なときに外部キー制約を生成するべきかどうかを指定するために使用します。
      *  <p>
-     *  <code>CONSTRAINT</code>の値は永続性プロバイダーに外部キー制約を生成させます。
+     *  <code>CONSTRAINT</code>の値は永続性プロバイダに外部キー制約を生成させます。
      *  <code>foreignKeyDefinition</code>要素が指定されていない場合、
-     *  プロバイダーは外部キーアノテーションが適用される結合列に最も適切に決定される更新アクションと削除アクションを持つ制約を生成します。
+     *  プロバイダは外部キーアノテーションが適用される結合列に最も適切に決定される更新アクションと削除アクションを持つ制約を生成します。
      *  <p>
      *  <code>NO_CONSTRAINT</code>の値は、制約が生成されません。
      *  <p><code>PROVIDER_DEFAULT</code>の値は、プロバイダのデフォルトのふるまいになります。
