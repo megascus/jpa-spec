@@ -16,14 +16,11 @@
 package javax.persistence;
 
 /**
- * Defines strategies for fetching data from the database.
- * The <code>EAGER</code> strategy is a requirement on the persistence 
- * provider runtime that data must be eagerly fetched. The 
- * <code>LAZY</code> strategy is a hint to the persistence provider 
- * runtime that data should be fetched lazily when it is 
- * first accessed. The implementation is permitted to eagerly 
- * fetch data for which the <code>LAZY</code> strategy hint has been 
- * specified. 
+ * データベースからデータをフェッチする戦略を定義します。
+ * 
+ * <code>EAGER</code>戦略は永続化プロバイダは実行時にデータをイーガーフェッチしなければならないという必須要件です。
+ * <code>LAZY</code>戦略は永続化プロバイダは実行時にデータへの初回アクセス時にデータをレイジーフェッチするべきであるというヒントです。
+ * 実装は<code>LAZY</code>戦略のヒントが指定されているデータでもイーガーフェッチすることが許されています。
  *
  * <pre>
  *   Example:
@@ -41,9 +38,9 @@ package javax.persistence;
  */
 public enum FetchType {
 
-    /** Defines that data can be lazily fetched. */
+    /** データをレイジーフェッチすることができるという定義。 */
     LAZY,
 
-    /** Defines that data must be eagerly fetched. */
+    /** データをイーガーフェッチしなければならないという定義。 */
     EAGER
 }
