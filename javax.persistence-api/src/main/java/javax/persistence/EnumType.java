@@ -18,10 +18,7 @@ package javax.persistence;
 /**
  * 列挙型のマッピングを定義します。
  * 
- * この列挙型の定数は列挙型の永続化プロパティもしくはフィールドがどのように永続化されるべきかを指定します。
- * Defines mapping for enumerated types.  The constants of this
- * enumerated type specify how a persistent property or
- * field of an enumerated type should be persisted.
+ * この列挙型の定数は列挙型の永続化プロパティもしくはフィールドがどのように永続化される必要があるかを指定します。
  * 
  * @since Java Persistence 1.0
  */
