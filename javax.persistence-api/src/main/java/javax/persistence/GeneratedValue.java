@@ -28,8 +28,6 @@ import static javax.persistence.GenerationType.AUTO;
  * <p><code>GeneratedValue</code> アノテーションは{@link Id}アノテーションとともにエンティティまたはマップドスーパークラスの主キーのプロパティまたはフィールドに適用できます。
  * <code>GeneratedValue</code>アノテーションは単純な主キーに対しての用法のみサポートされる必要があります。
  * 派生した主キーでは<code>GeneratedValue</code>アノテーションの使用はサポートされていません。
- * Provides for the specification of generation strategies for the
- * values of primary keys. 
  *
  * <pre>
  *
