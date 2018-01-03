@@ -16,37 +16,28 @@
 package javax.persistence;
 
 /**
- * Flush mode setting.
- *
- * <p> When queries are executed within a transaction, if
- * <code>FlushModeType.AUTO</code> is set on the {@link
- * javax.persistence.Query Query} or {@link javax.persistence.TypedQuery
- * TypedQuery} object, or if the flush mode setting for the
- * persistence context is <code>AUTO</code> (the default) and a flush
- * mode setting has not been specified for the <code>Query</code> or
- * <code>TypedQuery</code> object, the persistence provider is
- * responsible for ensuring that all updates to the state of all
- * entities in the persistence context which could potentially affect
- * the result of the query are visible to the processing of the
- * query. The persistence provider implementation may achieve this by
- * flushing those entities to the database or by some other means. 
- * <p> If <code>FlushModeType.COMMIT</code> is set, the effect of
- * updates made to entities in the persistence context upon queries is
- * unspecified.
- *
- * <p> If there is no transaction active or the persistence context is not
- * joined to the current transaction, the persistence provider must not flush 
- * to the database.
+ * フラッシュモードの設定です。
+ * 
+ * <p> トランザクション内でクエリーが実行されるときに、
+ * {@link javax.persistence.Query Query}や{@link javax.persistence.TypedQuery TypedQuery}のオブジェクトに<code>FlushModeType.AUTO</code>が設定されていた場合や、
+ * 永続化コンテキストのフラッシュモード設定が<code>AUTO</code>(デフォルト)であり、<code>Query</code>や<code>TypedQuery</code>のオブジェクトにフラッシュモードの設定が指定されていない場合、
+ * 永続化プロバイダは永続化コンテキスト内のすべてのエンティティの状態に対するすべての更新がクエリーの処理に潜在的に影響を与える可能性のあるものであるかどうかを確認する責任があります。 
+ * 永続化プロバイダの実装では、これらのエンティティをデータベースにフラッシュするか、または他の手段でこれを果たせます。
+ * 
+ * <p> code>FlushModeType.COMMIT</code>が設定されている場合の照会時の永続コンテキスト内のエンティティに対する更新の効果は規定されていません。
+ * 
+ * <p> トランザクションがアクティブでないか、または永続化コンテキストが現在のトランザクションに参加していない場合、永続化プロバイダはデータベースにフラッシュしてはいけません。
  *
  * @since Java Persistence 1.0
  */
 public enum FlushModeType {
 
-    /** Flushing to occur at transaction commit.  The provider may flush
-     *  at other times, but is not required to.
+    /**
+     * フラッシュはトランザクションのコミット時に発生します。プロバイダはフラッシュを他の時に発生させることもできますが、
+     * 必須ではありません。 
      */
    COMMIT,
 
-    /** (Default) Flushing to occur at query execution. */
+    /** (デフォルト) フラッシュはクエリー実行時に発生します。 */
    AUTO
 }
