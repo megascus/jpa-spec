@@ -23,16 +23,13 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.GenerationType.AUTO;
 
 /**
+ * 主キーの値の生成戦略の指定を提供します。
+ * 
+ * <p><code>GeneratedValue</code> アノテーションは{@link Id}アノテーションとともにエンティティまたはマップドスーパークラスの主キーのプロパティまたはフィールドに適用できます。
+ * <code>GeneratedValue</code>アノテーションは単純な主キーに対しての用法のみサポートされる必要があります。
+ * 派生した主キーでは<code>GeneratedValue</code>アノテーションの使用はサポートされていません。
  * Provides for the specification of generation strategies for the
  * values of primary keys. 
- *
- * <p> The <code>GeneratedValue</code> annotation
- * may be applied to a primary key property or field of an entity or
- * mapped superclass in conjunction with the {@link Id} annotation.
- * The use of the <code>GeneratedValue</code> annotation is only
- * required to be supported for simple primary keys.  Use of the
- * <code>GeneratedValue</code> annotation is not supported for derived
- * primary keys.
  *
  * <pre>
  *
@@ -63,17 +60,14 @@ import static javax.persistence.GenerationType.AUTO;
 public @interface GeneratedValue {
 
     /**
-     * (Optional) The primary key generation strategy
-     * that the persistence provider must use to
-     * generate the annotated entity primary key.
+     * (オプション) アノテーションの付いたエンティティの主キーを生成するために永続性プロバイダが使用しなければならない主キー生成戦略。
      */
     GenerationType strategy() default AUTO;
 
     /**
-     * (Optional) The name of the primary key generator
-     * to use as specified in the {@link SequenceGenerator} 
-     * or {@link TableGenerator} annotation.
-     * <p> Defaults to the id generator supplied by persistence provider.
+     * (オプション) {@link SequenceGenerator} アノテーションや{@link TableGenerator}アノテーションで指定された使用する主キージェネレーターの名前。
+     * 
+     * <p> デフォルトでは永続性プロバイダによって提供されるIDジェネレータになります。
      */
     String generator() default "";
 }
