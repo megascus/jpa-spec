@@ -21,12 +21,10 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies a composite primary key class that is mapped to 
- * multiple fields or properties of the entity.  
+ * エンティティの複数のフィールドとプロパティーにマッピングされる複合主キークラスを指定します。
  *
- * <p> The names of the fields or properties in the primary key 
- * class and the primary key fields or properties of the entity 
- * must correspond and their types must be the same.
+ * <p> 主キークラスのフィールドとプロパティの名前およびエンティティの主キーフィールドとプロパティの名前が対応し、
+ * その型は一致していなければいけません。
  *
  * <pre>
  *
@@ -48,6 +46,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 public @interface IdClass {
 
-    /** Primary key class */
+    /** 主キークラス */
     Class value();
 }
