@@ -21,9 +21,7 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies that the invocation of superclass listeners is 
- * to be excluded for the entity class (or mapped superclass) 
- * and its subclasses.
+ * スーパークラスのリスナーの呼び出しをエンティティクラス(もしくはマップドスーパークラス)およびそのサブクラスで除外することを指定します。
  *
  * @since Java Persistence 1.0
  */
