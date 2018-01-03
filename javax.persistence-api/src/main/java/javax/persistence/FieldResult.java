@@ -20,8 +20,8 @@ import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Used in conjunction with the {@link EntityResult} annotation to map columns specified 
- * in the SELECT list of a SQL query to the properties or fields of an entity class.
+ * SQLクエリーのSELECTリストで指定された列をエンティティクラスのプロパティーやフィールドにマッピングするために
+ * {@link EntityResult}アノテーションと一緒に使用します。
  *
  * <pre>
  *
@@ -52,12 +52,11 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 public @interface FieldResult { 
 
-    /** Name of the persistent field or property of the class. */
+    /** クラスの永続化フィールドもしくはプロパティの名前。 */
     String name();
 
     /** 
-     * Name of the column in the SELECT clause - i.e., column 
-     * aliases, if applicable. 
+     * SELECT句の列の名前。該当する場合は列の別名。
      */
     String column();
 }
