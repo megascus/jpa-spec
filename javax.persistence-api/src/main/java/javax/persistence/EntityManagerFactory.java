@@ -87,8 +87,7 @@ public interface EntityManagerFactory {
     public EntityManager createEntityManager(SynchronizationType synchronizationType, Map map);
 
     /**
-     * Return an instance of <code>CriteriaBuilder</code> for the creation of
-     * <code>CriteriaQuery</code> objects.
+     * <code>CriteriaQuery</code>オブジェクトを作るための<code>CriteriaBuilder</code>のインスタンスを返します。
      * @return CriteriaBuilderのインスタンス
      * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      *
@@ -97,8 +96,7 @@ public interface EntityManagerFactory {
     public CriteriaBuilder getCriteriaBuilder();
     
     /**
-     * Return an instance of <code>Metamodel</code> interface for access to the
-     * metamodel of the persistence unit.
+     * 永続化ユニットのメタモデルにアクセスするための<code>Metamodel</code>インターフェースのインスタンスを返します。
      * @return Metamodelのインスタンス
      * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      *
@@ -107,8 +105,9 @@ public interface EntityManagerFactory {
     public Metamodel getMetamodel();
 
     /**
-     * Indicates whether the factory is open. Returns true
-     * until the factory has been closed.
+     * ファクトリーがオープンしているかどうかを示します。
+     * 
+     * ファクトリーがクローズされるまではtrueを返します。
      * @return ファクトリーがオープンしているかどうかを示すboolean
      */
     public boolean isOpen();
