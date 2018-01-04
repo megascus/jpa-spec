@@ -16,61 +16,51 @@
 package javax.persistence;
 
 /**
- * Interface used to control transactions on resource-local entity
- * managers.  The {@link EntityManager#getTransaction
- * EntityManager.getTransaction()} method returns the
- * <code>EntityTransaction</code> interface.
-
+ * リソースローカルエンティティマネージャー上のトランザクションを制御するために使用されるインタフェースです。
+ * 
+ * {@link EntityManager#getTransaction EntityManager.getTransaction()}メソッドは<code>EntityTransaction</code>インターフェイスを返します。
  *
  * @since Java Persistence 1.0
  */
 public interface EntityTransaction {
 
      /**
-      * Start a resource transaction. 
-      * @throws IllegalStateException if <code>isActive()</code> is true
+      * リソーストランザクションを開始します。
+      * @throws IllegalStateException <code>isActive()</code>がtrueの場合
       */
      public void begin();
 
      /**
-      * Commit the current resource transaction, writing any 
-      * unflushed changes to the database.  
-      * @throws IllegalStateException if <code>isActive()</code> is false
-      * @throws RollbackException if the commit fails
+      * 現在のリソーストランザクションをコミットし、すべてのフラッシュされていない変更をデータベースに書き込みます。
+      * @throws IllegalStateException <code>isActive()</code>がfalseの場合
+      * @throws RollbackException コミットに失敗した場合
       */
      public void commit();
 
      /**
-      * Roll back the current resource transaction. 
-      * @throws IllegalStateException if <code>isActive()</code> is false
-      * @throws PersistenceException if an unexpected error 
-      *         condition is encountered
+      * 現在のリソーストランザクションをロールバックします。
+      * @throws IllegalStateException <code>isActive()</code>がfalseの場合
+      * @throws PersistenceException 予期しないエラー状態に遭遇した場合
       */
      public void rollback();
 
      /**
-      * Mark the current resource transaction so that the only 
-      * possible outcome of the transaction is for the transaction 
-      * to be rolled back. 
-      * @throws IllegalStateException if <code>isActive()</code> is false
+      * 現在のリソーストランザクションがロールバックのみ可能になるようにマークします。
+      * @throws IllegalStateException <code>isActive()</code>がfalseの場合
       */
      public void setRollbackOnly();
 
      /**
-      * Determine whether the current resource transaction has been 
-      * marked for rollback.
-      * @return boolean indicating whether the transaction has been
-      *         marked for rollback
-      * @throws IllegalStateException if <code>isActive()</code> is false
+      * トランザクションにロールバックのマークが付けられているかを確認します。
+      * @return トランザクションにロールバックのマークが付けられているかを示すboolean
+      * @throws IllegalStateException <code>isActive()</code>がfalseの場合
       */
      public boolean getRollbackOnly();
 
      /**
-      * Indicate whether a resource transaction is in progress.
-      * @return boolean indicating whether transaction is
-      *         in progress
-      * @throws PersistenceException if an unexpected error 
-      *         condition is encountered
+      * トランザクションが進行中かどうかを示します。
+      * @return トランザクションが進行中かどうかを示すboolean
+      * @throws PersistenceException 予期しないエラー状態に遭遇した場合
       */
      public boolean isActive();
 }
