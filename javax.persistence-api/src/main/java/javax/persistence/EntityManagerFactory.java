@@ -38,7 +38,7 @@ public interface EntityManagerFactory {
      * This method returns a new <code>EntityManager</code> instance each time
      * it is invoked. 
      * The <code>isOpen</code> method will return true on the returned instance.
-     * @return entity manager instance
+     * @return エンティティマネージャーのインスタンス
      * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      */
     public EntityManager createEntityManager();
@@ -49,8 +49,8 @@ public interface EntityManagerFactory {
      * This method returns a new <code>EntityManager</code> instance each time
      * it is invoked. 
      * The <code>isOpen</code> method will return true on the returned instance.
-     * @param map properties for entity manager
-     * @return entity manager instance
+     * @param map エンティティマネージャーのためのプロパティ
+     * @return エンティティマネージャーのインスタンス
      * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      */
     public EntityManager createEntityManager(Map map);
@@ -61,9 +61,8 @@ public interface EntityManagerFactory {
      * This method returns a new <code>EntityManager</code> instance each time
      * it is invoked. 
      * The <code>isOpen</code> method will return true on the returned instance.
-     * @param synchronizationType  how and when the entity manager should be 
-     * synchronized with the current JTA transaction
-     * @return entity manager instance
+     * @param synchronizationType  エンティティマネージャーが何時どのように現在のJTAトランザクションと同期をとる必要があるか
+     * @returnエンティティマネージャーのインスタンス
      * @throws IllegalStateException このエンティティマネージャーファクトリーがリソースローカルなエンティティマネージャーとして構成されている場合か、
      * すでにクローズされている場合
      *
@@ -77,10 +76,9 @@ public interface EntityManagerFactory {
      * This method returns a new <code>EntityManager</code> instance each time
      * it is invoked. 
      * The <code>isOpen</code> method will return true on the returned instance.
-     * @param synchronizationType  how and when the entity manager should be 
-     * synchronized with the current JTA transaction
-     * @param map properties for entity manager
-     * @return entity manager instance
+     * @param synchronizationType  エンティティマネージャーが何時どのように現在のJTAトランザクションと同期をとる必要があるか
+     * @param map エンティティマネージャーのためのプロパティ
+     * @return エンティティマネージャーのインスタンス
      * @throws IllegalStateException このエンティティマネージャーファクトリーがリソースローカルなエンティティマネージャーとして構成されている場合か、
      * すでにクローズされている場合
      *
@@ -91,7 +89,7 @@ public interface EntityManagerFactory {
     /**
      * Return an instance of <code>CriteriaBuilder</code> for the creation of
      * <code>CriteriaQuery</code> objects.
-     * @return CriteriaBuilder instance
+     * @return CriteriaBuilderのインスタンス
      * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      *
      * @since Java Persistence 2.0
@@ -101,7 +99,7 @@ public interface EntityManagerFactory {
     /**
      * Return an instance of <code>Metamodel</code> interface for access to the
      * metamodel of the persistence unit.
-     * @return Metamodel instance
+     * @return Metamodelのインスタンス
      * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      *
      * @since Java Persistence 2.0
@@ -111,7 +109,7 @@ public interface EntityManagerFactory {
     /**
      * Indicates whether the factory is open. Returns true
      * until the factory has been closed.
-     * @return boolean indicating whether the factory is open
+     * @return ファクトリーがオープンしているかどうかを示すboolean
      */
     public boolean isOpen();
     
@@ -130,7 +128,7 @@ public interface EntityManagerFactory {
      * Get the properties and associated values that are in effect
      * for the entity manager factory. Changing the contents of the
      * map does not change the configuration in effect.
-     * @return properties
+     * @return プロパティ
      * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      *
      * @since Java Persistence 2.0
@@ -140,8 +138,7 @@ public interface EntityManagerFactory {
     /**
      * Access the cache that is associated with the entity manager 
      * factory (the "second level cache").
-     * @return instance of the <code>Cache</code> interface or null if
-     * no cache is in use
+     * @return <code>Cache</code>インターフェースのインスタンス、キャッシュが使用されていない場合はnull
      * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      *
      * @since Java Persistence 2.0
