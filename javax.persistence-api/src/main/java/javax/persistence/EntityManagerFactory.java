@@ -20,14 +20,11 @@ import javax.persistence.metamodel.Metamodel;
 import javax.persistence.criteria.CriteriaBuilder;
 
 /**
- * Interface used to interact with the entity manager factory
- * for the persistence unit.
- *
- * <p>When the application has finished using the entity manager
- * factory, and/or at application shutdown, the application should
- * close the entity manager factory.  Once an
- * <code>EntityManagerFactory</code> has been closed, all its entity managers
- * are considered to be in the closed state.
+ * 永続化ユニットのためのエンティティマネージャファクトリーと対話するために使用されるインターフェースです。
+ * 
+ * <p>アプリケーションがエンティティマネージャファクトリーの使用を終了したとき、および/もしくはアプリケーションのシャットダウン時に、
+ * アプリケーションはエンティティマネージャファクトリーをクローズする必要があります。
+ * いったん<code>EntityManagerFactory</code>がクローズされると関連するエンティティマネージャーはすべてクローズ状態だとみなされます。
  *
  * @since Java Persistence 1.0
  */
