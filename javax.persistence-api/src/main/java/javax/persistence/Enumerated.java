@@ -23,13 +23,12 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.EnumType.ORDINAL;
 
 /**
- * Specifies that a persistent property or field should be persisted
- * as a enumerated type.  The <code>Enumerated</code> annotation may
- * be used in conjunction with the <code>Basic</code> annotation, or in
- * conjunction with the <code>ElementCollection</code> annotation when the
- * element collection value is of basic type.  If the enumerated type
- * is not specified or the <code>Enumerated</code> annotation is not
- * used, the <code>EnumType</code> value is assumed to be <code>ORDINAL</code>.
+ * 永続化プロパティまたはフィールドを列挙型として永続化することを指定します。
+ * 
+ * <code>Enumerated</code>アノテーションは<code>Basic</code>アノテーションとともに、
+ * または値が基本型である要素コレクションで<code>ElementCollection</code>アノテーションとともに使用できます。
+ * <code>EnumType</code>の値が指定されていないか、または<code>Enumerated</code>アノテーションが使用されていない場合、 
+ * <code>EnumType</code>の値は<code>ORDINAL</code>とみなされます。
  *
  * <pre>
  *   Example:
@@ -56,6 +55,6 @@ import static javax.persistence.EnumType.ORDINAL;
 @Retention(RUNTIME)
 public @interface Enumerated {
 
-    /** (Optional) The type used in mapping an enum type. */
+    /** (オプション) Enum型のマッピングに使用される型。 */
     EnumType value() default ORDINAL;
 }
