@@ -22,7 +22,7 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * プロパティまたはフィールドに永続的ではないことを指定します。
+ * プロパティまたはフィールドが永続的ではないことを指定します。
  * 
  * エンティティクラス({{@link Entity})、マップされたスーパークラス({{@link MappedSuperclass})、または埋め込み可能なクラス({{@link Embeddable})のプロパティまたはフィールドにアノテーションを付けるために使用されます。
  *

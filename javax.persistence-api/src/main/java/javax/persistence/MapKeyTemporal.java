@@ -22,7 +22,7 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * このアノテーションは{@link java.util.Date}型と{@link java.util.Calendar}型の永続マップキーに対して指定する必要があります。
+ * このアノテーションは{@link java.util.Date}型と{@link java.util.Calendar}型の永続化マップキーに対して指定する必要があります。
  * 
  * このアノテーションはこれらのタイプのマップキーに対してのみ指定できます。
  * 

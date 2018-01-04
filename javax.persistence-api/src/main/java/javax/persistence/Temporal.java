@@ -22,7 +22,7 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * このアノテーションは<code>java.util.Date</code>型および<code>java.util.Calendar</code>型の永続フィールドまたはプロパティに対して指定する必要があります。
+ * このアノテーションは<code>java.util.Date</code>型および<code>java.util.Calendar</code>型の永続化フィールドまたはプロパティに対して指定する必要があります。
  * 
  * これらの型のフィールドまたはプロパティに対してのみ指定できます。
  * 
