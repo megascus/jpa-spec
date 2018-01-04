@@ -34,21 +34,20 @@ import javax.persistence.criteria.CriteriaBuilder;
 public interface EntityManagerFactory {
 
     /**
-     * Create a new application-managed <code>EntityManager</code>.
-     * This method returns a new <code>EntityManager</code> instance each time
-     * it is invoked. 
-     * The <code>isOpen</code> method will return true on the returned instance.
+     * 新しいアプリケーション管理の<code>EntityManager</code>を作成します。
+     * 
+     * このメソッドは呼び出すたびに新しい<code>EntityManager</code>インスタンスを返します。
+     * 返されたインスタンスでは<code>isOpen</code>メソッドはtrueを返すでしょう。
      * @return エンティティマネージャーのインスタンス
      * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      */
     public EntityManager createEntityManager();
     
     /**
-     * Create a new application-managed <code>EntityManager</code> with the 
-     * specified Map of properties. 
-     * This method returns a new <code>EntityManager</code> instance each time
-     * it is invoked. 
-     * The <code>isOpen</code> method will return true on the returned instance.
+     * 指定されたプロパティのMapで新しいアプリケーション管理の<code>EntityManager</code>を作成します。
+     * 
+     * このメソッドは呼び出すたびに新しい<code>EntityManager</code>インスタンスを返します。
+     * 返されたインスタンスでは<code>isOpen</code>メソッドはtrueを返すでしょう。
      * @param map エンティティマネージャーのためのプロパティ
      * @return エンティティマネージャーのインスタンス
      * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
@@ -56,11 +55,10 @@ public interface EntityManagerFactory {
     public EntityManager createEntityManager(Map map);
 
     /**
-     * Create a new JTA application-managed <code>EntityManager</code> with the 
-     * specified synchronization type.
-     * This method returns a new <code>EntityManager</code> instance each time
-     * it is invoked. 
-     * The <code>isOpen</code> method will return true on the returned instance.
+     * 指定されたSynchronizationTypeで新しいアプリケーション管理の<code>EntityManager</code>を作成します。
+     * 
+     * このメソッドは呼び出すたびに新しい<code>EntityManager</code>インスタンスを返します。
+     * 返されたインスタンスでは<code>isOpen</code>メソッドはtrueを返すでしょう。
      * @param synchronizationType  エンティティマネージャーが何時どのように現在のJTAトランザクションと同期をとる必要があるか
      * @return エンティティマネージャーのインスタンス
      * @throws IllegalStateException このエンティティマネージャーファクトリーがリソースローカルなエンティティマネージャーとして構成されている場合か、
@@ -71,11 +69,10 @@ public interface EntityManagerFactory {
     public EntityManager createEntityManager(SynchronizationType synchronizationType);
 
     /**
-     * Create a new JTA application-managed <code>EntityManager</code> with the 
-     * specified synchronization type and map of properties. 
-     * This method returns a new <code>EntityManager</code> instance each time
-     * it is invoked. 
-     * The <code>isOpen</code> method will return true on the returned instance.
+     * 指定されたSynchronizationTypeとプロパティのMapで新しいアプリケーション管理の<code>EntityManager</code>を作成します。
+     * 
+     * このメソッドは呼び出すたびに新しい<code>EntityManager</code>インスタンスを返します。
+     * 返されたインスタンスでは<code>isOpen</code>メソッドはtrueを返すでしょう。
      * @param synchronizationType  エンティティマネージャーが何時どのように現在のJTAトランザクションと同期をとる必要があるか
      * @param map エンティティマネージャーのためのプロパティ
      * @return エンティティマネージャーのインスタンス
@@ -113,20 +110,19 @@ public interface EntityManagerFactory {
     public boolean isOpen();
     
     /**
-     * Close the factory, releasing any resources that it holds.
-     * After a factory instance has been closed, all methods invoked
-     * on it will throw the <code>IllegalStateException</code>, except
-     * for <code>isOpen</code>, which will return false. Once an
-     * <code>EntityManagerFactory</code> has been closed, all its
-     * entity managers are considered to be in the closed state.
+     * ファクトリーをクローズし、確保していたすべてのリソースを解放します。
+     * 
+     * ファクトリーインスタンスがクローズされると、<code>isOpen</code>を除いたすべてのメソッドは<code>IllegalStateException</code>を投げるようになり、
+     * <code>isOpen</code>はfalseを返すようになります。
+     * いったん<code>EntityManagerFactory</code>がクローズされると関連するエンティティマネージャーはすべてクローズ状態だとみなされます。
      * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      */
     public void close();
 
     /**
-     * Get the properties and associated values that are in effect
-     * for the entity manager factory. Changing the contents of the
-     * map does not change the configuration in effect.
+     * エンティティマネージャーファクトリーに影響のあるプロパティと関連した値を取得します。
+     * 
+     * 戻り値のMapの中身に対する変更は設定に影響を与えません。
      * @return プロパティ
      * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      *
@@ -135,8 +131,7 @@ public interface EntityManagerFactory {
     public Map<String, Object> getProperties();
 
     /**
-     * Access the cache that is associated with the entity manager 
-     * factory (the "second level cache").
+     * エンティティマネージャーファクトリーに関連したキャッシュにアクセスします(L2キャッシュ)。
      * @return <code>Cache</code>インターフェースのインスタンス、キャッシュが使用されていない場合はnull
      * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      *
