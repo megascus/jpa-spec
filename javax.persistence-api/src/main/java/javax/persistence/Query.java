@@ -40,7 +40,7 @@ public interface Query {
      * @throws IllegalStateException Java Persistenceクエリー言語のUPDATEまたはDELETE文で呼び出された場合
      * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
      * @throws TransactionRequiredException <code>NONE</code>以外のロックモードが設定されトランザクションが存在しない場合、
-     * または永続性コンテキストがトランザクションに参加していない場合
+     * または永続化コンテキストがトランザクションに参加していない場合
      * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされる場合
      * @throws LockTimeoutException 悲観ロックに失敗し、そのステートメントのみロールバックされる場合
      * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
@@ -51,13 +51,13 @@ public interface Query {
      * SELECTクエリーを実行し、問合せ結果を型のない<code>java.util.stream.Stream</code>として戻します。
      * 
      * デフォルトでは、このメソッドは<code>getResultList().stream()</code>に委譲しますが、
-     * 永続性プロバイダはこのメソッドをオーバーライドして追加の機能を提供することもできます。
+     * 永続化プロバイダはこのメソッドをオーバーライドして追加の機能を提供することもできます。
      *
      * @return 結果のストリーム
      * @throws IllegalStateException Java Persistenceクエリー言語のUPDATEまたはDELETE文で呼び出された場合
      * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
      * @throws TransactionRequiredException <code>NONE</code>以外のロックモードが設定されトランザクションが存在しない場合、
-     * または永続性コンテキストがトランザクションに参加していない場合
+     * または永続化コンテキストがトランザクションに参加していない場合
      * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされる場合
      * @throws LockTimeoutException 悲観ロックに失敗し、そのステートメントのみロールバックされる場合
      * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
@@ -77,7 +77,7 @@ public interface Query {
      * @throws IllegalStateException Java Persistenceクエリー言語のUPDATEまたはDELETE文で呼び出された場合
      * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
      * @throws TransactionRequiredException <code>NONE</code>以外のロックモードが設定されトランザクションが存在しない場合、
-     * または永続性コンテキストがトランザクションに参加していない場合
+     * または永続化コンテキストがトランザクションに参加していない場合
      * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされる場合
      * @throws LockTimeoutException 悲観ロックに失敗し、そのステートメントのみロールバックされる場合
      * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
@@ -89,7 +89,7 @@ public interface Query {
      * @return エンティティが更新や削除された数
      * @throws IllegalStateException Java Persistenceクエリー言語のSELECT文もしくはクライテリアクエリーで呼び出された場合
      * @throws TransactionRequiredException トランザクションが存在しない場合、
-     * または永続性コンテキストがトランザクションに参加していない場合
+     * または永続化コンテキストがトランザクションに参加していない場合
      * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
      * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合
      */

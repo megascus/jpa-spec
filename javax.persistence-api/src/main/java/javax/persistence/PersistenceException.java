@@ -17,10 +17,10 @@ package javax.persistence;
 
 
 /**
- * 問題が発生したときに永続性プロバイダによって投げれます。
+ * 問題が発生したときに永続化プロバイダによって投げれます。
  * 
  * {@link NoResultException}と{@link NonUniqueResultException}、{@link LockTimeoutException}、{@link QueryTimeoutException}を除いた
- * <code>PersistenceException</code>のインスタンスは現在のトランザクションがアクティブで、永続性コンテキストがそれに参加している場合、
+ * <code>PersistenceException</code>のインスタンスは現在のトランザクションがアクティブで、永続化コンテキストがそれに参加している場合、
  * ロールバックのマークが付けられる原因となります。
  *
  * @since Java Persistence 1.0

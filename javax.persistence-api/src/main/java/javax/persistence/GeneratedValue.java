@@ -58,14 +58,14 @@ import static javax.persistence.GenerationType.AUTO;
 public @interface GeneratedValue {
 
     /**
-     * (オプション) アノテーションの付いたエンティティの主キーを生成するために永続性プロバイダが使用しなければならない主キー生成戦略。
+     * (オプション) アノテーションの付いたエンティティの主キーを生成するために永続化プロバイダが使用しなければならない主キー生成戦略。
      */
     GenerationType strategy() default AUTO;
 
     /**
      * (オプション) {@link SequenceGenerator} アノテーションや{@link TableGenerator}アノテーションで指定された使用する主キージェネレーターの名前。
      * 
-     * <p> デフォルトでは永続性プロバイダによって提供されるIDジェネレータになります。
+     * <p> デフォルトでは永続化プロバイダによって提供されるIDジェネレータになります。
      */
     String generator() default "";
 }

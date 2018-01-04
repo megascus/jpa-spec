@@ -258,7 +258,7 @@ public interface StoredProcedureQuery extends Query {
      * プロバイダは必要に応じてクエリーの<code>execute</code>を呼び出します。
      * @return 更新件数か、保留している結果が存在しない場合や次の結果が更新件数でない場合は-1
      * @throws TransactionRequiredException トランザクションが存在しない場合、
-     * または永続性コンテキストがトランザクションに参加していない場合
+     * または永続化コンテキストがトランザクションに参加していない場合
      * @throws QueryTimeoutException クエリーの実行がクエリーの設定されたタイムアウト値を超え、そのステートメントだけがロールバックされる場合
      * @throws PersistenceException クエリーの実行がクエリーの設定されたタイムアウト値を超え、トランザクションがロールバックされる場合 
      */

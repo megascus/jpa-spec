@@ -16,7 +16,7 @@
 package javax.persistence;
 
 /**
- * プロバイダが永続性ユニットにレベル2のキャッシュを使用する方法を指定します。
+ * プロバイダが永続化ユニットにレベル2のキャッシュを使用する方法を指定します。
  * 
  * <code>persistence.xml</code>の<code>shared-cache-mode</code>要素の値に対応し、
  * {@link javax.persistence.spi.PersistenceUnitInfo#getSharedCacheMode()}の結果として返されます。
@@ -31,7 +31,7 @@ public enum SharedCacheMode {
     ALL, 
 
     /**
-     * 永続性ユニットのキャッシュは無効です。
+     * 永続化ユニットのキャッシュは無効です。
      */
     NONE, 
 

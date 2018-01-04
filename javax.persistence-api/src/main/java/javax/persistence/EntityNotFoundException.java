@@ -16,7 +16,7 @@
 package javax.persistence;
 
 /**
- * {@link EntityManager#getReference EntityManager.getReference}で取得されたエンティティへの参照にアクセスされたがエンティティが存在しない場合に永続性プロバイダによって投げられます。
+ * {@link EntityManager#getReference EntityManager.getReference}で取得されたエンティティへの参照にアクセスされたがエンティティが存在しない場合に永続化プロバイダによって投げられます。
  * 
  * {@link EntityManager#refresh EntityManager.refresh}が呼び出され、オブジェクトがデータベースに存在しなくなったときに投げられます。
  *  悲観的ロックで{@link EntityManager#lock EntityManager.lock}が使用され、エンティティがデータベースに存在しなくなったときに投げられます。

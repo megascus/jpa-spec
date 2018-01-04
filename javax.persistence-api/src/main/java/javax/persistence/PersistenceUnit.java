@@ -39,9 +39,9 @@ public @interface PersistenceUnit {
     String name() default "";
 
     /**
-     * (オプション) <code>persistence.xml</code>ファイルで定義されている永続性ユニットの名前。
+     * (オプション) <code>persistence.xml</code>ファイルで定義されている永続化ユニットの名前。
      * 
-     * これを指定した場合、JNDIでアクセス可能なエンティティーマネージャーファクトリーの永続性ユニットはこれと同じ名前でなければいけません。
+     * これを指定した場合、JNDIでアクセス可能なエンティティーマネージャーファクトリーの永続化ユニットはこれと同じ名前でなければいけません。
      */
     String unitName() default "";
 
