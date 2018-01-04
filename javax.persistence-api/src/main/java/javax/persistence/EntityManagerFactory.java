@@ -39,8 +39,7 @@ public interface EntityManagerFactory {
      * it is invoked. 
      * The <code>isOpen</code> method will return true on the returned instance.
      * @return entity manager instance
-     * @throws IllegalStateException if the entity manager factory
-     * has been closed
+     * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      */
     public EntityManager createEntityManager();
     
@@ -52,8 +51,7 @@ public interface EntityManagerFactory {
      * The <code>isOpen</code> method will return true on the returned instance.
      * @param map properties for entity manager
      * @return entity manager instance
-     * @throws IllegalStateException if the entity manager factory
-     * has been closed
+     * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      */
     public EntityManager createEntityManager(Map map);
 
@@ -66,8 +64,8 @@ public interface EntityManagerFactory {
      * @param synchronizationType  how and when the entity manager should be 
      * synchronized with the current JTA transaction
      * @return entity manager instance
-     * @throws IllegalStateException if the entity manager factory
-     * has been configured for resource-local entity managers or is closed
+     * @throws IllegalStateException このエンティティマネージャーファクトリーがリソースローカルなエンティティマネージャーとして構成されている場合か、
+     * すでにクローズされている場合
      *
      * @since Java Persistence 2.1
      */
@@ -83,8 +81,8 @@ public interface EntityManagerFactory {
      * synchronized with the current JTA transaction
      * @param map properties for entity manager
      * @return entity manager instance
-     * @throws IllegalStateException if the entity manager factory
-     * has been configured for resource-local entity managers or is closed
+     * @throws IllegalStateException このエンティティマネージャーファクトリーがリソースローカルなエンティティマネージャーとして構成されている場合か、
+     * すでにクローズされている場合
      *
      * @since Java Persistence 2.1
      */
@@ -94,8 +92,7 @@ public interface EntityManagerFactory {
      * Return an instance of <code>CriteriaBuilder</code> for the creation of
      * <code>CriteriaQuery</code> objects.
      * @return CriteriaBuilder instance
-     * @throws IllegalStateException if the entity manager factory 
-     * has been closed
+     * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      *
      * @since Java Persistence 2.0
      */
@@ -105,8 +102,7 @@ public interface EntityManagerFactory {
      * Return an instance of <code>Metamodel</code> interface for access to the
      * metamodel of the persistence unit.
      * @return Metamodel instance
-     * @throws IllegalStateException if the entity manager factory
-     * has been closed
+     * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      *
      * @since Java Persistence 2.0
      */
@@ -126,8 +122,7 @@ public interface EntityManagerFactory {
      * for <code>isOpen</code>, which will return false. Once an
      * <code>EntityManagerFactory</code> has been closed, all its
      * entity managers are considered to be in the closed state.
-     * @throws IllegalStateException if the entity manager factory
-     * has been closed
+     * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      */
     public void close();
 
@@ -136,8 +131,7 @@ public interface EntityManagerFactory {
      * for the entity manager factory. Changing the contents of the
      * map does not change the configuration in effect.
      * @return properties
-     * @throws IllegalStateException if the entity manager factory 
-     * has been closed
+     * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      *
      * @since Java Persistence 2.0
      */
@@ -148,19 +142,16 @@ public interface EntityManagerFactory {
      * factory (the "second level cache").
      * @return instance of the <code>Cache</code> interface or null if
      * no cache is in use
-     * @throws IllegalStateException if the entity manager factory
-     * has been closed
+     * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      *
      * @since Java Persistence 2.0
      */
     public Cache getCache();
 
     /**
-     * Return interface providing access to utility methods
-     * for the persistence unit.
-     * @return <code>PersistenceUnitUtil</code> interface
-     * @throws IllegalStateException if the entity manager factory
-     * has been closed
+     * 永続化ユニットのためのユーティリティーメソッドへのアクセスを提供するインターフェースを返します。
+     * @return <code>PersistenceUnitUtil</code>インターフェース
+     * @throws IllegalStateException このエンティティマネージャーファクトリーがすでにクローズされている場合
      *
      * @since Java Persistence 2.0
      */
@@ -188,34 +179,30 @@ public interface EntityManagerFactory {
      * defined, either statically via metadata or via this method,
      * that query definition is replaced.
      *
-     * @param name name for the query
-     * @param query Query, TypedQuery, or StoredProcedureQuery object
+     * @param name クエリーのための名前
+     * @param query QueryもしくはTypedQuery、StoredProcedureQueryのオブジェクト
      *
      * @since Java Persistence 2.1
      */
     public void addNamedQuery(String name, Query query);
 
     /**
-     * Return an object of the specified type to allow access to the
-     * provider-specific API. If the provider's EntityManagerFactory
-     * implementation does not support the specified class, the
-     * PersistenceException is thrown.
-     * @param cls the class of the object to be returned. This is
-     * normally either the underlying EntityManagerFactory
-     * implementation class or an interface that it implements.
-     * @return an instance of the specified class
-     * @throws PersistenceException if the provider does not
-     * support the call
+     * プロバイダ固有のAPIへのアクセスを許可するために指定された型のオブジェクトを返します。
+     * 
+     * プロバイダのEntityManagerFactoryの実装が指定されたクラスをサポートしていない場合はPersistenceExceptionが投げられます。
+     * @param cls 返されるオブジェクトのクラス、これは通常はEntityManagerFactoryの基となる実装クラスか、その実装のインターフェース
+     * @return 指定されたクラスのインスタンス
+     * @throws PersistenceException プロバイダがこの呼び出しをサポートしていない場合
      * @since Java Persistence 2.1
      */
     public <T> T unwrap(Class<T> cls);
 
     /**
-     * Add a named copy of the EntityGraph to the
-     * EntityManagerFactory.  If an entity graph with the same name
-     * already exists, it is replaced.
-     * @param graphName  name for the entity graph
-     * @param entityGraph  entity graph
+     * EntityManagerFactoryにエンティティグラフの名前の付いたコピーを追加します。
+     * 
+     * すでに同じ名前のエンティティグラフが存在する場合、置き換えられます。
+     * @param graphName  エンティティグラフの名前
+     * @param entityGraph  エンティティグラフ
      * @since Java Persistence 2.1
      */
     public <T> void addNamedEntityGraph(String graphName, EntityGraph<T> entityGraph);
