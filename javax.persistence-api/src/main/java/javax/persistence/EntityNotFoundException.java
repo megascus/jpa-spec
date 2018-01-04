@@ -16,15 +16,12 @@
 package javax.persistence;
 
 /**
- * Thrown by the persistence provider when an entity reference obtained by
- * {@link EntityManager#getReference EntityManager.getReference}
- * is accessed but the entity does not exist. Thrown when
- * {@link EntityManager#refresh EntityManager.refresh} is called and the
- * object no longer exists in the database. 
- * Thrown when {@link EntityManager#lock EntityManager.lock} is used with
- * pessimistic locking is used and the entity no longer exists in the database.
- * <p> The current transaction, if one is active and the persistence context
- * has been joined to it, will be marked for rollback.
+ * {@link EntityManager#getReference EntityManager.getReference}で取得されたエンティティへの参照にアクセスされたがエンティティが存在しない場合に永続性プロバイダによって投げられます。
+ * 
+ * {@link EntityManager#refresh EntityManager.refresh}が呼び出され、オブジェクトがデータベースに存在しなくなったときに投げられます。
+ *  悲観的ロックで{@link EntityManager#lock EntityManager.lock}が使用され、エンティティがデータベースに存在しなくなったときに投げられます。
+ * 
+ * <p>現在のトランザクション(アクティブな状態で永続化コンテキストに結合されている場合)はロールバックがマークされます。
  * 
  * @see EntityManager#getReference(Class,Object)
  * @see EntityManager#refresh(Object)
@@ -39,19 +36,16 @@ package javax.persistence;
 public class EntityNotFoundException extends PersistenceException {
 
 	/**
-	 * Constructs a new <code>EntityNotFoundException</code> exception with
-	 * <code>null</code> as its detail message.
+	 * 新しい<code>EntityNotFoundException</code>例外を<code>null</code>を詳細メッセージとして生成します。
 	 */
 	public EntityNotFoundException() {
 		super();
 	}
 
 	/**
-	 * Constructs a new <code>EntityNotFoundException</code> exception with the
-	 * specified detail message.
+	 * 新しい<code>EntityNotFoundException</code>例外を指定された詳細メッセージで生成します。
 	 * 
-	 * @param message
-	 *            the detail message.
+	 * @param message 詳細メッセージ
 	 */
 	public EntityNotFoundException(String message) {
 		super(message);
