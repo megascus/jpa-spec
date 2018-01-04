@@ -62,7 +62,7 @@ public interface EntityManagerFactory {
      * it is invoked. 
      * The <code>isOpen</code> method will return true on the returned instance.
      * @param synchronizationType  エンティティマネージャーが何時どのように現在のJTAトランザクションと同期をとる必要があるか
-     * @returnエンティティマネージャーのインスタンス
+     * @return エンティティマネージャーのインスタンス
      * @throws IllegalStateException このエンティティマネージャーファクトリーがリソースローカルなエンティティマネージャーとして構成されている場合か、
      * すでにクローズされている場合
      *
