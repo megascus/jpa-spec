@@ -20,14 +20,11 @@ import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Used in conjunction with the {@link SqlResultSetMapping} annotation to map the SELECT
- * clause of a SQL query to an entity result.
+ * SQLクエリーのSELECT句をエンティティの結果にマッピングするために{@link SqlResultSetMapping}アノテーションとともに使用します。
  *
- * <p>If this annotation is used, the SQL statement should select 
- * all of the columns that are mapped to the entity object. 
- * This should include foreign key columns to related entities. 
- * The results obtained when insufficient data is available 
- * are undefined.
+ * <p>このアノテーションを使用する場合、SQL文はエンティティオブジェクトにマッピングされているすべての列を選択する必要があります。
+ * 関連するエンティティへの外部キー列を含める必要があります。
+ * データが不十分である場合に得られる結果は未定義です。
  *
  * <pre>
  *   Example:
@@ -52,19 +49,16 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface EntityResult { 
 
-    /** The class of the result. */
+    /** 結果のクラス。 */
     Class entityClass(); 
 
     /** 
-     * Maps the columns specified in the SELECT list of the 
-     * query to the properties or fields of the entity class. 
+     * クエリーのSELECTリストで指定された列をエンティティクラスのプロパティまたはフィールドにマップします。
      */
     FieldResult[] fields() default {};
 
     /** 
-     * Specifies the column name (or alias) of the column in 
-     * the SELECT list that is used to determine the type of 
-     * the entity instance.
+     * エンティティインスタンスの型を決定するために使用されるSELECTリスト内の列の列名(もしくはエイリアス)を指定します。
      */
     String discriminatorColumn() default "";
 }
