@@ -822,36 +822,33 @@ public interface EntityManager {
     public EntityTransaction getTransaction();
 
     /**
-     * Return the entity manager factory for the entity manager.
-     * @return EntityManagerFactory instance
+     * このエンティティマネージャーのエンティティマネージャーファクトリーを返します。
+     * @return EntityManagerFactoryのインスタンス
      * @throws IllegalStateException エンティティマネージャーがすでにクローズされている場合
      * @since Java Persistence 2.0
      */
     public EntityManagerFactory getEntityManagerFactory();
 
     /**
-     * Return an instance of <code>CriteriaBuilder</code> for the creation of
-     * <code>CriteriaQuery</code> objects.
-     * @return CriteriaBuilder instance
+     * <code>CriteriaQuery</code>オブジェクトを作るための<code>CriteriaBuilder</code>のインスタンスを返します。
+     * @return CriteriaBuilderのインスタンス
      * @throws IllegalStateException エンティティマネージャーがすでにクローズされている場合
      * @since Java Persistence 2.0
      */
     public CriteriaBuilder getCriteriaBuilder();
 
     /**
-     * Return an instance of <code>Metamodel</code> interface for access to the
-     * metamodel of the persistence unit.
-     * @return Metamodel instance
+     * 永続化ユニットのメタモデルにアクセスするための<code>Metamodel</code>インターフェースのインスタンスを返します。
+     * @return Metamodelのインスタンス
      * @throws IllegalStateException エンティティマネージャーがすでにクローズされている場合
      * @since Java Persistence 2.0
      */
     public Metamodel getMetamodel();
 
     /**
-     * Return a mutable EntityGraph that can be used to dynamically create an
-     * EntityGraph.
-     * @param rootType class of entity graph
-     * @return entity graph
+     * 動的にEntityGraphを作成するのに使用できる可変なEntityGraphを返します。
+     * @param rootType エンティティグラフのクラス
+     * @return エンティティグラフ
      * @since Java Persistence 2.1
      */
     public <T> EntityGraph<T> createEntityGraph(Class<T> rootType);
