@@ -146,26 +146,17 @@ public interface EntityManagerFactory {
     public PersistenceUnitUtil getPersistenceUnitUtil();
 
     /**
-     * Define the query, typed query, or stored procedure query as
-     * a named query such that future query objects can be created
-     * from it using the <code>createNamedQuery</code> or
-     * <code>createNamedStoredProcedureQuery</code> method.
-     * <p>Any configuration of the query object (except for actual
-     * parameter binding) in effect when the named query is added
-     * is retained as part of the named query definition.
-     * This includes configuration information such as max results,
-     * hints, flush mode, lock mode, result set mapping information,
-     * and information about stored procedure parameters.
-     * <p>When the query is executed, information that can be set
-     * by means of the query APIs can be overridden. Information
-     * that is overridden does not affect the named query as
-     * registered with the entity manager factory, and thus does
-     * not affect subsequent query objects created from it by
-     * means of the <code>createNamedQuery</code> or
-     * <code>createNamedStoredProcedureQuery</code> method.
-     * <p>If a named query of the same name has been previously
-     * defined, either statically via metadata or via this method,
-     * that query definition is replaced.
+     * <code>createNamedQuery</code>や<code>createNamedStoredProcedureQuery</code>メソッドを使用してクエリーオブジェクトを作成できるように、
+     * QueryもしくはTypedQuery、StoredProcedureQueryのクエリーを名前付きクエリーとして定義します。
+     * 
+     * <p>名前付きクエリーが追加されたときに有効なクエリーオブジェクトの設定(実際のパラメーターのバインドを除く)は名前付きクエリーの定義の一部として保持されます。
+     * これには最大結果数やヒント、フラッシュモード、ロックモード、結果セットのマッピング情報、ストアドプロシージャーのパラメーターに関する情報などの構成情報が含まれます。
+     * 
+     * <p>クエリーが実行される時に、設定できる情報をクエリーAPIによって上書きすることができます。
+     * 上書きされた情報はエンティティマネージャファクトリーに登録されている名前付きクエリーには影響しないので、
+     * その後に<code>createNamedQuery</code>や<code>createNamedStoredProcedureQuery</code>メソッドを使用して作成されたクエリーオブジェクトに影響しません。
+     * 
+     * 同じ名前の名前付きクエリーがメタデータまたはこのメソッドを介してすでに静的に定義されていた場合、そのクエリー定義は置き換えられます。
      *
      * @param name クエリーのための名前
      * @param query QueryもしくはTypedQuery、StoredProcedureQueryのオブジェクト
