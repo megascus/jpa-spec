@@ -857,17 +857,19 @@ public interface EntityManager {
     public <T> EntityGraph<T> createEntityGraph(Class<T> rootType);
 
     /**
-     * Return a mutable copy of the named EntityGraph.  If there
-     * is no entity graph with the specified name, null is returned.
-     * @param graphName name of an entity graph
-     * @return entity graph
+     * 名前付きEntityGraphの可変なコピーを返します。
+     * 
+     * 指定された名前でエンティティグラフが存在しない場合はnullを返します。
+     * @param graphName エンティティグラフの名前
+     * @return エンティティグラフ
      * @since Java Persistence 2.1
      */
     public EntityGraph<?> createEntityGraph(String graphName);
 
     /**
-     * Return a named EntityGraph. The returned EntityGraph 
-     * should be considered immutable.
+     * 名前付きEntityGraphを返します。
+     * 
+     * 返されたEntityGraphは不変であるとみなされる必要があります。
      * @param graphName  存在するエンティティグラフの名前
      * @return 名前付きエンティティグラフ
      * @throws IllegalArgumentException 与えられた名前のEntityGraphが存在しない場合
