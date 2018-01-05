@@ -807,15 +807,15 @@ public interface EntityManager {
     public void close();
 
     /**
-     * Determine whether the entity manager is open. 
-     * @return true until the entity manager has been closed
+     * エンティティマネージャーがオープンしているかどうかを返します。
+     * @return エンティティマネージャーがクローズされるまではtrue
      */
     public boolean isOpen();
 
     /**
-     * Return the resource-level <code>EntityTransaction</code> object. 
-     * The <code>EntityTransaction</code> instance may be used serially to 
-     * begin and commit multiple transactions.
+     * リソースレベルの<code>EntityTransaction</code>オブジェクトを返します。
+     * 
+     * <code>EntityTransaction</code>インスタンスは複数のトランザクションを開始およびコミットするために連続して使用できます。
      * @return EntityTransaction instance
      * @throws IllegalStateException JTAのエンティティマネージャーで実行された場合
      */
