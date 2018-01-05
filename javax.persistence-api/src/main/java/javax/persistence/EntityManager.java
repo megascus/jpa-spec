@@ -669,34 +669,27 @@ public interface EntityManager {
     public Query createNativeQuery(String sqlString, String resultSetMapping);
 
     /**
-     * Create an instance of <code>StoredProcedureQuery</code> for executing a
-     * stored procedure in the database.
-     * <p>Parameters must be registered before the stored procedure can
-     * be executed.
+     * ストアドプロシージャーをデータベースで実行するための<code>StoredProcedureQuery</code>のインスタンスを作成します。
+     * 
+     * <p>パラメーターはストアドプロシージャーが実行される前に登録される必要があります。
      * <p>If the stored procedure returns one or more result sets,
      * any result set will be returned as a list of type Object[].
-     * @param name name assigned to the stored procedure query
-     * in metadata
-     * @return the new stored procedure query instance
-     * @throws IllegalArgumentException if a query has not been
-     * defined with the given name
+     * @param name メタデータ内のストアドプロシージャークエリーに割り当てられている名前
+     * @return 新しいストアドプロシージャークエリーのインスタンス
+     * @throws IllegalArgumentException 与えられた名前のストアドプロシージャーが定義されていない場合
      * @since Java Persistence 2.1
      */
     public StoredProcedureQuery createNamedStoredProcedureQuery(String name);
 
     /**
-     * Create an instance of <code>StoredProcedureQuery</code> for executing a
-     * stored procedure in the database.
-     * <p>Parameters must be registered before the stored procedure can
-     * be executed.
+     * ストアドプロシージャーをデータベースで実行するための<code>StoredProcedureQuery</code>のインスタンスを作成します。
+     * 
+     * <p>パラメーターはストアドプロシージャーが実行される前に登録される必要があります。
      * <p>If the stored procedure returns one or more result sets,
      * any result set will be returned as a list of type Object[].
-     * @param procedureName name of the stored procedure in the
-     * database
-     * @return the new stored procedure query instance
-     * @throws IllegalArgumentException if a stored procedure of the
-     * given name does not exist (or the query execution will
-     * fail)
+     * @param procedureName データベース内のストアドプロシージャーの名前
+     * @return 新しいストアドプロシージャークエリーのインスタンス
+     * @throws IllegalArgumentException 与えられた名前のストアドプロシージャーが存在しない場合(もしくはクエリーの実行が失敗する場合)
      * @since Java Persistence 2.1
      */
     public StoredProcedureQuery createStoredProcedureQuery(String procedureName);
@@ -712,10 +705,8 @@ public interface EntityManager {
      * @param resultClasses classes to which the result sets
      * produced by the stored procedure are to
      * be mapped
-     * @return the new stored procedure query instance
-     * @throws IllegalArgumentException if a stored procedure of the
-     * given name does not exist (or the query execution will
-     * fail)
+     * @return 新しいストアドプロシージャークエリーのインスタンス
+     * @throws IllegalArgumentException 与えられた名前のストアドプロシージャーが存在しない場合(もしくはクエリーの実行が失敗する場合)
      * @since Java Persistence 2.1
      */
     public StoredProcedureQuery createStoredProcedureQuery(
@@ -732,10 +723,8 @@ public interface EntityManager {
      * @param resultSetMappings the names of the result set mappings
      *        to be used in mapping result sets
      *        returned by the stored procedure
-     * @return the new stored procedure query instance
-     * @throws IllegalArgumentException if a stored procedure or
-     *         result set mapping of the given name does not exist
-     *         (or the query execution will fail)
+     * @return 新しいストアドプロシージャークエリーのインスタンス
+     * @throws IllegalArgumentException 与えられた名前のストアドプロシージャーが存在しない場合(もしくはクエリーの実行が失敗する場合)
      */
     public StoredProcedureQuery createStoredProcedureQuery(
               String procedureName, String... resultSetMappings);
