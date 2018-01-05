@@ -702,15 +702,13 @@ public interface EntityManager {
     public StoredProcedureQuery createStoredProcedureQuery(String procedureName);
 
     /**
-     * Create an instance of <code>StoredProcedureQuery</code> for executing a
-     * stored procedure in the database.
-     * <p>Parameters must be registered before the stored procedure can
-     * be executed.
+     * ストアドプロシージャーをデータベースで実行するための<code>StoredProcedureQuery</code>のインスタンスを作成します。
+     * 
+     * <p>パラメーターはストアドプロシージャーが実行される前に登録される必要があります。
      * <p>The <code>resultClass</code> arguments must be specified in the order in
      * which the result sets will be returned by the stored procedure
      * invocation.
-     * @param procedureName name of the stored procedure in the
-     * database
+     * @param procedureName データベース内のストアドプロシージャーの名前
      * @param resultClasses classes to which the result sets
      * produced by the stored procedure are to
      * be mapped
@@ -724,15 +722,13 @@ public interface EntityManager {
 	       String procedureName, Class... resultClasses);
 
     /**
-     * Create an instance of <code>StoredProcedureQuery</code> for executing a
-     * stored procedure in the database.
-     * <p>Parameters must be registered before the stored procedure can
-     * be executed.
+     * ストアドプロシージャーをデータベースで実行するための<code>StoredProcedureQuery</code>のインスタンスを作成します。
+     * 
+     * <p>パラメーターはストアドプロシージャーが実行される前に登録される必要があります。
      * <p>The <code>resultSetMapping</code> arguments must be specified in the order
      * in which the result sets will be returned by the stored
      * procedure invocation.
-     * @param procedureName name of the stored procedure in the
-     *        database
+     * @param procedureName データベース内のストアドプロシージャーの名前
      * @param resultSetMappings the names of the result set mappings
      *        to be used in mapping result sets
      *        returned by the stored procedure
@@ -745,63 +741,53 @@ public interface EntityManager {
               String procedureName, String... resultSetMappings);
 
     /**
-     * Indicate to the entity manager that a JTA transaction is
-     * active and join the persistence context to it. 
-     * <p>This method should be called on a JTA application 
-     * managed entity manager that was created outside the scope
-     * of the active transaction or on an entity manager of type
-     * <code>SynchronizationType.UNSYNCHRONIZED</code> to associate
-     * it with the current JTA transaction.
-     * @throws TransactionRequiredException if there is
-     *         no transaction
+     * エンティティマネージャーにJTAトランザクションがアクティブであることを示し、永続化コンテキストをそれに参加させます。
+     * 
+     * <p>これはJTAのアプリケーション管理のエンティティマネージャーがアクティブなトランザクションのスコープ外で作られたか、
+     * <code>SynchronizationType.UNSYNCHRONIZED</code>型のエンティティマネージャーであるときに、
+     * 現在のJTAトランザクションに参加するときに呼び出される必要があります。
+     * @throws TransactionRequiredException トランザクションが存在しない場合
      */
     public void joinTransaction();
 
     /**
-     * Determine whether the entity manager is joined to the
-     * current transaction. Returns false if the entity manager
-     * is not joined to the current transaction or if no
-     * transaction is active
+     * 現在のトランザクションにエンティティマネージャーが参加しているかどうかを返します。
+     * 
+     * エンティティマネージャーが現在のトランザクションに参加していない場合やアクティブなトランザクションが存在しない場合はfalseを返します。
      * @return boolean
      * @since Java Persistence 2.1
      */
     public boolean isJoinedToTransaction();
 
     /**
-     * Return an object of the specified type to allow access to the
-     * provider-specific API.   If the provider's <code>EntityManager</code>
-     * implementation does not support the specified class, the
-     * <code>PersistenceException</code> is thrown.
-     * @param cls  the class of the object to be returned.  This is
-     * normally either the underlying <code>EntityManager</code> implementation
-     * class or an interface that it implements.
-     * @return an instance of the specified class
+     * プロバイダ固有のAPIへのアクセスを許可するために指定された型のオブジェクトを返します。
+     * 
+     * プロバイダの<code>EntityManager</code>の実装が指定されたクラスをサポートしていない場合はPersistenceExceptionが投げられます。
+     * @param cls  返されるオブジェクトのクラス、これは通常は<code>EntityManager</code>の基となる実装クラスか、その実装のインターフェース
+     * @return 指定されたクラスのインスタンス
      * @throws PersistenceException プロバイダがこの呼び出しをサポートしていない場合
      * @since Java Persistence 2.0
      */
     public <T> T unwrap(Class<T> cls); 
 
     /**
-     * Return the underlying provider object for the <code>EntityManager</code>,
-     * if available. The result of this method is implementation
-     * specific. 
-     * <p>The <code>unwrap</code> method is to be preferred for new applications.
-     * @return underlying provider object for EntityManager
+     * 利用可能な場合に<code>EntityManager</code>の基となるプロバイダーオブジェクトを返します。
+     * 
+     * このメソッドの結果は実装に依存します。
+     * 
+     * 新しいアプリケーションでは<code>unwrap</code>メソッドを使用するのが望ましいです。
+     * @return EntityManagerの基となるプロバイダーオブジェクト
      */
     public Object getDelegate();
 
     /**
-     * Close an application-managed entity manager. 
-     * After the close method has been invoked, all methods
-     * on the <code>EntityManager</code> instance and any 
-     * <code>Query</code>, <code>TypedQuery</code>, and
-     * <code>StoredProcedureQuery</code> objects obtained from 
-     * it will throw the <code>IllegalStateException</code>
-     * except for <code>getProperties</code>, 
-     * <code>getTransaction</code>, and <code>isOpen</code> (which will return false).
-     * If this method is called when the entity manager is
-     * joined to an active transaction, the persistence
-     * context remains managed until the transaction completes. 
+     * アプリケーション管理のエンティティマネージャーをクローズします。
+     * このメソッドが呼び出された後、この<code>EntityManager</code>と、
+     * この<code>EntityManager</code>から得られたすべての<code>Query</code>と<code>TypedQuery</code>、
+     * <code>StoredProcedureQuery</code>オブジェクトのすべてのメソッドは<code>getProperties</code>と、<code>getTransaction</code>、
+     * <code>isOpen</code>(このメソッドはfalseを返します)を除いて<code>IllegalStateException</code>を投げるようになります。
+     * エンティティマネージャーがアクティブなトランザクションに参加しているときにこのメソッドが呼び出された場合、
+     * トランザクションが完了するまで永続化コンテキストは管理されたままとなります。
      * @throws IllegalStateException エンティティーマネージャーがコンテナ管理の場合
      */
     public void close();
