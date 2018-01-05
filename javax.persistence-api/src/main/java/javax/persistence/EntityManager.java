@@ -776,8 +776,7 @@ public interface EntityManager {
      * normally either the underlying <code>EntityManager</code> implementation
      * class or an interface that it implements.
      * @return an instance of the specified class
-     * @throws PersistenceException if the provider does not 
-     *         support the call 
+     * @throws PersistenceException プロバイダがこの呼び出しをサポートしていない場合
      * @since Java Persistence 2.0
      */
     public <T> T unwrap(Class<T> cls); 
@@ -803,8 +802,7 @@ public interface EntityManager {
      * If this method is called when the entity manager is
      * joined to an active transaction, the persistence
      * context remains managed until the transaction completes. 
-     * @throws IllegalStateException if the entity manager
-     *         is container-managed
+     * @throws IllegalStateException エンティティーマネージャーがコンテナ管理の場合
      */
     public void close();
 
@@ -819,16 +817,14 @@ public interface EntityManager {
      * The <code>EntityTransaction</code> instance may be used serially to 
      * begin and commit multiple transactions.
      * @return EntityTransaction instance
-     * @throws IllegalStateException if invoked on a JTA
-     *         entity manager
+     * @throws IllegalStateException JTAのエンティティマネージャーで実行された場合
      */
     public EntityTransaction getTransaction();
 
     /**
      * Return the entity manager factory for the entity manager.
      * @return EntityManagerFactory instance
-     * @throws IllegalStateException if the entity manager has 
-     *         been closed
+     * @throws IllegalStateException エンティティマネージャーがすでにクローズされている場合
      * @since Java Persistence 2.0
      */
     public EntityManagerFactory getEntityManagerFactory();
@@ -837,8 +833,7 @@ public interface EntityManager {
      * Return an instance of <code>CriteriaBuilder</code> for the creation of
      * <code>CriteriaQuery</code> objects.
      * @return CriteriaBuilder instance
-     * @throws IllegalStateException if the entity manager has
-     *         been closed
+     * @throws IllegalStateException エンティティマネージャーがすでにクローズされている場合
      * @since Java Persistence 2.0
      */
     public CriteriaBuilder getCriteriaBuilder();
@@ -847,8 +842,7 @@ public interface EntityManager {
      * Return an instance of <code>Metamodel</code> interface for access to the
      * metamodel of the persistence unit.
      * @return Metamodel instance
-     * @throws IllegalStateException if the entity manager has
-     *         been closed
+     * @throws IllegalStateException エンティティマネージャーがすでにクローズされている場合
      * @since Java Persistence 2.0
      */
     public Metamodel getMetamodel();
@@ -874,20 +868,18 @@ public interface EntityManager {
     /**
      * Return a named EntityGraph. The returned EntityGraph 
      * should be considered immutable.
-     * @param graphName  name of an existing entity graph
-     * @return named entity graph
-     * @throws IllegalArgumentException if there is no EntityGraph of
-     *         the given name
+     * @param graphName  存在するエンティティグラフの名前
+     * @return 名前付きエンティティグラフ
+     * @throws IllegalArgumentException 与えられた名前のEntityGraphが存在しない場合
      * @since Java Persistence 2.1
      */
     public  EntityGraph<?> getEntityGraph(String graphName);
 
     /**
-     * Return all named EntityGraphs that have been defined for the provided
-     * class type.
-     * @param entityClass  entity class
-     * @return list of all entity graphs defined for the entity
-     * @throws IllegalArgumentException if the class is not an entity
+     * 与えられたクラスの型のために定義されたすべての名前付きEntityGraphを返します。
+     * @param entityClass  エンティティクラス
+     * @return 指定されたエンティティのために定義されたすべてのエンティティグラフのリスト
+     * @throws IllegalArgumentException クラスがエンティティではない場合
      * @since Java Persistence 2.1
      */
     public <T> List<EntityGraph<? super T>> getEntityGraphs(Class<T> entityClass);
