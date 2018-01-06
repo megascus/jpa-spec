@@ -672,8 +672,7 @@ public interface EntityManager {
      * ストアドプロシージャーをデータベースで実行するための<code>StoredProcedureQuery</code>のインスタンスを作成します。
      * 
      * <p>パラメーターはストアドプロシージャーが実行される前に登録される必要があります。
-     * <p>If the stored procedure returns one or more result sets,
-     * any result set will be returned as a list of type Object[].
+     * <p>ストアドプロシージャーが一つ以上の結果を返す場合、結果セットはObject[]型のリストとして戻されます。
      * @param name メタデータ内のストアドプロシージャークエリーに割り当てられている名前
      * @return 新しいストアドプロシージャークエリーのインスタンス
      * @throws IllegalArgumentException 与えられた名前のストアドプロシージャーが定義されていない場合
@@ -685,8 +684,7 @@ public interface EntityManager {
      * ストアドプロシージャーをデータベースで実行するための<code>StoredProcedureQuery</code>のインスタンスを作成します。
      * 
      * <p>パラメーターはストアドプロシージャーが実行される前に登録される必要があります。
-     * <p>If the stored procedure returns one or more result sets,
-     * any result set will be returned as a list of type Object[].
+     * <p>ストアドプロシージャーが一つ以上の結果を返す場合、結果セットはObject[]型のリストとして戻されます。
      * @param procedureName データベース内のストアドプロシージャーの名前
      * @return 新しいストアドプロシージャークエリーのインスタンス
      * @throws IllegalArgumentException 与えられた名前のストアドプロシージャーが存在しない場合(もしくはクエリーの実行が失敗する場合)
@@ -698,13 +696,9 @@ public interface EntityManager {
      * ストアドプロシージャーをデータベースで実行するための<code>StoredProcedureQuery</code>のインスタンスを作成します。
      * 
      * <p>パラメーターはストアドプロシージャーが実行される前に登録される必要があります。
-     * <p>The <code>resultClass</code> arguments must be specified in the order in
-     * which the result sets will be returned by the stored procedure
-     * invocation.
+     * <p><code>resultClass</code>>引数はストアドプロシージャーの実行で戻される結果セットの順番で指定しなければなりません。
      * @param procedureName データベース内のストアドプロシージャーの名前
-     * @param resultClasses classes to which the result sets
-     * produced by the stored procedure are to
-     * be mapped
+     * @param resultClasses ストアドプロシージャーによって生成された結果セットがマッピングされるクラス
      * @return 新しいストアドプロシージャークエリーのインスタンス
      * @throws IllegalArgumentException 与えられた名前のストアドプロシージャーが存在しない場合(もしくはクエリーの実行が失敗する場合)
      * @since Java Persistence 2.1
@@ -716,13 +710,9 @@ public interface EntityManager {
      * ストアドプロシージャーをデータベースで実行するための<code>StoredProcedureQuery</code>のインスタンスを作成します。
      * 
      * <p>パラメーターはストアドプロシージャーが実行される前に登録される必要があります。
-     * <p>The <code>resultSetMapping</code> arguments must be specified in the order
-     * in which the result sets will be returned by the stored
-     * procedure invocation.
+     * <p><code>resultSetMapping</code>引数はストアドプロシージャーの実行で戻される結果セットの順番で指定しなければなりません。
      * @param procedureName データベース内のストアドプロシージャーの名前
-     * @param resultSetMappings the names of the result set mappings
-     *        to be used in mapping result sets
-     *        returned by the stored procedure
+     * @param resultSetMappings ストアドプロシージャーが返す結果セットのマッピングに使用される結果セットマッピングの名前
      * @return 新しいストアドプロシージャークエリーのインスタンス
      * @throws IllegalArgumentException 与えられた名前のストアドプロシージャーが存在しない場合(もしくはクエリーの実行が失敗する場合)
      */
