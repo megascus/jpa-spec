@@ -498,52 +498,47 @@ public interface EntityManager {
      * will not be synchronized to the database.  Entities which 
      * previously referenced the detached entity will continue to
      * reference it.
-     * @param entity  entity instance
-     * @throws IllegalArgumentException if the instance is not an 
-     *         entity 
+     * @param entity  エンティティのインスタンス
+     * @throws IllegalArgumentException インスタンスがエンティティでない場合
      * @since Java Persistence 2.0
      */
     public void detach(Object entity); 
 
     /**
-     * Check if the instance is a managed entity instance belonging
-     * to the current persistence context.
-     * @param entity  entity instance
-     * @return boolean indicating if entity is in persistence context
-     * @throws IllegalArgumentException if not an entity
+     * インスタンスが現在の永続化コンテキストに所属する管理下のエンティティインスタンスであるかを確認します。
+     * @param entity  エンティティのインスタンス
+     * @return 永続化コンテキスト内のエンティティであるかを示すboolean
+     * @throws IllegalArgumentException エンティティでない場合
      */    
     public boolean contains(Object entity);
 
     /**
-     * Get the current lock mode for the entity instance.
-     * @param entity  entity instance
-     * @return lock mode
-     * @throws TransactionRequiredException if there is no 
-     *         transaction or if the entity manager has not been
-     *         joined to the current transaction
-     * @throws IllegalArgumentException if the instance is not a
-     *         managed entity and a transaction is active
+     * エンティティインスタンスのための現在のロックモードを取得します。
+     * @param entity  エンティティインスタンス
+     * @return ロックモード
+     * @throws TransactionRequiredException トランザクションが存在しない場合、
+     * もしくはエンティティマネージャーが現在のトランザクションに参加していない場合
+     * @throws IllegalArgumentException インスタンスが管理下のエンティティでなく、トランザクションがアクティブな場合
      * @since Java Persistence 2.0
      */
     public LockModeType getLockMode(Object entity);
 
     /** 
-     * Set an entity manager property or hint. 
-     * If a vendor-specific property or hint is not recognized, it is
-     * silently ignored. 
-     * @param propertyName name of property or hint
-     * @param value  value for property or hint
-     * @throws IllegalArgumentException if the second argument is 
-     *         not valid for the implementation 
+     * エンティティマネージャーにプロパティもしくはヒントを設定します。
+     * 
+     * ベンダー固有のプロパティまたはヒントが認識されない場合、それは暗黙のうちに無視されます。
+     * @param propertyName プロパティもしくはヒントの名前
+     * @param value  プロパティーもしくはヒントの値
+     * @throws IllegalArgumentException 2つ目の引数が実装に対して不正な場合
      * @since Java Persistence 2.0
      */ 
     public void setProperty(String propertyName, Object value);
 
     /**
-     * Get the properties and hints and associated values that are in effect 
-     * for the entity manager. Changing the contents of the map does 
-     * not change the configuration in effect.
-     * @return map of properties and hints in effect for entity manager
+     * エンティティマネージャーに有効なプロパティーとヒントと関連する値を取得します。
+     * 
+     * Mapの内容への変更は有効な設定に影響を与えません。
+     * @return エンティティマネージャーに有効なプロパティのマップとヒント
      * @since Java Persistence 2.0
      */
     public Map<String, Object> getProperties();
