@@ -559,34 +559,28 @@ public interface EntityManager {
     public Query createQuery(String qlString);
 
     /**
-     * Create an instance of <code>TypedQuery</code> for executing a
-     * criteria query.
-     * @param criteriaQuery  a criteria query object
-     * @return the new query instance
-     * @throws IllegalArgumentException if the criteria query is
-     *         found to be invalid
+     * クライテリアクエリーのための<code>TypedQuery</code>のインスタンスを作成します。
+     * @param criteriaQuery  クライテリアクエリーオブジェクト
+     * @return 新しいクエリーのインスタンス
+     * @throws IllegalArgumentException クライテリアクエリー文字列が不正である場合
      * @since Java Persistence 2.0
      */
     public <T> TypedQuery<T> createQuery(CriteriaQuery<T> criteriaQuery); 
 
     /**
-     * Create an instance of <code>Query</code> for executing a criteria
-     * update query.
-     * @param updateQuery  a criteria update query object
-     * @return the new query instance
-     * @throws IllegalArgumentException if the update query is
-     *         found to be invalid
+     * クライテリア更新クエリーのための<code>Query</code>のインスタンスを作成します。
+     * @param updateQuery  クライテリア更新クエリーオブジェクト
+     * @return 新しいクエリーのインスタンス
+     * @throws IllegalArgumentException 更新クエリー文字列が不正である場合
      * @since Java Persistence 2.1
      */
     public Query createQuery(CriteriaUpdate updateQuery);
 
     /**
-     * Create an instance of <code>Query</code> for executing a criteria
-     * delete query.
-     * @param deleteQuery  a criteria delete query object
-     * @return the new query instance
-     * @throws IllegalArgumentException if the delete query is
-     *         found to be invalid
+     * クライテリア削除クエリーのための<code>Query</code>のインスタンスを作成します。
+     * @param deleteQuery  クライテリア削除クエリーオブジェクト
+     * @return 新しいクエリーのインスタンス
+     * @throws IllegalArgumentException 削除クエリー文字列が不正である場合
      * @since Java Persistence 2.1
      */
     public Query createQuery(CriteriaDelete deleteQuery);
