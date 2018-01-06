@@ -608,29 +608,22 @@ public interface EntityManager {
     public <T> TypedQuery<T> createQuery(String qlString, Class<T> resultClass);
 
     /**
-     * Create an instance of <code>Query</code> for executing a named query
-     * (in the Java Persistence query language or in native SQL).
-     * @param name the name of a query defined in metadata
-     * @return the new query instance
-     * @throws IllegalArgumentException if a query has not been
-     *         defined with the given name or if the query string is
-     *         found to be invalid
+     * 名前付き(JPQLまたはネイティブSQLの)クエリーを実行するための<code>Query</code>インスタンスを作成します。
+     * @param name メタデータ内で定義されたクエリーの名前
+     * @return 新しいクエリーのインスタンス
+     * @throws IllegalArgumentException 指定された名前でクエリーが定義されていない場合、またはクエリー文字列が不正である場合
      */
     public Query createNamedQuery(String name);
 
     /**
-     * Create an instance of <code>TypedQuery</code> for executing a
-     * Java Persistence query language named query.
-     * The select list of the query must contain only a single
-     * item, which must be assignable to the type specified by
-     * the <code>resultClass</code> argument.
-     * @param name the name of a query defined in metadata
+     * JPQLの名前付きクエリーを実行するための<code>TypedQuery</code>のインスタンスを作成します。
+     * 
+     * クエリーのSELECTリストは一つの項目のみ含まれなければならず、<code>resultClass</code>引数で指定された型に割り当て可能である必要があります。
+     * @param name メタデータ内で定義されたクエリーの名前
      * @param resultClass クエリーの結果の型
      * @return 新しいクエリーのインスタンス
-     * @throws IllegalArgumentException if a query has not been
-     *         defined with the given name or if the query string is
-     *         found to be invalid or if the query result is found to
-     *         not be assignable to the specified type
+     * @throws IllegalArgumentException 指定された名前でクエリーが定義されていない場合、またはクエリー文字列が不正である場合、
+     * またはクエリー結果が指定された型に割り当てる事が出来ない場合
      * @since Java Persistence 2.0
      */
     public <T> TypedQuery<T> createNamedQuery(String name, Class<T> resultClass);
