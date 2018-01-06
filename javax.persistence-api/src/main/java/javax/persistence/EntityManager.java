@@ -625,8 +625,8 @@ public interface EntityManager {
      * item, which must be assignable to the type specified by
      * the <code>resultClass</code> argument.
      * @param name the name of a query defined in metadata
-     * @param resultClass the type of the query result
-     * @return the new query instance
+     * @param resultClass クエリーの結果の型
+     * @return 新しいクエリーのインスタンス
      * @throws IllegalArgumentException if a query has not been
      *         defined with the given name or if the query string is
      *         found to be invalid or if the query result is found to
@@ -636,6 +636,9 @@ public interface EntityManager {
     public <T> TypedQuery<T> createNamedQuery(String name, Class<T> resultClass);
 
     /**
+     * ネイティブSQLクエリーを実行するための<code>Query</code>のインスタンスを作成します。例えば、更新または削除です。
+     * 
+     * 
      * Create an instance of <code>Query</code> for executing
      * a native SQL statement, e.g., for update or delete.
      * If the query is not an update or delete query, query
@@ -645,26 +648,24 @@ public interface EntityManager {
      * list.)  Column values are returned in the order of their
      * appearance in the select list and default JDBC type
      * mappings are applied.
-     * @param sqlString a native SQL query string
-     * @return the new query instance
+     * @param sqlString ネイティブSQLクエリー文字列
+     * @return 新しいクエリーのインスタンス
      */
     public Query createNativeQuery(String sqlString);
 
     /**
-     * Create an instance of <code>Query</code> for executing
-     * a native SQL query.
-     * @param sqlString a native SQL query string
-     * @param resultClass the class of the resulting instance(s)
-     * @return the new query instance
+     * ネイティブSQLクエリーを実行するための<code>Query</code>のインスタンスを作成します。
+     * @param sqlString ネイティブSQLクエリー文字列
+     * @param resultClass 結果のインスタンスのクラス
+     * @return 新しいクエリーのインスタンス
      */
     public Query createNativeQuery(String sqlString, Class resultClass);
 
     /**
-     * Create an instance of <code>Query</code> for executing
-     * a native SQL query.
-     * @param sqlString a native SQL query string
-     * @param resultSetMapping the name of the result set mapping
-     * @return the new query instance
+     * ネイティブSQLクエリーを実行するための<code>Query</code>のインスタンスを作成します。
+     * @param sqlString ネイティブSQLクエリー文字列
+     * @param resultSetMapping 結果セットのマッピングの名前
+     * @return 新しいクエリーのインスタンス
      */
     public Query createNativeQuery(String sqlString, String resultSetMapping);
 
