@@ -592,17 +592,14 @@ public interface EntityManager {
     public Query createQuery(CriteriaDelete deleteQuery);
 
     /**
-     * Create an instance of <code>TypedQuery</code> for executing a
-     * Java Persistence query language statement.
-     * The select list of the query must contain only a single
-     * item, which must be assignable to the type specified by
-     * the <code>resultClass</code> argument.
-     * @param qlString a Java Persistence query string
-     * @param resultClass the type of the query result
-     * @return the new query instance
-     * @throws IllegalArgumentException if the query string is found
-     *         to be invalid or if the query result is found to
-     *         not be assignable to the specified type
+     * JPQLのステートメントを実行するための<code>TypedQuery</code>のインスタンスを作成します。
+     * 
+     * クエリーのSELECTリストは一つの項目のみ含まれなければならず、<code>resultClass</code>引数で指定された型に割り当て可能である必要があります。
+     * @param qlString JQPLの文字列
+     * @param resultClass クエリーの結果の型
+     * @return 新しいクエリーのインスタンス
+     * @throws IllegalArgumentException クエリー文字列が不正である場合、
+     * またはクエリー結果が指定された型に割り当てる事が出来ない場合
      * @since Java Persistence 2.0
      */
     public <T> TypedQuery<T> createQuery(String qlString, Class<T> resultClass);
