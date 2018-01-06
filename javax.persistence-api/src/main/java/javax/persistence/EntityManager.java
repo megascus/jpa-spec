@@ -492,12 +492,10 @@ public interface EntityManager {
     public void clear();
 
     /**
-     * Remove the given entity from the persistence context, causing
-     * a managed entity to become detached.  Unflushed changes made 
-     * to the entity if any (including removal of the entity), 
-     * will not be synchronized to the database.  Entities which 
-     * previously referenced the detached entity will continue to
-     * reference it.
+     * 与えられたエンティティを永続化コンテキストから削除し、マネージドエンティティをデタッチ状態にします。
+     * 
+     * フラッシュされてないエンティティへの変更(エンティティの削除を含む)があった場合、それらはデータベースへ同期化されません。
+     * 以前にデタッチ状態になったエンティティを参照するエンティティは、それを引き続き参照します。
      * @param entity  エンティティのインスタンス
      * @throws IllegalArgumentException インスタンスがエンティティでない場合
      * @since Java Persistence 2.0
