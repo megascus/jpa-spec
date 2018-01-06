@@ -638,16 +638,9 @@ public interface EntityManager {
     /**
      * ネイティブSQLクエリーを実行するための<code>Query</code>のインスタンスを作成します。例えば、更新または削除です。
      * 
-     * 
-     * Create an instance of <code>Query</code> for executing
-     * a native SQL statement, e.g., for update or delete.
-     * If the query is not an update or delete query, query
-     * execution will result in each row of the SQL result
-     * being returned as a result of type Object[] (or a result
-     * of type Object if there is only one column in the select
-     * list.)  Column values are returned in the order of their
-     * appearance in the select list and default JDBC type
-     * mappings are applied.
+     * クエリーが更新もしくは削除用のクエリーでない場合、クエリーの実行により、SQLの結果の各行はObject[]型の結果(またはSELECTリストに列が1つのみの場合はObject型の結果)
+     * として戻されます。
+     * 列の値はSELECTリストに表示される順に戻され、デフォルトのJDBC型のマッピングが適用されます。
      * @param sqlString ネイティブSQLクエリー文字列
      * @return 新しいクエリーのインスタンス
      */
@@ -697,7 +690,7 @@ public interface EntityManager {
      * ストアドプロシージャーをデータベースで実行するための<code>StoredProcedureQuery</code>のインスタンスを作成します。
      * 
      * <p>パラメーターはストアドプロシージャーが実行される前に登録される必要があります。
-     * <p><code>resultClass</code>>引数はストアドプロシージャーの実行で戻される結果セットの順番で指定しなければなりません。
+     * <p><code>resultClass</code>引数はストアドプロシージャーの実行で戻される結果セットの順番で指定しなければなりません。
      * @param procedureName データベース内のストアドプロシージャーの名前
      * @param resultClasses ストアドプロシージャーによって生成された結果セットがマッピングされるクラス
      * @return 新しいストアドプロシージャークエリーのインスタンス

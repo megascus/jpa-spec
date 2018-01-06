@@ -169,7 +169,7 @@ public interface EntityManagerFactory {
      * プロバイダ固有のAPIへのアクセスを許可するために指定された型のオブジェクトを返します。
      * 
      * プロバイダのEntityManagerFactoryの実装が指定されたクラスをサポートしていない場合はPersistenceExceptionが投げられます。
-     * @param cls 返されるオブジェクトのクラス、これは通常はEntityManagerFactoryの基となる実装クラスか、その実装のインターフェース
+     * @param cls 返されるオブジェクトのクラス、これは通常は<code>EntityManagerFactory</code>の基となる実装クラスか、その実装のインターフェース
      * @return 指定されたクラスのインスタンス
      * @throws PersistenceException プロバイダがこの呼び出しをサポートしていない場合
      * @since Java Persistence 2.1
