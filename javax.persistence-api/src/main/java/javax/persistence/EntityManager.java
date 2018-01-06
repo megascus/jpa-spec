@@ -549,12 +549,10 @@ public interface EntityManager {
     public Map<String, Object> getProperties();
 
     /**
-     * Create an instance of <code>Query</code> for executing a
-     * Java Persistence query language statement.
-     * @param qlString a Java Persistence query string
-     * @return the new query instance
-     * @throws IllegalArgumentException if the query string is
-     *         found to be invalid
+     * JPQLのステートメントを実行するための<code>Query</code>のインスタンスを作成します。
+     * @param qlString JQPLの文字列
+     * @return 新しいクエリーのインスタンス
+     * @throws IllegalArgumentException クエリー文字列が不正である場合
      */
     public Query createQuery(String qlString);
 
