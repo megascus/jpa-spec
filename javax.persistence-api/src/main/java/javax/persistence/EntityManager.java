@@ -460,8 +460,7 @@ public interface EntityManager {
      *         has been specified; or if invoked on an extended entity manager
      *         that has not been joined to the current transaction and a
      *         lock mode other than <code>NONE</code> has been specified
-     * @throws EntityNotFoundException if the entity no longer exists
-     *         in the database
+     * @throws EntityNotFoundException エンティティがデータベースに存在しない場合
      * @throws PessimisticLockException if pessimistic locking fails
      *         and the transaction is rolled back
      * @throws LockTimeoutException if pessimistic locking fails and
