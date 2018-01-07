@@ -426,14 +426,9 @@ public interface EntityManager {
      * @param lockMode  ロックモード
      * @param properties  標準およびベンダー固有のプロパティとヒント
      * @throws IllegalArgumentException インスタンスがエンティティでない場合、もしくはエンティティが管理下にない場合
-     * @throws TransactionRequiredException if invoked on a 
-     *         container-managed entity manager of type
-     *         <code>PersistenceContextType.TRANSACTION</code> when there is
-     *         no transaction; if invoked on an extended entity manager when
-     *         there is no transaction and a lock mode other than <code>NONE</code>
-     *         has been specified; or if invoked on an extended entity manager
-     *         that has not been joined to the current transaction and a
-     *         lock mode other than <code>NONE</code> has been specified
+     * @throws TransactionRequiredException トランザクションが存在しないときに<code>PersistenceContextType.TRANSACTION</code>型のコンテナ管理エンティティマネージャーで呼び出された場合、
+     * トランザクションが存在しないときに拡張エンティティマネージャーで呼び出された時に<code>NONE</code>以外のロックモードが指定されている場合、
+     * または現在のトランザクションに結合されていない拡張エンティティマネージャーで呼び出された時に<code>NONE</code>以外のロックモードが指定されている場合
      * @throws EntityNotFoundException エンティティがデータベースに存在しない場合
      * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
      * @throws LockTimeoutException 悲観ロックに失敗し、ステートメントのみがロールバックされた場合
