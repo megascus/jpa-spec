@@ -101,12 +101,10 @@ public interface EntityManager {
      * Search for an entity of the specified class and primary key. 
      * If the entity instance is contained in the persistence 
      * context, it is returned from there. 
-     * If a vendor-specific property or hint is not recognized, 
-     * it is silently ignored. 
+     * ベンダー固有のプロパティまたはヒントが認識されない場合、それは暗黙のうちに無視されます。
      * @param entityClass  エンティティクラス
      * @param primaryKey  主キー
-     * @param properties  standard and vendor-specific properties 
-     *        and hints
+     * @param properties  標準およびベンダー固有のプロパティとヒント
      * @return 見つかったエンティティのインスタンス、存在しない場合はnull
      * @throws IllegalArgumentException if the first argument does 
      *         not denote an entity type or the second argument is
@@ -180,17 +178,15 @@ public interface EntityManager {
      * <li> the <code>LockTimeoutException</code> will be thrown if the database
      *    locking failure causes only statement-level rollback
      * </ul>
-     * <p>If a vendor-specific property or hint is not recognized, 
-     * it is silently ignored.  
+     * <p>ベンダー固有のプロパティまたはヒントが認識されない場合、それは暗黙のうちに無視されます。
      * <p>Portable applications should not rely on the standard timeout
      * hint. Depending on the database in use and the locking
      * mechanisms used by the provider, the hint may or may not
      * be observed.
-     * @param entityClass  entity class
-     * @param primaryKey  primary key
-     * @param lockMode  lock mode
-     * @param properties  standard and vendor-specific properties
-     *        and hints
+     * @param entityClass  エンティティクラス
+     * @param primaryKey  プライマリーキー
+     * @param lockMode  ロックモード
+     * @param properties  標準およびベンダー固有のプロパティとヒント
      * @return the found entity instance or null if the entity does
      *         not exist
      * @throws IllegalArgumentException if the first argument does
@@ -222,8 +218,8 @@ public interface EntityManager {
      * The application should not expect that the instance state will
      * be available upon detachment, unless it was accessed by the
      * application while the entity manager was open.
-     * @param entityClass  entity class
-     * @param primaryKey  primary key
+     * @param entityClass  エンティティクラス
+     * @param primaryKey  プライマリーキー
      * @return the found entity instance
      * @throws IllegalArgumentException if the first argument does
      *         not denote an entity type or the second argument is
@@ -277,14 +273,11 @@ public interface EntityManager {
      * </ul>
      * @param entity  エンティティインスタンス
      * @param lockMode  ロックモード
-     * @throws IllegalArgumentException if the instance is not an
-     *         entity or is a detached entity
+     * @throws IllegalArgumentException インスタンスがエンティティでない場合、もしくはデタッチ状態のエンティティの場合
      * @throws TransactionRequiredException if there is no 
      *         transaction or if invoked on an entity manager which
      *         has not been joined to the current transaction
-     * @throws EntityNotFoundException if the entity does not exist 
-     *         in the database when pessimistic locking is 
-     *         performed
+     * @throws EntityNotFoundException 悲観ロックが行われた時にエンティティがデータベースに存在しない場合
      * @throws OptimisticLockException 楽観バージョンチェックに失敗した場合
      * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
      * @throws LockTimeoutException 悲観ロックに失敗し、ステートメントのみがロールバックされた場合
@@ -309,8 +302,7 @@ public interface EntityManager {
      * <li> the <code>LockTimeoutException</code> will be thrown if the database
      *    locking failure causes only statement-level rollback
      * </ul>
-     * <p>If a vendor-specific property or hint is not recognized, 
-     * it is silently ignored.  
+     * <p>ベンダー固有のプロパティまたはヒントが認識されない場合、それは暗黙のうちに無視されます。
      * <p>Portable applications should not rely on the standard timeout
      * hint. Depending on the database in use and the locking
      * mechanisms used by the provider, the hint may or may not
@@ -322,9 +314,7 @@ public interface EntityManager {
      * @throws TransactionRequiredException if there is no 
      *         transaction or if invoked on an entity manager which
      *         has not been joined to the current transaction
-     * @throws EntityNotFoundException if the entity does not exist 
-     *         in the database when pessimistic locking is 
-     *         performed
+     * @throws EntityNotFoundException 悲観ロックが行われた時にエンティティがデータベースに存在しない場合
      * @throws OptimisticLockException 楽観バージョンチェックに失敗した場合
      * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
      * @throws LockTimeoutException 悲観ロックに失敗し、ステートメントのみがロールバックされた場合
@@ -348,8 +338,7 @@ public interface EntityManager {
      * Refresh the state of the instance from the database, using 
      * the specified properties, and overwriting changes made to
      * the entity, if any. 
-     * <p> If a vendor-specific property or hint is not recognized, 
-     * it is silently ignored. 
+     * <p> ベンダー固有のプロパティまたはヒントが認識されない場合、それは暗黙のうちに無視されます。
      * @param entity  エンティティインスタンス
      * @param properties  標準およびベンダー固有のプロパティとヒント
      * @throws IllegalArgumentException インスタンスがエンティティでない場合、もしくはエンティティが管理下にない場合
@@ -400,8 +389,7 @@ public interface EntityManager {
      * <li> the <code>LockTimeoutException</code> will be thrown if the database
      *    locking failure causes only statement-level rollback
      * </ul>
-     * <p>If a vendor-specific property or hint is not recognized, 
-     *    it is silently ignored.  
+     * <p>ベンダー固有のプロパティまたはヒントが認識されない場合、それは暗黙のうちに無視されます。
      * <p>Portable applications should not rely on the standard timeout
      * hint. Depending on the database in use and the locking
      * mechanisms used by the provider, the hint may or may not
