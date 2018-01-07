@@ -484,10 +484,9 @@ public interface EntityManager {
                         Map<String, Object> properties);
     
     /**
-     * Clear the persistence context, causing all managed
-     * entities to become detached. Changes made to entities that
-     * have not been flushed to the database will not be
-     * persisted.
+     * 永続化コンテキストをクリアし、すべての管理下のエンティティをデタッチ状態にします。
+     * 
+     * データベースにフラッシュされていないエンティティへの変更はデータベースに永続化されません。
      */
     public void clear();
 
