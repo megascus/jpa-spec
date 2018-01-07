@@ -52,15 +52,14 @@ import javax.persistence.criteria.CriteriaDelete;
 public interface EntityManager {
 
     /**
-     * Make an instance managed and persistent.
-     * @param entity  entity instance
+     * インスタンスを管理し、永続化します。
+     * @param entity  エンティティのインスタンス
      * @throws EntityExistsException if the entity already exists.
      * (If the entity already exists, the <code>EntityExistsException</code> may 
      * be thrown when the persist operation is invoked, or the
      * <code>EntityExistsException</code> or another <code>PersistenceException</code> may be 
      * thrown at flush or commit time.) 
-     * @throws IllegalArgumentException if the instance is not an
-     *         entity
+     * @throws IllegalArgumentException インスタンスがエンティティでない場合
      * @throws TransactionRequiredException if there is no transaction when
      *         invoked on a container-managed entity manager of that is of type 
      *         <code>PersistenceContextType.TRANSACTION</code>
@@ -68,12 +67,10 @@ public interface EntityManager {
     public void persist(Object entity);
     
     /**
-     * Merge the state of the given entity into the
-     * current persistence context.
-     * @param entity  entity instance
-     * @return the managed instance that the state was merged to
-     * @throws IllegalArgumentException if instance is not an
-     *         entity or is a removed entity
+     * 与えられたエンティティの状態を現在の永続化コンテキストにマージします。
+     * @param entity  エンティティのインスタンス
+     * @return 状態がマージされた管理下にあるインスタンス
+     * @throws IllegalArgumentException インスタンスがエンティティでないか、削除されたエンティティの場合
      * @throws TransactionRequiredException if there is no transaction when
      *         invoked on a container-managed entity manager of that is of type 
      *         <code>PersistenceContextType.TRANSACTION</code>
@@ -81,10 +78,9 @@ public interface EntityManager {
     public <T> T merge(T entity);
 
     /**
-     * Remove the entity instance.
-     * @param entity  entity instance
-     * @throws IllegalArgumentException if the instance is not an
-     *         entity or is a detached entity
+     * エンティティのインスタンスを削除します。
+     * @param entity  エンティティのインスタンス
+     * @throws IllegalArgumentException インスタンスがエンティティでないか、デタッチ状態のエンティティの場合
      * @throws TransactionRequiredException if invoked on a
      *         container-managed entity manager of type 
      *         <code>PersistenceContextType.TRANSACTION</code> and there is 
@@ -97,10 +93,9 @@ public interface EntityManager {
      * Search for an entity of the specified class and primary key.
      * If the entity instance is contained in the persistence context,
      * it is returned from there.
-     * @param entityClass  entity class
-     * @param primaryKey  primary key
-     * @return the found entity instance or null if the entity does
-     *         not exist
+     * @param entityClass  エンティティクラス
+     * @param primaryKey  主キー
+     * @return 見つかったエンティティのインスタンス、存在しない場合はnull
      * @throws IllegalArgumentException if the first argument does
      *         not denote an entity type or the second argument is 
      *         is not a valid type for that entity's primary key or
@@ -115,12 +110,11 @@ public interface EntityManager {
      * context, it is returned from there. 
      * If a vendor-specific property or hint is not recognized, 
      * it is silently ignored. 
-     * @param entityClass  entity class
-     * @param primaryKey   primary key
+     * @param entityClass  エンティティクラス
+     * @param primaryKey  主キー
      * @param properties  standard and vendor-specific properties 
      *        and hints
-     * @return the found entity instance or null if the entity does
-     *         not exist 
+     * @return 見つかったエンティティのインスタンス、存在しない場合はnull
      * @throws IllegalArgumentException if the first argument does 
      *         not denote an entity type or the second argument is
      *         is not a valid type for that entity's primary key or 
