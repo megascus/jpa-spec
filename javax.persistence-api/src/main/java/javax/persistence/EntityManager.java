@@ -296,8 +296,8 @@ public interface EntityManager {
      * <li> the <code>LockTimeoutException</code> will be thrown if the database
      *    locking failure causes only statement-level rollback
      * </ul>
-     * @param entity  entity instance
-     * @param lockMode  lock mode
+     * @param entity  エンティティインスタンス
+     * @param lockMode  ロックモード
      * @throws IllegalArgumentException if the instance is not an
      *         entity or is a detached entity
      * @throws TransactionRequiredException if there is no 
@@ -340,12 +340,10 @@ public interface EntityManager {
      * hint. Depending on the database in use and the locking
      * mechanisms used by the provider, the hint may or may not
      * be observed.
-     * @param entity  entity instance
-     * @param lockMode  lock mode
-     * @param properties  standard and vendor-specific properties
-     *        and hints
-     * @throws IllegalArgumentException if the instance is not an
-     *         entity or is a detached entity
+     * @param entity  エンティティインスタンス
+     * @param lockMode  ロックモード
+     * @param properties  標準およびベンダー固有のプロパティとヒント
+     * @throws IllegalArgumentException インスタンスがエンティティでない場合、もしくはデタッチ状態のエンティティの場合
      * @throws TransactionRequiredException if there is no 
      *         transaction or if invoked on an entity manager which
      *         has not been joined to the current transaction
@@ -368,14 +366,12 @@ public interface EntityManager {
     /**
      * Refresh the state of the instance from the database, 
      * overwriting changes made to the entity, if any. 
-     * @param entity  entity instance
-     * @throws IllegalArgumentException if the instance is not
-     *         an entity or the entity is not managed
+     * @param entity  エンティティインスタンス
+     * @throws IllegalArgumentException インスタンスがエンティティでない場合、もしくはエンティティが管理下にない場合
      * @throws TransactionRequiredException if there is no
      *         transaction when invoked on a container-managed
      *         entity manager of type <code>PersistenceContextType.TRANSACTION</code>
-     * @throws EntityNotFoundException if the entity no longer
-     *         exists in the database
+     * @throws EntityNotFoundException エンティティがデータベースに存在しない場合
      */    
     public void refresh(Object entity);
 
@@ -385,16 +381,13 @@ public interface EntityManager {
      * the entity, if any. 
      * <p> If a vendor-specific property or hint is not recognized, 
      * it is silently ignored. 
-     * @param entity  entity instance
-     * @param properties  standard and vendor-specific properties 
-     *        and hints
-     * @throws IllegalArgumentException if the instance is not 
-     *         an entity or the entity is not managed 
+     * @param entity  エンティティインスタンス
+     * @param properties  標準およびベンダー固有のプロパティとヒント
+     * @throws IllegalArgumentException インスタンスがエンティティでない場合、もしくはエンティティが管理下にない場合
      * @throws TransactionRequiredException if there is no
      *         transaction when invoked on a container-managed
      *         entity manager of type <code>PersistenceContextType.TRANSACTION</code>
-     * @throws EntityNotFoundException if the entity no longer 
-     *         exists in the database 
+     * @throws EntityNotFoundException エンティティがデータベースに存在しない場合
      * @since Java Persistence 2.0
      */     
     public void refresh(Object entity,
@@ -413,10 +406,9 @@ public interface EntityManager {
      *    database locking failure causes only statement-level 
      *    rollback.
      * </ul>
-     * @param entity  entity instance
-     * @param lockMode  lock mode
-     * @throws IllegalArgumentException if the instance is not
-     *         an entity or the entity is not managed
+     * @param entity  エンティティインスタンス
+     * @param lockMode  ロックモード
+     * @throws IllegalArgumentException インスタンスがエンティティでない場合、もしくはエンティティが管理下にない場合
      * @throws TransactionRequiredException if invoked on a 
      *         container-managed entity manager of type
      *         <code>PersistenceContextType.TRANSACTION</code> when there is
@@ -456,12 +448,10 @@ public interface EntityManager {
      * hint. Depending on the database in use and the locking
      * mechanisms used by the provider, the hint may or may not
      * be observed.
-     * @param entity  entity instance
-     * @param lockMode  lock mode
-     * @param properties  standard and vendor-specific properties
-     *        and hints
-     * @throws IllegalArgumentException if the instance is not
-     *         an entity or the entity is not managed
+     * @param entity  エンティティインスタンス
+     * @param lockMode  ロックモード
+     * @param properties  標準およびベンダー固有のプロパティとヒント
+     * @throws IllegalArgumentException インスタンスがエンティティでない場合、もしくはエンティティが管理下にない場合
      * @throws TransactionRequiredException if invoked on a 
      *         container-managed entity manager of type
      *         <code>PersistenceContextType.TRANSACTION</code> when there is
