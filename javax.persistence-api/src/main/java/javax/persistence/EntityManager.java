@@ -60,9 +60,7 @@ public interface EntityManager {
      * <code>EntityExistsException</code> or another <code>PersistenceException</code> may be 
      * thrown at flush or commit time.) 
      * @throws IllegalArgumentException インスタンスがエンティティでない場合
-     * @throws TransactionRequiredException if there is no transaction when
-     *         invoked on a container-managed entity manager of that is of type 
-     *         <code>PersistenceContextType.TRANSACTION</code>
+     * @throws TransactionRequiredException トランザクションが存在しないときに<code>PersistenceContextType.TRANSACTION</code>型のコンテナ管理エンティティマネージャーで呼び出された場合
      */
     public void persist(Object entity);
     
@@ -71,9 +69,7 @@ public interface EntityManager {
      * @param entity  エンティティのインスタンス
      * @return 状態がマージされた管理下にあるインスタンス
      * @throws IllegalArgumentException インスタンスがエンティティでないか、削除されたエンティティの場合
-     * @throws TransactionRequiredException if there is no transaction when
-     *         invoked on a container-managed entity manager of that is of type 
-     *         <code>PersistenceContextType.TRANSACTION</code>
+     * @throws TransactionRequiredException トランザクションが存在しないときに<code>PersistenceContextType.TRANSACTION</code>型のコンテナ管理エンティティマネージャーで呼び出された場合
      */    
     public <T> T merge(T entity);
 
@@ -81,10 +77,7 @@ public interface EntityManager {
      * エンティティのインスタンスを削除します。
      * @param entity  エンティティのインスタンス
      * @throws IllegalArgumentException インスタンスがエンティティでないか、デタッチ状態のエンティティの場合
-     * @throws TransactionRequiredException if invoked on a
-     *         container-managed entity manager of type 
-     *         <code>PersistenceContextType.TRANSACTION</code> and there is 
-     *         no transaction
+     * @throws TransactionRequiredException トランザクションが存在しないときに<code>PersistenceContextType.TRANSACTION</code>型のコンテナ管理エンティティマネージャーで呼び出された場合
      */    
     public void remove(Object entity);
     
