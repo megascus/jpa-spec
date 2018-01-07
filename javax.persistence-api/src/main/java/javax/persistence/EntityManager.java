@@ -308,12 +308,9 @@ public interface EntityManager {
      *         performed
      * @throws OptimisticLockException if the optimistic version 
      *         check fails
-     * @throws PessimisticLockException if pessimistic locking fails 
-     *         and the transaction is rolled back
-     * @throws LockTimeoutException if pessimistic locking fails and
-     *         only the statement is rolled back
-     * @throws PersistenceException if an unsupported lock call 
-     *         is made
+     * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
+     * @throws LockTimeoutException 悲観ロックに失敗し、ステートメントのみがロールバックされた場合
+     * @throws PersistenceException サポートされていないロック呼び出しが行われた場合
      */
     public void lock(Object entity, LockModeType lockMode);
 
@@ -352,12 +349,9 @@ public interface EntityManager {
      *         performed
      * @throws OptimisticLockException if the optimistic version 
      *         check fails
-     * @throws PessimisticLockException if pessimistic locking fails 
-     *         and the transaction is rolled back
-     * @throws LockTimeoutException if pessimistic locking fails and
-     *         only the statement is rolled back
-     * @throws PersistenceException if an unsupported lock call 
-     *         is made
+     * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
+     * @throws LockTimeoutException 悲観ロックに失敗し、ステートメントのみがロールバックされた場合
+     * @throws PersistenceException サポートされていないロック呼び出しが行われた場合
      * @since Java Persistence 2.0
      */
     public void lock(Object entity, LockModeType lockMode,
@@ -417,14 +411,10 @@ public interface EntityManager {
      *         has been specified; or if invoked on an extended entity manager
      *         that has not been joined to the current transaction and a
      *         lock mode other than <code>NONE</code> has been specified
-     * @throws EntityNotFoundException if the entity no longer exists
-     *         in the database
-     * @throws PessimisticLockException if pessimistic locking fails
-     *         and the transaction is rolled back
-     * @throws LockTimeoutException if pessimistic locking fails and
-     *         only the statement is rolled back
-     * @throws PersistenceException if an unsupported lock call
-     *         is made
+     * @throws EntityNotFoundException エンティティがデータベースに存在しない場合
+     * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
+     * @throws LockTimeoutException 悲観ロックに失敗し、ステートメントのみがロールバックされた場合
+     * @throws PersistenceException サポートされていないロック呼び出しが行われた場合
      * @since Java Persistence 2.0
      */
     public void refresh(Object entity, LockModeType lockMode);
@@ -461,12 +451,9 @@ public interface EntityManager {
      *         that has not been joined to the current transaction and a
      *         lock mode other than <code>NONE</code> has been specified
      * @throws EntityNotFoundException エンティティがデータベースに存在しない場合
-     * @throws PessimisticLockException if pessimistic locking fails
-     *         and the transaction is rolled back
-     * @throws LockTimeoutException if pessimistic locking fails and
-     *         only the statement is rolled back
-     * @throws PersistenceException if an unsupported lock call
-     *         is made
+     * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
+     * @throws LockTimeoutException 悲観ロックに失敗し、ステートメントのみがロールバックされた場合
+     * @throws PersistenceException サポートされていないロック呼び出しが行われた場合
      * @since Java Persistence 2.0
      */
     public void refresh(Object entity, LockModeType lockMode,
