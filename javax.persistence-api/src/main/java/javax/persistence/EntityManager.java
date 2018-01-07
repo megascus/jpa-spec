@@ -164,14 +164,10 @@ public interface EntityManager {
      *         specified or if invoked on an entity manager which has
      *         not been joined to the current transaction and a lock
      *         mode other than <code>NONE</code> is specified
-     * @throws OptimisticLockException if the optimistic version 
-     *         check fails
-     * @throws PessimisticLockException if pessimistic locking 
-     *         fails and the transaction is rolled back
-     * @throws LockTimeoutException if pessimistic locking fails and
-     *         only the statement is rolled back
-     * @throws PersistenceException if an unsupported lock call 
-     *         is made
+     * @throws OptimisticLockException 楽観バージョンチェックに失敗した場合
+     * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
+     * @throws LockTimeoutException 悲観ロックに失敗し、ステートメントのみがロールバックされた場合
+     * @throws PersistenceException サポートされていないロック呼び出しが行われた場合
      * @since Java Persistence 2.0
      */
     public <T> T find(Class<T> entityClass, Object primaryKey,
@@ -219,14 +215,10 @@ public interface EntityManager {
      *         specified or if invoked on an entity manager which has
      *         not been joined to the current transaction and a lock
      *         mode other than <code>NONE</code> is specified
-     * @throws OptimisticLockException if the optimistic version 
-     *         check fails
-     * @throws PessimisticLockException if pessimistic locking 
-     *         fails and the transaction is rolled back
-     * @throws LockTimeoutException if pessimistic locking fails and
-     *         only the statement is rolled back
-     * @throws PersistenceException if an unsupported lock call 
-     *         is made
+     * @throws OptimisticLockException 楽観バージョンチェックに失敗した場合
+     * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
+     * @throws LockTimeoutException 悲観ロックに失敗し、ステートメントのみがロールバックされた場合
+     * @throws PersistenceException サポートされていないロック呼び出しが行われた場合
      * @since Java Persistence 2.0
      */
     public <T> T find(Class<T> entityClass, Object primaryKey,
@@ -306,8 +298,7 @@ public interface EntityManager {
      * @throws EntityNotFoundException if the entity does not exist 
      *         in the database when pessimistic locking is 
      *         performed
-     * @throws OptimisticLockException if the optimistic version 
-     *         check fails
+     * @throws OptimisticLockException 楽観バージョンチェックに失敗した場合
      * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
      * @throws LockTimeoutException 悲観ロックに失敗し、ステートメントのみがロールバックされた場合
      * @throws PersistenceException サポートされていないロック呼び出しが行われた場合
@@ -347,8 +338,7 @@ public interface EntityManager {
      * @throws EntityNotFoundException if the entity does not exist 
      *         in the database when pessimistic locking is 
      *         performed
-     * @throws OptimisticLockException if the optimistic version 
-     *         check fails
+     * @throws OptimisticLockException 楽観バージョンチェックに失敗した場合
      * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
      * @throws LockTimeoutException 悲観ロックに失敗し、ステートメントのみがロールバックされた場合
      * @throws PersistenceException サポートされていないロック呼び出しが行われた場合
