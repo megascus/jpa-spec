@@ -108,17 +108,13 @@ public interface EntityManager {
                       Map<String, Object> properties); 
     
     /**
-     * Find by primary key and lock.
-     * Search for an entity of the specified class and primary key
-     * and lock it with respect to the specified lock type.
-     * If the entity instance is contained in the persistence context,
-     * it is returned from there, and the effect of this method is
-     * the same as if the lock method had been called on the entity.
-     * <p> If the entity is found within the persistence context and the
-     * lock mode type is pessimistic and the entity has a version
-     * attribute, the persistence provider must perform optimistic
-     * version checks when obtaining the database lock.  If these 
-     * checks fail, the <code>OptimisticLockException</code> will be thrown.
+     * 主キーで見つけ、ロックします。
+     * 
+     * 指定されたクラスと主キーのエンティティを検索し、指定されたロックタイプを配慮してロックします。
+     * エンティティインスタンスが永続化コンテキストに含まれ、そこから返される場合、このメソッドはエンティティに対してロックメソッドが呼び出された場合と同じ効果を及ぼします。
+     * <p>エンティティが永続化コンテキスト内で見つかり、悲観ロックモードタイプが指定され、エンティティにバージョン属性が含まれている場合、
+     * 永続化プロバイダはデータベースロックを取得する際に楽観バージョンチェックも実行する必要があります。
+     * これらのチェックに失敗すると<code>OptimisticLockException</code>が投げられます。
      * <p>ロックモードタイプが悲観ロックで、エンティティインスタンスが見つかってもロックできない場合は、次のようになります。
      * <ul>
      * <li>データベースのロックが失敗した場合にトランザクションレベルのロールバックが発生すると、<code>PessimisticLockException</code>が投げられます。
@@ -141,17 +137,13 @@ public interface EntityManager {
                       LockModeType lockMode);
 
     /**
-     * Find by primary key and lock, using the specified properties. 
-     * Search for an entity of the specified class and primary key
-     * and lock it with respect to the specified lock type.
-     * If the entity instance is contained in the persistence context,
-     * it is returned from there.  
-     * <p> If the entity is found
-     * within the persistence context and the lock mode type
-     * is pessimistic and the entity has a version attribute, the
-     * persistence provider must perform optimistic version checks
-     * when obtaining the database lock.  If these checks fail,
-     * the <code>OptimisticLockException</code> will be thrown.
+     * 指定されたプロパティを使用して主キーで見つけ、ロックします。
+     * 
+     * 指定されたクラスと主キーのエンティティを検索し、指定されたロックタイプを配慮してロックします。
+     * エンティティインスタンスが永続化コンテキストに含まれる場合、そこから返されます。
+     * <p>エンティティが永続化コンテキストで見つかり、悲観ロックモードタイプが指定され、エンティティにバージョン属性が含まれている場合、
+     * 永続化プロバイダはデータベースロックを取得する際に楽観バージョンチェックも実行する必要があります。
+     * これらのチェックに失敗すると<code>OptimisticLockException</code>が投げられます。
      * <p>ロックモードタイプが悲観ロックで、エンティティインスタンスが見つかってもロックできない場合は、次のようになります。
      * <ul>
      * <li>データベースのロックが失敗した場合にトランザクションレベルのロールバックが発生すると、<code>PessimisticLockException</code>が投げられます。
