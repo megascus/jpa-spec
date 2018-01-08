@@ -19,16 +19,14 @@ import javax.persistence.metamodel.Attribute;
 import java.util.List;
 
 /**
- * This type represents the root of an entity graph that will be used
- * as a template to define the attribute nodes and boundaries of a
- * graph of entities and entity relationships. The root must be an
- * entity type.
+ * この型はエンティティグラフとエンティティ関係の境界と属性ノードを定義するためのテンプレートとして使用されるエンティティグラフのルートを表します。
+ * 
+ * ルートはエンティティ型でなければなりません。
  * <p>
- * The methods to add subgraphs implicitly create the
- * corresponding attribute nodes as well; such attribute nodes
- * should not be redundantly specified.
+ * サブグラフを追加するメソッドは暗黙的に対応する属性ノードも作成します。
+ * そのような属性ノードは重複して指定するべきではありません。
  *
- * @param <T> The type of the root entity.
+ * @param <T> ルートエンティティの型
  *
  * @see AttributeNode
  * @see Subgraph
@@ -48,9 +46,9 @@ public interface EntityGraph<T> {
     public String getName();
 
     /**
-     * Add one or more attribute nodes to the entity graph.
+     * エンティティグラフに一つ以上の属性ノードを追加します。
      *
-     * @param attributeName  name of the attribute
+     * @param attributeName  属性の名前
      * @throws IllegalArgumentException if the attribute is not an 
      *         attribute of this entity.
      * @throws IllegalStateException if the EntityGraph has been 
@@ -61,7 +59,7 @@ public interface EntityGraph<T> {
     /**
      * Add one or more attribute nodes to the entity graph.
      *
-     * @param attribute  attribute
+     * @param attribute  属性
      * @throws IllegalStateException if the EntityGraph has been 
      *         statically defined
      */
@@ -72,8 +70,8 @@ public interface EntityGraph<T> {
      * type. This allows for construction of multi-node entity graphs
      * that include related managed types.  
      *
-     * @param attribute  attribute
-     * @return subgraph for the attribute
+     * @param attribute  属性
+     * @return 属性のためのサブグラフ
      * @throws IllegalArgumentException if the attribute's target type 
      *         is not a managed type
      * @throws IllegalStateException if the EntityGraph has been 
@@ -88,9 +86,9 @@ public interface EntityGraph<T> {
      * graph. Subclass subgraphs will automatically include the
      * specified attributes of superclass subgraphs. 
      *
-     * @param attribute  attribute
-     * @param type  entity subclass
-     * @return subgraph for the attribute
+     * @param attribute  属性
+     * @param type  エンティティのサブクラス
+     * @return 属性のためのサブグラフ
      * @throws IllegalArgumentException if the attribute's target 
      *         type is not a managed type
      * @throws IllegalStateException if the EntityGraph has been 
@@ -103,8 +101,8 @@ public interface EntityGraph<T> {
      * type. This allows for construction of multi-node entity graphs
      * that include related managed types.  
      *
-     * @param attributeName  name of the attribute 
-     * @return subgraph for the attribute
+     * @param attributeName  属性の名前
+     * @return 属性のためのサブグラフ
      * @throws IllegalArgumentException if the attribute is not an 
      *         attribute of this entity.
      * @throws IllegalArgumentException if the attribute's target type 
@@ -121,9 +119,9 @@ public interface EntityGraph<T> {
      * Subclass subgraphs will automatically include the specified
      * attributes of superclass subgraphs.  
      *
-     * @param attributeName  name of the attribute 
-     * @param type  entity subclass
-     * @return subgraph for the attribute
+     * @param attributeName  属性の名前
+     * @param type  エンティティのサブクラス
+     * @return 属性のためのサブグラフ
      * @throws IllegalArgumentException if the attribute is not an 
      *         attribute of this managed type.
      * @throws IllegalArgumentException if the attribute's target type 
@@ -138,8 +136,8 @@ public interface EntityGraph<T> {
      * that is a managed type. This allows for construction of
      * multi-node entity graphs that include related managed types.
      *
-     * @param attribute  attribute
-     * @return subgraph for the key attribute
+     * @param attribute  属性
+     * @return キー属性のためのサブグラフ
      * @throws IllegalArgumentException if the attribute's target type 
      *         is not an entity
      * @throws IllegalStateException if this EntityGraph has been 
@@ -154,9 +152,9 @@ public interface EntityGraph<T> {
      * managed types.  Subclass subgraphs will include the specified
      * attributes of superclass subgraphs.
      *
-     * @param attribute  attribute
-     * @param type  entity subclass
-     * @return subgraph for the key attribute
+     * @param attribute  属性
+     * @param type  エンティティのサブクラス
+     * @return キー属性のためのサブグラフ
      * @throws IllegalArgumentException if the attribute's target type 
      *         is not an entity
      * @throws IllegalStateException if this EntityGraph has been 
@@ -169,8 +167,8 @@ public interface EntityGraph<T> {
      * that is a managed type. This allows for construction of
      * multi-node entity graphs that include related managed types.
      *
-     * @param attributeName  name of the attribute
-     * @return subgraph for the key attribute
+     * @param attributeName  属性の名前
+     * @return キー属性のためのサブグラフ
      * @throws IllegalArgumentException if the attribute is not an 
      *         attribute of this entity.
      * @throws IllegalArgumentException if the attribute's target type 
@@ -187,9 +185,9 @@ public interface EntityGraph<T> {
      * managed types. Subclass subgraphs will automatically include
      * the specified attributes of superclass subgraphs
      *
-     * @param attributeName  name of the attribute
-     * @param type  entity subclass
-     * @return subgraph for the key attribute
+     * @param attributeName  属性の名前
+     * @param type  エンティティのサブクラス
+     * @return キー属性のためのサブグラフ
      * @throws IllegalArgumentException if the attribute is not an 
      *         attribute of this entity.
      * @throws IllegalArgumentException if the attribute's target type 
@@ -206,8 +204,8 @@ public interface EntityGraph<T> {
      * entity type.  Subclass subgraphs will automatically include the
      * specified attributes of superclass subgraphs.
      *
-     * @param type  entity subclass
-     * @return subgraph for the subclass
+     * @param type  エンティティのサブクラス
+     * @return サブクラスのためのサブグラフ
      * @throws IllegalArgumentException if the type is not an entity type
      * @throws IllegalStateException if the EntityGraph has been 
      *         statically defined
