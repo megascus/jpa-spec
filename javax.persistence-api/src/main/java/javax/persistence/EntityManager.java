@@ -166,11 +166,8 @@ public interface EntityManager {
      * @param properties  標準およびベンダー固有のプロパティとヒント
      * @return 見つかったエンティティのインスタンス、存在しない場合はnull
      * @throws IllegalArgumentException  最初の引数がエンティティ型を示さない場合、または2番目の引数がそのエンティティの主キーの有効な型でないかnullの場合
-     * @throws TransactionRequiredException if there is no 
-     *         transaction and a lock mode other than <code>NONE</code> is
-     *         specified or if invoked on an entity manager which has
-     *         not been joined to the current transaction and a lock
-     *         mode other than <code>NONE</code> is specified
+     * @throws TransactionRequiredException トランザクションが存在せず、エンティティマネージャーで呼び出された時に<code>NONE</code>以外のロックモードが指定されている場合、
+     * または現在のトランザクションに結合されていないエンティティマネージャーで呼び出された時に<code>NONE</code>以外のロックモードが指定されている場合
      * @throws OptimisticLockException 楽観バージョンチェックに失敗した場合
      * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
      * @throws LockTimeoutException 悲観ロックに失敗し、ステートメントのみがロールバックされた場合
@@ -201,37 +198,30 @@ public interface EntityManager {
                                   Object primaryKey);
 
     /**
-     * Synchronize the persistence context to the
-     * underlying database.
-     * @throws TransactionRequiredException if there is
-     *         no transaction or if the entity manager has not been
-     *         joined to the current transaction
-     * @throws PersistenceException if the flush fails
+     * 永続化コンテキストを基となるデータベースと同期化させます。
+     * @throws TransactionRequiredException トランザクションが存在しない場合、もしくはエンティティマネージャーが現在のトランザクションに参加していない場合
+     * @throws PersistenceException フラッシュに失敗した場合
      */
     public void flush();
 
     /**
-     * Set the flush mode that applies to all objects contained
-     * in the persistence context. 
-     * @param flushMode  flush mode
+     * 永続化コンテキストに含まれるすべてのオブジェクトに適用されるフラッシュモードを設定します。
+     * @param flushMode  フラッシュモード
      */
     public void setFlushMode(FlushModeType flushMode);
 
     /**
-     * Get the flush mode that applies to all objects contained
-     * in the persistence context. 
-     * @return flushMode
+     * 永続化コンテキストに含まれるすべてのオブジェクトに適用されるフラッシュモードを取得します。
+     * @return フラッシュモード
      */
     public FlushModeType getFlushMode();
 
     /**
-     * Lock an entity instance that is contained in the persistence
-     * context with the specified lock mode type.
-     * <p>If a pessimistic lock mode type is specified and the entity
-     * contains a version attribute, the persistence provider must 
-     * also perform optimistic version checks when obtaining the 
-     * database lock.  If these checks fail, the 
-     * <code>OptimisticLockException</code> will be thrown.
+     * 永続化コンテキストに含まれるエンティティインスタンスを指定されたロックモード型でロックします。
+     * 
+     * <p>悲観ロックモードタイプが指定され、エンティティにバージョン属性が含まれている場合、
+     * 永続化プロバイダはデータベースロックを取得する際に楽観バージョンチェックも実行する必要があります。
+     * これらのチェックに失敗すると<code>OptimisticLockException</code>が投げられます。
      * <p>ロックモードタイプが悲観ロックで、エンティティインスタンスが見つかってもロックできない場合は、次のようになります。
      * <ul>
      * <li>データベースのロックが失敗した場合にトランザクションレベルのロールバックが発生すると、<code>PessimisticLockException</code>が投げられます。
@@ -250,14 +240,11 @@ public interface EntityManager {
     public void lock(Object entity, LockModeType lockMode);
 
     /**
-     * Lock an entity instance that is contained in the persistence
-     * context with the specified lock mode type and with specified
-     * properties.
-     * <p>If a pessimistic lock mode type is specified and the entity
-     * contains a version attribute, the persistence provider must 
-     * also perform optimistic version checks when obtaining the 
-     * database lock.  If these checks fail, the 
-     * <code>OptimisticLockException</code> will be thrown.
+     * 永続化コンテキストに含まれるエンティティインスタンスを指定されたロックモード型と指定されたプロパティでロックします。
+     * 
+     * <p>悲観ロックモードタイプが指定され、エンティティにバージョン属性が含まれている場合、
+     * 永続化プロバイダはデータベースロックを取得する際に楽観バージョンチェックも実行する必要があります。
+     * これらのチェックに失敗すると<code>OptimisticLockException</code>が投げられます。
      * <p>ロックモードタイプが悲観ロックで、エンティティインスタンスが見つかってもロックできない場合は、次のようになります。
      * <ul>
      * <li>データベースのロックが失敗した場合にトランザクションレベルのロールバックが発生すると、<code>PessimisticLockException</code>が投げられます。
