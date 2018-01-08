@@ -129,11 +129,8 @@ public interface EntityManager {
      * @param lockMode  ロックモード
      * @return 見つかったエンティティのインスタンス、存在しない場合はnull
      * @throws IllegalArgumentException 最初の引数がエンティティ型を示さない場合、または2番目の引数がそのエンティティの主キーの有効な型でないかnullの場合
-     * @throws TransactionRequiredException if there is no 
-     *         transaction and a lock mode other than <code>NONE</code> is
-     *         specified or if invoked on an entity manager which has
-     *         not been joined to the current transaction and a lock
-     *         mode other than <code>NONE</code> is specified
+     * @throws TransactionRequiredException トランザクションが存在せず、エンティティマネージャーで呼び出された時に<code>NONE</code>以外のロックモードが指定されている場合、
+     * または現在のトランザクションに結合されていないエンティティマネージャーで呼び出された時に<code>NONE</code>以外のロックモードが指定されている場合
      * @throws OptimisticLockException 楽観バージョンチェックに失敗した場合
      * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
      * @throws LockTimeoutException 悲観ロックに失敗し、ステートメントのみがロールバックされた場合
@@ -161,20 +158,14 @@ public interface EntityManager {
      * <li>データベースのロックに失敗した場合にステートメントレベルのロールバックのみが発生すると、<code>LockTimeoutException</code>が投げられます。
      * </ul>
      * <p>ベンダー固有のプロパティまたはヒントが認識されない場合、それは暗黙のうちに無視されます。
-     * <p>Portable applications should not rely on the standard timeout
-     * hint. Depending on the database in use and the locking
-     * mechanisms used by the provider, the hint may or may not
-     * be observed.
+     * <p>ポータブルアプリケーションでは標準のタイムアウトヒントに頼るべきではありません。
+     * 使用されているデータベースとプロバイダが使用しているロックメカニズムによっては、ヒントが観測される場合とされない場合があります。
      * @param entityClass  エンティティクラス
      * @param primaryKey  プライマリーキー
      * @param lockMode  ロックモード
      * @param properties  標準およびベンダー固有のプロパティとヒント
-     * @return the found entity instance or null if the entity does
-     *         not exist
-     * @throws IllegalArgumentException if the first argument does
-     *         not denote an entity type or the second argument is 
-     *         not a valid type for that entity's primary key or 
-     *         is null
+     * @return 見つかったエンティティのインスタンス、存在しない場合はnull
+     * @throws IllegalArgumentException  最初の引数がエンティティ型を示さない場合、または2番目の引数がそのエンティティの主キーの有効な型でないかnullの場合
      * @throws TransactionRequiredException if there is no 
      *         transaction and a lock mode other than <code>NONE</code> is
      *         specified or if invoked on an entity manager which has
@@ -334,7 +325,7 @@ public interface EntityManager {
      * @param lockMode  ロックモード
      * @throws IllegalArgumentException インスタンスがエンティティでない場合、もしくはエンティティが管理下にない場合
      * @throws TransactionRequiredException トランザクションが存在しないときに<code>PersistenceContextType.TRANSACTION</code>型のコンテナ管理エンティティマネージャーで呼び出された場合、
-     * トランザクションが存在しないときに拡張エンティティマネージャーで呼び出された時に<code>NONE</code>以外のロックモードが指定されている場合、
+     * トランザクションが存在せず拡張エンティティマネージャーで呼び出された時に<code>NONE</code>以外のロックモードが指定されている場合、
      * または現在のトランザクションに結合されていない拡張エンティティマネージャーで呼び出された時に<code>NONE</code>以外のロックモードが指定されている場合
      * @throws EntityNotFoundException エンティティがデータベースに存在しない場合
      * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
@@ -361,7 +352,7 @@ public interface EntityManager {
      * @param properties  標準およびベンダー固有のプロパティとヒント
      * @throws IllegalArgumentException インスタンスがエンティティでない場合、もしくはエンティティが管理下にない場合
      * @throws TransactionRequiredException トランザクションが存在しないときに<code>PersistenceContextType.TRANSACTION</code>型のコンテナ管理エンティティマネージャーで呼び出された場合、
-     * トランザクションが存在しないときに拡張エンティティマネージャーで呼び出された時に<code>NONE</code>以外のロックモードが指定されている場合、
+     * トランザクションが存在せず拡張エンティティマネージャーで呼び出された時に<code>NONE</code>以外のロックモードが指定されている場合、
      * または現在のトランザクションに結合されていない拡張エンティティマネージャーで呼び出された時に<code>NONE</code>以外のロックモードが指定されている場合
      * @throws EntityNotFoundException エンティティがデータベースに存在しない場合
      * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
