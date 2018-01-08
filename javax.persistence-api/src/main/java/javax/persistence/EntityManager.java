@@ -171,15 +171,12 @@ public interface EntityManager {
                       Map<String, Object> properties);
 
     /**
-     * Get an instance, whose state may be lazily fetched.
-     * If the requested instance does not exist in the database,
-     * the <code>EntityNotFoundException</code> is thrown when the instance 
-     * state is first accessed. (The persistence provider runtime is 
-     * permitted to throw the <code>EntityNotFoundException</code> when 
-     * <code>getReference</code> is called.)
-     * The application should not expect that the instance state will
-     * be available upon detachment, unless it was accessed by the
-     * application while the entity manager was open.
+     * 状態がLAZYフェッチされる可能性のあるインスタンスを取得します。
+     * 
+     * 要求されたインスタンスがデータベースに存在しない場合は、インスタンスの状態に最初にアクセスしたときに<code>EntityNotFoundException</code>がスローされます。
+     * (永続化プロバイダーのランタイムは<code>getReference</code>が呼び出されたときに<code>EntityNotFoundException</code>をスローすることが許可されています。)
+     * アプリケーションはエンティティマネージャーがオープン状態である間にアプリケーションによってアクセスされた場合を除き
+     * デタッチの時にインスタンスの状態が利用可能であることをアプリケーションは期待してはなりません。
      * @param entityClass  エンティティクラス
      * @param primaryKey  プライマリーキー
      * @return 見つかったエンティティのインスタンス
