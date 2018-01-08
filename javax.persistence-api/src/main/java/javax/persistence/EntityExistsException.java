@@ -16,15 +16,13 @@
 package javax.persistence;
 
 /**
- * Thrown by the persistence provider when {@link EntityManager#persist(Object)
- * EntityManager.persist(Object)} is called and the entity already exists. The
- * current transaction, if one is active, will be marked for rollback.
+ * {@link EntityManager#persist(Object) EntityManager.persist(Object)}が呼び出された時にすでにそのエンティティが存在する場合に永続化プロバイダによって投げられます。
+ * 
+ * 現在のトランザクションがアクティブな場合、ロールバックがマークされます。
  * <p>
- * If the entity already exists, the <code>EntityExistsException</code> may be thrown when
- * the persist operation is invoked, or the <code>EntityExistsException</code> or another
- * <code>PersistenceException</code> may be thrown at flush or commit time.
- * <p> The current transaction, if one is active and the persistence context
- * has been joined to it, will be marked for rollback.
+ * エンティティがすでに存在する場合、永続化操作が実行された場合に<code>EntityExistsException</code>が投げられるか、
+ * <code>EntityExistsException</code>もしくはほかの<code>PersistenceException</code>がフラッシュもしくはコミット時に投げられる場合があります。
+ * <p> 現在のトランザクションがアクティブで永続化コンテキストがそれに参加している場合、ロールバックがマークされます。
  *
  * @see javax.persistence.EntityManager#persist(Object)
  * 
