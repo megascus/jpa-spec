@@ -49,10 +49,8 @@ public interface EntityGraph<T> {
      * エンティティグラフに一つ以上の属性ノードを追加します。
      *
      * @param attributeName  属性の名前
-     * @throws IllegalArgumentException if the attribute is not an 
-     *         attribute of this entity.
-     * @throws IllegalStateException if the EntityGraph has been 
-     *         statically defined
+     * @throws IllegalArgumentException 属性がこのエンティティの属性でない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public void addAttributeNodes(String ... attributeName);
 
@@ -60,8 +58,7 @@ public interface EntityGraph<T> {
      * Add one or more attribute nodes to the entity graph.
      *
      * @param attribute  属性
-     * @throws IllegalStateException if the EntityGraph has been 
-     *         statically defined
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public void addAttributeNodes(Attribute<T, ?> ... attribute);
 
@@ -72,10 +69,8 @@ public interface EntityGraph<T> {
      *
      * @param attribute  属性
      * @return 属性のためのサブグラフ
-     * @throws IllegalArgumentException if the attribute's target type 
-     *         is not a managed type
-     * @throws IllegalStateException if the EntityGraph has been 
-     *         statically defined
+     * @throws IllegalArgumentException 属性のターゲットタイプが管理された型でない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <X> Subgraph<X> addSubgraph(Attribute<T, X> attribute);
 
@@ -89,10 +84,8 @@ public interface EntityGraph<T> {
      * @param attribute  属性
      * @param type  エンティティのサブクラス
      * @return 属性のためのサブグラフ
-     * @throws IllegalArgumentException if the attribute's target 
-     *         type is not a managed type
-     * @throws IllegalStateException if the EntityGraph has been 
-     *         statically defined
+     * @throws IllegalArgumentException 属性のターゲットタイプが管理された型でない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <X> Subgraph<? extends X> addSubgraph(Attribute<T, X> attribute, Class<? extends X> type);
 
@@ -103,12 +96,9 @@ public interface EntityGraph<T> {
      *
      * @param attributeName  属性の名前
      * @return 属性のためのサブグラフ
-     * @throws IllegalArgumentException if the attribute is not an 
-     *         attribute of this entity.
-     * @throws IllegalArgumentException if the attribute's target type 
-     *         is not a managed type
-     * @throws IllegalStateException if the EntityGraph has been 
-     *         statically defined
+     * @throws IllegalArgumentException 属性がこのエンティティの属性でない場合
+     * @throws IllegalArgumentException 属性のターゲットタイプが管理された型でない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <X> Subgraph<X> addSubgraph(String attributeName);
 
@@ -122,12 +112,9 @@ public interface EntityGraph<T> {
      * @param attributeName  属性の名前
      * @param type  エンティティのサブクラス
      * @return 属性のためのサブグラフ
-     * @throws IllegalArgumentException if the attribute is not an 
-     *         attribute of this managed type.
-     * @throws IllegalArgumentException if the attribute's target type 
-     *         is not a managed type
-     * @throws IllegalStateException if this EntityGraph has been
-     *         statically defined
+     * @throws IllegalArgumentException 属性がこの管理された型の属性でない場合
+     * @throws IllegalArgumentException 属性のターゲットタイプが管理された型でない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <X> Subgraph<X> addSubgraph(String attributeName, Class<X> type);
 
@@ -138,10 +125,8 @@ public interface EntityGraph<T> {
      *
      * @param attribute  属性
      * @return キー属性のためのサブグラフ
-     * @throws IllegalArgumentException if the attribute's target type 
-     *         is not an entity
-     * @throws IllegalStateException if this EntityGraph has been 
-     *         statically defined
+     * @throws IllegalArgumentException 属性のターゲットタイプがエンティティでない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <X> Subgraph<X> addKeySubgraph(Attribute<T, X> attribute);
 
@@ -155,10 +140,8 @@ public interface EntityGraph<T> {
      * @param attribute  属性
      * @param type  エンティティのサブクラス
      * @return キー属性のためのサブグラフ
-     * @throws IllegalArgumentException if the attribute's target type 
-     *         is not an entity
-     * @throws IllegalStateException if this EntityGraph has been 
-     *         statically defined
+     * @throws IllegalArgumentException 属性のターゲットタイプがエンティティでない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <X> Subgraph<? extends X> addKeySubgraph(Attribute<T, X> attribute, Class<? extends X> type);
 
@@ -169,12 +152,9 @@ public interface EntityGraph<T> {
      *
      * @param attributeName  属性の名前
      * @return キー属性のためのサブグラフ
-     * @throws IllegalArgumentException if the attribute is not an 
-     *         attribute of this entity.
-     * @throws IllegalArgumentException if the attribute's target type 
-     *         is not an entity
-     * @throws IllegalStateException if this EntityGraph has been
-     *          statically defined
+     * @throws IllegalArgumentException 属性がこのエンティティの属性でない場合
+     * @throws IllegalArgumentException 属性のターゲットタイプがエンティティでない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <X> Subgraph<X> addKeySubgraph(String attributeName);
 
@@ -188,36 +168,29 @@ public interface EntityGraph<T> {
      * @param attributeName  属性の名前
      * @param type  エンティティのサブクラス
      * @return キー属性のためのサブグラフ
-     * @throws IllegalArgumentException if the attribute is not an 
-     *         attribute of this entity.
-     * @throws IllegalArgumentException if the attribute's target type 
-     *         is not a managed type
-     * @throws IllegalStateException if this EntityGraph has been 
-     *         statically defined
+     * @throws IllegalArgumentException 属性がこのエンティティの属性でない場合
+     * @throws IllegalArgumentException 属性のターゲットタイプが管理された型でない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <X> Subgraph<X> addKeySubgraph(String attributeName, Class<X> type);
 
 
     /**
-     * Add additional attributes to this entity graph that
-     * correspond to attributes of subclasses of this EntityGraph's
-     * entity type.  Subclass subgraphs will automatically include the
-     * specified attributes of superclass subgraphs.
+     * このEntityGraphのエンティティ型のサブクラスの属性に対応する追加の属性をこのエンティティグラフに追加します。
+     * 
+     * サブクラスのサブグラフには指定されたスーパークラスのサブグラフの属性が自動的に含まれます。
      *
      * @param type  エンティティのサブクラス
      * @return サブクラスのためのサブグラフ
-     * @throws IllegalArgumentException if the type is not an entity type
-     * @throws IllegalStateException if the EntityGraph has been 
-     *         statically defined
+     * @throws IllegalArgumentException typeがエンティティ型でない場合
+     * @throws IllegalStateException EntityGraphが静的に定義されている場合
      */
     public <T> Subgraph<? extends T> addSubclassSubgraph(Class<? extends T> type);
 
 
     /**
-     * Return the attribute nodes of this entity that are included in
-     * the entity graph.
-     * @return attribute nodes for the annotated entity type or empty
-     *         list if none have been defined
+     * エンティティグラフに含まれるこのエンティティの属性ノードを返します。
+     * @returnアノテーションの付いたエンティティ型のための属性ノード、何も定義されてない場合は空のList
      */
     public List<AttributeNode<?>> getAttributeNodes();
 
