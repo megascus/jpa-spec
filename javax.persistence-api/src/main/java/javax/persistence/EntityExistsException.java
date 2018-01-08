@@ -33,43 +33,35 @@ package javax.persistence;
 public class EntityExistsException extends PersistenceException {
 
     /**
-     * Constructs a new <code>EntityExistsException</code> exception with
-     * <code>null</code> as its detail message.
+     * 新しい<code>EntityExistsException</code>例外を<code>null</code>を詳細メッセージとして生成します。
      */
     public EntityExistsException() {
         super();
     }
 
     /**
-     * Constructs a new <code>EntityExistsException</code> exception with the
-     * specified detail message.
+     * 新しい<code>EntityExistsException</code>例外を指定された詳細メッセージで生成します。
      * 
-     * @param message
-     *            the detail message.
+     * @param message   詳細メッセージ
      */
     public EntityExistsException(String message) {
         super(message);
     }
 
     /**
-     * Constructs a new <code>EntityExistsException</code> exception with the
-     * specified detail message and cause.
+     * 新しい<code>EntityExistsException</code>例外を指定された詳細メッセージと原因で生成します。
      * 
-     * @param message
-     *            the detail message.
-     * @param cause
-     *            the cause.
+     * @param message   詳細メッセージ
+     * @param cause     原因
      */
     public EntityExistsException(String message, Throwable cause) {
         super(message, cause);
     }
 
     /**
-     * Constructs a new <code>EntityExistsException</code> exception with the
-     * specified cause.
+     * 新しい<code>EntityExistsException</code>例外を指定された原因で生成します。
      * 
-     * @param cause
-     *            the cause.
+     * @param cause     原因
      */
     public EntityExistsException(Throwable cause) {
         super(cause);
