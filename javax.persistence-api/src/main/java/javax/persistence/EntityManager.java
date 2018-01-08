@@ -325,8 +325,7 @@ public interface EntityManager {
                      Map<String, Object> properties);
 
     /**
-     * Refresh the state of the instance from the database, 
-     * overwriting changes made to the entity, if any. 
+     * データベースからのインスタンスの状態をリフレッシュし、存在する場合はエンティティに加えられた変更を上書きします。
      * @param entity  エンティティインスタンス
      * @throws IllegalArgumentException インスタンスがエンティティでない場合、もしくはエンティティが管理下にない場合
      * @throws TransactionRequiredException トランザクションが存在しないときに<code>PersistenceContextType.TRANSACTION</code>型のコンテナ管理エンティティマネージャーで呼び出された場合
@@ -335,9 +334,8 @@ public interface EntityManager {
     public void refresh(Object entity);
 
     /**
-     * Refresh the state of the instance from the database, using 
-     * the specified properties, and overwriting changes made to
-     * the entity, if any. 
+     * 指定されたプロパティを使用してデータベースからのインスタンスの状態をリフレッシュし、存在する場合はエンティティに加えられた変更を上書きします。
+     * 
      * <p> ベンダー固有のプロパティまたはヒントが認識されない場合、それは暗黙のうちに無視されます。
      * @param entity  エンティティインスタンス
      * @param properties  標準およびベンダー固有のプロパティとヒント
@@ -350,17 +348,13 @@ public interface EntityManager {
                             Map<String, Object> properties); 
 
     /**
-     * Refresh the state of the instance from the database, 
-     * overwriting changes made to the entity, if any, and 
-     * lock it with respect to given lock mode type.
-     * <p>If the lock mode type is pessimistic and the entity instance
-     * is found but cannot be locked:
+     * データベースからのインスタンスの状態をリフレッシュし、存在する場合はエンティティに加えられた変更を上書きし、
+     * 指定されたロックモード型でロックします。
+     * 
+     * <p>ロックモードタイプが悲観ロックで、エンティティインスタンスが見つかってもロックできない場合は、次のようになります。
      * <ul>
-     * <li> the <code>PessimisticLockException</code> will be thrown if the database
-     *    locking failure causes transaction-level rollback
-     * <li> the <code>LockTimeoutException</code> will be thrown if the
-     *    database locking failure causes only statement-level 
-     *    rollback.
+     * <li>データベースのロックが失敗した場合にトランザクションレベルのロールバックが発生すると、<code>PessimisticLockException</code>が投げられます。
+     * <li>データベースのロックに失敗した場合にステートメントレベルのロールバックのみが発生すると、<code>LockTimeoutException</code>が投げられます。
      * </ul>
      * @param entity  エンティティインスタンス
      * @param lockMode  ロックモード
@@ -377,23 +371,17 @@ public interface EntityManager {
     public void refresh(Object entity, LockModeType lockMode);
 
     /**
-     * Refresh the state of the instance from the database, 
-     * overwriting changes made to the entity, if any, and 
-     * lock it with respect to given lock mode type and with
-     * specified properties.
-     * <p>If the lock mode type is pessimistic and the entity instance
-     * is found but cannot be locked:
+     * データベースからのインスタンスの状態をリフレッシュし、存在する場合はエンティティに加えられた変更を上書きし、
+     * 指定されたロックモード型および指定されたプロパティでロックします。
+     * 
+     * <p>ロックモード型が悲観ロックで、エンティティインスタンスが見つかってもロックできない場合は、次のようになります。
      * <ul>
-     * <li> the <code>PessimisticLockException</code> will be thrown if the database
-     *    locking failure causes transaction-level rollback
-     * <li> the <code>LockTimeoutException</code> will be thrown if the database
-     *    locking failure causes only statement-level rollback
+     * <li>データベースのロックが失敗した場合にトランザクションレベルのロールバックが発生すると、<code>PessimisticLockException</code>が投げられます。
+     * <li>データベースのロックに失敗した場合にステートメントレベルのロールバックのみが発生すると、<code>LockTimeoutException</code>が投げられます。
      * </ul>
      * <p>ベンダー固有のプロパティまたはヒントが認識されない場合、それは暗黙のうちに無視されます。
-     * <p>Portable applications should not rely on the standard timeout
-     * hint. Depending on the database in use and the locking
-     * mechanisms used by the provider, the hint may or may not
-     * be observed.
+     * <p>ポータブルアプリケーションでは標準のタイムアウトヒントに頼るべきではありません。
+     * 使用されているデータベースとプロバイダが使用しているロックメカニズムによっては、ヒントが観察される場合とされない場合があります。
      * @param entity  エンティティインスタンス
      * @param lockMode  ロックモード
      * @param properties  標準およびベンダー固有のプロパティとヒント
