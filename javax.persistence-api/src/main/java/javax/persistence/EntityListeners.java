@@ -21,9 +21,9 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies the callback listener classes to be used for an 
- * entity or mapped superclass. This annotation may be applied 
- * to an entity class or mapped superclass.
+ * エンティティもしくはマップドスーパークラスで使用されるコールバックリスナークラスを指定します。
+ * 
+ * このアノテーションはエンティティクラスもしくはマップドスーパークラスに適用できます。
  *
  * @since Java Persistence 1.0
  */
@@ -31,6 +31,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface EntityListeners {
 
-    /** The callback listener classes */
+    /** コールバックリスナークラス */
     Class[] value();
 }
