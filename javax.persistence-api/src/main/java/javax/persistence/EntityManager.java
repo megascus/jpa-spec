@@ -54,11 +54,9 @@ public interface EntityManager {
     /**
      * インスタンスを管理し、永続化します。
      * @param entity  エンティティのインスタンス
-     * @throws EntityExistsException if the entity already exists.
-     * (If the entity already exists, the <code>EntityExistsException</code> may 
-     * be thrown when the persist operation is invoked, or the
-     * <code>EntityExistsException</code> or another <code>PersistenceException</code> may be 
-     * thrown at flush or commit time.) 
+     * @throws EntityExistsException エンティティがすでに存在する場合(エンティティがすでに存在する場合、
+     * 永続化操作が実行された場合に<code>EntityExistsException</code>が投げられるか、
+     * <code>EntityExistsException</code>もしくはほかの<code>PersistenceException</code>がフラッシュもしくはコミット時に投げられる場合があります。)
      * @throws IllegalArgumentException インスタンスがエンティティでない場合
      * @throws TransactionRequiredException トランザクションが存在しないときに<code>PersistenceContextType.TRANSACTION</code>型のコンテナ管理エンティティマネージャーで呼び出された場合
      */
@@ -82,34 +80,28 @@ public interface EntityManager {
     public void remove(Object entity);
     
     /**
-     * Find by primary key.
-     * Search for an entity of the specified class and primary key.
-     * If the entity instance is contained in the persistence context,
-     * it is returned from there.
+     * 主キーで見つけます。
+     * 
+     * 指定されたクラスと主キーのエンティティを検索します。
+     * エンティティインスタンスが永続化コンテキストに含まれている場合はそこから戻されます。
      * @param entityClass  エンティティクラス
      * @param primaryKey  主キー
      * @return 見つかったエンティティのインスタンス、存在しない場合はnull
-     * @throws IllegalArgumentException if the first argument does
-     *         not denote an entity type or the second argument is 
-     *         is not a valid type for that entity's primary key or
-     *         is null
+     * @throws IllegalArgumentException 最初の引数がエンティティ型を示さない場合、または2番目の引数がそのエンティティの主キーの有効な型でないかnullの場合
      */
     public <T> T find(Class<T> entityClass, Object primaryKey);
     
     /**
-     * Find by primary key, using the specified properties. 
-     * Search for an entity of the specified class and primary key. 
-     * If the entity instance is contained in the persistence 
-     * context, it is returned from there. 
+     * 指定されたプロパティを使用して主キーで見つけます。
+     * 
+     * 指定されたクラスと主キーのエンティティを検索します。
+     * エンティティインスタンスが永続化コンテキストに含まれている場合はそこから戻されます。
      * ベンダー固有のプロパティまたはヒントが認識されない場合、それは暗黙のうちに無視されます。
      * @param entityClass  エンティティクラス
      * @param primaryKey  主キー
      * @param properties  標準およびベンダー固有のプロパティとヒント
      * @return 見つかったエンティティのインスタンス、存在しない場合はnull
-     * @throws IllegalArgumentException if the first argument does 
-     *         not denote an entity type or the second argument is
-     *         is not a valid type for that entity's primary key or 
-     *         is null 
+     * @throws IllegalArgumentException 最初の引数がエンティティ型を示さない場合、または2番目の引数がそのエンティティの主キーの有効な型でないかnullの場合
      * @since Java Persistence 2.0
      */ 
     public <T> T find(Class<T> entityClass, Object primaryKey, 
@@ -127,23 +119,16 @@ public interface EntityManager {
      * attribute, the persistence provider must perform optimistic
      * version checks when obtaining the database lock.  If these 
      * checks fail, the <code>OptimisticLockException</code> will be thrown.
-     * <p>If the lock mode type is pessimistic and the entity instance
-     * is found but cannot be locked:
+     * <p>ロックモードタイプが悲観ロックで、エンティティインスタンスが見つかってもロックできない場合は、次のようになります。
      * <ul>
-     * <li> the <code>PessimisticLockException</code> will be thrown if the database
-     *    locking failure causes transaction-level rollback
-     * <li> the <code>LockTimeoutException</code> will be thrown if the database
-     *    locking failure causes only statement-level rollback
+     * <li>データベースのロックが失敗した場合にトランザクションレベルのロールバックが発生すると、<code>PessimisticLockException</code>が投げられます。
+     * <li>データベースのロックに失敗した場合にステートメントレベルのロールバックのみが発生すると、<code>LockTimeoutException</code>が投げられます。
      * </ul>
-     * @param entityClass  entity class
-     * @param primaryKey  primary key
-     * @param lockMode  lock mode
-     * @return the found entity instance or null if the entity does
-     *         not exist
-     * @throws IllegalArgumentException if the first argument does
-     *         not denote an entity type or the second argument is 
-     *         not a valid type for that entity's primary key or 
-     *         is null
+     * @param entityClass  エンティティクラス
+     * @param primaryKey  主キー
+     * @param lockMode  ロックモード
+     * @return 見つかったエンティティのインスタンス、存在しない場合はnull
+     * @throws IllegalArgumentException 最初の引数がエンティティ型を示さない場合、または2番目の引数がそのエンティティの主キーの有効な型でないかnullの場合
      * @throws TransactionRequiredException if there is no 
      *         transaction and a lock mode other than <code>NONE</code> is
      *         specified or if invoked on an entity manager which has
@@ -170,13 +155,10 @@ public interface EntityManager {
      * persistence provider must perform optimistic version checks
      * when obtaining the database lock.  If these checks fail,
      * the <code>OptimisticLockException</code> will be thrown.
-     * <p>If the lock mode type is pessimistic and the entity instance
-     * is found but cannot be locked:
+     * <p>ロックモードタイプが悲観ロックで、エンティティインスタンスが見つかってもロックできない場合は、次のようになります。
      * <ul>
-     * <li> the <code>PessimisticLockException</code> will be thrown if the database
-     *    locking failure causes transaction-level rollback
-     * <li> the <code>LockTimeoutException</code> will be thrown if the database
-     *    locking failure causes only statement-level rollback
+     * <li>データベースのロックが失敗した場合にトランザクションレベルのロールバックが発生すると、<code>PessimisticLockException</code>が投げられます。
+     * <li>データベースのロックに失敗した場合にステートメントレベルのロールバックのみが発生すると、<code>LockTimeoutException</code>が投げられます。
      * </ul>
      * <p>ベンダー固有のプロパティまたはヒントが認識されない場合、それは暗黙のうちに無視されます。
      * <p>Portable applications should not rely on the standard timeout
@@ -263,13 +245,10 @@ public interface EntityManager {
      * also perform optimistic version checks when obtaining the 
      * database lock.  If these checks fail, the 
      * <code>OptimisticLockException</code> will be thrown.
-     * <p>If the lock mode type is pessimistic and the entity instance
-     * is found but cannot be locked:
+     * <p>ロックモードタイプが悲観ロックで、エンティティインスタンスが見つかってもロックできない場合は、次のようになります。
      * <ul>
-     * <li> the <code>PessimisticLockException</code> will be thrown if the database
-     *    locking failure causes transaction-level rollback
-     * <li> the <code>LockTimeoutException</code> will be thrown if the database
-     *    locking failure causes only statement-level rollback
+     * <li>データベースのロックが失敗した場合にトランザクションレベルのロールバックが発生すると、<code>PessimisticLockException</code>が投げられます。
+     * <li>データベースのロックに失敗した場合にステートメントレベルのロールバックのみが発生すると、<code>LockTimeoutException</code>が投げられます。
      * </ul>
      * @param entity  エンティティインスタンス
      * @param lockMode  ロックモード
@@ -294,19 +273,14 @@ public interface EntityManager {
      * also perform optimistic version checks when obtaining the 
      * database lock.  If these checks fail, the 
      * <code>OptimisticLockException</code> will be thrown.
-     * <p>If the lock mode type is pessimistic and the entity instance
-     * is found but cannot be locked:
+     * <p>ロックモードタイプが悲観ロックで、エンティティインスタンスが見つかってもロックできない場合は、次のようになります。
      * <ul>
-     * <li> the <code>PessimisticLockException</code> will be thrown if the database
-     *    locking failure causes transaction-level rollback
-     * <li> the <code>LockTimeoutException</code> will be thrown if the database
-     *    locking failure causes only statement-level rollback
+     * <li>データベースのロックが失敗した場合にトランザクションレベルのロールバックが発生すると、<code>PessimisticLockException</code>が投げられます。
+     * <li>データベースのロックに失敗した場合にステートメントレベルのロールバックのみが発生すると、<code>LockTimeoutException</code>が投げられます。
      * </ul>
      * <p>ベンダー固有のプロパティまたはヒントが認識されない場合、それは暗黙のうちに無視されます。
-     * <p>Portable applications should not rely on the standard timeout
-     * hint. Depending on the database in use and the locking
-     * mechanisms used by the provider, the hint may or may not
-     * be observed.
+     * <p>ポータブルアプリケーションでは標準のタイムアウトヒントに頼るべきではありません。
+     * 使用されているデータベースとプロバイダが使用しているロックメカニズムによっては、ヒントが観測される場合とされない場合があります。
      * @param entity  エンティティインスタンス
      * @param lockMode  ロックモード
      * @param properties  標準およびベンダー固有のプロパティとヒント
@@ -381,7 +355,7 @@ public interface EntityManager {
      * </ul>
      * <p>ベンダー固有のプロパティまたはヒントが認識されない場合、それは暗黙のうちに無視されます。
      * <p>ポータブルアプリケーションでは標準のタイムアウトヒントに頼るべきではありません。
-     * 使用されているデータベースとプロバイダが使用しているロックメカニズムによっては、ヒントが観察される場合とされない場合があります。
+     * 使用されているデータベースとプロバイダが使用しているロックメカニズムによっては、ヒントが観測される場合とされない場合があります。
      * @param entity  エンティティインスタンス
      * @param lockMode  ロックモード
      * @param properties  標準およびベンダー固有のプロパティとヒント
