@@ -115,9 +115,9 @@ public interface EntityGraph<T> {
     public <X> Subgraph<X> addSubgraph(String attributeName, Class<X> type);
 
     /**
-     * Add a node to the graph that corresponds to a map key
-     * that is a managed type. This allows for construction of
-     * multi-node entity graphs that include related managed types.
+     * 管理された型のマップキーに対応するノードをグラフに追加します。
+     * 
+     * これにより関連する管理対象タイプを含むマルチノードのエンティティグラフの構築が可能になります。
      *
      * @param attribute  属性
      * @return キー属性のためのサブグラフ
@@ -127,11 +127,10 @@ public interface EntityGraph<T> {
     public <X> Subgraph<X> addKeySubgraph(Attribute<T, X> attribute);
 
     /**
-     * Add a node to the graph that corresponds to a map key
-     * that is a managed type with inheritance. This allows for
-     * construction of multi-node entity graphs that include related
-     * managed types.  Subclass subgraphs will include the specified
-     * attributes of superclass subgraphs.
+     * 継承のある管理された型のマップキーに対応するノードをグラフに追加します。
+     * 
+     * これによりエンティティグラフのこのノードに対して複数のサブクラスのサブグラフを定義することが可能になります。
+     * サブクラスのサブグラフには指定されたスーパークラスのサブグラフの属性が自動的に含まれます。
      *
      * @param attribute  属性
      * @param type  エンティティのサブクラス
@@ -142,9 +141,9 @@ public interface EntityGraph<T> {
     public <X> Subgraph<? extends X> addKeySubgraph(Attribute<T, X> attribute, Class<? extends X> type);
 
     /**
-     * Add a node to the graph that corresponds to a map key
-     * that is a managed type. This allows for construction of
-     * multi-node entity graphs that include related managed types.
+     * 管理された型のマップキーに対応するノードをグラフに追加します。
+     * 
+     * これにより関連する管理対象タイプを含むマルチノードのエンティティグラフの構築が可能になります。
      *
      * @param attributeName  属性の名前
      * @return キー属性のためのサブグラフ
@@ -155,11 +154,10 @@ public interface EntityGraph<T> {
     public <X> Subgraph<X> addKeySubgraph(String attributeName);
 
     /**
-     * Add a node to the graph that corresponds to a map key
-     * that is a managed type with inheritance. This allows for
-     * construction of multi-node entity graphs that include related
-     * managed types. Subclass subgraphs will automatically include
-     * the specified attributes of superclass subgraphs
+     * 継承のある管理された型のマップキーに対応するノードをグラフに追加します。
+     * 
+     * これによりエンティティグラフのこのノードに対して複数のサブクラスのサブグラフを定義することが可能になります。
+     * サブクラスのサブグラフには指定されたスーパークラスのサブグラフの属性が自動的に含まれます。
      *
      * @param attributeName  属性の名前
      * @param type  エンティティのサブクラス
@@ -186,7 +184,7 @@ public interface EntityGraph<T> {
 
     /**
      * エンティティグラフに含まれるこのエンティティの属性ノードを返します。
-     * @returnアノテーションの付いたエンティティ型のための属性ノード、何も定義されてない場合は空のList
+     * @return アノテーションの付いたエンティティ型のための属性ノード、何も定義されてない場合は空のList
      */
     public List<AttributeNode<?>> getAttributeNodes();
 
