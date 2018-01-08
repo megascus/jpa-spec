@@ -193,13 +193,9 @@ public interface EntityManager {
      * application while the entity manager was open.
      * @param entityClass  エンティティクラス
      * @param primaryKey  プライマリーキー
-     * @return the found entity instance
-     * @throws IllegalArgumentException if the first argument does
-     *         not denote an entity type or the second argument is
-     *         not a valid type for that entity's primary key or
-     *         is null
-     * @throws EntityNotFoundException if the entity state 
-     *         cannot be accessed
+     * @return 見つかったエンティティのインスタンス
+     * @throws IllegalArgumentException 最初の引数がエンティティ型を示さない場合、または2番目の引数がそのエンティティの主キーの有効な型でないかnullの場合
+     * @throws EntityNotFoundException エンティティの状態にアクセスできない場合
      */
     public <T> T getReference(Class<T> entityClass, 
                                   Object primaryKey);
@@ -244,9 +240,7 @@ public interface EntityManager {
      * @param entity  エンティティインスタンス
      * @param lockMode  ロックモード
      * @throws IllegalArgumentException インスタンスがエンティティでない場合、もしくはデタッチ状態のエンティティの場合
-     * @throws TransactionRequiredException if there is no 
-     *         transaction or if invoked on an entity manager which
-     *         has not been joined to the current transaction
+     * @throws TransactionRequiredException トランザクションが存在しない場合、もしくはエンティティマネージャーが現在のトランザクションに参加していない場合
      * @throws EntityNotFoundException 悲観ロックが行われた時にエンティティがデータベースに存在しない場合
      * @throws OptimisticLockException 楽観バージョンチェックに失敗した場合
      * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
@@ -276,9 +270,7 @@ public interface EntityManager {
      * @param lockMode  ロックモード
      * @param properties  標準およびベンダー固有のプロパティとヒント
      * @throws IllegalArgumentException インスタンスがエンティティでない場合、もしくはデタッチ状態のエンティティの場合
-     * @throws TransactionRequiredException if there is no 
-     *         transaction or if invoked on an entity manager which
-     *         has not been joined to the current transaction
+     * @throws TransactionRequiredException トランザクションが存在しない場合、もしくはエンティティマネージャーが現在のトランザクションに参加していない場合
      * @throws EntityNotFoundException 悲観ロックが行われた時にエンティティがデータベースに存在しない場合
      * @throws OptimisticLockException 楽観バージョンチェックに失敗した場合
      * @throws PessimisticLockException 悲観ロックに失敗し、トランザクションがロールバックされた場合
