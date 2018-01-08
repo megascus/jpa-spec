@@ -73,11 +73,10 @@ public interface EntityGraph<T> {
     public <X> Subgraph<X> addSubgraph(Attribute<T, X> attribute);
 
     /**
-     * Add a node to the graph that corresponds to a managed
-     * type with inheritance.  This allows for multiple subclass
-     * subgraphs to be defined for this node of the entity
-     * graph. Subclass subgraphs will automatically include the
-     * specified attributes of superclass subgraphs. 
+     * 継承のある管理された型に対応するノードをグラフに追加します。
+     * 
+     * これによりエンティティグラフのこのノードに対して複数のサブクラスのサブグラフを定義することが可能になります。
+     * サブクラスのサブグラフには指定されたスーパークラスのサブグラフの属性が自動的に含まれます。
      *
      * @param attribute  属性
      * @param type  エンティティのサブクラス
