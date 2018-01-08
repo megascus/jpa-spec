@@ -37,11 +37,9 @@ import java.util.List;
 public interface EntityGraph<T> {
 
     /**
-     * Return the name of a named EntityGraph (an entity graph
-     * defined by means of the <code>NamedEntityGraph</code>
-     * annotation, XML descriptor element, or added by means of the
-     * <code>addNamedEntityGraph</code> method.  Returns null if the
-     * EntityGraph is not a named EntityGraph.
+     * 名前付きEntityGraph(<code>NamedEntityGraph</code>アノテーション、XMLディスクリプタ要素で定義された、または<code>addNamedEntityGraph</code>メソッドで追加されたエンティティグラフ)の名前を返します。
+     * 
+     * EntityGraphが名前付きEntityGraphでない場合はnullを返します。
      */
     public String getName();
 
@@ -55,7 +53,7 @@ public interface EntityGraph<T> {
     public void addAttributeNodes(String ... attributeName);
 
     /**
-     * Add one or more attribute nodes to the entity graph.
+     * エンティティグラフに一つ以上の属性ノードを追加します。
      *
      * @param attribute  属性
      * @throws IllegalStateException EntityGraphが静的に定義されている場合
@@ -63,9 +61,9 @@ public interface EntityGraph<T> {
     public void addAttributeNodes(Attribute<T, ?> ... attribute);
 
     /**
-     * Add a node to the graph that corresponds to a managed
-     * type. This allows for construction of multi-node entity graphs
-     * that include related managed types.  
+     * 管理された型に対応するノードをグラフに追加します。
+     * 
+     * これにより関連する管理対象タイプを含むマルチノードのエンティティグラフの構築が可能になります。
      *
      * @param attribute  属性
      * @return 属性のためのサブグラフ
