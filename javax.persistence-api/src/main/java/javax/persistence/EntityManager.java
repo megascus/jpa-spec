@@ -24,22 +24,15 @@ import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.CriteriaDelete;
 
 /**
- * Interface used to interact with the persistence context.
- *
- * <p> An <code>EntityManager</code> instance is associated with 
- * a persistence context. A persistence context is a set of entity 
- * instances in which for any persistent entity identity there is 
- * a unique entity instance. Within the persistence context, the 
- * entity instances and their lifecycle are managed. 
- * The <code>EntityManager</code> API is used 
- * to create and remove persistent entity instances, to find entities 
- * by their primary key, and to query over entities.
- *
- * <p> The set of entities that can be managed by a given 
- * <code>EntityManager</code> instance is defined by a persistence 
- * unit. A persistence unit defines the set of all classes that are 
- * related or grouped by the application, and which must be 
- * colocated in their mapping to a single database.
+ * 永続化コンテキストと対話するために使用されるインタフェース。
+ * 
+ * <p> <code>EntityManager</code>のインスタンスは永続化コンテキストに関連付けられています。
+ * 永続化コンテキストとは永続的なエンティティの単位に対して一意のエンティティインスタンスが存在するエンティティインスタンスの集合です。
+ * 永続化コンテキスト内では、エンティティインスタンスとそのライフサイクルが管理されます。
+ * <code>EntityManager</code>のAPIは、永続化されたエンティティインスタンスを作成および削除し、主キーでエンティティを見つけ、エンティティを照会するために使用されます。
+ * 
+ * <p> 与えられた<code>EntityManager</code>のインスタンスによって管理できるエンティティの集合は永続化ユニットによって定義されます。
+ * 永続化ユニットはアプリケーションによって関連付けまたはグループ化され、単一のデータベースへのマッピングで配置されなければならないすべてのクラスの集合を定義します。
  *
  * @see Query
  * @see TypedQuery
