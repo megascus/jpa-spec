@@ -22,8 +22,9 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies that the class is an entity. This annotation is applied to the
- * entity class.
+ * クラスがエンティティであることを指定します。
+ * 
+ * このアノテーションはエンティティクラスに適用します。
  * 
  * @since Java Persistence 1.0
  */
@@ -33,10 +34,11 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface Entity {
 
 	/**
-	 * (Optional) The entity name. Defaults to the unqualified
-	 * name of the entity class. This name is used to refer to the
-	 * entity in queries. The name must not be a reserved literal
-	 * in the Java Persistence query language.
+	 * (オプション) エンティティの名前。
+	 * 
+	 * デフォルトではエンティティクラスの非修飾名になります。
+	 * この名前はクエリー内でエンティティを参照するために使用されます。
+	 * この名前はJPQL(Java Persistence query language)の予約語であってはなりません。
 	 */
 	String name() default "";
 }
