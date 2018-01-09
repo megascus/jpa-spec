@@ -16,24 +16,24 @@
 package javax.persistence;
 
 /**
- * Defines supported types of the discriminator column. 
+ * 識別列でサポートされている型を定義します。
  *
  * @since Java Persistence 1.0
  */
 public enum DiscriminatorType { 
 
     /** 
-     * String as the discriminator type.
+     * 識別型として文字列。
      */
     STRING,
 
     /** 
-     * Single character as the discriminator type.
+     * 識別型として文字。
      */
     CHAR,
 
     /** 
-     * Integer as the discriminator type.
+     * 識別型として整数。
      */
     INTEGER
 }

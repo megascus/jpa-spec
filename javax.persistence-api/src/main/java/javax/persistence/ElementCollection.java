@@ -23,10 +23,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.FetchType.LAZY;
 
 /**
- * Specifies a collection of instances of a basic type or embeddable
- * class. 
- * Must be specified if the collection is to be mapped by
- * means of a collection table.
+ * 基本型もしくは組み込み暮らすのインスタンスのコレクションを指定します。
+ * 
+ * コレクションがコレクション表によってマッピングされる場合は、指定する必要があります。
  * 
  * <pre>
  *    Example:
@@ -48,21 +47,18 @@ import static javax.persistence.FetchType.LAZY;
 public @interface ElementCollection {
 
     /**
-     * (Optional) The basic or embeddable class that is the element
-     * type of the collection.  This element is optional only if the
-     * collection field or property is defined using Java generics,
-     * and must be specified otherwise.  It defaults to the
-     * paramterized type of the collection when defined using
-     * generics.
+     * (オプション) コレクションの要素となる基本型もしくは組み込みクラス。
+     * 
+     * この要素はコレクションフィールドもしくはプロパティがJavaジェネリクスを使用して定義されている場合のみオプションであり、そうでない場合は指定する必要があります。
+     * ジェネリクスを使用して定義されている場合のデフォルトはコレクションのパラメタライズドタイプです。
      */
     Class targetClass() default void.class;
     
     /**
-     *  (Optional) Whether the collection should be lazily loaded or must be
-     *  eagerly fetched.  The EAGER strategy is a requirement on
-     *  the persistence provider runtime that the collection elements
-     *  must be eagerly fetched.  The LAZY strategy is a hint to the
-     *  persistence provider runtime.
+     * (オプション) コレクションを遅延ロード(LAZY)するか、即座に取得(EAGER)する必要があるかどうか。
+     * 
+     * EAGER戦略は永続化プロバイダの実行時にコレクション要素を即座に取得するべきだとする要件です。
+     * LAZY戦略は永続化プロバイダの実行時のヒントです。
      */
     FetchType fetch() default LAZY;
 }

@@ -22,13 +22,11 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies a class whose instances are stored as an intrinsic 
- * part of an owning entity and share the identity of the entity. 
- * Each of the persistent properties or fields of the embedded 
- * object is mapped to the database table for the entity. 
+ * インスタンスが所有されるエンティティの固有な部分として格納され、エンティティの識別情報を共有するクラスを指定します。
+ * 
+ * 組み込みオブジェクトの永続化プロパティもしくはフィールドはそれぞれエンティティのデータベーステーブルにマッピングされます。
  *
- * <p> Note that the {@link Transient} annotation may be used to 
- * designate the non-persistent state of an embeddable class.
+ * <p> {@link Transient}アノテーションを使用すると組み込みクラスを永続化しないように指定できることに注意してください。
  *
  * <pre>
  *

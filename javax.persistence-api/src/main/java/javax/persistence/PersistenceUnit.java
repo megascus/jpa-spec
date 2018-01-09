@@ -24,7 +24,7 @@ import static java.lang.annotation.RetentionPolicy.*;
 
 
 /**
- * {@link EntityManagerFactory}とそれに関連する持続性ユニットへの依存関係を表現します。
+ * {@link EntityManagerFactory}とそれに関連する永続化ユニットへの依存関係を表現します。
  *
  * @since Java Persistence 1.0
  */

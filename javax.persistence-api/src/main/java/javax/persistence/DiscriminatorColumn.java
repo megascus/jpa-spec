@@ -22,18 +22,12 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.DiscriminatorType.STRING;
 
 /**
- * Specifies the discriminator column for the 
- * <code>SINGLE_TABLE</code> and 
- * <code>JOINED</code> {@link Inheritance} mapping strategies.
+ * <code>SINGLE_TABLE</code>、<code>JOINED</code> {@link Inheritance} マッピング戦略の識別列を指定します。
  * 
- * <p> The strategy and the discriminator column are only 
- * specified in the root of an entity class hierarchy or
- * subhierarchy in which a different inheritance strategy is applied
+ * <p> 継承戦略と識別列は、異なる継承戦略が適用されるエンティティクラス階層またはサブ階層のルートでのみ指定されます。 
  * 
- * <p> If the <code>DiscriminatorColumn</code> annotation is missing, 
- * and a discriminator column is required, the name of the 
- * discriminator column defaults to <code>"DTYPE"</code> and the discriminator 
- * type to {@link DiscriminatorType#STRING DiscriminatorType.STRING}.
+ * <p> <code>DiscriminatorValue</code>アノテーションが指定されておらず、識別列が必須な場合は、識別列のデフォルトの列名は<code>"DTYPE"</code>になり、
+ * 識別型は{@link DiscriminatorType#STRING DiscriminatorType.STRING}となります。
  *
  * <pre>
  *     Example:
@@ -58,27 +52,28 @@ import static javax.persistence.DiscriminatorType.STRING;
 public @interface DiscriminatorColumn {
 
     /**
-     * (Optional) The name of column to be used for the discriminator.
+     * (オプション) 識別に使用されるカラムの名前。
      */
     String name() default "DTYPE";
 
     /**
-     * (Optional) The type of object/column to use as a class discriminator.
-     * Defaults to {@link DiscriminatorType#STRING DiscriminatorType.STRING}.
+     * (オプション) クラスの識別に使用するオブジェクト/列の型。
+     * 
+     * デフォルトは{@link DiscriminatorType#STRING DiscriminatorType.STRING}です。
      */
     DiscriminatorType discriminatorType() default STRING;
 
     /**
-     * (Optional) The SQL fragment that is used when generating the DDL 
-     * for the discriminator column.
-     * <p> Defaults to the provider-generated SQL to create a column 
-     * of the specified discriminator type.
+     * (オプション)d識別列のDDLを生成するときに使用されるSQLフラグメント。
+     * 
+     * <p> デフォルトではプロバイダ生成のSQLが使用され、指定された識別型の列が作成されます。
      */
     String columnDefinition() default "";
 
     /** 
-     * (Optional) The column length for String-based discriminator types. 
-     * Ignored for other discriminator types.
+     * (オプション) 文字列ベースの識別型の列の長さ。
+     * 
+     * 他の識別型では無視されます。
      */
     int length() default 31;
 }

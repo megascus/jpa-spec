@@ -22,14 +22,12 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies a persistent field or property of an entity whose 
- * value is an instance of an embeddable class. The embeddable 
- * class must be annotated as {@link Embeddable}.
+ * エンティティのフィールドもしくはプロパティの値が組み込みクラスのインスタンスであることを指定します。
+ * 
+ * 組み込みクラスは{@link Embeddable}アノテーションをつける必要があります。
  *
- * <p> The <code>AttributeOverride</code>, <code>AttributeOverrides</code>,
- * <code>AssociationOverride</code>, and <code>AssociationOverrides</code>
- * annotations may be used to override mappings declared or defaulted
- * by the embeddable class.
+ * <p> <code>AttributeOverride</code>や<code>AttributeOverrides</code>、<code>AssociationOverride</code>、
+ * <code>AssociationOverrides</code>アノテーションを組み込みクラスで宣言された、もしくはデフォルトの値を上書きマッピングするために使用できます。
  *
  * <pre>
  *   Example:

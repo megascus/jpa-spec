@@ -22,27 +22,19 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Applied to a persistent field or property of an entity 
- * class or mapped superclass to denote a composite primary 
- * key that is an embeddable class. The embeddable class 
- * must be annotated as {@link Embeddable}. 
- *
- * <p> There must be only one <code>EmbeddedId</code> annotation and
- * no <code>Id</code> annotation when the <code>EmbeddedId</code> annotation is used.
- *
- * <p> The {@link AttributeOverride} annotation may be used to override
- * the column mappings declared within the embeddable class.
+ * エンティティクラスまたはマップドスーパークラスの永続化フィールドまたはプロパティに適用され、組み込みクラスである複合主キーを示します。
+ * 組み込みクラスには{@link Embeddable}アノテーションを付ける必要があります。
  * 
- * <p> The {@link MapsId} annotation may be used in conjunction
- * with the <code>EmbeddedId</code> annotation to specify a derived
- * primary key.
- *
- * <p> If the entity has a derived primary key, the
- * <code>AttributeOverride</code> annotation may only be used to
- * override those attributes of the embedded id that do not correspond
- * to the relationship to the parent entity.
- *
- * <p> Relationship mappings defined within an embedded id class are not supported.
+ * <p>　<code>EmbeddedId</code>アノテーションが使用されている場合は、
+ * <code>EmbeddedId</code>アノテーションは一つのみであり、<code>Id</code>アノテーションは使用してはいけません。
+ * 
+ * <p> {@link AttributeOverride}アノテーションを使用することで組み込みクラス内で宣言された列マッピングを上書きすることができます。
+ * 
+ * <p> {@link MapsId}アノテーションは派生主キーを指定するために<code>EmbeddedId</code>アノテーションとともに使用できます。
+ * 
+ * <p> エンティティに派生主キーがある場合、<code>AttributeOverride</code>アノテーションは親エンティティとの関係に対応しない組み込みIDの属性を上書きする場合のみ使用できます。
+ * 
+ * <p> 組み込みIDクラス内で定義された関係マッピングはサポートされていません。
  *
  * <pre>
  *    Example 1:
@@ -56,7 +48,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *    &#064;Embeddable
  *    public class DependentId {
  *       String name;
- *       EmployeeId empPK;   // corresponds to primary key type of Employee
+ *       EmployeeId empPK;   // Employeeの主キーに対応
  *    }
  *
  *    &#064;Entity

@@ -21,25 +21,15 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies the value of the discriminator column for 
- * entities of the given type. 
- *
- * <p> The <code>DiscriminatorValue</code> 
- * annotation can only be specified on a concrete entity 
- * class. 
- *
- * <p> If the <code>DiscriminatorValue</code> annotation is not 
- * specified and a discriminator column is used, a provider-specific 
- * function will be used to generate a value representing the 
- * entity type.  If the {@link DiscriminatorType} is <code>
- * STRING</code>, the discriminator value 
- * default is the entity name. 
- *
- * <p> The inheritance strategy and the discriminator column 
- * are only specified in the root of an entity class hierarchy 
- * or subhierarchy in which a different inheritance strategy is 
- * applied. The discriminator value, if not defaulted, should be 
- * specified for each entity class in the hierarchy.
+ * 与えられた型のエンティティのための識別列の値を指定します。(DiscriminatorValue:識別値)
+ * 
+ * <p> <code>DiscriminatorValue</code>アノテーションは具象型のエンティティクラスでのみ指定できます。
+ * 
+ * <p> <code>DiscriminatorValue</code>アノテーションが指定されておらず、識別列が使用されている場合はプロバイダ固有の関数を使用してエンティティ型を表す値を生成します。
+ * {@link DiscriminatorType}が<code>STRING</code>の場合、識別のデフォルト値はエンティティ名です。
+ * 
+ * <p> 継承戦略と識別列は、異なる継承戦略が適用されるエンティティクラス階層またはサブ階層のルートでのみ指定されます。 
+ * デフォルトでない場合の識別値は階層内の各エンティティクラスに指定する必要があります。
  *
  * <pre>
  *
@@ -67,15 +57,10 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface DiscriminatorValue {
 
     /**
-     * (Optional) The value that indicates that the
-     * row is an entity of the annotated entity type.
-     *
-     * <p> If the <code>DiscriminatorValue</code> annotation is not
-     * specified and a discriminator column is used, a
-     * provider-specific function will be used to generate a value
-     * representing the entity type.  If the <code>DiscriminatorType</code> is
-     * <code>STRING</code>, the discriminator value default is the
-     * entity name.
+     * (オプション)行がアノテーション付きのエンティティ型のエンティティであることを示す値。
+     * 
+     * <code>DiscriminatorValue</code>アノテーションが指定されておらず、識別列が使用されている場合はプロバイダ固有の関数を使用してエンティティ型を表す値を生成します。
+     * <code>DiscriminatorType</code>が<code>STRING</code>の場合、識別のデフォルト値はエンティティ名です。
      */
     String value();
 }
