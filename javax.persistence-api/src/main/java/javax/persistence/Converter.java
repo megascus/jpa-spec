@@ -20,39 +20,23 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Specifies that the annotated class is a converter and defines its
- * scope.  A converter class must be annotated with the <code>Converter</code>
- * annotation or defined in the object/relational mapping descriptor as
- * a converter.
- *
- * <p>If the <code>autoApply</code> element is specified as
- * <code>true</code>, the persistence provider must automatically
- * apply the converter to all mapped attributes of the specified
- * target type for all entities in the persistence unit except for
- * attributes for which conversion is overridden by means of the
- * <code>Convert</code> annotation (or XML equivalent).
- *
- * <p>In determining whether a converter is applicable to an attribute,
- * the provider must treat primitive types and wrapper types as
- * equivalent.
- *
- * <p>Note that Id attributes, version attributes, relationship
- * attributes, and attributes explicitly annotated as
- * <code>Enumerated</code> or <code>Temporal</code> (or designated as
- * such via XML) will not be converted.
- *
- * <p>Note that if <code>autoApply</code> is <code>true</code>, the
- * <code>Convert</code> annotation may be used to override or disable
- * auto-apply conversion on a per-attribute basis.
- *
- * <p>If <code>autoApply</code> is <code>false</code>, only those
- * attributes of the target type for which the <code>Convert</code>
- * annotation (or corresponding XML element) has been specified will
- * be converted.
- *
- * <p>If there is more than one converter defined for the same target
- * type, the <code>Convert</code> annotation should be used to
- * explicitly specify which converter to use.
+ * アノテーションの付けられたクラスがコンバーターであることを指定し、そのスコープを定義します。
+ * 
+ * コンバータークラスには<code>Converter</code>アノテーションをつけるか、コンバーターとしてORMディスクリプターで定義する必要があります。
+ * 
+ * <p><code>autoApply</code>要素が<code>true</code>として指定されている場合、
+ * <code>Convert</code>アノテーション(もしくはXMLで同等の設定)で変換が上書きされた属性を除いて
+ * 永続化ユニット内のすべてのエンティティの指定されたターゲット型のすべてのマッピングされた属性に対して永続化プロバイダは自動的にコンバーターを適用する必要があります。
+ * 
+ * <p>コンバーターが属性に適用可能かどうかを判断するためにプロバイダはプリミティブ型とラッパー型を同等に扱う必要があります。
+ * 
+ * <p>Id属性、バージョン属性、関係属性、および<code>Enumerated</code>もしくは<code>Temporal</code>アノテーションが明確に付けられた(もしくはXMLで指定された)属性は変換されないことに注意してください。
+ * 
+ * <p><code>autoApply</code>が<code>true</code>の場合、<code>Convert</code>アノテーションを使用して属性ごとに自動適用変換を無効または無効にできるに注意してください。
+ * 
+ * <p><code>autoApply</code>が<code>false</code>の場合、<code>Convert</code>アノテーション(または対応するXML要素)が指定されているターゲットタイプの属性のみが変換されます。
+ * 
+ * <p>同じターゲットタイプに対して複数のコンバーターが定義されている場合、 <code>Convert</code>アノテーションは使用するコンバーターを明示的に指定する必要があります。
  *
  * @see AttributeConverter
  * @see Convert
