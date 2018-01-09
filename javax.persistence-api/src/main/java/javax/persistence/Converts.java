@@ -22,8 +22,9 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Used to group <code>Convert</code> annotations.  Multiple converters
- * must not be applied to the same basic attribute.
+ * <code>Convert</code>アノテーションをまとめるために使用します。
+ * 
+ * 複数のコンバーターを同じ基本属性に適用してはいけません。
  *
  * @see Convert
  * @since Java Persistence 2.1
@@ -33,7 +34,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface Converts {
 
   /**
-   * The <code>Convert</code> mappings that are to be applied.
+   * 適用される<code>Convert</code>マッピング。
    *
    */
   Convert[] value();
