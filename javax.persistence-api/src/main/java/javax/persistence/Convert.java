@@ -24,34 +24,22 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- *  Specifies the conversion of a Basic field or property.  It is
- *  not necessary to use the <code>Basic</code> annotation or corresponding
- *  XML element to specify the Basic type.
- *
- *  <p>The <code>Convert</code> annotation should not be used to specify
- *  conversion of the following:  Id attributes, version attributes,
- *  relationship attributes, and attributes explicitly denoted as
- *  Enumerated or Temporal.  Applications that specify such conversions
- *  will not be portable.
- *
- *  <p>The <code>Convert</code> annotation may be applied to a basic
- *  attribute or to an element collection of basic type (in which case
- *  the converter is applied to the elements of the collection).  In
- *  these cases, the <code>attributeName</code> element must not be
- *  specified.
- *
- *  <p>The <code>Convert</code> annotation may be applied to an embedded
- *  attribute or to a map collection attribute whose key or value is of
- *  embeddable type (in which case the converter is applied to the
- *  specified attribute of the embeddable instances contained in the
- *  collection).  In these cases, the <code>attributeName</code>
- *  element must be specified.
- *
- *  <p>To override conversion mappings at multiple levels of embedding,
- *  a dot (".") notation form must be used in the <code>attributeName</code>
- *  element to indicate an attribute within an embedded attribute.  The
- *  value of each identifier used with the dot notation is the name of the
- *  respective embedded field or property.
+ * 基本フィールドまたはプロパティの変換を指定します。
+ * 
+ * 基本型を指定するのに<code>Basic</code>アノテーションや対応するXML要素を使用する必要はありません。
+ * 
+ * <p><code>Convert</code>アノテーションはId属性、バージョン属性、関係属性、列挙型または時制が明示的に指定された属性の変換を指定するために使用すべきではありません。
+ * そのような変換を指定するアプリケーションはポータブルではありません。
+ * 
+ * <p><code>Convert</code>アノテーションは、基本属性または基本タイプの要素コレクションに適用できます。(この場合コンバーターはコレクションの要素に適用されます)
+ * このような使用方法の場合は<code>attributeName</code>要素を指定してはいけません。
+ * 
+ * <p><code>Convert</code>アノテーションは、組み込み属性やキーまたは値が組み込み型のMapのコレクション属性に適用できます。
+ * (この場合コンバーターはコレクションに含まれる組み込みインスタンスの指定された属性に適用されます)
+ * このような使用方法の場合は<code>attributeName</code>要素を指定する必要があります。
+ * 
+ * <p>複数の組み込みレベルで変換マッピングを上書きするためには、組み込み属性内の属性を示すために、<code>attributeName</code>要素にドット(".")表記を使用する必要があります。
+ * ドット表記で使用される各識別子の値は、それぞれの組み込みフィールドまたはプロパティの名前です。
  *
  *  <p>When the <code>Convert</code> annotation is applied to a map containing
  *  instances of embeddable classes, the <code>attributeName</code> element
