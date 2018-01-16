@@ -31,21 +31,18 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * <p><code>Convert</code>アノテーションはId属性、バージョン属性、関係属性、列挙型または時制が明示的に指定された属性の変換を指定するために使用すべきではありません。
  * そのような変換を指定するアプリケーションはポータブルではありません。
  * 
- * <p><code>Convert</code>アノテーションは、基本属性または基本タイプの要素コレクションに適用できます。(この場合コンバーターはコレクションの要素に適用されます)
+ * <p><code>Convert</code>アノテーションは基本属性または基本タイプの要素コレクションに適用できます。(この場合コンバーターはコレクションの要素に適用されます)
  * このような使用方法の場合は<code>attributeName</code>要素を指定してはいけません。
  * 
- * <p><code>Convert</code>アノテーションは、組み込み属性やキーまたは値が組み込み型のMapのコレクション属性に適用できます。
+ * <p><code>Convert</code>アノテーションは組み込み属性やキーまたは値が組み込み型のMapのコレクション属性に適用できます。
  * (この場合コンバーターはコレクションに含まれる組み込みインスタンスの指定された属性に適用されます)
  * このような使用方法の場合は<code>attributeName</code>要素を指定する必要があります。
  * 
- * <p>複数の組み込みレベルで変換マッピングを上書きするためには、組み込み属性内の属性を示すために、<code>attributeName</code>要素にドット(".")表記を使用する必要があります。
- * ドット表記で使用される各識別子の値は、それぞれの組み込みフィールドまたはプロパティの名前です。
+ * <p>複数の組み込みレベルで変換マッピングを上書きするためには、組み込み属性内の属性を示すために<code>attributeName</code>要素にドット(".")表記を使用する必要があります。
+ * ドット表記で使用される各識別子の値はそれぞれの組み込みフィールドまたはプロパティの名前です。
  *
- *  <p>When the <code>Convert</code> annotation is applied to a map containing
- *  instances of embeddable classes, the <code>attributeName</code> element
- *  must be specified, and <code>"key."</code> or <code>"value."</code>
- *  must be used to prefix the name of the attribute that is to be converted
- *  in order to specify it as part of the map key or map value.
+ * <p>code>Convert</code>アノテーションを組み込みクラスのインスタンスに含まれるMapに適用する場合は<code>attributeName</code>要素は指定されなければならず、
+ * マップのキーまたはマップの値の一部として指定するために<code>"key."</code>もしくは<code>"value."</code>を変換される属性の名前にプレフィックスとして使用する必要があります。
  *
  *  <p>When the <code>Convert</code> annotation is applied to a map to specify
  *  conversion of a map key of basic type, <code>"key"</code> must be used
@@ -57,7 +54,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *  mapping for an inherited basic or embedded attribute.
  *
  *  <pre>
- *     Example 1:  Convert a basic attribute
+ *     Example 1:  基本属性の変換
  *
  *     &#064;Converter
  *     public class BooleanToIntegerConverter 
@@ -73,7 +70,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *     }
  *
  *
- *     Example 2:  Auto-apply conversion of a basic attribute
+ *     Example 2: 基本属性の変換の自動適用
  *
  *     &#064;Converter(autoApply=true)
  *     public class EmployeeDateConverter 
@@ -88,13 +85,13 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *     }
  *
  *
- *     Example 3:  Disable conversion in the presence of an autoapply converter
+ *     Example 3:  自動適用コンバーターがある場合の変換の無効化
  *
  *     &#064;Convert(disableConversion=true)
  *     EmployeeDate lastReview;
  *
  *
- *     Example 4:  Apply a converter to an element collection of basic type
+ *     Example 4:  基本型の要素コレクションへのコンバーターの適用
  *
  *     &#064;ElementCollection
  *     // applies to each element in the collection
@@ -102,15 +99,15 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *     List&#060;String&#062; names;
  *
  *
- *     Example 5:  Apply a converter to an element collection that is a map or basic values.  
- *                 The converter is applied to the map value.
+ *     Example 5:  Mapもしくは基本値である要素コレクションへのコンバーターの適用。  
+ *                 コンバーターはMapの値に適用される。
  *
  *     &#064;ElementCollection
  *     &#064;Convert(converter=EmployeeNameConverter.class)
  *     Map&#060;String, String&#062; responsibilities;
  *
  *
- *     Example 6:  Apply a converter to a map key of basic type
+ *     Example 6:  基本型のMapのキーへのコンバーターの適用
  *
  *     &#064;OneToMany
  *     &#064;Convert(converter=ResponsibilityCodeConverter.class, 
@@ -118,7 +115,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *     Map&#060;String, Employee&#062; responsibilities;
  *
  *
- *     Example 7:  Apply a converter to an embeddable attribute
+ *     Example 7:  組み込み属性へのコンバーターの適用
  *
  *     &#064;Embedded
  *     &#064;Convert(converter=CountryConverter.class, 
@@ -126,7 +123,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *     Address address;
  * 
  *
- *     Example 8:  Apply a converter to a nested embeddable attribute
+ *     Example 8:  ネストした組み込み属性へのコンバーターの適用
  * 
  *     &#064;Embedded
  *     &#064;Convert(converter=CityConverter.class, 
