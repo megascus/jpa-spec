@@ -41,7 +41,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * <p>複数の組み込みレベルで変換マッピングを上書きするためには、組み込み属性内の属性を示すために<code>attributeName</code>要素にドット(".")表記を使用する必要があります。
  * ドット表記で使用される各識別子の値はそれぞれの組み込みフィールドまたはプロパティの名前です。
  *
- * <p>code>Convert</code>アノテーションを組み込みクラスのインスタンスに含まれるMapに適用する場合は<code>attributeName</code>要素は指定されなければならず、
+ * <p><code>Convert</code>アノテーションを組み込みクラスのインスタンスに含まれるMapに適用する場合は<code>attributeName</code>要素は指定されなければならず、
  * マップのキーまたはマップの値の一部として指定するために<code>"key."</code>もしくは<code>"value."</code>を変換される属性の名前にプレフィックスとして使用する必要があります。
  *
  *  <p>When the <code>Convert</code> annotation is applied to a map to specify
