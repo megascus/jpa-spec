@@ -16,32 +16,31 @@
  package javax.persistence;
 
 /**
- * Defines the set of cascadable operations that are propagated 
- * to the associated entity.
- * The value <code>cascade=ALL</code> is equivalent to 
- * <code>cascade={PERSIST, MERGE, REMOVE, REFRESH, DETACH}</code>.
+ * 関連するエンティティに伝搬するカスケード操作の設定を定義します。
+ * 
+ * <code>cascade=ALL</code>は<code>cascade={PERSIST, MERGE, REMOVE, REFRESH, DETACH}</code>と同じ意味です。
  *
  * @since Java Persistence 1.0
  */
 public enum CascadeType { 
 
-    /** Cascade all operations */
+    /** すべての操作をカスケードします。 */
     ALL, 
 
-    /** Cascade persist operation */
+    /** 永続化操作をカスケードします。 */
     PERSIST, 
 
-    /** Cascade merge operation */
+    /** マージ操作をカスケードします。 */
     MERGE, 
 
-    /** Cascade remove operation */
+    /** 削除操作をカスケードします。 */
     REMOVE,
 
-    /** Cascade refresh operation */
+    /** リフレッシュ操作をカスケードします。 */
     REFRESH,
 
     /**
-     * Cascade detach operation
+     * デタッチ操作をカスケードします。
      *
      * @since Java Persistence 2.0
      * 
