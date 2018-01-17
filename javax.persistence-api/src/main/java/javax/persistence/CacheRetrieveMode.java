@@ -16,24 +16,19 @@
 package javax.persistence;
 
 /**
- * Used as the value of the
- * <code>javax.persistence.cache.retrieveMode</code> property to
- * specify the behavior when data is retrieved by the
- * <code>find</code> methods and by queries.
+ * <code>find</code>メソッドやクエリーによってデータが取得されるときのふるまいを指定するために<code>javax.persistence.cache.retrieveMode</code>プロパティの値として使用されます。
  *
  * @since Java Persistence 2.0
  */
 public enum CacheRetrieveMode {
 
     /**
-     * Read entity data from the cache: this is 
-     * the default behavior.
+     * キャッシュからデータを取得します、これはデフォルトのふるまいです。
      */
     USE,
 
     /**
-     * Bypass the cache: get data directly from
-     * the database.
+     * キャッシュをバイパスします、データベースからデータを直接取得します。
      */
     BYPASS  
 }
