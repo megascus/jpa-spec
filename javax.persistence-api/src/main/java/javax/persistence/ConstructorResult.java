@@ -20,11 +20,10 @@ import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Used in conjunction with the {@link SqlResultSetMapping} annotation to map the SELECT
- * clause of a SQL query to a constructor.
+ * SQLクエリーのSELECT句をコンストラクタにマッピングするために{@link SqlResultSetMapping}アノテーションと共に使用します。
  *
- * <p>Applies a constructor for the target class, passing in as arguments
- * values from the specified columns.  All columns corresponding
+ * <p>ターゲットクラスのコンストラクタを適用し、指定された列を引数の値として渡します。
+ * All columns corresponding
  * to arguments of the intended constructor must be specified using the
  * <code>columns</code> element of the <code>ConstructorResult</code>
  * annotation in the same order as that of the argument list of the
@@ -70,12 +69,11 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 public @interface ConstructorResult { 
 
-    /** (Required) The class whose constructor is to be invoked. */
+    /** (必須) コンストラクタが呼び出されるクラス。 */
     Class targetClass();
 
     /** 
-     *  (Required) The mapping of columns in the SELECT list to the arguments
-     *  of the intended constructor, in order.
+     *  (必須) SELECTリストの列を意図したコンストラクタの引数に順序どおりに行うマッピング。
      */
     ColumnResult[] columns();
 }
