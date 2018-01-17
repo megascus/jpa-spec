@@ -15,18 +15,18 @@
 package javax.persistence;
 
 /**
- * Used to control the application of a constraint.
+ * 制約の適用を制御するために使用されます。
  * 
  * @since Java Persistence 2.1
  */
 public enum ConstraintMode {
 
-    /** Apply the constraint. */
+    /** 制約を適用する。 */
 	CONSTRAINT,
 
-    /** Do not apply the constraint. */
+    /** 制約を適用しない。 */
 	NO_CONSTRAINT,
 
-    /** Use the provider-defined default behavior. */
+    /** プロバイダが定義したデフォルトのふるまいを使用する。 */
         PROVIDER_DEFAULT
 }
