@@ -16,32 +16,28 @@
 package javax.persistence;
 
 /**
- * Used as the value of the
- * <code>javax.persistence.cache.storeMode</code> property to specify
- * the behavior when data is read from the database and when data is
- * committed into the database.
+ * データがデータベースから読み取られたときとデータがデータベースにコミットされたときのふるまいを指定するために<code>javax.persistence.cache.storeMode</code>プロパティの値として使用されます。
  *
  * @since Java Persistence 2.0
  */
 public enum CacheStoreMode {
 
     /**
-     * Insert entity data into cache when read from database
-     * and insert/update entity data when committed into database: 
-     * this is the default behavior. Does not force refresh
-     * of already cached items when reading from database.
+     * エンティティデータをデータベースから読み込み、データベースにコミットしたときにキャッシュに挿入/更新します、これはデフォルトの動作です。
+     * 
+     * データベースから読み取られた項目がすでにキャッシュされている場合の更新は強制しません。
      */
     USE,
 
     /**
-     * Don't insert into cache. 
+     * キャッシュに挿入しません。
      */
     BYPASS,
 
     /**
-     * Insert/update entity data into cache when read 
-     * from database and when committed into database. 
-     * Forces refresh of cache for items read from database.
+     * エンティティデータをデータベースから読み込み、データベースにコミットしたときにキャッシュに挿入/更新します。
+     * 
+     * データベースから読み取られた項目のキャッシュを強制的に更新します。
      */
     REFRESH
 }
