@@ -105,65 +105,58 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 public @interface CollectionTable {
 
     /** 
-     *  (Optional) The name of the collection table.  If not specified,
-     *  it defaults to the concatenation of the name of the containing
-     *  entity and the name of the collection attribute, separated by
-     *  an underscore.
+     *  (オプション) コレクション表の名前。
+     * 
+     * 指定されていない場合はこれが含まれるエンティティの名前とコレクションの属性の名前がアンダースコアで分けられて結合されたものがデフォルトです。
      */
     String name() default "";
 
     /**
-     *  (Optional) The catalog of the table.  If not specified, the
-     *  default catalog is used.
+     *  (オプション) テーブルのカタログ。
+     * 
+     * 指定されていない場合はデフォルトカタログが使用されます。
      */
     String catalog() default "";
 
     /**
-     * (Optional) The schema of the table.  If not specified, the
-     * default schema for the user is used.
+     * (オプション) テーブルのスキーマ。
+     * 
+     * 指定されていない場合はユーザーにとっての規定のスキーマが使用されます。
      */
     String schema() default "";
 
     /**
-     *  (Optional) The foreign key columns of the collection table
-     *  which reference the primary table of the entity.  The default
-     *  only applies if a single join column is used.  The default is
-     *  the same as for <code>JoinColumn</code> (i.e., the
-     *  concatenation of the following: the name of the entity; "_";
-     *  the name of the referenced primary key column.) However, if
-     *  there is more than one join column, a <code>JoinColumn</code>
-     *  annotation must be specified for each join column using the
-     *  <code>JoinColumns</code> annotation.  In this case, both the
-     *  <code>name</code> and the <code>referencedColumnName</code>
-     *  elements must be specified in each such
-     *  <code>JoinColumn</code> annotation.
+     * (オプション)エンティティのプライマリーテーブルを参照するコレクション表の外部キー列。
+     * デフォルト値は単一の結合列が使用されている場合のみ適用されます。
+     * デフォルト値は<code>JoinColumn</code>と同じです。
+     * (つまり、エンティティの名前 + "_" + 参照された主キー列の名前)
+     * しかしながら、複数の結合列が存在する場合は<code>JoinColumns</code>アノテーションを使用して各結合列に対して
+     * <code>JoinColumn</code>アノテーションを指定する必要があります。
+     * この場合、それぞれの<code>JoinColumn</code>アノテーションの<code>name</code>要素と<code>referencedColumnName</code>要素の両方を指定する必要があります。
      */
      JoinColumn[] joinColumns() default {};
 
     /**
-     *  (Optional) Used to specify or control the generation of a
-     *   foreign key constraint for the columns corresponding to the
-     *   <code>joinColumns</code> element when table generation is in
-     *   effect.  If both this element and the <code>foreignKey</code>
-     *   element of any of the <code>joinColumns</code> elements are
-     *   specified, the behavior is undefined.  If no foreign key
-     *   annotation element is specified in either location, the
-     *   persistence provider's default foreign key strategy will
-     *   apply.
+     * (オプション) 表の生成が有効な場合に<code>joinColumns</code>要素に関係する列のための外部キー制約の生成を指定または制御するために使用されます。
+     * 
+     * この要素と<code>joinColumns</code>要素のいずれかの<code>foreignKey</code>要素の両方が指定されていた場合の挙動は未定義です。
+     * いずれの場所にも外部キーのアノテーション要素が指定されていない場合は、永続化プロバイダのデフォルトの外部キー戦略が適用されます。
      *
      *  @since Java Persistence 2.1
      */
     ForeignKey foreignKey() default @ForeignKey(PROVIDER_DEFAULT);
 
     /**
-     * (Optional) Unique constraints that are to be placed on the
-     * table.  These are only used if table generation is in effect.
+     * (オプション) テーブルに設置されるユニーク制約。
+     * 
+     * これらはテーブルの生成が有効な場合にのみ使用されます。
      */
     UniqueConstraint[] uniqueConstraints() default {};
 
     /**
-     * (Optional) Indexes for the table.  These are only used if
-     * table generation is in effect. 
+     * (オプション) テーブルのためのインデックス。
+     * 
+     * これらはテーブルの生成が有効な場合にのみ使用されます。
      *
      * @since Java Persistence 2.1 
      */
