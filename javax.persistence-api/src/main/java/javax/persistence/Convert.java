@@ -44,14 +44,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * <p><code>Convert</code>アノテーションを組み込みクラスのインスタンスに含まれるMapに適用する場合は<code>attributeName</code>要素は指定されなければならず、
  * マップのキーまたはマップの値の一部として指定するために<code>"key."</code>もしくは<code>"value."</code>を変換される属性の名前にプレフィックスとして使用する必要があります。
  *
- *  <p>When the <code>Convert</code> annotation is applied to a map to specify
- *  conversion of a map key of basic type, <code>"key"</code> must be used
- *  as the value of the <code>attributeName</code> element to specify that
- *  it is the map key that is to be converted.
- *  
- *  <p>The <code>Convert</code> annotation may be applied to an entity class
- *  that extends a mapped superclass to specify or override a conversion
- *  mapping for an inherited basic or embedded attribute.
+ * <p><code>Convert</code>アノテーションを基本型のMapのキーの変換を指定するためにMapに適用する場合は<code>attributeName</code>要素の値として<code>"key"</code>を使用して変換されるのはマップのキーであることを指定する必要があります。
+ * 
+ * <p><code>Convert</code>アノテーションはマップドスーパークラスを拡張したエンティティクラスに対して継承された基本属性または組み込み属性の変換マッピングを指定または上書きするために適用できます。
  *
  *  <pre>
  *     Example 1:  基本属性の変換
@@ -131,8 +126,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *     Address address;
  *
  *
- *     Example 9:  Apply a converter to a nested attribute of an embeddable that is a map key 
- *                 of an element collection
+ *     Example 9:  要素コレクションのMapのキーとしてネストした組み込みクラスへのコンバーターの適用
  *
  *     &#064;Entity public class PropertyRecord {
  *          ...
@@ -143,7 +137,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *     }
  *
  *
- *     Example 10: Apply a converter to an embeddable that is a map key for a relationship
+ *     Example 10: 関連のマップのキーである組み込みクラスへのコンバーターの適用
  *
  *     &#064;OneToMany
  *     &#064;Convert(attributeName="key.jobType", 
@@ -151,7 +145,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *     Map&#060;Responsibility, Employee&#062; responsibilities;
  *
  *
- *     Example 11: Override conversion mappings for attributes inherited from a mapped superclass
+ *     Example 11: マップドクラスから継承した属性の変換マッピングの上書き
  *
  *     &#064;Entity
  *         &#064;Converts({
@@ -173,24 +167,23 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface Convert {
 
   /**
-   * Specifies the converter to be applied.  A value for this
-   * element must be specified if multiple converters would
-   * otherwise apply.
+   * 適用するコンバーターを指定します。
+   * 
+   * 複数のコンバーターが他で適用されるならば、この値は指定する必要があります。
    */
   Class converter() default void.class;
 
   /**
-   * The <code>attributeName</code> element must be specified unless the 
-   * <code>Convert</code> annotation is on an attribute of basic type 
-   * or on an element collection of basic type.  In these cases, the
-   * <code>attributeName</code> element  must not be specified.
+   * <code>Convert</code>アノテーションが基本型や基本型の要素コレクションの属性に適用されている場合を除き<code>attributeName</code>要素は指定する必要があります。
+   * 
+   * それらの場合では<code>attributeName</code>要素は指定してはいけません。
    */
   String attributeName() default "";
 
   /**
-   * Used to disable an auto-apply or inherited converter.
-   * If disableConversion is true, the <code>converter</code> element should
-   * not be specified.
+   * 自動適用されるか継承されたコンバーターを無効化するのに使用します。
+   * 
+   * disableConversionがtrueの場合、<code>converter</code>要素を指定する必要があります。
    */
   boolean disableConversion() default false;
 }
