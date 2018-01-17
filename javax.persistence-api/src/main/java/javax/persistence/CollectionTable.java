@@ -23,37 +23,21 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 
 /**
- * Specifies the table that is used for the mapping of
- * collections of basic or embeddable types.  Applied
- * to the collection-valued field or property.
+ * 基本型もしくは組み込み型のコレクションのマッピングに使用される表を指定します。
  * 
- * <p>By default, the columns of the collection table that correspond
- * to the embeddable class or basic type are derived from the
- * attributes of the embeddable class or from the basic type according
- * to the default values of the <code>Column</code> annotation. In the case
- * of a basic type, the column name is derived from the name of the
- * collection-valued field or property. In the case of an embeddable
- * class, the column names are derived from the field or property
- * names of the embeddable class.
+ * 値がコレクションのフィールドもしくはプロパティに適用します。
+ * 
+ * <p>デフォルトでは組み込みクラスまたは基本型に対応するコレクション表の列は組み込みクラスの属性または<code>Column</code>アノテーションのデフォルト値に従って基本型から派生します。
+ * 基本型の場合は列名は値がコレクションのフィールドまたはプロパティの名前から派生します。
+ * 組み込みクラスの場合は列名は組み込みクラスのフィールドまたはプロパティ名から派生します。
  * <ul>
- * <li> To override the default properties of the column used for a
- * basic type, the <code>Column</code> annotation is used on the
- * collection-valued attribute in addition to the
- * <code>ElementCollection</code> annotation. 
+ * <li> 基本型に使用される列でデフォルトの設定を上書きするためには値がコレクションの属性で<code>ElementCollection</code>アノテーションに加えて<code>Column</code>アノテーションを使用します。
  *
- * <li> To override these defaults for an embeddable class, the
- * <code>AttributeOverride</code> and/or
- * <code>AttributeOverrides</code> annotations can be used in
- * addition to the <code>ElementCollection</code> annotation. If the
- * embeddable class contains references to other entities, the default
- * values for the columns corresponding to those references may be
- * overridden by means of the <code>AssociationOverride</code> and/or
- * <code>AssociationOverrides</code> annotations.  
+ * <li> 組み込みクラスのデフォルト値を上書きするためには<code>ElementCollection</code>アノテーションに加えて<code>AttributeOverride</code>や<code>AttributeOverrides</code>アノテーションを使用することができます。
+ * 組み込みクラスにほかのエンティティへの参照が含まれている場合、それらの参照に関連する列のデフォルト値は<code>AssociationOverride</code>や<code>AssociationOverrides</code>を使用することで上書きすることができます。
  * </ul>
  *
- * <p> If the <code>CollectionTable</code> annotation is missing, the
- * default values of the <code>CollectionTable</code> annotation
- * elements apply.
+ * <p><code>CollectionTable</code>アノテーションがない場合は<code>CollectionTable</code>アノテーションの要素のデフォルト値が適用されます。
  *
  * <pre>
  *    Example:
@@ -70,7 +54,7 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
  *       protected String name;
  *       protected Address home;
  *       ...
- *       &#064;ElementCollection  // use default table (PERSON_NICKNAMES)
+ *       &#064;ElementCollection  // デフォルトの表を使用 (PERSON_NICKNAMES)
  *       &#064;Column(name="name", length=50)
  *       protected Set&#060;String&#062; nickNames = new HashSet();
  *       ...
@@ -78,7 +62,7 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
  *
  *    &#064;Entity public class WealthyPerson extends Person {
  *       &#064;ElementCollection
- *       &#064;CollectionTable(name="HOMES") // use default join column name
+ *       &#064;CollectionTable(name="HOMES") // デフォルトの結合列名を使用
  *       &#064;AttributeOverrides({
  *          &#064;AttributeOverride(name="street", 
  *                             column=&#064;Column(name="HOME_STREET")),
