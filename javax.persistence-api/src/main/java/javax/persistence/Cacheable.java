@@ -21,15 +21,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * Specifies whether an entity should be cached if caching is enabled
- * when the value of the <code>persistence.xml</code> caching element
- * is <code>ENABLE_SELECTIVE</code> or <code>DISABLE_SELECTIVE</code>.
- * The value of the <code>Cacheable</code> annotation is inherited by
- * subclasses; it can be overridden by specifying
- * <code>Cacheable</code> on a subclass.
+ * <code>persistence.xml</code>のキャッシュ要素の値が<code>ENABLE_SELECTIVE</code>か<code>DISABLE_SELECTIVE</code>でキャッシュが有効である場合にエンティティをキャッシュするべきかどうかを指定します。
+ * <code>Cacheable</code>アノテーションの値はサブクラスで継承されます。
+ * サブクラスで<code>Cacheable</code>を指定することで上書きできます。
  * 
- * <p> <code>Cacheable(false)</code> means that the entity and its state must 
- * not be cached by the provider.
+ * <p> <code>Cacheable(false)</code>はエンティティとその状態をプロバイダがキャッシュしてはいけないことを意味します。
  * 
  * @since Java Persistence 2.0
  */
@@ -38,7 +34,7 @@ import java.lang.annotation.Target;
 public @interface Cacheable {
 
     /**
-     * (Optional) Whether or not the entity should be cached.
+     * (オプション) エンティティをキャッシュする必要があるかどうか。
      */
     boolean value() default true;
 }
