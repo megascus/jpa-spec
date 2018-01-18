@@ -16,52 +16,46 @@
 package javax.persistence;
 
 /**
- * Interface used to interact with the second-level cache.
- * If a cache is not in use, the methods of this interface have
- * no effect, except for <code>contains</code>, which returns false.
- *
+ * L2キャッシュと対話するために使用されるインターフェースです。
+ * 
+ * キャッシュが使用されていない場合、このインターフェースのメソッドはfalseを返す<code>contains</code>を除いて何も効果を及ぼしません。
  * @since Java Persistence 2.0
  */
 public interface Cache {
 
     /**
-     * Whether the cache contains data for the given entity.
-     * @param cls  entity class 
-     * @param primaryKey  primary key
-     * @return boolean indicating whether the entity is in the cache
+     * キャッシュに与えられたエンティティのためのデータが含まれているかどうか。
+     * @param cls  エンティティクラス
+     * @param primaryKey  プライマリーキー
+     * @return エンティティがキャッシュに含まれているかどうかを示すboolean
      */
     public boolean contains(Class cls, Object primaryKey);
 
     /**
-     * Remove the data for the given entity from the cache.
-     * @param cls  entity class
-     * @param primaryKey  primary key
+     * キャッシュから与えられたエンティティのためのデータを削除します。
+     * @param cls  エンティティクラス
+     * @param primaryKey  プライマリーキー
      */
     public void evict(Class cls, Object primaryKey);
 
     /**
-     * Remove the data for entities of the specified class (and its
-     * subclasses) from the cache.
-     * @param cls  entity class
+     * 指定されたクラス(とそのサブクラス)のエンティティのデータをキャッシュから削除します。
+     * @param cls  エンティティクラス
      */
     public void evict(Class cls);
 
     /**
-     * Clear the cache.
+     * キャッシュをクリアします。
      */
     public void evictAll();
 
     /**
-     * Return an object of the specified type to allow access to the
-     * provider-specific API.  If the provider's Cache
-     * implementation does not support the specified class, the
-     * PersistenceException is thrown.
-     * @param cls  the class of the object to be returned.  This is
-     * normally either the underlying Cache implementation
-     * class or an interface that it implements.
-     * @return an instance of the specified class
-     * @throws PersistenceException if the provider does not
-     * support the call
+     * プロバイダ固有のAPIにアクセスできるように、指定された型のオブジェクトを返します。
+     * 
+     * プロバイダのキャッシュ実装が指定されたクラスをサポートしていない場合、 <code>PersistenceException</code>が投げられます。
+     * @param cls  返されるオブジェクトのクラス、通常だと基礎となるキャッシュの実装クラスか実装するインターフェイスのいずれかです。
+     * @return 指定されたクラスのインスタンス
+     * @throws PersistenceException プロバイダが呼び出しをサポートしない場合
      * @since Java Persistence 2.1
      */
     public <T> T unwrap(Class<T> cls);
