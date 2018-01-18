@@ -23,7 +23,7 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Used to override mappings of multiple properties or fields.
+ * 複数のプロパティもしくはフィールドのマッピングの上書きに使用します。
  *
  * <pre>
  *
@@ -50,6 +50,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 public @interface AttributeOverrides {
 
-    /** (Required) One or more field or property mapping overrides. */
+    /** (必須) ひとつ以上のフィールドもしくはプロパティのマッピングの上書き。 */
     AttributeOverride[] value();
 }
