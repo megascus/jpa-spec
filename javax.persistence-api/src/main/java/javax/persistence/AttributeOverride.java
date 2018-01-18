@@ -25,6 +25,7 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
+ * 
  * Used to override the mapping of a <code>Basic</code> (whether
  * explicit or default) property or field or <code>Id</code> property or
  * field.
@@ -48,8 +49,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * used with the dot notation is the name of the respective embedded
  * field or property.
  *
- * <p> If <code>AttributeOverride</code> is not specified, the column
- * is mapped the same as in the original mapping.
+ * <p><code>AttributeOverride</code>が指定されていない場合は、列にはオリジナルのマッピングと同じマッピングがされます。
  *
  * <pre>
  *    Example 1:
@@ -141,16 +141,14 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface AttributeOverride {
 
     /**
-     * (Required) The name of the property whose mapping is being 
-     * overridden if property-based access is being used, or the 
-     * name of the field if field-based access is used.
+     * (必須) プロパティベースのアクセスが使用されている場合にはマッピングが上書きされるプロパティの名前、またはフィールドベースのアクセスが使用されている場合はフィールドの名前。
      */
     String name();
 
     /**
-     * (Required) The column that is being mapped to the persistent 
-     * attribute. The mapping type will remain the same as is 
-     * defined in the embeddable class or mapped superclass.
+     * (必須) 永続化属性にマッピングされている列。
+     * 
+     * マッピング型は、組み込みクラスまたはマップドスーパークラスで定義されているものと同じままです。
      */
     Column column();
 }
