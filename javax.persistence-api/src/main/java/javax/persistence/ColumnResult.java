@@ -20,14 +20,10 @@ import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Used in conjunction with the {@link SqlResultSetMapping} annotation or
- * {@link ConstructorResult} annotation to map a column of the SELECT
- * list of a SQL query.
- *
- * <p> The <code>name</code> element references the name of a column in the SELECT list
- *  &#8212; i.e., column alias, if applicable. Scalar result types can be 
- * included in the query result by specifying this annotation in 
- * the metadata.
+ * SQLクエリーのSELECTリストの列をマッピングするために{@link SqlResultSetMapping}アノテーションもしくは{@link ConstructorResult}アノテーションと共に使用します。
+ * 
+ * <p><code>name</code>要素はSELECTリスト内の列の名前(該当する場合は、列のエイリアス)を参照します。
+ * このアノテーションをメタデータで指定することでスカラー結果型をクエリーの結果に含めることができます。
  *
  * <pre>
  *
@@ -61,13 +57,13 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 public @interface ColumnResult { 
 
-    /** (Required) The name of a column in the SELECT clause of a SQL query */
+    /** (必須) SQLクエリーのSELECT句の中に含まれる列の名前 */
     String name();
 
     /** 
-     *  (Optional) The Java type to which the column type is to be mapped.
-     *  If the <code>type</code> element is not specified, the default JDBC type 
-     *  mapping for the column will be used.
+     *  (オプション) 列の型をマッピングするJavaの型。
+     * 
+     *  <code>type</code>要素が指定されていない場合は、列のデフォルトのJDBC型マッピングが使用されます。
      *  @since Java Persistence 2.1
      */
     Class type() default void.class;
