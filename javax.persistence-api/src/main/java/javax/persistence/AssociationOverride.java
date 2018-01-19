@@ -66,7 +66,7 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
  * join columns.
  *
  * <pre>
- *    Example 1: Overriding the mapping of a relationship defined by a mapped superclass
+ *    Example 1: マップドスーパークラスで定義された関係のマッピングを上書きする
  *
  *    &#064;MappedSuperclass
  *    public class Employee {
@@ -86,7 +86,7 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
  * </pre>
  *
  * <pre>
- *    Example 2: Overriding the mapping for phoneNumbers defined in the ContactInfo class
+ *    Example 2: ContactInfoクラスで定義されたphoneNumbersのマッピングを上書きする
  *
  *    &#064;Entity
  *    public class Employee {
@@ -105,7 +105,7 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
  * 
  *    &#064;Embeddable
  *    public class ContactInfo {
- *        &#064;ManyToOne Address address; // Unidirectional
+ *        &#064;ManyToOne Address address; // 単方向
  *        &#064;ManyToMany(targetEntity=PhoneNumber.class) List phoneNumbers;
  *    }
  * 
