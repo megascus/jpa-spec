@@ -18,9 +18,9 @@ package javax.persistence;
 import java.util.Map;
 
 /**
- * Represents an attribute node of an entity graph.
+ * エンティティグラフの属性ノードを表します。
  *
- * @param <T> The type of the attribute.
+ * @param <T> 属性の型
  *
  * @see EntityGraph
  * @see Subgraph
@@ -31,25 +31,20 @@ import java.util.Map;
 public interface AttributeNode<T> {
 
     /**
-     * Return the name of the attribute corresponding to the
-     * attribute node.
-     * @return name of the attribute
+     * 属性ノードに対応する属性の名前を返します。
+     * @return 属性の名前
      */
     public String getAttributeName();
 
     /**
-     * Return the Map&#060;Class, Subgraph&#062; of subgraphs associated
-     * with this attribute node.
-     * @return Map of subgraphs associated with this attribute node
-     * or empty Map if none have been defined
+     * この属性ノードに関連する部分グラフのMap&#060;Class, Subgraph&#062;を返します。
+     * @return この属性ノードに関連付けられた部分グラフのマップ、または定義されていない場合は空のマップ
      */
     public Map<Class, Subgraph> getSubgraphs();
 
     /**
-     * Return the Map&#060;Class, Subgraph&#062; of subgraphs associated
-     * with this attribute node's map key.
-     * @return Map of subgraphs associated with this attribute 
-     * node's map key or empty Map if none have been defined
+     * この属性ノードのマップキーに関連付けられたサブグラフのMap&#060;Class, Subgraph&#062;を返します。
+     * @return この属性ノードのマップキーに関連付けられたサブグラフのマップ、または定義されていない場合は空のマップ
      */
     public Map<Class, Subgraph> getKeySubgraphs();
 }
