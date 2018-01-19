@@ -26,22 +26,15 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 
 /**
- * Used to override a mapping for an entity relationship.
+ * エンティティの関係のマッピングを上書きするために使用します。
  *
- * <p> May be applied to an entity that extends a mapped superclass to
- * override a relationship mapping defined by the mapped
- * superclass. If not specified, the association is mapped the same as
- * in the original mapping. When used to override a mapping defined by
- * a mapped superclass, <code>AssociationOverride</code> is applied to
- * the entity class.
+ * <p>マップドスーパークラスで定義された関係マッピングをマップドスーパークラスを拡張したエンティティに適用して上書きすることができます。
+ * 指定されていない場合、関連はオリジナルのマッピングと同じものがマッピングされます。
+ * マップドスーパークラスで定義されたマッピングを上書きする時は<code>AssociationOverride</code>はエンティティクラスに適用されます。
  *
- * <p> May be used to override a relationship mapping from an
- * embeddable within an entity to another entity when the embeddable
- * is on the owning side of the relationship. When used to override a
- * relationship mapping defined by an embeddable class (including an
- * embeddable class embedded within another embeddable class),
- * <code>AssociationOverride</code> is applied to the field or
- * property containing the embeddable.
+ * <p>組み込みクラスが関係の所有者側の場合は組み込みクラスの中から他のエンティティへの関係マッピングを上書きするために使用できます。
+ * 組み込みクラス(他の組み込みクラスに含まれる組み込みクラスの場合を含みます)で定義された関係マッピングを上書きする場合は
+ * <code>AssociationOverride</code>はその組み込みクラスを含むフィールドもしくはプロパティに適用されます。
  *
  * <p> When <code>AssociationOverride</code> is used to override a
  * relationship mapping from an embeddable class, the
