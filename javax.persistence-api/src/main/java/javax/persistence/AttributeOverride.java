@@ -25,29 +25,17 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
+ * (明示的もしくはデフォルトの)<code>Basic</code>プロパティもしくはフィールド、<code>Id</code>プロパティもしくはフィールドのマッピングを上書きするために使用します。
+ *
+ * <p> マップドスーパークラスを継承したエンティティや組み込みフィールドもしくはプロパティを持つエンティティのマップドスーパークラスや組み込みクラス
+ * (もしくはその属性のひとつで定義された組み込みクラス)で定義された基本マッピングやIDマッピングを上書きするために適用できます。
  * 
- * Used to override the mapping of a <code>Basic</code> (whether
- * explicit or default) property or field or <code>Id</code> property or
- * field.
+ * <p>組み込みクラスのインスタンスを含む要素コレクションやキーもしくは値が組み込みクラスであるMapコレクションに適用することができます。
+ * Mapに<code>AttributeOverride</code>を適用するときはマップのキーもしくはマップの値の一部として指定するために、
+ * 上書きされる属性の名前のプレフィックスとして"<code>key.</code>"もしくは"<code>value.</code>"を使用する必要があります。
  *
- * <p> May be applied to an entity that extends a mapped superclass or
- * to an embedded field or property to override a basic mapping or id
- * mapping defined by the mapped superclass or embeddable class (or
- * embeddable class of one of its attributes).
-
- * <p> May be applied to an element collection containing instances of
- * an embeddable class or to a map collection whose key and/or value
- * is an embeddable class. When <code>AttributeOverride</code> is
- * applied to a map, "<code>key.</code>" or "<code>value.</code>" must
- * be used to prefix the name of the attribute that is being
- * overridden in order to specify it as part of the map key or map
- * value.
- *
- * <p> To override mappings at multiple levels of embedding, a dot (".")
- * notation form must be used in the <code>name</code> element to indicate an
- * attribute within an embedded attribute.  The value of each identifier
- * used with the dot notation is the name of the respective embedded
- * field or property.
+ * <p>複数の埋め込みレベルのマッピングを上書きするには、組み込み属性内の属性を示すために<code>name</code>要素にドット(".")表記形式を使用する必要があります。
+ * ドット表記で使用される各識別子の値は、それぞれの組み込みフィールドまたはプロパティの名前です。
  *
  * <p><code>AttributeOverride</code>が指定されていない場合は、列にはオリジナルのマッピングと同じマッピングがされます。
  *
