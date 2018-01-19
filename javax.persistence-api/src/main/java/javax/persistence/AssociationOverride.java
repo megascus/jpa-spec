@@ -131,44 +131,33 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 public @interface AssociationOverride {
 
     /**
-     * (Required) The name of the relationship property whose mapping is
-     * being overridden if property-based access is being used,
-     * or the name of the relationship field if field-based access is used.
+     *  (必須) プロパティベースのアクセスが使用されている場合にはマッピングが上書きされるプロパティの名前、またはフィールドベースのアクセスが使用されている場合はフィールドの名前。
      */
     String name();
 
     /**
-     * The join column(s) being mapped to the persistent attribute(s).
-     * The <code>joinColumns</code> elements must be specified if a
-     * foreign key mapping is used in the overriding of the mapping of
-     * the relationship.  The <code>joinColumns</code> element must
-     * not be specified if a join table is used in the overriding of
-     * the mapping of the relationship.
+     * 永続属性にマッピングされる結合列。
+     * 
+     * 関係のマッピングの上書きで外部キーマッピングを使用する場合は<code>joinColumns</code>要素を指定する必要があります。
+     * 関係の上書きに結合テーブルが使用される場合は<code>joinColumns</code>要素を指定してはいけません。
      */
     JoinColumn[] joinColumns() default {};
 
     /**
-     *  (Optional) Used to specify or control the generation of a
-     *   foreign key constraint for the columns corresponding to the
-     *   <code>joinColumns</code> element when table generation is in
-     *   effect.  If both this element and the <code>foreignKey</code>
-     *   element of any of the <code>joinColumns</code> elements are
-     *   specified, the behavior is undefined.  If no foreign key
-     *   annotation element is specified in either location, the
-     *   persistence provider's default foreign key strategy will
-     *   apply.
+     * (オプション) 表の生成が有効な場合に<code>joinColumns</code>要素に関係する列のための外部キー制約の生成を指定または制御するために使用されます。
+     * 
+     * この要素と<code>joinColumns</code>要素のいずれかの<code>foreignKey</code>要素の両方が指定されていた場合の挙動は未定義です。
+     * いずれの場所にも外部キーのアノテーション要素が指定されていない場合は、永続化プロバイダのデフォルトの外部キー戦略が適用されます。
      *
      *  @since Java Persistence 2.1
      */
     ForeignKey foreignKey() default @ForeignKey(PROVIDER_DEFAULT);
 
     /**
-     * The join table that maps the relationship.
-     * The <code>joinTable</code> element must be specified if a join table 
-     * is used in the overriding of the mapping of the
-     * relationship.  The <code>joinTable</code> element must not be specified
-     * if a foreign key mapping is used in the overriding of
-     * the relationship.
+     * 関係のマッピングをされる結合テーブル。
+     * 
+     * 関係のマッピングの上書きで結合テーブルを使用する場合は<code>joinTable</code> 要素を指定する必要があります。
+     * 関係の上書きに外部キーマッピングが使用される場合は<code>joinTable</code>要素を指定してはいけません。
      *
      * @since Java Persistence 2.0
      */
