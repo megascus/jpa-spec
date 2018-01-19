@@ -15,9 +15,8 @@
 package javax.persistence;
 
 /**
- * A class that implements this interface can be used to convert 
- * entity attribute state into database column representation 
- * and back again.
+ * エンティティの属性の状態をデータベースの列表現に変換して元に戻すためにこのインタフェースを実装するクラスを使用できます。
+ * 
  * XとYの型は同じJavaの型である可能性があることに注意してください。
  *
  * @param <X>  エンティティの属性の型
