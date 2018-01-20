@@ -36,15 +36,10 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
  * 組み込みクラス(他の組み込みクラスに含まれる組み込みクラスの場合を含みます)で定義された関係マッピングを上書きする場合は
  * <code>AssociationOverride</code>はその組み込みクラスを含むフィールドもしくはプロパティに適用されます。
  *
- * <p> When <code>AssociationOverride</code> is used to override a
- * relationship mapping from an embeddable class, the
- * <code>name</code> element specifies the referencing relationship
- * field or property within the embeddable class. To override mappings
- * at multiple levels of embedding, a dot (".") notation syntax must
- * be used in the <code>name</code> element to indicate an attribute
- * within an embedded attribute.  The value of each identifier used
- * with the dot notation is the name of the respective embedded field
- * or property.
+ * <p> <code>AssociationOverride</code>が組み込みクラス内のリレーションシップを参照したフィールドもしくはプロパティを上書きするために使用された場合、
+ * <code>name</code>要素は組み込みクラス内のリレーションシップを参照したフィールドもしくはプロパティを指定します。
+ * 複数の埋め込みレベルのマッピングを上書きするには、組み込み属性内の属性を示すために<code>name</code>要素にドット(".")表記形式を使用する必要があります。
+ * ドット表記で使用される各識別子の値は、それぞれの組み込みフィールドもしくはプロパティの名前です。
  * 
  * <p> When <code>AssociationOverride</code> is applied to override
  * the mappings of an embeddable class used as a map value,
