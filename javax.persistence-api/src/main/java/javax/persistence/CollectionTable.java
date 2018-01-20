@@ -54,7 +54,7 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
  *       protected String name;
  *       protected Address home;
  *       ...
- *       &#064;ElementCollection  // デフォルトの表を使用 (PERSON_NICKNAMES)
+ *       &#064;ElementCollection  // デフォルトのテーブルを使用 (PERSON_NICKNAMES)
  *       &#064;Column(name="name", length=50)
  *       protected Set&#060;String&#062; nickNames = new HashSet();
  *       ...
