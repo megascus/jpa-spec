@@ -41,11 +41,8 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
  * 複数の埋め込みレベルのマッピングを上書きするには、組み込み属性内の属性を示すために<code>name</code>要素にドット(".")表記形式を使用する必要があります。
  * ドット表記で使用される各識別子の値は、それぞれの組み込みフィールドもしくはプロパティの名前です。
  * 
- * <p> When <code>AssociationOverride</code> is applied to override
- * the mappings of an embeddable class used as a map value,
- * "<code>value.</code>" must be used to prefix the name of the
- * attribute within the embeddable class that is being overridden in
- * order to specify it as part of the map value.
+ * <p> <code>AssociationOverride</code> がMapの値として使用されている組み込みクラスのマッピングを上書きするために適用されている場合は
+ * マップの値の一部として指定するために上書きされる組み込みクラスの含まれる属性の名前のプレフィックスとして<code>value.</code>"を使用する必要があります。
  *
  * <p> If the relationship mapping is a foreign key mapping, the
  * <code>joinColumns</code> element is used.  If the relationship
