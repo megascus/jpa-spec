@@ -146,7 +146,7 @@ public interface EntityManager {
      * <p>ポータブルアプリケーションでは標準のタイムアウトヒントに頼るべきではありません。
      * 使用されているデータベースとプロバイダが使用しているロックメカニズムによっては、ヒントが観測される場合とされない場合があります。
      * @param entityClass  エンティティクラス
-     * @param primaryKey  プライマリーキー
+     * @param primaryKey  主キー
      * @param lockMode  ロックモード
      * @param properties  標準およびベンダー固有のプロパティとヒント
      * @return 見つかったエンティティのインスタンス、存在しない場合はnull
@@ -171,7 +171,7 @@ public interface EntityManager {
      * アプリケーションはエンティティマネージャーがオープン状態である間にアプリケーションによってアクセスされた場合を除き
      * デタッチの時にインスタンスの状態が利用可能であることをアプリケーションは期待してはなりません。
      * @param entityClass  エンティティクラス
-     * @param primaryKey  プライマリーキー
+     * @param primaryKey  主キー
      * @return 見つかったエンティティのインスタンス
      * @throws IllegalArgumentException 最初の引数がエンティティ型を示さない場合、または2番目の引数がそのエンティティの主キーの有効な型でないかnullの場合
      * @throws EntityNotFoundException エンティティの状態にアクセスできない場合

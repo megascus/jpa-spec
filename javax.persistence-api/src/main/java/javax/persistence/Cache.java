@@ -26,7 +26,7 @@ public interface Cache {
     /**
      * キャッシュに与えられたエンティティのためのデータが含まれているかどうか。
      * @param cls  エンティティクラス
-     * @param primaryKey  プライマリーキー
+     * @param primaryKey  主キー
      * @return エンティティがキャッシュに含まれているかどうかを示すboolean
      */
     public boolean contains(Class cls, Object primaryKey);
@@ -34,7 +34,7 @@ public interface Cache {
     /**
      * キャッシュから与えられたエンティティのためのデータを削除します。
      * @param cls  エンティティクラス
-     * @param primaryKey  プライマリーキー
+     * @param primaryKey  主キー
      */
     public void evict(Class cls, Object primaryKey);
 
