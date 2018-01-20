@@ -16,9 +16,7 @@
 package javax.persistence;
 
 /**
- * Used with the {@link Access} annotation to specify an access
- * type to be applied to an entity class, mapped superclass, or
- * embeddable class, or to a specific attribute of such a class.
+ * エンティティクラスやマップドスーパークラス、組み込みクラス、もしくはそれらのようなクラスの特定の属性に適用されるアクセス型を指定するために{@link Access} アノテーションと共に使用されます。
  * 
  * @see Access
  *
@@ -26,9 +24,9 @@ package javax.persistence;
  */
 public enum AccessType {
 
-    /** Field-based access is used. */
+    /** フィールドベースのアクセスが使用されます。 */
     FIELD,
 
-    /** Property-based access is used. */
+    /** プロパティーベースのアクセスが使用されます。 */
     PROPERTY
 }

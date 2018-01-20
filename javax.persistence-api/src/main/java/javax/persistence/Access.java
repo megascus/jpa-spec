@@ -24,9 +24,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * Used to specify an access type to be applied to an entity class,
- * mapped superclass, or embeddable class, or to a specific attribute
- * of such a class.
+ * エンティティクラスやマップドスーパークラス、組み込みクラス、もしくはそれらのようなクラスの特定の属性に適用されるアクセス型を指定するために使用されます。
  * 
  * @since Java Persistence 2.0
  */
@@ -35,7 +33,7 @@ import java.lang.annotation.Target;
 public @interface Access {
 
     /**
-     * (Required)  Specification of field- or property-based access.
+     * (必須)  フィールドベースもしくはプロパティーベースのアクセスの指定。
      */
     AccessType value();
 }
