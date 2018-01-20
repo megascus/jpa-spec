@@ -20,7 +20,7 @@ import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * SQLクエリーのSELECTリストで指定された列をエンティティクラスのプロパティーやフィールドにマッピングするために
+ * SQLクエリーのSELECTリストで指定されたカラムをエンティティクラスのプロパティーやフィールドにマッピングするために
  * {@link EntityResult}アノテーションと一緒に使用します。
  *
  * <pre>
@@ -56,7 +56,7 @@ public @interface FieldResult {
     String name();
 
     /** 
-     * SELECT句の列の名前。該当する場合は列の別名。
+     * SELECT句のカラムの名前。該当する場合はカラムの別名。
      */
     String column();
 }

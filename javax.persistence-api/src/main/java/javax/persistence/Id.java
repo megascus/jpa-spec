@@ -34,8 +34,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * <li><code>java.math.BigInteger</code></li>
  * </ul>
  *
- * <p>エンティティの主キーがマッピングされる列はプライマリーテーブルの主キーであるとみなされます。
- * <code>Column</code>アノテーションが指定されていない場合、主キー列の名前は主キープロパティもしくはフィールドの名前とみなされます。
+ * <p>エンティティの主キーがマッピングされるカラムはプライマリーテーブルの主キーであるとみなされます。
+ * <code>Column</code>アノテーションが指定されていない場合、主キーのカラムの名前は主キープロパティもしくはフィールドの名前とみなされます。
  *
  * <pre>
  *   Example:

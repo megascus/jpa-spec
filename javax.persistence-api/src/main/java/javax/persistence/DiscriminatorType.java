@@ -16,7 +16,7 @@
 package javax.persistence;
 
 /**
- * 識別列でサポートされている型を定義します。
+ * 識別カラムでサポートされている型を定義します。
  *
  * @since Java Persistence 1.0
  */

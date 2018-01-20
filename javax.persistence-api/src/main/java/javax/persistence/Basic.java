@@ -23,7 +23,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.FetchType.EAGER;
 
 /**
- * データベース列へのマッピングのもっとも単純な型です。
+ * データベースのカラムへのマッピングのもっとも単純な型です。
  * 
  * <code>Basic</code>アノテーションは次の型のフィールドもしくはプロパティに適用することができます。:
  * Javaプリミティブ型,、プリミティブ型のラッパー、 <code>String</code>、 

@@ -35,7 +35,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *    public class Employee { ... }
  *    
  *
- *    Example 2: 異なる名前の主キー列を持つ複数のセカンダリテーブル 
+ *    Example 2: 異なる名前の主キーのカラムを持つ複数のセカンダリテーブル 
  *
  *    &#064;Entity
  *    &#064;Table(name="EMPLOYEE")

@@ -28,7 +28,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * <p>　<code>EmbeddedId</code>アノテーションが使用されている場合は、
  * <code>EmbeddedId</code>アノテーションは一つのみであり、<code>Id</code>アノテーションは使用してはいけません。
  * 
- * <p> {@link AttributeOverride}アノテーションを使用することで組み込みクラス内で宣言された列マッピングを上書きすることができます。
+ * <p> {@link AttributeOverride}アノテーションを使用することで組み込みクラス内で宣言されたカラムのマッピングを上書きすることができます。
  * 
  * <p> {@link MapsId}アノテーションは派生主キーを指定するために<code>EmbeddedId</code>アノテーションとともに使用できます。
  * 

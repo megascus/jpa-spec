@@ -20,9 +20,9 @@ import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * SQLクエリーのSELECTリストの列をマッピングするために{@link SqlResultSetMapping}アノテーションもしくは{@link ConstructorResult}アノテーションと共に使用します。
+ * SQLクエリーのSELECTリストのカラムをマッピングするために{@link SqlResultSetMapping}アノテーションもしくは{@link ConstructorResult}アノテーションと共に使用します。
  * 
- * <p><code>name</code>要素はSELECTリスト内の列の名前(該当する場合は、列のエイリアス)を参照します。
+ * <p><code>name</code>要素はSELECTリスト内のカラムの名前(該当する場合はカラムのエイリアス)を参照します。
  * このアノテーションをメタデータで指定することでスカラー結果型をクエリーの結果に含めることができます。
  *
  * <pre>
@@ -57,13 +57,13 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 public @interface ColumnResult { 
 
-    /** (必須) SQLクエリーのSELECT句の中に含まれる列の名前 */
+    /** (必須) SQLクエリーのSELECT句の中に含まれるカラムの名前 */
     String name();
 
     /** 
-     *  (オプション) 列の型をマッピングするJavaの型。
+     *  (オプション) カラムの型をマッピングするJavaの型。
      * 
-     *  <code>type</code>要素が指定されていない場合は、列のデフォルトのJDBC型マッピングが使用されます。
+     *  <code>type</code>要素が指定されていない場合はカラムのデフォルトのJDBC型マッピングが使用されます。
      *  @since Java Persistence 2.1
      */
     Class type() default void.class;

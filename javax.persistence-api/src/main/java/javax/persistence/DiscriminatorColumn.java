@@ -22,11 +22,11 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.DiscriminatorType.STRING;
 
 /**
- * <code>SINGLE_TABLE</code>、<code>JOINED</code> {@link Inheritance} マッピング戦略の識別列を指定します。
+ * <code>SINGLE_TABLE</code>、<code>JOINED</code> {@link Inheritance} マッピング戦略の識別カラムを指定します。
  * 
- * <p> 継承戦略と識別列は、異なる継承戦略が適用されるエンティティクラス階層またはサブ階層のルートでのみ指定されます。 
+ * <p> 継承戦略と識別カラムは、異なる継承戦略が適用されるエンティティクラス階層またはサブ階層のルートでのみ指定されます。 
  * 
- * <p> <code>DiscriminatorValue</code>アノテーションが指定されておらず、識別列が必須な場合は、識別列のデフォルトの列名は<code>"DTYPE"</code>になり、
+ * <p> <code>DiscriminatorValue</code>アノテーションが指定されておらず、識別カラムが必須な場合は、識別カラムのデフォルトの名前は<code>"DTYPE"</code>になり、
  * 識別型は{@link DiscriminatorType#STRING DiscriminatorType.STRING}となります。
  *
  * <pre>
@@ -57,21 +57,21 @@ public @interface DiscriminatorColumn {
     String name() default "DTYPE";
 
     /**
-     * (オプション) クラスの識別に使用するオブジェクト/列の型。
+     * (オプション) クラスの識別に使用するオブジェクト/カラムの型。
      * 
      * デフォルトは{@link DiscriminatorType#STRING DiscriminatorType.STRING}です。
      */
     DiscriminatorType discriminatorType() default STRING;
 
     /**
-     * (オプション)d識別列のDDLを生成するときに使用されるSQLフラグメント。
+     * (オプション)識別カラムのDDLを生成するときに使用されるSQLフラグメント。
      * 
-     * <p> デフォルトではプロバイダ生成のSQLが使用され、指定された識別型の列が作成されます。
+     * <p> デフォルトではプロバイダ生成のSQLが使用され、指定された識別型のカラムが作成されます。
      */
     String columnDefinition() default "";
 
     /** 
-     * (オプション) 文字列ベースの識別型の列の長さ。
+     * (オプション) 文字列ベースの識別型のカラムの長さ。
      * 
      * 他の識別型では無視されます。
      */

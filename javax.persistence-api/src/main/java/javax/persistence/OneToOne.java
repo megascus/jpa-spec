@@ -37,7 +37,7 @@ import static javax.persistence.FetchType.EAGER;
  * ドット表記で使用される各識別子の値は、それぞれの組み込みフィールドまたはプロパティの名前です。
  * 
  * <pre>
- *    Example 1: 外部キー列を使用してマッピングする1対1の関連付け
+ *    Example 1: 外部キーのカラムを使用してマッピングする1対1の関連付け
  *
  *    // On Customer class:
  *

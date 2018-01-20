@@ -21,14 +21,14 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * 与えられた型のエンティティのための識別列の値を指定します。(DiscriminatorValue:識別値)
+ * 与えられた型のエンティティのための識別カラムの値を指定します。(DiscriminatorValue:識別値)
  * 
  * <p> <code>DiscriminatorValue</code>アノテーションは具象型のエンティティクラスでのみ指定できます。
  * 
- * <p> <code>DiscriminatorValue</code>アノテーションが指定されておらず、識別列が使用されている場合はプロバイダ固有の関数を使用してエンティティ型を表す値を生成します。
+ * <p> <code>DiscriminatorValue</code>アノテーションが指定されておらず、識別カラムが使用されている場合はプロバイダ固有の関数を使用してエンティティ型を表す値を生成します。
  * {@link DiscriminatorType}が<code>STRING</code>の場合、識別のデフォルト値はエンティティ名です。
  * 
- * <p> 継承戦略と識別列は、異なる継承戦略が適用されるエンティティクラス階層またはサブ階層のルートでのみ指定されます。 
+ * <p> 継承戦略と識別カラムは、異なる継承戦略が適用されるエンティティクラス階層またはサブ階層のルートでのみ指定されます。 
  * デフォルトでない場合の識別値は階層内の各エンティティクラスに指定する必要があります。
  *
  * <pre>
@@ -59,7 +59,7 @@ public @interface DiscriminatorValue {
     /**
      * (オプション)行がアノテーション付きのエンティティ型のエンティティであることを示す値。
      * 
-     * <code>DiscriminatorValue</code>アノテーションが指定されておらず、識別列が使用されている場合はプロバイダ固有の関数を使用してエンティティ型を表す値を生成します。
+     * <code>DiscriminatorValue</code>アノテーションが指定されておらず、識別カラムが使用されている場合はプロバイダ固有の関数を使用してエンティティ型を表す値を生成します。
      * <code>DiscriminatorType</code>が<code>STRING</code>の場合、識別のデフォルト値はエンティティ名です。
      */
     String value();

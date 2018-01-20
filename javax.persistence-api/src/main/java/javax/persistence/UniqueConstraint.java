@@ -46,6 +46,6 @@ public @interface UniqueConstraint {
      */
     String name() default "";
 
-    /** (必須)制約を構成する列名の配列。 */
+    /** (必須)制約を構成するカラム名の配列。 */
     String[] columnNames();
 }

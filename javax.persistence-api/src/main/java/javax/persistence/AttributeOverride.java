@@ -37,7 +37,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * <p>複数の埋め込みレベルのマッピングを上書きするには、組み込み属性内の属性を示すために<code>name</code>要素にドット(".")表記形式を使用する必要があります。
  * ドット表記で使用される各識別子の値は、それぞれの組み込みフィールドもしくはプロパティの名前です。
  *
- * <p><code>AttributeOverride</code>が指定されていない場合は、列にはオリジナルのマッピングと同じマッピングがされます。
+ * <p><code>AttributeOverride</code>が指定されていない場合は、カラムにはオリジナルのマッピングと同じマッピングがされます。
  *
  * <pre>
  *    Example 1:
@@ -134,7 +134,7 @@ public @interface AttributeOverride {
     String name();
 
     /**
-     * (必須) 永続化属性にマッピングされている列。
+     * (必須) 永続化属性にマッピングされているカラム。
      * 
      * マッピング型は、組み込みクラスまたはマップドスーパークラスで定義されているものと同じままです。
      */

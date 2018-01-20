@@ -27,14 +27,14 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
  * 
  * 値がコレクションのフィールドもしくはプロパティに適用します。
  * 
- * <p>デフォルトでは組み込みクラスまたは基本型に対応するコレクションテーブルの列は組み込みクラスの属性または<code>Column</code>アノテーションのデフォルト値に従って基本型から派生します。
- * 基本型の場合は列名は値がコレクションのフィールドまたはプロパティの名前から派生します。
- * 組み込みクラスの場合は列名は組み込みクラスのフィールドまたはプロパティ名から派生します。
+ * <p>デフォルトでは組み込みクラスまたは基本型に対応するコレクションテーブルのカラムは組み込みクラスの属性または<code>Column</code>アノテーションのデフォルト値に従って基本型から派生します。
+ * 基本型の場合はカラム名は値がコレクションのフィールドまたはプロパティの名前から派生します。
+ * 組み込みクラスの場合はカラム名は組み込みクラスのフィールドまたはプロパティ名から派生します。
  * <ul>
- * <li> 基本型に使用される列でデフォルトの設定を上書きするためには値がコレクションの属性で<code>ElementCollection</code>アノテーションに加えて<code>Column</code>アノテーションを使用します。
+ * <li> 基本型に使用されるカラムでデフォルトの設定を上書きするためには値がコレクションの属性で<code>ElementCollection</code>アノテーションに加えて<code>Column</code>アノテーションを使用します。
  *
  * <li> 組み込みクラスのデフォルト値を上書きするためには<code>ElementCollection</code>アノテーションに加えて<code>AttributeOverride</code>や<code>AttributeOverrides</code>アノテーションを使用することができます。
- * 組み込みクラスにほかのエンティティへの参照が含まれている場合、それらの参照に関連する列のデフォルト値は<code>AssociationOverride</code>や<code>AssociationOverrides</code>を使用することで上書きすることができます。
+ * 組み込みクラスにほかのエンティティへの参照が含まれている場合、それらの参照に関連するカラムのデフォルト値は<code>AssociationOverride</code>や<code>AssociationOverrides</code>を使用することで上書きすることができます。
  * </ul>
  *
  * <p><code>CollectionTable</code>アノテーションがない場合は<code>CollectionTable</code>アノテーションの要素のデフォルト値が適用されます。
@@ -110,10 +110,10 @@ public @interface CollectionTable {
     String schema() default "";
 
     /**
-     * (オプション)エンティティのプライマリーテーブルを参照するコレクションテーブルの外部キー列。
+     * (オプション)エンティティのプライマリーテーブルを参照するコレクションテーブルの外部キーのカラム。
      * デフォルト値は単一の結合カラムが使用されている場合のみ適用されます。
      * デフォルト値は<code>JoinColumn</code>と同じです。
-     * (つまり、エンティティの名前 + "_" + 参照された主キー列の名前)
+     * (つまり、エンティティの名前 + "_" + 参照された主キーのカラムの名前)
      * しかしながら、複数の結合カラムが存在する場合は<code>JoinColumns</code>アノテーションを使用して各結合カラムに対して
      * <code>JoinColumn</code>アノテーションを指定する必要があります。
      * この場合、それぞれの<code>JoinColumn</code>アノテーションの<code>name</code>要素と<code>referencedColumnName</code>要素の両方を指定する必要があります。
@@ -121,7 +121,7 @@ public @interface CollectionTable {
      JoinColumn[] joinColumns() default {};
 
     /**
-     * (オプション) テーブルの生成が有効な場合に<code>joinColumns</code>要素に関係する列のための外部キー制約の生成を指定または制御するために使用されます。
+     * (オプション) テーブルの生成が有効な場合に<code>joinColumns</code>要素に関係するカラムのための外部キー制約の生成を指定または制御するために使用されます。
      * 
      * この要素と<code>joinColumns</code>要素のいずれかの<code>foreignKey</code>要素の両方が指定されていた場合の挙動は未定義です。
      * いずれの場所にも外部キーのアノテーション要素が指定されていない場合は、永続化プロバイダのデフォルトの外部キー戦略が適用されます。

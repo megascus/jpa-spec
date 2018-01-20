@@ -26,7 +26,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 
 /**
- * 他のテーブルに結合するための外部キーとして使用される主キーカラムを指定します。
+ * 他のテーブルに結合するための外部キーとして使用される主キーのカラムを指定します。
  *
  * <p>これは{@link InheritanceType#JOINED JOINED}マッピングストラテジーのエンティティのサブクラスのプライマリテーブルを、
  * そのスーパークラスのプライマリテーブルに結合するために使用されます。

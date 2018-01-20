@@ -22,8 +22,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 /**
  * SQLクエリーのSELECT句をコンストラクタにマッピングするために{@link SqlResultSetMapping}アノテーションと共に使用します。
  *
- * <p>ターゲットクラスのコンストラクタを適用し、指定された列を引数の値として渡します。
- * 意図されたコンストラクタの引数に対応するすべての列はコンストラクタの引数のリストと同じ順序で<code>ConstructorResult</code>アノテーションの<code>columns</code>要素を使用して指定される必要があります。
+ * <p>ターゲットクラスのコンストラクタを適用し、指定されたカラムを引数の値として渡します。
+ * 意図されたコンストラクタの引数に対応するすべてのカラムはコンストラクタの引数のリストと同じ順序で<code>ConstructorResult</code>アノテーションの<code>columns</code>要素を使用して指定される必要があります。
  * コンストラクタの結果として返されるエンティティは構築されたオブジェクトの主キーが取得されるかどうかによって新規状態またはデタッチ状態のいずれかになります。
  * 
  * <pre>
@@ -68,7 +68,7 @@ public @interface ConstructorResult {
     Class targetClass();
 
     /** 
-     *  (必須) SELECTリストの列を意図したコンストラクタの引数に順序どおりに行うマッピング。
+     *  (必須) SELECTリストのカラムを意図したコンストラクタの引数に順序どおりに行うマッピング。
      */
     ColumnResult[] columns();
 }

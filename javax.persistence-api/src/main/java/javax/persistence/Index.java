@@ -53,7 +53,7 @@ public @interface Index {
     String name() default "";
 
     /**
-     * (オプション)インデックスや順序に含まれる列の名前。
+     * (オプション)インデックスや順序に含まれるカラムの名前。
      */
     String columnList();
 
