@@ -93,7 +93,7 @@ public @interface JoinTable {
     JoinColumn[] inverseJoinColumns() default {};
 
     /**
-     * (オプション) 表の生成が有効な場合に<code>joinColumns</code>要素に関係する列のための外部キー制約の生成を指定または制御するために使用されます。
+     * (オプション) テーブルの生成が有効な場合に<code>joinColumns</code>要素に関係する列のための外部キー制約の生成を指定または制御するために使用されます。
      * 
      * この要素と<code>joinColumns</code>要素のいずれかの<code>foreignKey</code>要素の両方が指定されていた場合の挙動は未定義です。
      * いずれの場所にも外部キーのアノテーション要素が指定されていない場合は、永続化プロバイダのデフォルトの外部キー戦略が適用されます。
@@ -103,7 +103,7 @@ public @interface JoinTable {
     ForeignKey foreignKey() default @ForeignKey(PROVIDER_DEFAULT);
 
     /**
-     * (オプション) 表の生成が有効な場合に<code>inverseJoinColumns</code>要素に関係する列のための外部キー制約の生成を指定または制御するために使用されます。
+     * (オプション) テーブルの生成が有効な場合に<code>inverseJoinColumns</code>要素に関係する列のための外部キー制約の生成を指定または制御するために使用されます。
      * 
      * この要素と<code>inverseJoinColumns</code>要素のいずれかの<code>foreignKey</code>要素の両方が指定されていた場合の挙動は未定義です。
      * いずれの場所にも外部キーのアノテーション要素が指定されていない場合は、永続化プロバイダのデフォルトの外部キー戦略が適用されます。
