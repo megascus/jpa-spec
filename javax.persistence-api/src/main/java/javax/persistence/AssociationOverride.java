@@ -44,11 +44,8 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
  * <p> <code>AssociationOverride</code> がMapの値として使用されている組み込みクラスのマッピングを上書きするために適用されている場合は
  * マップの値の一部として指定するために上書きされる組み込みクラスの含まれる属性の名前のプレフィックスとして<code>value.</code>"を使用する必要があります。
  *
- * <p> If the relationship mapping is a foreign key mapping, the
- * <code>joinColumns</code> element is used.  If the relationship
- * mapping uses a join table, the <code>joinTable</code> element must
- * be specified to override the mapping of the join table and/or its
- * join columns.
+ * <p> リレーションシップが外部キーマッピングの場合は<code>joinColumns</code>要素が使用されます。
+ * リレーションシップのマッピングが結合テーブルを使用する場合は<code>joinTable</code>要素を結合テーブルやその結合カラムのマッピングを上書きするために指定する必要があります。
  *
  * <pre>
  *    Example 1: マップドスーパークラスで定義された関係のマッピングを上書きする
