@@ -62,7 +62,7 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
  *
  *    &#064;Entity public class WealthyPerson extends Person {
  *       &#064;ElementCollection
- *       &#064;CollectionTable(name="HOMES") // デフォルトの結合列名を使用
+ *       &#064;CollectionTable(name="HOMES") // デフォルトの結合カラム名を使用
  *       &#064;AttributeOverrides({
  *          &#064;AttributeOverride(name="street", 
  *                             column=&#064;Column(name="HOME_STREET")),
@@ -111,10 +111,10 @@ public @interface CollectionTable {
 
     /**
      * (オプション)エンティティのプライマリーテーブルを参照するコレクションテーブルの外部キー列。
-     * デフォルト値は単一の結合列が使用されている場合のみ適用されます。
+     * デフォルト値は単一の結合カラムが使用されている場合のみ適用されます。
      * デフォルト値は<code>JoinColumn</code>と同じです。
      * (つまり、エンティティの名前 + "_" + 参照された主キー列の名前)
-     * しかしながら、複数の結合列が存在する場合は<code>JoinColumns</code>アノテーションを使用して各結合列に対して
+     * しかしながら、複数の結合カラムが存在する場合は<code>JoinColumns</code>アノテーションを使用して各結合カラムに対して
      * <code>JoinColumn</code>アノテーションを指定する必要があります。
      * この場合、それぞれの<code>JoinColumn</code>アノテーションの<code>name</code>要素と<code>referencedColumnName</code>要素の両方を指定する必要があります。
      */

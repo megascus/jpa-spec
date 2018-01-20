@@ -38,7 +38,7 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 @Retention(RUNTIME)
 public @interface MapKeyJoinColumns {
 	/**
-	 * (必須) マップキーのエンティティをマッピングするのに使用されるマップキー結合列。
+	 * (必須) マップキーのエンティティをマッピングするのに使用されるマップキー結合カラム。
 	 */
 	MapKeyJoinColumn[] value();
 

@@ -51,7 +51,7 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 public @interface JoinColumns {
 
     /**
-     * この関係をマッピングする結合列。
+     * この関係をマッピングする結合カラム。
      */
     JoinColumn[] value();
 

@@ -118,7 +118,7 @@ public @interface AssociationOverride {
     String name();
 
     /**
-     * 永続属性にマッピングされる結合列。
+     * 永続属性にマッピングされる結合カラム。
      * 
      * 関係のマッピングの上書きで外部キーマッピングを使用する場合は<code>joinColumns</code>要素を指定する必要があります。
      * 関係の上書きに結合テーブルが使用される場合は<code>joinColumns</code>要素を指定してはいけません。
