@@ -576,7 +576,7 @@ public interface EntityManager {
      * <code>isOpen</code>(このメソッドはfalseを返します)を除いて<code>IllegalStateException</code>を投げるようになります。
      * エンティティマネージャーがアクティブなトランザクションに参加しているときにこのメソッドが呼び出された場合、
      * トランザクションが完了するまで永続化コンテキストは管理されたままとなります。
-     * @throws IllegalStateException エンティティーマネージャーがコンテナ管理の場合
+     * @throws IllegalStateException エンティティマネージャーがコンテナ管理の場合
      */
     public void close();
 

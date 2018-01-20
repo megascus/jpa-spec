@@ -28,7 +28,7 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 /**
  * 他のテーブルに結合するための外部キーとして使用される主キーカラムを指定します。
  *
- * <p>これは{@link InheritanceType#JOINED JOINED}マッピングストラテジーのエンティティーのサブクラスのプライマリテーブルを、
+ * <p>これは{@link InheritanceType#JOINED JOINED}マッピングストラテジーのエンティティのサブクラスのプライマリテーブルを、
  * そのスーパークラスのプライマリテーブルに結合するために使用されます。
  * もしくはセカンダリテーブルをプライマリテーブルに結合するために{@link SecondaryTable}アノテーション内で使用されます。
  * もしくは参照元エンティティの主キーが参照先エンティティへの外部キーとして使用される{@link OneToOne}マッピングで使用できます。
