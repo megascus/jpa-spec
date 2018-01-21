@@ -25,7 +25,7 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 /**
  * 複合外部キーのマッピングを指定します。
  * 
- * このアノテーションは同じ関係の<code>JoinColumn</code>アノテーションをまとめます。
+ * このアノテーションは同じリレーションシップの<code>JoinColumn</code>アノテーションをまとめます。
  *
  * <p> <code>JoinColumns</code>アノテーションが使用されるときは
  * <code>JoinColumn</code>アノテーションのすべてで<code>name</code>要素と<code>referencedColumnName</code>要素の両方を指定する必要があります。
@@ -51,7 +51,7 @@ import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 public @interface JoinColumns {
 
     /**
-     * この関係をマッピングする結合カラム。
+     * このリレーションシップをマッピングする結合カラム。
      */
     JoinColumn[] value();
 
