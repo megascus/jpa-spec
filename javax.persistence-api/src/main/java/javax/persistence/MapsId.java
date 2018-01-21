@@ -23,10 +23,10 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * {@link EmbeddedId}主キーもしくは<code>EmbeddedId</code>主キー内の属性、単純な親エンティティの主キーによるマッピングを提供する<code>ManyToOne</code>または<code>OneToOne</code>関係の属性を指定します。
+ * {@link EmbeddedId}主キーもしくは<code>EmbeddedId</code>主キー内の属性、単純な親エンティティの主キーによるマッピングを提供する<code>ManyToOne</code>または<code>OneToOne</code>リレーションシップの属性を指定します。
  * 
- * <code>value</code>要素は、関係の属性が対応する複合キー内の属性を指定します。
- * エンティティの主キーが関係によって参照されるエンティティの主キーと同じJavaの型である場合、value属性は指定されません。
+ * <code>value</code>要素はリレーションシップの属性が対応する複合キー内の属性を指定します。
+ * エンティティの主キーがリレーションシップによって参照されるエンティティの主キーと同じJavaの型である場合、value属性は指定されません。
  * 
  * <pre>
  *    Example:
@@ -64,8 +64,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface MapsId {
 
     /**
-     * (オプション) 関係属性に関連する複合キーに含まれる属性の名前。
+     * (オプション) リレーションシップの属性に関連する複合キーに含まれる属性の名前。
      * 
-     * 指定されない場合、関係はエンティティの主キーでマッピングされます。
+     * 指定されない場合にはリレーションシップはエンティティの主キーでマッピングされます。
      */
    String value() default ""; }
