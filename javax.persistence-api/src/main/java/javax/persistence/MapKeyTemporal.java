@@ -27,7 +27,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * このアノテーションはこれらのタイプのマップキーに対してのみ指定できます。
  * 
  * <p> <code>MapKeyTemporal</code>アノテーションは、<code>ElementCollection</code>もしくは<code>OneToMany</code>、<code>ManyToMany</code>アノテーションとともに、 
- * <code>java.util.Map</code>型の要素コレクションもしくは関係に適用できます。
+ * <code>java.util.Map</code>型の要素コレクションもしくはリレーションシップに適用できます。
  *
  * <pre>
  *     Example:
