@@ -28,7 +28,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * マップがJavaジェネリクスを使用して指定されている場合は、<code>MapKeyClass</code>アノテーションおよび関連型を指定する必要はありません。
  * それ以外の場合は指定する必要があります。
  * 
- * <code>MapKeyClass</code>アノテーションは<code>ElementCollection</code>やコレクション値の関係アノテーション(<code>OneToMany</code>または<code>ManyToMany</code>)
+ * <code>MapKeyClass</code>アノテーションは<code>ElementCollection</code>やコレクション値のリレーションシップのアノテーション(<code>OneToMany</code>または<code>ManyToMany</code>)
  * と共に使用されます。
  * <code>MapKey</code>アノテーションと<code>MapKeyClass</code>アノテーションは同時に使われることはありません。
  *
@@ -48,7 +48,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *
  *    Example 2:
  *
- *    // MapKeyClassと関係のターゲット形がデフォルトにできる場合
+ *    // MapKeyClassとリレーションシップのターゲット型がデフォルトにできる場合
  *
  *    &#064;Entity
  *    public class Item {
@@ -72,7 +72,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *
  *     Example 4:
  *
- *     // MapKeyClassと関係のターゲット形がデフォルトにできる場合
+ *     // MapKeyClassとリレーションシップのターゲット型がデフォルトにできる場合
  *
  *     &#064;Entity
  *     public class Company {

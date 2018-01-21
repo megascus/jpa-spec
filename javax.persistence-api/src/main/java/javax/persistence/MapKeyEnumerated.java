@@ -26,7 +26,7 @@ import static javax.persistence.EnumType.ORDINAL;
  * 基本型が列挙型であるマップキーのEnumの型を指定します。
  * 
  * <code>MapKeyEnumerated</code>アノテーションは<code>ElementCollection</code>もしくは<code>OneToMany</code>、<code>ManyToMany</code>アノテーションと共に、
- * <code>java.util.Map</code>型の要素コレクションや関係に適用できます。
+ * <code>java.util.Map</code>型の要素コレクションやリレーションシップに適用できます。
  * 列挙型が指定されていないか、<code>MapKeyEnumerated</code>アノテーションが使用されていない場合、列挙型は<code>ORDINAL</code>であるとみなされます。
  *
  * <pre>
