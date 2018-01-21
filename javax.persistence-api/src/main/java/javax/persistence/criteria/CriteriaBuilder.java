@@ -36,7 +36,7 @@ public interface CriteriaBuilder {
 
     /**
      *  Create a <code>CriteriaQuery</code> object.
-     *  @return criteria query object
+     *  @return クライテリアクエリーオブジェクト
      */
     CriteriaQuery<Object> createQuery();
 
@@ -44,14 +44,14 @@ public interface CriteriaBuilder {
      *  Create a <code>CriteriaQuery</code> object with the specified result 
      *  type.
      *  @param resultClass  type of the query result
-     *  @return criteria query object
+     *  @return クライテリアクエリーオブジェクト
      */
     <T> CriteriaQuery<T> createQuery(Class<T> resultClass);
 
     /**
      *  Create a <code>CriteriaQuery</code> object that returns a tuple of 
      *  objects as its result.
-     *  @return criteria query object
+     *  @return クライテリアクエリーオブジェクト
      */
     CriteriaQuery<Tuple> createTupleQuery();
 
@@ -60,7 +60,7 @@ public interface CriteriaBuilder {
     /**
      *  Create a <code>CriteriaUpdate</code> query object to perform a bulk update operation.
      *  @param targetEntity  target type for update operation
-     *  @return the query object
+     *  @return クエリーオブジェクト
      *  @since Java Persistence 2.1
      */
     <T> CriteriaUpdate<T> createCriteriaUpdate(Class<T> targetEntity);
@@ -68,7 +68,7 @@ public interface CriteriaBuilder {
     /**
      *  Create a <code>CriteriaDelete</code> query object to perform a bulk delete operation.
      *  @param targetEntity  target type for delete operation
-     *  @return the query object
+     *  @return クエリーオブジェクト
      *  @since Java Persistence 2.1
      */
     <T> CriteriaDelete<T> createCriteriaDelete(Class<T> targetEntity);
@@ -1462,65 +1462,65 @@ Expression<?>... args);
     // methods for downcasting:
 
     /**
-     *  Downcast Join object to the specified type.
-     *  @param join  Join object
-     *  @param type type to be downcast to
-     *  @return  Join object of the specified type
+     *  指定された型にJoinオブジェクトをダウンキャストします。
+     *  @param join  Joinオブジェクト
+     *  @param type ダウンキャストされる型
+     *  @return  指定された型のJoinオブジェクト
      *  @since Java Persistence 2.1
      */
     <X, T, V extends T> Join<X, V> treat(Join<X, T> join, Class<V> type);
 
     /**
-     *  Downcast CollectionJoin object to the specified type.
-     *  @param join  CollectionJoin object
-     *  @param type type to be downcast to
-     *  @return  CollectionJoin object of the specified type
+     *  指定された型にCollectionJoinオブジェクトをダウンキャストします。
+     *  @param join  CollectionJoinオブジェクト
+     *  @param type ダウンキャストされる型
+     *  @return  指定された型のCollectionJoinオブジェクト
      *  @since Java Persistence 2.1
      */
     <X, T, E extends T> CollectionJoin<X, E> treat(CollectionJoin<X, T> join, Class<E> type);
 
     /**
-     *  Downcast SetJoin object to the specified type.
-     *  @param join  SetJoin object
-     *  @param type type to be downcast to
-     *  @return  SetJoin object of the specified type
+     *  指定された型にSetJoinオブジェクトをダウンキャストします。
+     *  @param join  SetJoinオブジェクト
+     *  @param type ダウンキャストされる型
+     *  @return  指定された型のSetJoinオブジェクト
      *  @since Java Persistence 2.1
      */
     <X, T, E extends T> SetJoin<X, E> treat(SetJoin<X, T> join, Class<E> type);
 
     /**
-     *  Downcast ListJoin object to the specified type.
-     *  @param join  ListJoin object
-     *  @param type type to be downcast to
-     *  @return  ListJoin object of the specified type
+     *  指定された型にListJoinオブジェクトをダウンキャストします。
+     *  @param join  ListJoinオブジェクト
+     *  @param type ダウンキャストされる型
+     *  @return  指定された型のListJoinオブジェクト
      *  @since Java Persistence 2.1
      */
     <X, T, E extends T> ListJoin<X, E> treat(ListJoin<X, T> join, Class<E> type);
 
     /**
-     *  Downcast MapJoin object to the specified type.
-     *  @param join  MapJoin object
-     *  @param type type to be downcast to
-     *  @return  MapJoin object of the specified type
+     *  指定された型にMapJoinオブジェクトをダウンキャストします。
+     *  @param join  MapJoinオブジェクト
+     *  @param type ダウンキャストされる型
+     *  @return  指定された型のMapJoinオブジェクト
      *  @since Java Persistence 2.1
      */
     <X, K, T, V extends T> MapJoin<X, K, V> treat(MapJoin<X, K, T> join, Class<V> type);
 
 
     /**
-     *  Downcast Path object to the specified type.
+     *  指定された型にPathオブジェクトをダウンキャストします。
      *  @param path  path
-     *  @param type type to be downcast to
-     *  @return  Path object of the specified type
+     *  @param type ダウンキャストされる型
+     *  @return  指定された型のPathオブジェクト
      *  @since Java Persistence 2.1
      */
     <X, T extends X> Path<T> treat(Path<X> path, Class<T> type);
 
     /**
-     *  Downcast Root object to the specified type.
+     *  指定された型にRootオブジェクトをダウンキャストします。
      *  @param root  root
-     *  @param type type to be downcast to
-     *  @return  Root object of the specified type
+     *  @param type ダウンキャストされる型
+     *  @return  指定された型のRootオブジェクト
      *  @since Java Persistence 2.1
      */
     <X, T extends X> Root<T> treat(Root<X> root, Class<T> type);
