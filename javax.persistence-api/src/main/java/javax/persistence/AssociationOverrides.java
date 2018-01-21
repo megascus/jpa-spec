@@ -23,7 +23,7 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * 複数の関係プロパティもしくはフィールドのマッピングを上書きするために使用します。
+ * リレーションシップの複数のプロパティもしくはフィールドのマッピングを上書きするために使用します。
  *
  * <pre>
  *    
@@ -68,7 +68,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface AssociationOverrides {
 
     /** 
-     *(必須) 関係フィールドもしくはプロパティに適用される関連上書きマッピング。
+     *(必須) リレーションシップのフィールドもしくはプロパティに適用される関連上書きマッピング。
      */
     AssociationOverride[] value();
 }

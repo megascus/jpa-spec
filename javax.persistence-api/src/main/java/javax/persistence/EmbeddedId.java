@@ -32,9 +32,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * 
  * <p> {@link MapsId}アノテーションは派生主キーを指定するために<code>EmbeddedId</code>アノテーションとともに使用できます。
  * 
- * <p> エンティティに派生主キーがある場合、<code>AttributeOverride</code>アノテーションは親エンティティとの関係に対応しない組み込みIDの属性を上書きする場合のみ使用できます。
+ * <p> エンティティに派生主キーがある場合、<code>AttributeOverride</code>アノテーションは親エンティティとのリレーションシップに対応しない組み込みIDの属性を上書きする場合のみ使用できます。
  * 
- * <p> 組み込みIDクラス内で定義された関係マッピングはサポートされていません。
+ * <p> 組み込みIDクラス内で定義されたリレーションシップのマッピングはサポートされていません。
  *
  * <pre>
  *    Example 1:

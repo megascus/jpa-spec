@@ -30,7 +30,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * 
  * <p>コンバーターが属性に適用可能かどうかを判断するためにプロバイダはプリミティブ型とラッパー型を同等に扱う必要があります。
  * 
- * <p>Id属性、バージョン属性、関係属性、および<code>Enumerated</code>もしくは<code>Temporal</code>アノテーションが明確に付けられた(もしくはXMLで指定された)属性は変換されないことに注意してください。
+ * <p>Id属性、バージョン属性、リレーションシップの属性、および<code>Enumerated</code>もしくは<code>Temporal</code>アノテーションが明確に付けられた(もしくはXMLで指定された)属性は変換されないことに注意してください。
  * 
  * <p><code>autoApply</code>が<code>true</code>の場合、<code>Convert</code>アノテーションを使用して属性ごとに自動適用変換を無効または無効にできるに注意してください。
  * 
