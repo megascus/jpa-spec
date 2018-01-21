@@ -1351,9 +1351,8 @@ public interface CriteriaBuilder {
     //case builders:
 
     /**
-     *  Interface used to build simple case expressions.
-     *  Case conditions are evaluated in the order in which
-     *  they are specified.
+     *  簡単なcase式を構築するために使用するインターフェースです。
+     *  case式の条件は指定された順番で評価されます。
      */
     public static interface SimpleCase<C,R> extends Expression<R> {
 
@@ -1396,7 +1395,7 @@ public interface CriteriaBuilder {
 	}
 	
     /**
-     *  Create a simple case expression.
+     *  簡単なcase式を作成します。
      *  @param expression  to be tested against the case conditions
      *  @return simple case expression
      */
@@ -1404,9 +1403,8 @@ public interface CriteriaBuilder {
 
 
     /**
-     *  Interface used to build general case expressions.
-     *  Case conditions are evaluated in the order in which
-     *  they are specified.
+     *  一般的なcase式を構築するために使用するインターフェースです。
+     *  case式の条件は指定された順番で評価されます。
      */
     public static interface Case<R> extends Expression<R> {
 
@@ -1442,18 +1440,17 @@ public interface CriteriaBuilder {
 	}
 	
     /**
-     *  Create a general case expression.
-     *  @return general case expression
+     *  一般的なcase式を作成します。
+     *  @return 一般的なcase式
      */
     <R> Case<R> selectCase();
 
     /**
-     * Create an expression for the execution of a database
-     * function.
-     * @param name  function name
-     * @param type  expected result type
-     * @param args  function arguments
-     * @return expression
+     * データベースの関数を実行するための指揮を作成します。
+     * @param name  関数の名前
+     * @param type  予期された結果の型
+     * @param args  関数の引数
+     * @return 式
      */
    <T> Expression<T> function(String name, Class<T> type,
 Expression<?>... args);
