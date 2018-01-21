@@ -28,8 +28,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * 永続化プロバイダはリストに影響を与える挿入、削除、並べ替えを反映するために、
  * データベースへのフラッシュ時に順序の更新を担当します。
  *
- * <p> <code>OrderColumn</code>アノテーションは、OneToManyやManyToManyの関連、要素コレクションで指定されます。
- * <code>OrderColumn</code>アノテーションは関連のうち順序付けされるコレクションを参照する側で指定されます。
+ * <p> <code>OrderColumn</code>アノテーションは、OneToManyやManyToManyのリレーションシップや要素コレクションで指定されます。
+ * <code>OrderColumn</code>アノテーションはリレーションシップのうち順序付けされるコレクションを参照する側で指定されます。
  * 順序カラムはエンティティや組み込みクラスの一部の状態としては参照できません。
  * 
  * <p> {@link OrderBy}アノテーションは永続化状態の一部として参照でき、アプリケーションによって維持される順序として使用される必要があります。
