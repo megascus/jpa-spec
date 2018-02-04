@@ -169,7 +169,7 @@ public interface EntityManager {
      * 要求されたインスタンスがデータベースに存在しない場合は、インスタンスの状態に最初にアクセスしたときに<code>EntityNotFoundException</code>がスローされます。
      * (永続化プロバイダーのランタイムは<code>getReference</code>が呼び出されたときに<code>EntityNotFoundException</code>をスローすることが許可されています。)
      * アプリケーションはエンティティマネージャーがオープン状態である間にアプリケーションによってアクセスされた場合を除き
-     * デタッチの時にインスタンスの状態が利用可能であることをアプリケーションは期待してはなりません。
+     * デタッチ状態の時にインスタンスの状態が利用可能であることをアプリケーションは期待してはなりません。
      * @param entityClass  エンティティクラス
      * @param primaryKey  主キー
      * @return 見つかったエンティティのインスタンス
