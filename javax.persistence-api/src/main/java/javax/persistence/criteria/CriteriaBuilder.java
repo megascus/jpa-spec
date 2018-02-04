@@ -23,34 +23,30 @@ import java.util.Set;
 import javax.persistence.Tuple;
 
 /**
- * Used to construct criteria queries, compound selections, 
- * expressions, predicates, orderings.
+ * クライテリアクエリーや、複合選択、式、述語、順序付けを生成するために使用されます。
  *
- * <p> Note that <code>Predicate</code> is used instead of <code>Expression&#060;Boolean&#062;</code> 
- * in this API in order to work around the fact that Java 
- * generics are not compatible with varags.
+ * Javaのジェネリクスは可変長引数と相性が悪いという事実を回避するためにこのAPIでは
+ * <code>Expression&#060;Boolean&#062;</code>の代わりに<code>Predicate</code>が使用されることに注意してください。
  *
  * @since Java Persistence 2.0
  */
 public interface CriteriaBuilder {
 
     /**
-     *  Create a <code>CriteriaQuery</code> object.
+     *  <code>CriteriaQuery</code>のオブジェクトを作ります。
      *  @return クライテリアクエリーオブジェクト
      */
     CriteriaQuery<Object> createQuery();
 
     /**
-     *  Create a <code>CriteriaQuery</code> object with the specified result 
-     *  type.
-     *  @param resultClass  type of the query result
+     *  <code>CriteriaQuery</code>のオブジェクトを指定された結果の型で作ります。
+     *  @param resultClass  クエリーの結果の型
      *  @return クライテリアクエリーオブジェクト
      */
     <T> CriteriaQuery<T> createQuery(Class<T> resultClass);
 
     /**
-     *  Create a <code>CriteriaQuery</code> object that returns a tuple of 
-     *  objects as its result.
+     *  <code>CriteriaQuery</code>のオブジェクトをその結果としてオブジェクト型のタプルが返ってくるものとして作ります。
      *  @return クライテリアクエリーオブジェクト
      */
     CriteriaQuery<Tuple> createTupleQuery();
@@ -58,16 +54,16 @@ public interface CriteriaBuilder {
     // methods to construct queries for bulk updates and deletes:
 
     /**
-     *  Create a <code>CriteriaUpdate</code> query object to perform a bulk update operation.
-     *  @param targetEntity  target type for update operation
+     *  バルクアップデート操作を実行するための <code>CriteriaUpdate</code> のクエリーオブジェクトを作ります。
+     *  @param targetEntity  アップデート操作の対象の型
      *  @return クエリーオブジェクト
      *  @since Java Persistence 2.1
      */
     <T> CriteriaUpdate<T> createCriteriaUpdate(Class<T> targetEntity);
 
     /**
-     *  Create a <code>CriteriaDelete</code> query object to perform a bulk delete operation.
-     *  @param targetEntity  target type for delete operation
+     *  バルクデリート操作を実行するための<code>CriteriaDelete</code> のクエリーオブジェクトを作ります。
+     *  @param targetEntity  デリート操作の対象の型
      *  @return クエリーオブジェクト
      *  @since Java Persistence 2.1
      */
