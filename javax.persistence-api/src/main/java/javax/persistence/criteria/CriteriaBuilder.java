@@ -73,34 +73,30 @@ public interface CriteriaBuilder {
     // selection construction methods:
 	
     /**
-     * Create a selection item corresponding to a constructor.
-     * This method is used to specify a constructor that will be
-     * applied to the results of the query execution. If the
-     * constructor is for an entity class, the resulting entities
-     * will be in the new state after the query is executed.
-     * @param resultClass  class whose instance is to be constructed
-     * @param selections  arguments to the constructor
-     * @return compound selection item
-     * @throws IllegalArgumentException if an argument is a 
-     *         tuple- or array-valued selection item
+     * コンストラクタに関連する選択項目を作ります。
+     * 
+     * このメソッドはクエリー実行の結果に適用されるコンストラクタを指定するのに使用されます。
+     * コンストラクタがエンティティクラスの場合、クエリーが実行された結果のエンティティは新規状態となります。
+     * @param resultClass  インスタンスが構築されるクラス
+     * @param selections  コンストラクタの引数
+     * @return 複合選択項目
+     * @throws IllegalArgumentException 引数の一つがタプル、もしくは配列の値の選択項目の場合
      */
     <Y> CompoundSelection<Y> construct(Class<Y> resultClass, Selection<?>... selections);
 
     /**
-     * Create a tuple-valued selection item.
-     * @param selections  selection items
-     * @return tuple-valued compound selection
-     * @throws IllegalArgumentException if an argument is a 
-     *         tuple- or array-valued selection item
+     * タプルの値の選択項目を作ります。
+     * @param selections  選択項目
+     * @return タプルの値の複合選択
+     * @throws IllegalArgumentException 引数の一つがタプル、もしくは配列の値の選択項目の場合
      */
     CompoundSelection<Tuple> tuple(Selection<?>... selections);
 
     /**
-     * Create an array-valued selection item.
-     * @param selections  selection items
-     * @return array-valued compound selection
-     * @throws IllegalArgumentException if an argument is a 
-     *         tuple- or array-valued selection item
+     * 配列の値の選択項目を作ります。
+     * @param selections  選択項目
+     * @return 配列の値の複合選択
+     * @throws IllegalArgumentException 引数の一つがタプル、もしくは配列の値の選択項目の場合
      */
     CompoundSelection<Object[]> array(Selection<?>... selections);
 
@@ -108,16 +104,16 @@ public interface CriteriaBuilder {
     //ordering:
 	
     /**
-     * Create an ordering by the ascending value of the expression.
-     * @param x  expression used to define the ordering
-     * @return ascending ordering corresponding to the expression
+     * 式の値の昇順での順序付けを作ります。
+     * @param x  順序付けの定義に使用される式
+     * @return 式に関連する昇順での順序付け
      */
     Order asc(Expression<?> x);
 
     /**
-     * Create an ordering by the descending value of the expression.
-     * @param x  expression used to define the ordering
-     * @return descending ordering corresponding to the expression
+     * 式の値の降順での順序付けを作ります。
+     * @param x  順序付けの定義に使用される式
+     * @return 式に関連する降順での順序付け
      */
     Order desc(Expression<?> x);
 
@@ -125,83 +121,72 @@ public interface CriteriaBuilder {
     //aggregate functions:
 	
     /**
-     * Create an aggregate expression applying the avg operation.
-     * @param x  expression representing input value to avg operation
-     * @return avg expression
+     * avg(平均)操作に適用される集約式を作ります。
+     * @param x  avg操作への入力値を表す式
+     * @return avg式
      */
     <N extends Number> Expression<Double> avg(Expression<N> x);
 
     /**
-     * Create an aggregate expression applying the sum operation.
-     * @param x  expression representing input value to sum operation
-     * @return sum expression
+     * sum(合計)操作に適用される集約式を作ります。
+     * @param x  sum操作への入力値を表す式
+     * @return sum式
      */
     <N extends Number> Expression<N> sum(Expression<N> x);
 
     /**
-     * Create an aggregate expression applying the sum operation to an
-     * Integer-valued expression, returning a Long result.
-     * @param x  expression representing input value to sum operation
-     * @return sum expression
+     * Integerの値の式でLongの結果を返すsum(合計)操作に適用される集約式を作ります。
+     * @param x  sum操作への入力値を表す式
+     * @return sum式
      */
     Expression<Long> sumAsLong(Expression<Integer> x);
 
     /**
-     * Create an aggregate expression applying the sum operation to a
-     * Float-valued expression, returning a Double result.
-     * @param x  expression representing input value to sum operation
-     * @return sum expression
+     * Floatの値の式でDoubleの結果を返すsum(合計)操作に適用される集約式を作ります。
+     * @param x  sum操作への入力値を表す式
+     * @return sum式
      */
     Expression<Double> sumAsDouble(Expression<Float> x);
     
     /**
-     * Create an aggregate expression applying the numerical max 
-     * operation.
-     * @param x  expression representing input value to max operation
-     * @return max expression
+     * 数値のmax(最大)操作に適用される集約式を作ります。
+     * @param x  max操作への入力値を表す式
+     * @return max式
      */
     <N extends Number> Expression<N> max(Expression<N> x);
     
     /**
-     * Create an aggregate expression applying the numerical min 
-     * operation.
-     * @param x  expression representing input value to min operation
-     * @return min expression
+     * 数値のmin(最小)操作に適用される集約式を作ります。
+     * @param x  max操作への入力値を表す式
+     * @return min式
      */
     <N extends Number> Expression<N> min(Expression<N> x);
 
     /**
-     * Create an aggregate expression for finding the greatest of
-     * the values (strings, dates, etc).
-     * @param x  expression representing input value to greatest
-     *           operation
-     * @return greatest expression
+     * (文字列や日付などの)greatest(最大値)を見つける集約式を作ります。
+     * @param x  greatest操作への入力値を表す式
+     * @return greatest式
      */
     <X extends Comparable<? super X>> Expression<X> greatest(Expression<X> x);
     
     /**
-     * Create an aggregate expression for finding the least of
-     * the values (strings, dates, etc).
-     * @param x  expression representing input value to least
-     *           operation
-     * @return least expression
+     * (文字列や日付などの)least(最小値)を見つける集約式を作ります。
+     * @param x  least操作への入力値を表す式
+     * @return least式
      */
     <X extends Comparable<? super X>> Expression<X> least(Expression<X> x);
 
     /**
-     * Create an aggregate expression applying the count operation.
-     * @param x  expression representing input value to count 
-     *           operation
-     * @return count expression
+     * count(カウント)操作に適用される集約式を作ります。
+     * @param x  count操作への入力値を表す式
+     * @return count式
      */
     Expression<Long> count(Expression<?> x);
 
     /**
-     * Create an aggregate expression applying the count distinct 
-     * operation.
-     * @param x  expression representing input value to 
-     *        count distinct operation
-     * @return count distinct expression
+     * count distinct(重複を除いたカウント)操作に適用される集約式を作ります。
+     * @param x  count distinct操作への入力値を表す式
+     * @return count distinct式
      */
     Expression<Long> countDistinct(Expression<?> x);
 	
