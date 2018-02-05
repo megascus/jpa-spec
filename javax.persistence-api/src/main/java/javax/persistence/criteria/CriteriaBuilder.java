@@ -195,32 +195,34 @@ public interface CriteriaBuilder {
     //subqueries:
 	
     /**
-     * Create a predicate testing the existence of a subquery result.
-     * @param subquery  subquery whose result is to be tested
-     * @return exists predicate
+     * サブクエリーの結果の存在を検証する述語を作ります。
+     * @param subquery  結果を検証されるサブクエリー
+     * @return exists 述語
      */
     Predicate exists(Subquery<?> subquery);
 	
     /**
-     * Create an all expression over the subquery results.
-     * @param subquery  subquery
-     * @return all expression
+     * サブクエリの結果に対するall式を作ります。
+     * @param subquery  サブクエリー
+     * @return all 式
      */
     <Y> Expression<Y> all(Subquery<Y> subquery);
 	
     /**
-     * Create a some expression over the subquery results.
-     * This expression is equivalent to an <code>any</code> expression.
-     * @param subquery  subquery
-     * @return some expression
+     * サブクエリの結果に対するsome式を作ります。
+     * 
+     * この式は<code>any</code>式と等価です。
+     * @param subquery  サブクエリー
+     * @return some 式
      */
     <Y> Expression<Y> some(Subquery<Y> subquery);
 	
     /**
-     * Create an any expression over the subquery results. 
-     * This expression is equivalent to a <code>some</code> expression.
-     * @param subquery  subquery
-     * @return any expression
+     * サブクエリの結果に対するany式を作ります。
+     * 
+     * この式は<code>some</code>式と等価です。
+     * @param subquery  サブクエリー
+     * @return any 式
      */
     <Y> Expression<Y> any(Subquery<Y> subquery);
 
