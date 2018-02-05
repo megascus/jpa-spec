@@ -325,34 +325,34 @@ public interface CriteriaBuilder {
     //equality:
 	
     /**
-     * Create a predicate for testing the arguments for equality.
-     * @param x  expression
-     * @param y  expression
-     * @return equality predicate
+     * 引数が等しいことを検証するための述語を作ります。
+     * @param x  式
+     * @param y  式
+     * @return 等価の述語
      */
     Predicate equal(Expression<?> x, Expression<?> y);
 	
     /**
-     * Create a predicate for testing the arguments for equality.
-     * @param x  expression
-     * @param y  object
-     * @return equality predicate
+     * 引数が等しいことを検証するための述語を作ります。
+     * @param x  式
+     * @param y  オブジェクト
+     * @return 等価の述語
      */
     Predicate equal(Expression<?> x, Object y);
 
     /**
-     * Create a predicate for testing the arguments for inequality.
-     * @param x  expression
-     * @param y  expression
-     * @return inequality predicate
+     * 引数が等しくないことを検証するための述語を作ります。
+     * @param x  式
+     * @param y  式
+     * @return 不等価の述語
      */
     Predicate notEqual(Expression<?> x, Expression<?> y);
 	
     /**
-     * Create a predicate for testing the arguments for inequality.
-     * @param x  expression
-     * @param y  object
-     * @return inequality predicate
+     * 引数が等しくないことを検証するための述語を作ります。
+     * @param x  式
+     * @param y  オブジェクト
+     * @return 不等価の述語
      */
     Predicate notEqual(Expression<?> x, Object y);
 
