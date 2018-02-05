@@ -230,55 +230,60 @@ public interface CriteriaBuilder {
     //boolean functions:
 	
     /**
-     * Create a conjunction of the given boolean expressions.
-     * @param x  boolean expression
-     * @param y  boolean expression
-     * @return and predicate
+     * 与えられたブール式の論理積を作ります。
+     * @param x  ブール式
+     * @param y  ブール式
+     * @return and 述語
      */
     Predicate and(Expression<Boolean> x, Expression<Boolean> y);
     
     /**
-     * Create a conjunction of the given restriction predicates.
-     * A conjunction of zero predicates is true.
-     * @param restrictions  zero or more restriction predicates
-     * @return and predicate
+     * 与えられた限定述語の論理積を作ります。
+     * 
+     * 0個の述語の論理積はtrueです。
+     * @param restrictions  0個以上の限定述語
+     * @return and 述語
      */
     Predicate and(Predicate... restrictions);
 
     /**
-     * Create a disjunction of the given boolean expressions.
-     * @param x  boolean expression
-     * @param y  boolean expression
-     * @return or predicate
+     * 与えられたブール式の論理和を作ります。
+     * @param x  ブール式
+     * @param y  ブール式
+     * @return or 述語
      */
     Predicate or(Expression<Boolean> x, Expression<Boolean> y);
 
     /**
-     * Create a disjunction of the given restriction predicates.
-     * A disjunction of zero predicates is false.
-     * @param restrictions  zero or more restriction predicates
-     * @return or predicate
+     * 与えられた限定述語の論理和を作ります。
+     * 
+     * 0個の述語の論理和はtrueです。
+     * @param restrictions  0個以上の限定述語
+     * @return or 述語
      */
     Predicate or(Predicate... restrictions);
 
     /**
-     * Create a negation of the given restriction. 
-     * @param restriction  restriction expression
-     * @return not predicate
+     * 与えられた限定の否定を作ります。
+     * @param restriction  限定式
+     * @return not 述語
      */
     Predicate not(Expression<Boolean> restriction);
 	
     /**
-     * Create a conjunction (with zero conjuncts).
-     * A conjunction with zero conjuncts is true.
-     * @return and predicate
+     * (0個の結合詞で)論理積を作ります。
+     * 
+     * 0個の結合詞の論理積はtrueです。
+     * 
+     * @return and 述語
      */
     Predicate conjunction();
 
     /**
-     * Create a disjunction (with zero disjuncts).
-     * A disjunction with zero disjuncts is false.
-     * @return or predicate
+     * (0個の離接で)論理和を作ります。
+     * 
+     * 0個の離接の論理和はfalseです。
+     * @return or 述語
      */
     Predicate disjunction();
 
@@ -287,16 +292,16 @@ public interface CriteriaBuilder {
     //useful for use with varargs methods
 
     /**
-     * Create a predicate testing for a true value.
-     * @param x  expression to be tested
-     * @return predicate
+     * trueの値を検査する述語を作ります。
+     * @param x  検査される式
+     * @return 述語
      */
     Predicate isTrue(Expression<Boolean> x);
 
     /**
-     * Create a predicate testing for a false value.
-     * @param x  expression to be tested
-     * @return predicate
+     * falseの値を検査する述語を作ります。
+     * @param x  検査される式
+     * @return 述語
      */
     Predicate isFalse(Expression<Boolean> x);
 
