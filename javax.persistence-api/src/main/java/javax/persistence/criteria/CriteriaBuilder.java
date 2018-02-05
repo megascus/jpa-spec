@@ -309,16 +309,16 @@ public interface CriteriaBuilder {
     //null tests:
 
     /**
-     * Create a predicate to test whether the expression is null.
-     * @param x expression
-     * @return is-null predicate
+     * 式がnullかどうかを検査する述語を作ります。
+     * @param x 式
+     * @return is-null 述語
      */
     Predicate isNull(Expression<?> x);
 
     /**
-     * Create a predicate to test whether the expression is not null.
-     * @param x expression
-     * @return is-not-null predicate
+     * 式がnullでないかどうかを検査する述語を作ります。
+     * @param x 式
+     * @return is-not-null 述語
      */
     Predicate isNotNull(Expression<?> x);
 
