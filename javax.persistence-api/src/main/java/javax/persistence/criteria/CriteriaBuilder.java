@@ -360,94 +360,84 @@ public interface CriteriaBuilder {
     //comparisons for generic (non-numeric) operands:
 
     /**
-     * Create a predicate for testing whether the first argument is 
-     * greater than the second.
-     * @param x  expression
-     * @param y  expression
-     * @return greater-than predicate
+     * 最初の引数が二つ目の引数より大きいかどうかを検証するための述語を作ります。
+     * @param x  式
+     * @param y  式
+     * @return greater-than 述語
      */
     <Y extends Comparable<? super Y>> Predicate greaterThan(Expression<? extends Y> x, Expression<? extends Y> y);
 	
     /**
-     * Create a predicate for testing whether the first argument is 
-     * greater than the second.
-     * @param x  expression
-     * @param y  value
-     * @return greater-than predicate
+     * 最初の引数が二つ目の引数より大きいかどうかを検証するための述語を作ります。
+     * @param x  式
+     * @param y  値
+     * @return greater-than 述語
      */
     <Y extends Comparable<? super Y>> Predicate greaterThan(Expression<? extends Y> x, Y y);
     
     /**
-     * Create a predicate for testing whether the first argument is 
-     * greater than or equal to the second.
-     * @param x  expression
-     * @param y  expression
-     * @return greater-than-or-equal predicate
+     * 最初の引数が二つ目の引数以上であるかどうか検証するための述語を作ります。
+     * @param x  式
+     * @param y  式
+     * @return greater-than-or-equal 述語
      */
     <Y extends Comparable<? super Y>> Predicate greaterThanOrEqualTo(Expression<? extends Y> x, Expression<? extends Y> y);
 
     /**
-     * Create a predicate for testing whether the first argument is 
-     * greater than or equal to the second.
-     * @param x  expression
-     * @param y  value
-     * @return greater-than-or-equal predicate
+     * 最初の引数が二つ目の引数以上であるかどうか検証するための述語を作ります。
+     * @param x  式
+     * @param y  値
+     * @return greater-than-or-equal 述語
      */
     <Y extends Comparable<? super Y>> Predicate greaterThanOrEqualTo(Expression<? extends Y> x, Y y);
 
     /**
-     * Create a predicate for testing whether the first argument is 
-     * less than the second.
-     * @param x  expression
-     * @param y  expression
-     * @return less-than predicate
+     * 最初の引数が二つ目の引数未満であるかどうか検証するための述語を作ります。
+     * @param x  式
+     * @param y  式
+     * @return less-than 述語
      */
     <Y extends Comparable<? super Y>> Predicate lessThan(Expression<? extends Y> x, Expression<? extends Y> y);
 
     /**
-     * Create a predicate for testing whether the first argument is 
-     * less than the second.
-     * @param x  expression
-     * @param y  value
-     * @return less-than predicate
+     * 最初の引数が二つ目の引数未満であるかどうか検証するための述語を作ります。
+     * @param x  式
+     * @param y  値
+     * @return less-than 述語
      */
     <Y extends Comparable<? super Y>> Predicate lessThan(Expression<? extends Y> x, Y y);
 	
     /**
-     * Create a predicate for testing whether the first argument is 
-     * less than or equal to the second.
-     * @param x  expression
-     * @param y  expression
-     * @return less-than-or-equal predicate
+     * 最初の引数が二つ目の引数以下であるかどうか検証するための述語を作ります。
+     * @param x  式
+     * @param y  式
+     * @return less-than-or-equal 述語
      */
     <Y extends Comparable<? super Y>> Predicate lessThanOrEqualTo(Expression<? extends Y> x, Expression<? extends Y> y);
 
     /**
-     * Create a predicate for testing whether the first argument is 
-     * less than or equal to the second.
-     * @param x  expression
-     * @param y  value
-     * @return less-than-or-equal predicate
+     * 最初の引数が二つ目の引数以下であるかどうか検証するための述語を作ります。
+     * @param x  式
+     * @param y  値
+     * @return less-than-or-equal 述語
      */
     <Y extends Comparable<? super Y>> Predicate lessThanOrEqualTo(Expression<? extends Y> x, Y y);
 
     /**
-     * Create a predicate for testing whether the first argument is 
-     * between the second and third arguments in value.
-     * @param v  expression 
-     * @param x  expression
-     * @param y  expression
-     * @return between predicate
+     * 最初の引数が二つ目と三つ目の引数の間の値であるか検証するための述語を作ります。
+     * @param v  式 
+     * @param x  式
+     * @param y  式
+     * @return between 述語
      */
     <Y extends Comparable<? super Y>> Predicate between(Expression<? extends Y> v, Expression<? extends Y> x, Expression<? extends Y> y);
 
     /**
-     * Create a predicate for testing whether the first argument is 
-     * between the second and third arguments in value.
-     * @param v  expression 
-     * @param x  value
-     * @param y  value
-     * @return between predicate
+     * 最初の引数が二つ目と三つ目の引数の間の値であるか検証するための述語を作ります。
+     * @param v  式 
+     * @param x  値
+     * @param y  値
+     * @return between 述語
      */
     <Y extends Comparable<? super Y>> Predicate between(Expression<? extends Y> v, Y x, Y y);
 	
@@ -455,74 +445,66 @@ public interface CriteriaBuilder {
     //comparisons for numeric operands:
 	
     /**
-     * Create a predicate for testing whether the first argument is 
-     * greater than the second.
-     * @param x  expression
-     * @param y  expression
-     * @return greater-than predicate
+     * 最初の引数が二つ目の引数より大きいかどうか検証するための述語を作ります。
+     * @param x  式
+     * @param y  式
+     * @return greater-than 述語
      */
     Predicate gt(Expression<? extends Number> x, Expression<? extends Number> y);
 
     /**
-     * Create a predicate for testing whether the first argument is 
-     * greater than the second.
-     * @param x  expression
-     * @param y  value
-     * @return greater-than predicate
+     * 最初の引数が二つ目の引数より大きいかどうか検証するための述語を作ります。
+     * @param x  式
+     * @param y  値
+     * @return greater-than 述語
      */
     Predicate gt(Expression<? extends Number> x, Number y);
 
     /**
-     * Create a predicate for testing whether the first argument is 
-     * greater than or equal to the second.
-     * @param x  expression
-     * @param y  expression
-     * @return greater-than-or-equal predicate
+     * 最初の引数が二つ目の引数以上であるかどうか検証するための述語を作ります。
+     * @param x  式
+     * @param y  式
+     * @return greater-than-or-equal 述語
      */
     Predicate ge(Expression<? extends Number> x, Expression<? extends Number> y);
 
     /**
-     * Create a predicate for testing whether the first argument is 
-     * greater than or equal to the second.
-     * @param x  expression
-     * @param y  value
-     * @return greater-than-or-equal predicate
+     * 最初の引数が二つ目の引数以上であるかどうか検証するための述語を作ります。
+     * @param x  式
+     * @param y  値
+     * @return greater-than-or-equal 述語
      */	
     Predicate ge(Expression<? extends Number> x, Number y);
 
     /**
-     * Create a predicate for testing whether the first argument is 
-     * less than the second.
-     * @param x  expression
-     * @param y  expression
-     * @return less-than predicate
+     * 最初の引数が二つ目の引数未満であるかどうか検証するための述語を作ります。
+     * @param x  式
+     * @param y  式
+     * @return less-than 述語
      */
     Predicate lt(Expression<? extends Number> x, Expression<? extends Number> y);
 
     /**
-     * Create a predicate for testing whether the first argument is 
-     * less than the second.
-     * @param x  expression
-     * @param y  value
-     * @return less-than predicate
+     * 最初の引数が二つ目の引数未満であるかどうか検証するための述語を作ります。
+     * @param x  式
+     * @param y  値
+     * @return less-than 述語
      */
     Predicate lt(Expression<? extends Number> x, Number y);
 
     /**
-     * Create a predicate for testing whether the first argument is 
-     * less than or equal to the second.
-     * @param x  expression
-     * @param y  expression
-     * @return less-than-or-equal predicate
+     * 最初の引数が二つ目の引数以下であるかどうか検証するための述語を作ります。
+     * @param x  式
+     * @param y  式
+     * @return less-than-or-equal 述語
      */
     Predicate le(Expression<? extends Number> x, Expression<? extends Number> y);
 
     /**
-     * Create a predicate for testing whether the first argument is 
-     * less than or equal to the second.
-     * @param x  expression
-     * @param y  value
-     * @return less-than-or-equal predicate
+     * 最初の引数が二つ目の引数以下であるかどうか検証するための述語を作ります。
+     * @param x  式
+     * @param y  値
+     * @return less-than-or-equal 述語
      */
     Predicate le(Expression<? extends Number> x, Number y);
 	
