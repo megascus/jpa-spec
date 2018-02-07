@@ -4,7 +4,9 @@
 javaソースコードのjavadocを日本語に書き換えると自動ビルドされます。
 
 成果物は以下から参照することが出来ます。(現状2/3程度終了済み)
+
 https://megascus.github.io/jpa-spec/docs/apidocs/
+
 
 
 以下原文
