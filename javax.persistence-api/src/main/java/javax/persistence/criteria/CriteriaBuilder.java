@@ -708,35 +708,34 @@ public interface CriteriaBuilder {
     //literals:
 
     /**
-     * Create an expression for a literal.
-     * @param value  value represented by the expression
-     * @return expression literal
-     * @throws IllegalArgumentException if value is null
+     * リテラルの式を作ります。
+     * @param value  式で表される値
+     * @return 式リテラル
+     * @throws IllegalArgumentException 値がnullの場合
      */
     <T> Expression<T> literal(T value);
 
     /**
-     * Create an expression for a null literal with the given type.
-     * @param resultClass  type of the null literal
-     * @return null expression literal
+     * 指定された型のnullリテラルの式を作ります。
+     * @param resultClass  nullリテラルの型
+     * @return null式リテラル
      */
     <T> Expression<T> nullLiteral(Class<T> resultClass);
 
     //parameters:
 
     /**
-     * Create a parameter expression.
-     * @param paramClass parameter class
-     * @return parameter expression
+     * パラメーター式を作ります。
+     * @param paramClass パラメータークラス
+     * @return パラメーター式
      */
     <T> ParameterExpression<T> parameter(Class<T> paramClass);
 
     /**
-     * Create a parameter expression with the given name.
-     * @param paramClass parameter class
-     * @param name  name that can be used to refer to 
-     *              the parameter
-     * @return parameter expression
+     * 与えられた名前のパラメーター式を作ります。
+     * @param paramClass パラメータークラス
+     * @param name  パラメーターを参照するために使用できる名前
+     * @return パラメーター式
      */
     <T> ParameterExpression<T> parameter(Class<T> paramClass, String name);
 
