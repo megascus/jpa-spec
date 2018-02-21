@@ -512,161 +512,143 @@ public interface CriteriaBuilder {
     //numerical operations:
 	
     /**
-     * Create an expression that returns the arithmetic negation
-     * of its argument.
-     * @param x expression
-     * @return arithmetic negation
+     * 引数の算術否定を返す式を作ります。
+     * @param x 式
+     * @return 算術否定
      */
     <N extends Number> Expression<N> neg(Expression<N> x);
 
     /**
-     * Create an expression that returns the absolute value
-     * of its argument.
-     * @param x expression
-     * @return absolute value
+     * 引数の絶対値を返す式を作ります。
+     * @param x 式
+     * @return 絶対値
      */
     <N extends Number> Expression<N> abs(Expression<N> x);
 	
     /**
-     * Create an expression that returns the sum
-     * of its arguments.
-     * @param x expression
-     * @param y expression
-     * @return sum
+     * 引数の和を返す式を作ります。
+     * @param x 式
+     * @param y 式
+     * @return 和
      */
     <N extends Number> Expression<N> sum(Expression<? extends N> x, Expression<? extends N> y);
 	
     /**
-     * Create an expression that returns the sum
-     * of its arguments.
-     * @param x expression
-     * @param y value
-     * @return sum
+     * 引数の和を返す式を作ります。
+     * @param x 式
+     * @param y 値
+     * @return 和
      */
     <N extends Number> Expression<N> sum(Expression<? extends N> x, N y);
 
     /**
-     * Create an expression that returns the sum
-     * of its arguments.
-     * @param x value
-     * @param y expression
-     * @return sum
+     * 引数の和を返す式を作ります。
+     * @param x 値
+     * @param y 式
+     * @return 和
      */
     <N extends Number> Expression<N> sum(N x, Expression<? extends N> y);
 
     /**
-     * Create an expression that returns the product
-     * of its arguments.
-     * @param x expression
-     * @param y expression
-     * @return product
+     * 引数の積を返す式を作ります。
+     * @param x 式
+     * @param y 式
+     * @return 積
      */
     <N extends Number> Expression<N> prod(Expression<? extends N> x, Expression<? extends N> y);
 
     /**
-     * Create an expression that returns the product
-     * of its arguments.
-     * @param x expression
-     * @param y value
-     * @return product
+     * 引数の積を返す式を作ります。
+     * @param x 式
+     * @param y 値
+     * @return 積
      */
     <N extends Number> Expression<N> prod(Expression<? extends N> x, N y);
 
     /**
-     * Create an expression that returns the product
-     * of its arguments.
-     * @param x value
-     * @param y expression
-     * @return product
+     * 引数の積を返す式を作ります。
+     * @param x 値
+     * @param y 式
+     * @return 積
      */
     <N extends Number> Expression<N> prod(N x, Expression<? extends N> y);
 
     /**
-     * Create an expression that returns the difference
-     * between its arguments.
-     * @param x expression
-     * @param y expression
-     * @return difference
+     * 引数の差を返す式を作ります。
+     * @param x 式
+     * @param y 式
+     * @return 差
      */
     <N extends Number> Expression<N> diff(Expression<? extends N> x, Expression<? extends N> y);
 
     /**
-     * Create an expression that returns the difference
-     * between its arguments.
-     * @param x expression
-     * @param y value
-     * @return difference
+     * 引数の差を返す式を作ります。
+     * @param x 式
+     * @param y 値
+     * @return 差
      */
     <N extends Number> Expression<N> diff(Expression<? extends N> x, N y);
 
     /**
-     * Create an expression that returns the difference
-     * between its arguments.
-     * @param x value
-     * @param y expression
-     * @return difference
+     * 引数の差を返す式を作ります。
+     * @param x 値
+     * @param y 式
+     * @return 差
      */
     <N extends Number> Expression<N> diff(N x, Expression<? extends N> y);
 	
     /**
-     * Create an expression that returns the quotient
-     * of its arguments.
-     * @param x expression
-     * @param y expression
-     * @return quotient
+     * 引数の商を返す式を作ります。
+     * @param x 式
+     * @param y 式
+     * @return 商
      */
     Expression<Number> quot(Expression<? extends Number> x, Expression<? extends Number> y);
 
     /**
-     * Create an expression that returns the quotient
-     * of its arguments.
-     * @param x expression
-     * @param y value
-     * @return quotient
+     * 引数の商を返す式を作ります。
+     * @param x 式
+     * @param y 値
+     * @return 商
      */
     Expression<Number> quot(Expression<? extends Number> x, Number y);
 
     /**
-     * Create an expression that returns the quotient
-     * of its arguments.
-     * @param x value
-     * @param y expression
+     * 引数の商を返す式を作ります。
+     * @param x 値
+     * @param y 式
      * @return quotient
      */
     Expression<Number> quot(Number x, Expression<? extends Number> y);
 	
     /**
-     * Create an expression that returns the modulus
-     * of its arguments.
-     * @param x expression
-     * @param y expression
-     * @return modulus
+     * 引数の剰余を返す式を作ります。
+     * @param x 式
+     * @param y 式
+     * @return 剰余
      */
     Expression<Integer> mod(Expression<Integer> x, Expression<Integer> y);
 	
     /**
-     * Create an expression that returns the modulus
-     * of its arguments.
-     * @param x expression
-     * @param y value
-     * @return modulus
+     * 引数の剰余を返す式を作ります。
+     * @param x 式
+     * @param y 値
+     * @return 剰余
      */
     Expression<Integer> mod(Expression<Integer> x, Integer y);
 
     /**
-     * Create an expression that returns the modulus
-     * of its arguments.
-     * @param x value
-     * @param y expression
-     * @return modulus
+     * 引数の剰余を返す式を作ります。
+     * @param x 値
+     * @param y 式
+     * @return 剰余
      */
     Expression<Integer> mod(Integer x, Expression<Integer> y);
 
     /**
-     * Create an expression that returns the square root
-     * of its argument.
-     * @param x expression
-     * @return square root
+     * 引数の平方根を返す式を作ります。
+     * @param x 式
+     * @return 平方根
      */	
     Expression<Double> sqrt(Expression<? extends Number> x);
 
@@ -1248,8 +1230,8 @@ public interface CriteriaBuilder {
      * Create an expression that returns null if all its arguments
      * evaluate to null, and the value of the first non-null argument
      * otherwise.
-     * @param x expression
-     * @param y expression
+     * @param x 式
+     * @param y 式
      * @return coalesce expression
      */
     <Y> Expression<Y> coalesce(Expression<? extends Y> x, Expression<? extends Y> y);
@@ -1258,8 +1240,8 @@ public interface CriteriaBuilder {
      * Create an expression that returns null if all its arguments
      * evaluate to null, and the value of the first non-null argument
      * otherwise.
-     * @param x expression
-     * @param y value
+     * @param x 式
+     * @param y 値
      * @return coalesce expression
      */
     <Y> Expression<Y> coalesce(Expression<? extends Y> x, Y y);
@@ -1268,8 +1250,8 @@ public interface CriteriaBuilder {
      * Create an expression that tests whether its argument are
      * equal, returning null if they are and the value of the
      * first expression if they are not.
-     * @param x expression
-     * @param y expression
+     * @param x 式
+     * @param y 式
      * @return nullif expression
      */
     <Y> Expression<Y> nullif(Expression<Y> x, Expression<?> y);
@@ -1278,8 +1260,8 @@ public interface CriteriaBuilder {
      * Create an expression that tests whether its argument are
      * equal, returning null if they are and the value of the
      * first expression if they are not.
-     * @param x expression
-     * @param y value
+     * @param x 式
+     * @param y 値
      * @return nullif expression 
      */
     <Y> Expression<Y> nullif(Expression<Y> x, Y y);
