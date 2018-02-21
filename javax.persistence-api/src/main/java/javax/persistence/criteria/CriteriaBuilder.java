@@ -656,50 +656,50 @@ public interface CriteriaBuilder {
     //typecasts:
     
     /**
-     * Typecast.  Returns same expression object.
-     * @param number  numeric expression
+     * 型変換。　同じ式オブジェクトを返します。
+     * @param number  数値式
      * @return Expression&#060;Long&#062;
      */
     Expression<Long> toLong(Expression<? extends Number> number);
 
     /**
-     * Typecast.  Returns same expression object.
-     * @param number  numeric expression
+     * 型変換。　同じ式オブジェクトを返します。
+     * @param number  数値式
      * @return Expression&#060;Integer&#062;
      */
     Expression<Integer> toInteger(Expression<? extends Number> number);
 
     /**
-     * Typecast. Returns same expression object.
-     * @param number  numeric expression
+     * 型変換。　同じ式オブジェクトを返します。
+     * @param number  数値式
      * @return Expression&#060;Float&#062;
      */
     Expression<Float> toFloat(Expression<? extends Number> number);
 
     /**
-     * Typecast.  Returns same expression object.
-     * @param number  numeric expression
+     * 型変換。　同じ式オブジェクトを返します。
+     * @param number  数値式
      * @return Expression&#060;Double&#062;
      */
     Expression<Double> toDouble(Expression<? extends Number> number);
 
     /**
-     * Typecast.  Returns same expression object.
-     * @param number  numeric expression
+     * 型変換。　同じ式オブジェクトを返します。
+     * @param number  数値式
      * @return Expression&#060;BigDecimal&#062;
      */
     Expression<BigDecimal> toBigDecimal(Expression<? extends Number> number);
 
     /**
-     * Typecast.  Returns same expression object.
-     * @param number  numeric expression
+     * 型変換。　同じ式オブジェクトを返します。
+     * @param number  数値式
      * @return Expression&#060;BigInteger&#062;
      */
     Expression<BigInteger> toBigInteger(Expression<? extends Number> number);
 	
     /**
-     * Typecast.  Returns same expression object.
-     * @param character expression
+     * 型変換。　同じ式オブジェクトを返します。
+     * @param character 式
      * @return Expression&#060;String&#062;
      */
     Expression<String> toString(Expression<Character> character);
