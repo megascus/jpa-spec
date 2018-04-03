@@ -935,7 +935,7 @@ public interface CriteriaBuilder {
      * 文字列の結合のための式を作ります。
      *  @param x  文字列式
      *  @param y  文字列式
-     *  @return 結合に関連した式
+     *  @return 結合に対応する式
      */
     Expression<String> concat(Expression<String> x, Expression<String> y);
 	
@@ -943,7 +943,7 @@ public interface CriteriaBuilder {
      *  文字列の結合のための式を作ります。
      *  @param x  文字列式
      *  @param y  文字列 
-     *  @return 結合に関連した式
+     *  @return 結合に対応する式
      */
     Expression<String> concat(Expression<String> x, String y);
 
@@ -951,7 +951,7 @@ public interface CriteriaBuilder {
      *  文字列の結合のための式を作ります。
      *  @param x  文字列 
      *  @param y  文字列式
-     *  @return 結合に関連した式
+     *  @return 結合に対応する式
      */
     Expression<String> concat(String x, Expression<String> y);
 	
@@ -962,7 +962,7 @@ public interface CriteriaBuilder {
      * 最初の位置は1です。
      *  @param x  文字列式
      *  @param from  開始位置式
-     *  @return 部分文字列の抽出に関連した式
+     *  @return 部分文字列の抽出に対応する式
      */
     Expression<String> substring(Expression<String> x, Expression<Integer> from);
 	
@@ -973,7 +973,7 @@ public interface CriteriaBuilder {
      * 最初の位置は1です。
      *  @param x  文字列式
      *  @param from  開始位置
-     *  @return 部分文字列の抽出に関連した式
+     *  @return 部分文字列の抽出に対応する式
      */
     Expression<String> substring(Expression<String> x, int from);
 
@@ -985,7 +985,7 @@ public interface CriteriaBuilder {
      *  @param x  文字列式
      *  @param from  開始位置式
      *  @param len  長さ式
-     *  @return 部分文字列の抽出に関連した式
+     *  @return 部分文字列の抽出に対応する式
      */
     Expression<String> substring(Expression<String> x, Expression<Integer> from, Expression<Integer> len);
 	
@@ -997,7 +997,7 @@ public interface CriteriaBuilder {
      *  @param x  文字列式
      *  @param from  開始位置 
      *  @param len  長さ
-     *  @return 部分文字列の抽出に関連した式
+     *  @return 部分文字列の抽出に対応する式
      */
     Expression<String> substring(Expression<String> x, int from, int len);
 	
@@ -1094,52 +1094,44 @@ public interface CriteriaBuilder {
 	
 	
     /**
-     * Create expression to locate the position of one string
-     * within another, returning position of first character
-     * if found.
-     * The first position in a string is denoted by 1.  If the
-     * string to be located is not found, 0 is returned.
-     * @param x  expression for string to be searched
-     * @param pattern  expression for string to be located
-     * @return expression corresponding to position
+     * ある文字列のもう一方の文字列内での位置を見つけ、見つかった場合は最初の文字の位置を返す式を作ります。
+     * 
+     * 文字列の最初の位置は1で示されます。探索される文字列が見つからない場合は0が返されます。
+     * @param x  探される文字列を表す式
+     * @param pattern  探す文字列を表す式
+     * @return 位置に対応する式
      */
     Expression<Integer> locate(Expression<String> x, Expression<String> pattern);
 	
     /**
-     * Create expression to locate the position of one string
-     * within another, returning position of first character
-     * if found.
-     * The first position in a string is denoted by 1.  If the
-     * string to be located is not found, 0 is returned.
-     * @param x  expression for string to be searched
-     * @param pattern  string to be located
-     * @return expression corresponding to position
+     * ある文字列のもう一方の文字列内での位置を見つけ、見つかった場合は最初の文字の位置を返す式を作ります。
+     * 
+     * 文字列の最初の位置は1で示されます。探索される文字列が見つからない場合は0が返されます。
+     * @param x  探される文字列を表す式
+     * @param pattern  探す文字列
+     * @return 位置に対応する式
      */
     Expression<Integer> locate(Expression<String> x, String pattern);
 
     /**
-     * Create expression to locate the position of one string
-     * within another, returning position of first character
-     * if found.
-     * The first position in a string is denoted by 1.  If the
-     * string to be located is not found, 0 is returned.
-     * @param x  expression for string to be searched
-     * @param pattern  expression for string to be located
-     * @param from  expression for position at which to start search
-     * @return expression corresponding to position
+     * ある文字列のもう一方の文字列内での位置を見つけ、見つかった場合は最初の文字の位置を返す式を作ります。
+     * 
+     * 文字列の最初の位置は1で示されます。探索される文字列が見つからない場合は0が返されます。
+     * @param x  探される文字列を表す式
+     * @param pattern  探す文字列を表す式
+     * @param from  検索を始める位置を表す式
+     * @return 位置に対応する式
      */
     Expression<Integer> locate(Expression<String> x, Expression<String> pattern, Expression<Integer> from);
 
     /**
-     * Create expression to locate the position of one string
-     * within another, returning position of first character
-     * if found.
-     * The first position in a string is denoted by 1.  If the
-     * string to be located is not found, 0 is returned.
-     * @param x  expression for string to be searched
-     * @param pattern  string to be located
-     * @param from  position at which to start search
-     * @return expression corresponding to position
+     * ある文字列のもう一方の文字列内での位置を見つけ、見つかった場合は最初の文字の位置を返す式を作ります。
+     * 
+     * 文字列の最初の位置は1で示されます。探索される文字列が見つからない場合は0が返されます。
+     * @param x  探される文字列を表す式
+     * @param pattern  探す文字列
+     * @param from  検索を始める位置
+     * @return 位置に対応する式
      */	
     Expression<Integer> locate(Expression<String> x, String pattern, int from);
 	
@@ -1147,20 +1139,20 @@ public interface CriteriaBuilder {
     // Date/time/timestamp functions:
 
     /**
-     *  Create expression to return current date.
-     *  @return expression for current date
+     * 現在の{@link java.sql.Date}値を返す式を作ります。
+     *  @return 現在の{@link java.sql.Date}値を返す式
      */
     Expression<java.sql.Date> currentDate();
 
     /**
-     *  Create expression to return current timestamp.
-     *  @return expression for current timestamp
+     *  現在の{@link java.sql.Timestamp}値を返す式を作ります。
+     *  @return 現在の{@link java.sql.Timestamp}値を返す式
      */	
     Expression<java.sql.Timestamp> currentTimestamp();
 
     /**
-     *  Create expression to return current time.
-     *  @return expression for current time
+     *  現在の{@link java.sql.Time}値を返す式を作ります。
+     *  @return 現在の{@link java.sql.Time}値を返す式
      */	
     Expression<java.sql.Time> currentTime();
 	
@@ -1168,7 +1160,7 @@ public interface CriteriaBuilder {
     //in builders:
 	
     /**
-     *  Interface used to build in predicates.
+     * in述語を構築するために使用されるインターフェースです。
      */
     public static interface In<T> extends Predicate {
 
