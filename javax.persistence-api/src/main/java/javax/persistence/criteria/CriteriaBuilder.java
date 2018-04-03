@@ -743,70 +743,65 @@ public interface CriteriaBuilder {
     //collection operations:
 	
     /**
-     *  Create a predicate that tests whether a collection is empty.
-     *  @param collection expression
-     *  @return is-empty predicate
+     * コレクションが空かどうかを検証するための述語を作ります。
+     *  @param collection 式
+     *  @return is-empty 述語
      */
     <C extends Collection<?>> Predicate isEmpty(Expression<C> collection);
 
     /**
-     *  Create a predicate that tests whether a collection is
-     *  not empty.
-     *  @param collection expression
-     *  @return is-not-empty predicate
+     *  コレクションが空でないかどうかを検証するための述語を作ります。
+     *  @param collection 式
+     *  @return is-not-empty 述語
      */
     <C extends Collection<?>> Predicate isNotEmpty(Expression<C> collection);
 
     /**
-     * Create an expression that tests the size of a collection.
-     * @param collection expression
-     * @return size expression
+     * コレクションのサイズを検証するための式を作ります。
+     * @param collection 式
+     * @return size 式
      */ 
     <C extends java.util.Collection<?>> Expression<Integer> size(Expression<C> collection);
 	
     /**
-     * Create an expression that tests the size of a collection.
-     * @param collection collection
-     * @return size expression
+     * コレクションのサイズを検証するための式を作ります。
+     * @param collection コレクション
+     * @return size 式
      */ 
     <C extends Collection<?>> Expression<Integer> size(C collection);
 	
     /**
-     *  Create a predicate that tests whether an element is
-     *  a member of a collection.
-     *  If the collection is empty, the predicate will be false.
-     *  @param elem element expression
-     *  @param collection expression
-     *  @return is-member predicate
+     * 要素がコレクションのメンバーかどうかを検証するための述語を作ります。
+     * コレクションが空の場合、述語はfalseを返します。
+     *  @param elem 要素式
+     *  @param collection 式
+     *  @return is-member述語
      */
     <E, C extends Collection<E>> Predicate isMember(Expression<E> elem, Expression<C> collection);
 
     /**
-     *  Create a predicate that tests whether an element is
-     *  a member of a collection.
-     *  If the collection is empty, the predicate will be false.
-     *  @param elem element
-     *  @param collection expression
-     *  @return is-member predicate
+     * 要素がコレクションのメンバーかどうかを検証するための述語を作ります。
+     * コレクションが空の場合、述語はfalseを返します。
+     *  @param elem 要素
+     *  @param collection 式
+     *  @return is-member 述語
      */
     <E, C extends Collection<E>> Predicate isMember(E elem, Expression<C> collection);
 
     /**
-     *  Create a predicate that tests whether an element is
-     *  not a member of a collection.
-     *  If the collection is empty, the predicate will be true.
-     *  @param elem element expression
-     *  @param collection expression
-     *  @return is-not-member predicate
+     * 要素がコレクションのメンバーでないかどうかを検証するための述語を作ります。
+     * コレクションが空の場合、述語はtrueを返します。
+     *  @param elem 要素式
+     *  @param collection 式
+     *  @return is-not-member 述語
      */
     <E, C extends Collection<E>> Predicate isNotMember(Expression<E> elem, Expression<C> collection);
 	
     /**
-     *  Create a predicate that tests whether an element is
-     *  not a member of a collection.
-     *  If the collection is empty, the predicate will be true.
-     *  @param elem element
-     *  @param collection expression
+     * 要素がコレクションのメンバーでないかどうかを検証するための述語を作ります。
+     * コレクションが空の場合、述語はtrueを返します。
+     *  @param elem 要素
+     *  @param collection 式
      *  @return is-not-member predicate
      */
     <E, C extends Collection<E>> Predicate isNotMember(E elem, Expression<C> collection);
@@ -816,16 +811,16 @@ public interface CriteriaBuilder {
     //be passed to size(), isMember(), isEmpty(), etc
 
     /**
-     * Create an expression that returns the values of a map.
+     * Mapの値を返す式を作ります。
      * @param map  map
-     * @return collection expression
+     * @return コレクション式
      */
     <V, M extends Map<?, V>> Expression<Collection<V>> values(M map);
 
     /**
-     * Create an expression that returns the keys of a map.
+     * Mapのキーを返す式を作ります。
      * @param map  map
-     * @return set expression
+     * @return set 式
      */
     <K, M extends Map<K, ?>> Expression<Set<K>> keys(M map);
 
@@ -833,142 +828,130 @@ public interface CriteriaBuilder {
     //string functions:
 	
     /**
-     * Create a predicate for testing whether the expression
-     * satisfies the given pattern.
-     * @param x  string expression
-     * @param pattern  string expression
-     * @return like predicate
+     * 式が与えられたパターンを満たすかどうかを検証する述語を作ります。
+     * @param x  文字列式
+     * @param pattern  文字列式
+     * @return like 述語
      */
     Predicate like(Expression<String> x, Expression<String> pattern);
 	
     /**
-     * Create a predicate for testing whether the expression
-     * satisfies the given pattern.
-     * @param x  string expression
-     * @param pattern  string 
-     * @return like predicate
+     * 式が与えられたパターンを満たすかどうかを検証する述語を作ります。
+     * @param x  文字列式
+     * @param pattern  文字列 
+     * @return like 述語
      */
     Predicate like(Expression<String> x, String pattern);
 	
     /**
-     * Create a predicate for testing whether the expression
-     * satisfies the given pattern.
-     * @param x  string expression
-     * @param pattern  string expression
-     * @param escapeChar  escape character expression
-     * @return like predicate
+     * 式が与えられたパターンを満たすかどうかを検証する述語を作ります。
+     * @param x  文字列式
+     * @param pattern  文字列式
+     * @param escapeChar  エスケープ文字式
+     * @return like 述語
      */
     Predicate like(Expression<String> x, Expression<String> pattern, Expression<Character> escapeChar);
 	
     /**
-     * Create a predicate for testing whether the expression
-     * satisfies the given pattern.
-     * @param x  string expression
-     * @param pattern  string expression
-     * @param escapeChar  escape character
-     * @return like predicate
+     * 式が与えられたパターンを満たすかどうかを検証する述語を作ります。
+     * @param x  文字列式
+     * @param pattern  文字列式
+     * @param escapeChar  エスケープ文字
+     * @return like 述語
      */
     Predicate like(Expression<String> x, Expression<String> pattern, char escapeChar);
 	
     /**
-     * Create a predicate for testing whether the expression
-     * satisfies the given pattern.
-     * @param x  string expression
-     * @param pattern  string 
-     * @param escapeChar  escape character expression
-     * @return like predicate
+     * 式が与えられたパターンを満たすかどうかを検証する述語を作ります。
+     * @param x  文字列式
+     * @param pattern  文字列 
+     * @param escapeChar  エスケープ文字式
+     * @return like 述語
      */
     Predicate like(Expression<String> x, String pattern, Expression<Character> escapeChar);
 
     /**
-     * Create a predicate for testing whether the expression
-     * satisfies the given pattern.
-     * @param x  string expression
-     * @param pattern  string 
-     * @param escapeChar  escape character
-     * @return like predicate
+     * 式が与えられたパターンを満たすかどうかを検証する述語を作ります。
+     * @param x  文字列式
+     * @param pattern  文字列 
+     * @param escapeChar  エスケープ文字
+     * @return like 述語
      */
     Predicate like(Expression<String> x, String pattern, char escapeChar);
 	
     /**
-     * Create a predicate for testing whether the expression
-     * does not satisfy the given pattern.
-     * @param x  string expression
-     * @param pattern  string expression
-     * @return not-like predicate
+     * 式が与えられたパターンを満たさないかどうかを検証する述語を作ります。
+     * @param x  文字列式
+     * @param pattern  文字列式
+     * @return not-like 述語
      */
     Predicate notLike(Expression<String> x, Expression<String> pattern);
 	
     /**
-     * Create a predicate for testing whether the expression
-     * does not satisfy the given pattern.
-     * @param x  string expression
-     * @param pattern  string 
-     * @return not-like predicate
+     * 式が与えられたパターンを満たさないかどうかを検証する述語を作ります。
+     * @param x  文字列式
+     * @param pattern  文字列 
+     * @return not-like 述語
      */
     Predicate notLike(Expression<String> x, String pattern);
 
     /**
-     * Create a predicate for testing whether the expression
-     * does not satisfy the given pattern.
-     * @param x  string expression
-     * @param pattern  string expression
-     * @param escapeChar  escape character expression
-     * @return not-like predicate
+     * 式が与えられたパターンを満たさないかどうかを検証する述語を作ります。
+     * @param x  文字列式
+     * @param pattern  文字列式
+     * @param escapeChar  エスケープ文字式
+     * @return not-like 述語
      */
     Predicate notLike(Expression<String> x, Expression<String> pattern, Expression<Character> escapeChar);
 
     /**
-     * Create a predicate for testing whether the expression
-     * does not satisfy the given pattern.
-     * @param x  string expression
-     * @param pattern  string expression
-     * @param escapeChar  escape character
-     * @return not-like predicate
+     * 式が与えられたパターンを満たさないかどうかを検証する述語を作ります。
+     * @param x  文字列式
+     * @param pattern  文字列式
+     * @param escapeChar  エスケープ文字
+     * @return not-like 述語
      */
     Predicate notLike(Expression<String> x, Expression<String> pattern, char escapeChar);
 
     /**
-     * Create a predicate for testing whether the expression
-     * does not satisfy the given pattern.
-     * @param x  string expression
-     * @param pattern  string 
-     * @param escapeChar  escape character expression
-     * @return not-like predicate
+     * 式が与えられたパターンを満たさないかどうかを検証する述語を作ります。
+     * @param x  文字列式
+     * @param pattern  文字列 
+     * @param escapeChar  エスケープ文字式
+     * @return not-like 述語
      */
     Predicate notLike(Expression<String> x, String pattern, Expression<Character> escapeChar);
 	
    /**
-     * Create a predicate for testing whether the expression
-     * does not satisfy the given pattern.
-     * @param x  string expression
-     * @param pattern  string 
-     * @param escapeChar  escape character
-     * @return not-like predicate
+     * 式が与えられたパターンを満たさないかどうかを検証する述語を作ります。
+     * @param x  文字列式
+     * @param pattern  文字列 
+     * @param escapeChar  エスケープ文字
+     * @return not-like 述語
      */
     Predicate notLike(Expression<String> x, String pattern, char escapeChar);
 
     /**
-     *  Create an expression for string concatenation.
-     *  @param x  string expression
-     *  @param y  string expression
-     *  @return expression corresponding to concatenation
+     * 文字列の結合のための式を作ります。
+     *  @param x  文字列式
+     *  @param y  文字列式
+     *  @return 結合に関連した式
      */
     Expression<String> concat(Expression<String> x, Expression<String> y);
 	
     /**
-     *  Create an expression for string concatenation.
-     *  @param x  string expression
-     *  @param y  string 
-     *  @return expression corresponding to concatenation
+     *  文字列の結合のための式を作ります。
+     *  @param x  文字列式
+     *  @param y  文字列 
+     *  @return 結合に関連した式
      */
     Expression<String> concat(Expression<String> x, String y);
 
     /**
-     *  Create an expression for string concatenation.
-     *  @param x  string 
-     *  @param y  string expression
-     *  @return expression corresponding to concatenation
+     *  文字列の結合のための式を作ります。
+     *  @param x  文字列 
+     *  @param y  文字列式
+     *  @return 結合に関連した式
      */
     Expression<String> concat(String x, Expression<String> y);
 	
@@ -977,7 +960,7 @@ public interface CriteriaBuilder {
      *  Extracts a substring starting at the specified position
      *  through to end of the string.
      *  First position is 1.
-     *  @param x  string expression
+     *  @param x  文字列式
      *  @param from  start position expression 
      *  @return expression corresponding to substring extraction
      */
@@ -988,7 +971,7 @@ public interface CriteriaBuilder {
      *  Extracts a substring starting at the specified position
      *  through to end of the string.
      *  First position is 1.
-     *  @param x  string expression
+     *  @param x  文字列式
      *  @param from  start position 
      *  @return expression corresponding to substring extraction
      */
@@ -999,7 +982,7 @@ public interface CriteriaBuilder {
      *  Extracts a substring of given length starting at the
      *  specified position.
      *  First position is 1.
-     *  @param x  string expression
+     *  @param x  文字列式
      *  @param from  start position expression 
      *  @param len  length expression
      *  @return expression corresponding to substring extraction
@@ -1011,7 +994,7 @@ public interface CriteriaBuilder {
      *  Extracts a substring of given length starting at the
      *  specified position.
      *  First position is 1.
-     *  @param x  string expression
+     *  @param x  文字列式
      *  @param from  start position 
      *  @param len  length
      *  @return expression corresponding to substring extraction
@@ -1093,21 +1076,21 @@ public interface CriteriaBuilder {
 	
     /**
      * Create expression for converting a string to lowercase.
-     * @param x  string expression
+     * @param x  文字列式
      * @return expression to convert to lowercase
      */
     Expression<String> lower(Expression<String> x);
 	
     /**
      * Create expression for converting a string to uppercase.
-     * @param x  string expression
+     * @param x  文字列式
      * @return expression to convert to uppercase
      */
     Expression<String> upper(Expression<String> x);
 	
     /**
      * Create expression to return length of a string.
-     * @param x  string expression
+     * @param x  文字列式
      * @return length expression
      */
     Expression<Integer> length(Expression<String> x);
@@ -1360,32 +1343,32 @@ public interface CriteriaBuilder {
     public static interface Case<R> extends Expression<R> {
 
 		/**
-		 * Add a when/then clause to the case expression.
-		 * @param condition  "when" condition
-		 * @param result  "then" result value
-		 * @return general case expression
+		 * case式にwhen/then句を追加します。
+		 * @param condition  "when" 条件
+		 * @param result  "then"結果式
+		 * @return 一般的なcase式
 		 */
 		Case<R> when(Expression<Boolean> condition, R result);
 
 		/**
-		 * Add a when/then clause to the case expression.
-		 * @param condition  "when" condition
-		 * @param result  "then" result expression
-		 * @return general case expression
+         * case式にwhen/then句を追加します。
+		 * @param condition  "when" 条件
+		 * @param result  "then"結果式
+		 * @return 一般的なcase式
 		 */
 		Case<R> when(Expression<Boolean> condition, Expression<? extends R> result);
 
 		/**
-		 * Add an "else" clause to the case expression.
-		 * @param result  "else" result
-		 * @return expression
+		 * case式に"else"句を追加します。
+		 * @param result  "else" 結果
+		 * @return 式
 		 */
 		Expression<R> otherwise(R result);
 
 		/**
-		 * Add an "else" clause to the case expression.
-		 * @param result  "else" result expression
-		 * @return expression
+         * case式に"else"句を追加します。
+		 * @param result  "else" 結果式
+		 * @return 式
 		 */
 		Expression<R> otherwise(Expression<? extends R> result);
 	}
