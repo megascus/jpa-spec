@@ -956,142 +956,139 @@ public interface CriteriaBuilder {
     Expression<String> concat(String x, Expression<String> y);
 	
     /**
-     *  Create an expression for substring extraction.
-     *  Extracts a substring starting at the specified position
-     *  through to end of the string.
-     *  First position is 1.
+     * 部分文字列を取り出すための式を作ります。
+     * 
+     * 部分文字列は指定された位置から文字列の最後までを取り出されます。
+     * 最初の位置は1です。
      *  @param x  文字列式
-     *  @param from  start position expression 
-     *  @return expression corresponding to substring extraction
+     *  @param from  開始位置式
+     *  @return 部分文字列の抽出に関連した式
      */
     Expression<String> substring(Expression<String> x, Expression<Integer> from);
 	
     /**
-     *  Create an expression for substring extraction.
-     *  Extracts a substring starting at the specified position
-     *  through to end of the string.
-     *  First position is 1.
+     * 部分文字列を取り出すための式を作ります。
+     * 
+     * 部分文字列は指定された位置から文字列の最後までを取り出されます。
+     * 最初の位置は1です。
      *  @param x  文字列式
-     *  @param from  start position 
-     *  @return expression corresponding to substring extraction
+     *  @param from  開始位置
+     *  @return 部分文字列の抽出に関連した式
      */
     Expression<String> substring(Expression<String> x, int from);
 
     /**
-     *  Create an expression for substring extraction.
-     *  Extracts a substring of given length starting at the
-     *  specified position.
-     *  First position is 1.
+     * 部分文字列を取り出すための式を作ります。
+     * 
+     * 部分文字列は指定された位置から与えられた長さだけ取り出されます。
+     * 最初の位置は1です。
      *  @param x  文字列式
-     *  @param from  start position expression 
-     *  @param len  length expression
-     *  @return expression corresponding to substring extraction
+     *  @param from  開始位置式
+     *  @param len  長さ式
+     *  @return 部分文字列の抽出に関連した式
      */
     Expression<String> substring(Expression<String> x, Expression<Integer> from, Expression<Integer> len);
 	
     /**
-     *  Create an expression for substring extraction.
-     *  Extracts a substring of given length starting at the
-     *  specified position.
-     *  First position is 1.
+     * 部分文字列を取り出すための式を作ります。
+     * 
+     * 部分文字列は指定された位置から与えられた長さだけ取り出されます。
+     * 最初の位置は1です。
      *  @param x  文字列式
-     *  @param from  start position 
-     *  @param len  length
-     *  @return expression corresponding to substring extraction
+     *  @param from  開始位置 
+     *  @param len  長さ
+     *  @return 部分文字列の抽出に関連した式
      */
     Expression<String> substring(Expression<String> x, int from, int len);
 	
     /**
-     *  Used to specify how strings are trimmed.
+     * 文字列をどのようにトリミングするかを指定するのに使われます。
      */
     public static enum Trimspec { 
 
         /**
-         * Trim from leading end.
+         * 先端からトリミングします。
          */
         LEADING,
  
         /**
-         * Trim from trailing end.
+         * 終端からトリミングします。
          */
         TRAILING, 
 
         /**
-         * Trim from both ends.
+         * 両端からトリミングします。
          */
         BOTH 
     }
 	
     /**
-     * Create expression to trim blanks from both ends of
-     * a string.
-     * @param x  expression for string to trim
-     * @return trim expression
+     * 文字列の両端から空白をトリミングする(取り除く)ための式を作ります。
+     * @param x  文字列をトリミングされる式
+     * @return trim 式
      */
     Expression<String> trim(Expression<String> x);
 	
     /**
-     * Create expression to trim blanks from a string.
-     * @param ts  trim specification
-     * @param x  expression for string to trim
-     * @return trim expression
+     * 文字列から空白をトリミングする(取り除く)ための式を作ります。
+     * @param ts  トリム仕様
+     * @param x  文字列をトリミングされる式
+     * @return trim 式
      */
     Expression<String> trim(Trimspec ts, Expression<String> x);
 
     /**
-     * Create expression to trim character from both ends of
-     * a string.
-     * @param t  expression for character to be trimmed
-     * @param x  expression for string to trim
-     * @return trim expression
+     * 文字列の両端から文字列をトリミングする(取り除く)ための式を作ります。
+     * @param t  取り除かれる文字を表す式
+     * @param x  文字列をトリミングされる式
+     * @return trim 式
      */
     Expression<String> trim(Expression<Character> t, Expression<String> x);
 
     /**
-     * Create expression to trim character from a string.
-     * @param ts  trim specification
-     * @param t  expression for character to be trimmed
-     * @param x  expression for string to trim
-     * @return trim expression
+     * 文字列から文字列をトリミングする(取り除く)ための式を作ります。
+     * @param ts  トリム仕様
+     * @param t  取り除かれる文字を表す式
+     * @param x  文字列をトリミングされる式
+     * @return trim 式
      */
     Expression<String> trim(Trimspec ts, Expression<Character> t, Expression<String> x);
 	
     /**
-     * Create expression to trim character from both ends of
-     * a string.
-     * @param t  character to be trimmed
-     * @param x  expression for string to trim
-     * @return trim expression
+     * 文字列の両端から文字列をトリミングする(取り除く)ための式を作ります。
+     * @param t  取り除かれる文字
+     * @param x  文字列をトリミングされる式
+     * @return trim 式
      */
     Expression<String> trim(char t, Expression<String> x);
 	
     /**
-     * Create expression to trim character from a string.
-     * @param ts  trim specification
-     * @param t  character to be trimmed
-     * @param x  expression for string to trim
-     * @return trim expression
+     * 文字列から文字列をトリミングする(取り除く)ための式を作ります。
+     * @param ts  トリム仕様
+     * @param t  取り除かれる文字
+     * @param x  文字列をトリミングされる式
+     * @return trim 式
      */
     Expression<String> trim(Trimspec ts, char t, Expression<String> x);
 	
     /**
-     * Create expression for converting a string to lowercase.
+     * 文字列を小文字に変換するための式を作ります。
      * @param x  文字列式
-     * @return expression to convert to lowercase
+     * @return 小文字に変換する式
      */
     Expression<String> lower(Expression<String> x);
 	
     /**
-     * Create expression for converting a string to uppercase.
+     * 文字列を大文字に変換するための式を作ります。
      * @param x  文字列式
-     * @return expression to convert to uppercase
+     * @return 大文字に変換する式
      */
     Expression<String> upper(Expression<String> x);
 	
     /**
-     * Create expression to return length of a string.
+     * 文字列の長さを返す式を作ります。
      * @param x  文字列式
-     * @return length expression
+     * @return length 式
      */
     Expression<Integer> length(Expression<String> x);
 	
