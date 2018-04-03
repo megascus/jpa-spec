@@ -1165,6 +1165,7 @@ public interface CriteriaBuilder {
     public static interface In<T> extends Predicate {
 
          /**
+          * 値の一覧に対して検証される式を返します。
           * Return the expression to be tested against the
           * list of values.
           * @return expression
@@ -1172,25 +1173,24 @@ public interface CriteriaBuilder {
          Expression<T> getExpression();
 	
          /**
-          *  Add to list of values to be tested against.
-          *  @param value value
-          *  @return in predicate
+          * 検証される対象の値の一覧に追加します。
+          *  @param value 値
+          *  @return in述語
           */
          In<T> value(T value);
 
          /**
-          *  Add to list of values to be tested against.
-          *  @param value expression
-          *  @return in predicate
+          *  検証される対象の値の一覧に追加します。
+          *  @param value 式
+          *  @return in述語
           */
          In<T> value(Expression<? extends T> value);
      }
 	
     /**
-     *  Create predicate to test whether given expression
-     *  is contained in a list of values.
-     *  @param  expression to be tested against list of values
-     *  @return  in predicate
+     * 与えられた式が値の一覧に含まれているかどうかを検証する述語を作ります。
+     *  @param  expression 値の一覧に対して検証される式
+     *  @return  in述語
      */
     <T> In<T> in(Expression<? extends T> expression);
 	
@@ -1198,42 +1198,34 @@ public interface CriteriaBuilder {
     // coalesce, nullif:
 
     /**
-     * Create an expression that returns null if all its arguments
-     * evaluate to null, and the value of the first non-null argument
-     * otherwise.
+     * すべての引数がnullに評価される場合はnullを返し、そうでない場合は最初の非null引数の値を返す式を作成します。
      * @param x 式
      * @param y 式
-     * @return coalesce expression
+     * @return coalesce式
      */
     <Y> Expression<Y> coalesce(Expression<? extends Y> x, Expression<? extends Y> y);
 
     /**
-     * Create an expression that returns null if all its arguments
-     * evaluate to null, and the value of the first non-null argument
-     * otherwise.
+     * すべての引数がnullに評価される場合はnullを返し、そうでない場合は最初の非null引数の値を返す式を作成します。
      * @param x 式
      * @param y 値
-     * @return coalesce expression
+     * @return coalesce式
      */
     <Y> Expression<Y> coalesce(Expression<? extends Y> x, Y y);
     
     /**
-     * Create an expression that tests whether its argument are
-     * equal, returning null if they are and the value of the
-     * first expression if they are not.
+     * 引数が等しいかどうかを検証し、等しい場合はnullを返し、そうでない場合は最初の式の値を返します。
      * @param x 式
      * @param y 式
-     * @return nullif expression
+     * @return nullif式
      */
     <Y> Expression<Y> nullif(Expression<Y> x, Expression<?> y);
 
     /**
-     * Create an expression that tests whether its argument are
-     * equal, returning null if they are and the value of the
-     * first expression if they are not.
+     * 引数が等しいかどうかを検証し、等しい場合はnullを返し、そうでない場合は最初の式の値を返します。
      * @param x 式
      * @param y 値
-     * @return nullif expression 
+     * @return nullif式
      */
     <Y> Expression<Y> nullif(Expression<Y> x, Y y);
 
@@ -1243,7 +1235,7 @@ public interface CriteriaBuilder {
     /**
      * coalesce式を構築するために使用されるインターフェースです。
      * 
-     * coalesce式はすべての引数を評価したときにnullである場合はnullを返し、
+     * coalesce式はすべての引数がnullに評価される場合はnullを返し、
      * そうでない場合は最初の非null引数の値を返すcase式と等価です。
      */
     public static interface Coalesce<T> extends Expression<T> {
