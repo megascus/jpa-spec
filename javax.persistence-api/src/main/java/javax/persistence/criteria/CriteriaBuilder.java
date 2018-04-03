@@ -1249,32 +1249,31 @@ public interface CriteriaBuilder {
     // coalesce builder:
 
     /**
-     *  Interface used to build coalesce expressions.  
-     *   
-     * A coalesce expression is equivalent to a case expression
-     * that returns null if all its arguments evaluate to null,
-     * and the value of its first non-null argument otherwise.
+     * coalesce式を構築するために使用されるインターフェースです。
+     * 
+     * coalesce式はすべての引数を評価したときにnullである場合はnullを返し、
+     * そうでない場合は最初の非null引数の値を返すcase式と等価です。
      */
     public static interface Coalesce<T> extends Expression<T> {
 
          /**
-          * Add an argument to the coalesce expression.
-          * @param value  value
-          * @return coalesce expression
+          * coalesce式に引数を追加します。
+          * @param value  値
+          * @return coalesce式
           */
          Coalesce<T> value(T value);
 
          /**
-          * Add an argument to the coalesce expression.
-          * @param value expression
-          * @return coalesce expression
+          * coalesce式に引数を追加します。
+          * @param value 式
+          * @return coalesce式
           */
          Coalesce<T> value(Expression<? extends T> value);
 	}
 	
     /**
-     * Create a coalesce expression.
-     * @return coalesce expression
+     * coalesce式を作ります。
+     * @return coalesce式
      */
     <T> Coalesce<T> coalesce();
 
@@ -1282,53 +1281,52 @@ public interface CriteriaBuilder {
     //case builders:
 
     /**
-     *  簡単なcase式を構築するために使用するインターフェースです。
+     *  単純なcase式を構築するために使用するインターフェースです。
      *  case式の条件は指定された順番で評価されます。
      */
     public static interface SimpleCase<C,R> extends Expression<R> {
 
 		/**
-		 * Return the expression to be tested against the
-		 * conditions.
-		 * @return expression
+         * 条件に対して検証される式を返します。
+		 * @return 式
 		 */
 		Expression<C> getExpression();
 
 		/**
-		 * Add a when/then clause to the case expression.
-		 * @param condition  "when" condition
-		 * @param result  "then" result value
-		 * @return simple case expression
+		 * case式にwhen/then句を追加します。
+		 * @param condition  "when" 条件
+		 * @param result  "then"結果の値
+		 * @return 単純なcase式
 		 */
 		SimpleCase<C, R> when(C condition, R result);
 
 		/**
-		 * Add a when/then clause to the case expression.
-		 * @param condition  "when" condition
-		 * @param result  "then" result expression
-		 * @return simple case expression
+		 * case式にwhen/then句を追加します。
+		 * @param condition  "when" 条件
+		 * @param result  "then"結果式
+		 * @return 単純なcase式
 		 */
 		SimpleCase<C, R> when(C condition, Expression<? extends R> result);
 
 		/**
-		 * Add an "else" clause to the case expression.
-		 * @param result  "else" result
-		 * @return expression
+		 * case式に"else"句を追加します。
+		 * @param result  "else" 結果
+		 * @return 式
 		 */
 		Expression<R> otherwise(R result);
 
 		/**
-		 * Add an "else" clause to the case expression.
-		 * @param result  "else" result expression
-		 * @return expression
+		 * case式に"else"句を追加します。
+		 * @param result  "else" 結果式
+		 * @return 式
 		 */
 		Expression<R> otherwise(Expression<? extends R> result);
 	}
 	
     /**
-     *  簡単なcase式を作成します。
-     *  @param expression  to be tested against the case conditions
-     *  @return simple case expression
+     *  単純なcase式を作成します。
+     *  @param expression  case条件に対して検証される式
+     *  @return 単純なcase式
      */
     <C, R> SimpleCase<C,R> selectCase(Expression<? extends C> expression);
 
@@ -1342,7 +1340,7 @@ public interface CriteriaBuilder {
 		/**
 		 * case式にwhen/then句を追加します。
 		 * @param condition  "when" 条件
-		 * @param result  "then"結果式
+		 * @param result  "then"結果の値
 		 * @return 一般的なcase式
 		 */
 		Case<R> when(Expression<Boolean> condition, R result);
