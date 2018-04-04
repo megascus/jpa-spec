@@ -16,16 +16,12 @@
 package javax.persistence.criteria;
 
 /**
- * The <code>CommonAbstractCriteria</code> interface defines functionality 
- * that is common to both top-level criteria queries and subqueries as 
- * well as to update and delete criteria operations.
- * It is not intended to be used directly in query construction.
+ * <code>CommonAbstractCriteria</code>インターフェースはトップレベルのクライテリアクエリーとサブクエリーの両方だけではなく更新と削除のクライテリア処理にも同様に共通な機能を定義します。
+ * これはクエリーの構築に直接使用するためのものではありません。
  *
- * <p> Note that criteria queries and criteria update and delete operations
- * are typed differently.
- * Criteria queries are typed according to the query result type.
- * Update and delete operations are typed according to the target of the
- * update or delete.
+ * <p> クライテリアクエリーと更新クライテリアおよび削除クライテリア操作の入力方法は異なることに注意してください。
+ * クライテリアクエリーはクエリー結果型に従って入力されます。
+ * 更新または削除操作は更新または削除の対象に応じて入力されます。
  *
  * @since Java Persistence 2.1
  */
