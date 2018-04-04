@@ -32,17 +32,17 @@ package javax.persistence.criteria;
 public interface CommonAbstractCriteria {
 
     /**
-     * Create a subquery of the query. 
-     * @param type  the subquery result type
-     * @return subquery 
+     * クエリーのサブクエリーを作ります。
+     * @param type  サブクエリーの結果型
+     * @return サブクエリー
      */
     <U> Subquery<U> subquery(Class<U> type);
 
     /**
-     * Return the predicate that corresponds to the where clause
-     * restriction(s), or null if no restrictions have been
-     * specified.
-     * @return where clause predicate
+     * where句の制限に対応する述語を返します。
+     * 
+     * 制限が指定されていない場合はnullを返します。
+     * @return where句述語
      */
     Predicate getRestriction();
  
