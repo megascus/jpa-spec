@@ -16,10 +16,9 @@
 package javax.persistence.criteria;
 
 /**
- * The <code>CompoundSelection</code> interface defines a compound selection item
- * (tuple, array, or result of constructor).
+ * <code>CompoundSelection</code>は複合選択項目(tupleや配列、コンストラクタの結果)を定義します。
  *
- * @param <X> the type of the selection item
+ * @param <X> 選択項目の型
  *
  * @since Java Persistence 2.0
  */
