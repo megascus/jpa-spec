@@ -20,14 +20,12 @@ import java.util.Set;
 import javax.persistence.metamodel.EntityType;
 
 /**
- * The <code>AbstractQuery</code> interface defines functionality that is common
- * to both top-level queries and subqueries.
- * It is not intended to be used directly in query construction.
- *
- * <p> All queries must have:
- *         a set of root entities (which may in turn own joins).
- * <p> All queries may have:
- *         a conjunction of restrictions.
+ * <code>AbstractQuery</code>インターフェースはトップレベルのクエリーとサブクエリーの両方に共通な機能を定義します。
+ * 
+ * これはクエリーの構築に直接使用するためのものではありません。
+ * 
+ * <p> すべてのクエリーは(joinを所有している可能性のある)ルートエンティティを持つ必要があります。
+ * <p> すべてのクエリーは制限の論理積を持つ可能性があります。
  *
  * @param <T>  the type of the result
  *
@@ -36,94 +34,84 @@ import javax.persistence.metamodel.EntityType;
 public interface AbstractQuery<T> extends CommonAbstractCriteria {
 
     /**
-     * Create and add a query root corresponding to the given entity,
-     * forming a cartesian product with any existing roots.
-     * @param entityClass  the entity class
-     * @return query root corresponding to the given entity
+     * 指定されたエンティティに対応するクエリールートを作成して追加し、既存のルートとのデカルト積を作成します。
+     * @param entityClass  エンティティクラス
+     * @return 指定されたエンティティに対応するクエリールート
      */
     <X> Root<X> from(Class<X> entityClass);
 
     /**
-     * Create and add a query root corresponding to the given entity,
-     * forming a cartesian product with any existing roots.
-     * @param entity  metamodel entity representing the entity
-     *                of type X
-     * @return query root corresponding to the given entity
+     * 指定されたエンティティに対応するクエリールートを作成して追加し、既存のルートとのデカルト積を作成します。
+     * @param entity  タイプ X のエンティティに対応するメタモデルエンティティ
+     * @return 指定されたエンティティに対応するクエリールート
      */
     <X> Root<X> from(EntityType<X> entity);
 
     /**
-     * Modify the query to restrict the query results according
-     * to the specified boolean expression.
-     * Replaces the previously added restriction(s), if any.
-     * @param restriction  a simple or compound boolean expression
-     * @return the modified query
+     * 指定されたブール式に従ってクエリ結果を制限するようにクエリを変更します。
+     * 
+     * 以前に追加された制限があれば置き換えます。
+     * @param restriction  単純な、もしくは複合したブール式
+     * @return 変更されたクエリー
      */    
     AbstractQuery<T> where(Expression<Boolean> restriction);
 
     /**
-     * Modify the query to restrict the query results according 
-     * to the conjunction of the specified restriction predicates.
-     * Replaces the previously added restriction(s), if any.
-     * If no restrictions are specified, any previously added
-     * restrictions are simply removed.
-     * @param restrictions  zero or more restriction predicates
-     * @return the modified query
+     * 指定されたブール式に従ってクエリ結果を制限するようにクエリを変更します。
+     * 
+     * 以前に追加された制限があれば置き換えます。
+     * 制限が指定されていない場合は以前に追加された制限は単純に削除されます。
+     * @param restrictions  0個以上の制限の述語
+     * @return 変更されたクエリー
      */
     AbstractQuery<T> where(Predicate... restrictions);
 
     /**
-     * Specify the expressions that are used to form groups over
-     * the query results.
-     * Replaces the previous specified grouping expressions, if any.
-     * If no grouping expressions are specified, any previously 
-     * added grouping expressions are simply removed.
-     * @param grouping  zero or more grouping expressions
-     * @return the modified query
+     * クエリーの結果に対してグループを形成するために使用される式を指定します。
+     * 
+     * 以前に追加されたグループ化式があれば置き換えます。
+     * グループ化式が指定されていない場合は以前に追加されたグループ化式は単純に削除されます。
+     * @param grouping  0個以上のグループ化式
+     * @return 変更されたクエリー
      */
     AbstractQuery<T> groupBy(Expression<?>... grouping);
 
     /**
-     * Specify the expressions that are used to form groups over
-     * the query results.
-     * Replaces the previous specified grouping expressions, if any.
-     * If no grouping expressions are specified, any previously 
-     * added grouping expressions are simply removed.
-     * @param grouping  list of zero or more grouping expressions
-     * @return the modified query
+     * クエリーの結果に対してグループを形成するために使用される式を指定します。
+     * 
+     * 以前に追加されたグループ化式があれば置き換えます。
+     * グループ化式が指定されていない場合は以前に追加されたグループ化式は単純に削除されます。
+     * @param grouping  0個以上のグループ化式の一覧
+     * @return 変更されたクエリー
      */
     AbstractQuery<T> groupBy(List<Expression<?>> grouping);
 
     /**
-     * Specify a restriction over the groups of the query.
-     * Replaces the previous having restriction(s), if any.
-     * @param restriction  a simple or compound boolean expression
-     * @return the modified query
+     * クエリーのグループに対する制限を指定します。
+     * 
+     * 以前に追加された制限があれば置き換えます。
+     * @param restriction  単純な、もしくは複合したブール式
+     * @return 変更されたクエリー
      */
     AbstractQuery<T> having(Expression<Boolean> restriction);
 
     /**
-     * Specify restrictions over the groups of the query
-     * according the conjunction of the specified restriction 
-     * predicates.
-     * Replaces the previously having added restriction(s), if any.
-     * If no restrictions are specified, any previously added
-     * restrictions are simply removed.
-     * @param restrictions  zero or more restriction predicates
-     * @return the modified query
+     * 指定された制限述語の結合に従ってクエリーのグループに対する制限を指定します。
+     *
+     * 以前に追加された制限があれば置き換えます。
+     * 制限が指定されていない場合は以前に追加された制限は単純に削除されます。
+     * @param restrictions  0個以上の制限の述語
+     * @return 変更されたクエリー
      */
     AbstractQuery<T> having(Predicate... restrictions);
 
     /**
-     * Specify whether duplicate query results will be eliminated.
-     * A true value will cause duplicates to be eliminated.
-     * A false value will cause duplicates to be retained.
-     * If distinct has not been specified, duplicate results must
-     * be retained.
-     * @param distinct  boolean value specifying whether duplicate
-     *        results must be eliminated from the query result or
-     *        whether they must be retained
-     * @return the modified query
+     * 重複するクエリーの結果を除去するかどうかを指定します。
+     * 
+     * trueの値は重複を排除します。falseの値を指定すると重複が保持されます。
+     * distinctが指定されていない場合は重複した結果を保持する必要があります。
+     * @param distinct  クエリーの結果から重複結果を除去する必要があるかどうか、もしくは保持する必要があるかどうかを指定するブール値
+     * @return 変更されたクエリー
      */
     AbstractQuery<T> distinct(boolean distinct);
 
@@ -133,14 +121,13 @@ public interface AbstractQuery<T> extends CommonAbstractCriteria {
      * including any subquery roots defined as a result of
      * correlation. Returns empty set if no roots have been defined.
      * Modifications to the set do not affect the query.
-     * @return the set of query roots
+     * @return クエリールートのSet
      */   
     Set<Root<?>> getRoots();
 
     /**
-     *  Return the selection of the query, or null if no selection
-     *  has been set.
-     *  @return selection item 
+     * クエリーの{@link Selection}を返します。{@link Selection}が設定されていない場合はnullを返します。
+     *  @return 選択項目
      */
     Selection<T> getSelection();
 
@@ -148,7 +135,7 @@ public interface AbstractQuery<T> extends CommonAbstractCriteria {
      * Return a list of the grouping expressions.  Returns empty
      * list if no grouping expressions have been specified.
      * Modifications to the list do not affect the query.
-     * @return the list of grouping expressions
+     * @return grouping式のList
      */
     List<Expression<?>> getGroupList();
 
@@ -156,7 +143,7 @@ public interface AbstractQuery<T> extends CommonAbstractCriteria {
      * Return the predicate that corresponds to the restriction(s)
      * over the grouping items, or null if no restrictions have 
      * been specified.
-     * @return having clause predicate
+     * @return having句述語
      */
     Predicate getGroupRestriction();
 
@@ -176,7 +163,7 @@ public interface AbstractQuery<T> extends CommonAbstractCriteria {
      * <code>createTupleQuery</code> method, the result type is
      * <code>Tuple</code>.  Otherwise, the result type is
      * <code>Object</code>.
-     * @return result type
+     * @return 結果型
      */
     Class<T> getResultType();  	
 }
