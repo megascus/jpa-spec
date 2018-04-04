@@ -87,7 +87,7 @@ public interface AbstractQuery<T> extends CommonAbstractCriteria {
     AbstractQuery<T> groupBy(List<Expression<?>> grouping);
 
     /**
-     * クエリーのグループに対する制限を指定します。
+     * クエリーのグループに対応する制限を指定します。
      * 
      * 以前に追加された制限があれば置き換えます。
      * @param restriction  単純な、もしくは複合したブール式
@@ -96,7 +96,7 @@ public interface AbstractQuery<T> extends CommonAbstractCriteria {
     AbstractQuery<T> having(Expression<Boolean> restriction);
 
     /**
-     * 指定された制限述語の結合に従ってクエリーのグループに対する制限を指定します。
+     * 指定された制限述語の結合に従ってクエリーのグループに対応する制限を指定します。
      *
      * 以前に追加された制限があれば置き換えます。
      * 制限が指定されていない場合は以前に追加された制限は単純に削除されます。
@@ -116,11 +116,11 @@ public interface AbstractQuery<T> extends CommonAbstractCriteria {
     AbstractQuery<T> distinct(boolean distinct);
 
     /**
-     * Return the query roots.  These are the roots that have
-     * been defined for the <code>CriteriaQuery</code> or <code>Subquery</code> itself,
-     * including any subquery roots defined as a result of
-     * correlation. Returns empty set if no roots have been defined.
-     * Modifications to the set do not affect the query.
+     * クエリールートを返します。
+     * 
+     * 相関の結果として定義されたサブクエリールートを含む<code>CriteriaQuery</code>や<code>Subquery</code>自身で定義されたルートです。
+     * いかなるルートも定義されていない場合は空のSetが返されます。
+     * そのSetへの変更はクエリーには影響を与えません。
      * @return クエリールートのSet
      */   
     Set<Root<?>> getRoots();
@@ -132,38 +132,32 @@ public interface AbstractQuery<T> extends CommonAbstractCriteria {
     Selection<T> getSelection();
 
     /**
-     * Return a list of the grouping expressions.  Returns empty
-     * list if no grouping expressions have been specified.
-     * Modifications to the list do not affect the query.
-     * @return grouping式のList
+     * グループ化式のListを返します。
+     * 
+     * グループ化式が指定されていない場合は空のListを返します。
+     * そのListへの変更はクエリーには影響を与えません。
+     * @return グループ化式のList
      */
     List<Expression<?>> getGroupList();
 
     /**
-     * Return the predicate that corresponds to the restriction(s)
-     * over the grouping items, or null if no restrictions have 
-     * been specified.
+     * グループ化項目に対応する制限に対応する述語を返します。制限が指定されていない場合はnullを返します。
      * @return having句述語
      */
     Predicate getGroupRestriction();
 
     /**
-     * Return whether duplicate query results must be eliminated or
-     * retained.
-     * @return boolean indicating whether duplicate query results 
-     *         must be eliminated
+     * 重複するクエリーの結果を除去または保持する必要があるかどうかを戻します。
+     * @return 重複するクエリーの結果を削除する必要があるかどうかを示すブール値
      */
     boolean isDistinct();
 
     /**
-     * Return the result type of the query or subquery.  If a result
-     * type was specified as an argument to the
-     * <code>createQuery</code> or <code>subquery</code> method, that
-     * type will be returned.  If the query was created using the
-     * <code>createTupleQuery</code> method, the result type is
-     * <code>Tuple</code>.  Otherwise, the result type is
-     * <code>Object</code>.
-     * @return 結果型
+     * クエリーもしくはサブクエリーの結果の型を返します。
+     * 結果の型が<code>createQuery</code>もしくは<code>subquery</code>メソッドの引数として指定されている場合はその型が戻されます。
+     * クエリーが<code>createTupleQuery</code>メソッドで作られている場合は結果の型は<code>Tuple</code>になります。
+     * そうでない場合は<code>Object</code>です。
+     * @return 結果の型
      */
     Class<T> getResultType();  	
 }
