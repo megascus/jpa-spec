@@ -17,16 +17,14 @@ package javax.persistence.criteria;
 import javax.persistence.metamodel.EntityType;
 
 /**
- * The <code>CriteriaDelete</code> interface defines functionality for performing
- * bulk delete operations using the Criteria API
+ * <code>CriteriaDelete</code>インターフェイスはCriteria APIを使用して一括削除操作を実行するための機能を定義します。
  *
- * <p>Criteria API bulk delete operations map directly to database 
- * delete operations.  The persistence context is not synchronized 
- * with the result of the bulk delete.
+ * <p>Criteria APIの一括削除操作はデータベースの削除操作に直接対応します。
+ * 永続化コンテキストは一括削除の結果と同期化されません。
  *
- * <p> A <code>CriteriaDelete</code> object must have a single root.
+ * <p> <code>CriteriaDelete</code>オブジェクトは必ず単一のルートのみを持ちます。
  *
- * @param <T>  the entity type that is the target of the delete
+ * @param <T>  削除される対象のエンティティ型
  *
  * @since Java Persistence 2.1
  */
@@ -34,29 +32,26 @@ public interface CriteriaDelete<T> extends CommonAbstractCriteria {
 
 
     /**
-     * Create and add a query root corresponding to the entity
-     * that is the target of the delete.
-     * A <code>CriteriaDelete</code> object has a single root, the entity that 
-     * is being deleted.
-     * @param entityClass  the entity class
-     * @return query root corresponding to the given entity
+     * 削除の対象となるエンティティに対応するクエリールートを作成して追加します。
+     * 
+     * <code>CriteriaDelete</code>オブジェクトは削除されるエンティティを示す単一のルートのみを持ちます。
+     * @param entityClass  エンティティクラス
+     * @return 与えられたエンティティに対応するクエリールート
      */
     Root<T> from(Class<T> entityClass);
 
     /**
-     * Create and add a query root corresponding to the entity
-     * that is the target of the delete.
-     * A <code>CriteriaDelete</code> object has a single root, the entity that 
-     * is being deleted.
-     * @param entity  metamodel entity representing the entity
-     *                of type X
-     * @return query root corresponding to the given entity
+     * 削除の対象となるエンティティに対応するクエリールートを作成して追加します。
+     * 
+     * <code>CriteriaDelete</code>オブジェクトは削除されるエンティティを示す単一のルートのみを持ちます。
+     * @param entity  タイプ T のエンティティに対応するメタモデルエンティティ
+     * @return 与えられたエンティティに対応するクエリールート
      */
     Root<T> from(EntityType<T> entity);
 
    /**
-    * Return the query root.
-    * @return the query root
+    * クエリールートを返します。
+    * @return クエリールート
     */
    Root<T> getRoot();
 
