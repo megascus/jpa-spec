@@ -295,19 +295,20 @@ public interface CriteriaQuery<T> extends AbstractQuery<T> {
     CriteriaQuery<T> distinct(boolean distinct);
     
     /**
-     * Return the ordering expressions in order of precedence.
-     * Returns empty list if no ordering expressions have been
-     * specified.
-     * Modifications to the list do not affect the query.
-     * @return the list of ordering expressions
+     * 優先順位に従って順序付け式を返します。
+     * 
+     * 順序付け式が指定されていない場合は空のListを返します。
+     * そのListへの変更はクエリーには影響を与えません。
+     * @return 順序付け式のList
      */
     List<Order> getOrderList();
  
     /**
-     * Return the parameters of the query.  Returns empty set if
-     * there are no parameters.
-     * Modifications to the set do not affect the query.
-     * @return the query parameters
+     * クエリーのパラメーターを返します。
+     * 
+     * パラメーターが存在しない場合は空のSetを返します。
+     * そのSetへの変更はクエリーには影響を与えません。
+     * @return クエリーのパラメーター
      */
     Set<ParameterExpression<?>> getParameters();
 }
