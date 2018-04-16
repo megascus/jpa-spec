@@ -56,23 +56,21 @@ public interface CriteriaDelete<T> extends CommonAbstractCriteria {
    Root<T> getRoot();
 
     /**
-     * Modify the delete query to restrict the target of the deletion 
-     * according to the specified boolean expression.
-     * Replaces the previously added restriction(s), if any.
-     * @param restriction  a simple or compound boolean expression
-     * @return the modified delete query
+     * 削除クエリを変更して、指定されたブール式に従って削除する対象を制限します。
+     * 
+     * 以前に追加された制限があれば置き換えます。
+     * @param restriction  単純な、もしくは複合したブール式
+     * @return 変更された削除クエリー
      */    
    CriteriaDelete<T> where(Expression<Boolean> restriction);
 
     /**
-     * Modify the delete query to restrict the target of the deletion
-     * according to the conjunction of the specified restriction 
-     * predicates.
-     * Replaces the previously added restriction(s), if any.
-     * If no restrictions are specified, any previously added
-     * restrictions are simply removed.
-     * @param restrictions  zero or more restriction predicates
-     * @return the modified delete query
+     * 削除クエリを変更して、指定されたブール式に従って削除する対象を制限します。
+     * 
+     * 以前に追加された制限があれば置き換えます。
+     * 制限が指定されていない場合は以前に追加された制限は単純に削除されます。
+     * @param restrictions  0個以上の制限の述語
+     * @return 変更された削除クエリー
      */
    CriteriaDelete<T> where(Predicate... restrictions);
 
