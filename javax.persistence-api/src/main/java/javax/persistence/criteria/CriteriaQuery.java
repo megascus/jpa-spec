@@ -19,26 +19,25 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * The <code>CriteriaQuery</code> interface defines functionality that is specific 
- * to top-level queries.
+ * <code>CriteriaQuery</code>インターフェイスはトップレベルのクエリーに固有の機能を定義します。
  *
- * @param <T>  the type of the defined result
+ * @param <T>  定義された結果の型
  *
  * @since Java Persistence 2.0
  */
 public interface CriteriaQuery<T> extends AbstractQuery<T> {
 	
     /**
-     * Specify the item that is to be returned in the query result.
-     * Replaces the previously specified selection(s), if any.
+     * クエリーの結果に返される項目を指定します。
      * 
-     * <p> Note: Applications using the string-based API may need to
-     * specify the type of the select item when it results from
-     * a get or join operation and the query result type is 
-     * specified. 
+     * 以前に指定された項目があれば置き換えます。
+     * 
+     * <p>注意：文字列ベースのAPIを使用するアプリケーションでは、
+     * 取得操作または結合操作の結果の項目でクエリーの結果の型が指定されている場合には、
+     * 選択項目の型を指定する必要があります。
      *
      * <pre>
-     *     For example:
+     *     例：
      *
      *     CriteriaQuery&#060;String&#062; q = cb.createQuery(String.class);
      *     Root&#060;Order&#062; order = q.from(Order.class);
@@ -50,12 +49,9 @@ public interface CriteriaQuery<T> extends AbstractQuery<T> {
      *                 .&#060;Item,Product&#062;join("product"));
      * 
      * </pre>
-     * @param selection  selection specifying the item that
-     *        is to be returned in the query result
-     * @return the modified query
-     * @throws IllegalArgumentException if the selection is
-     *         a compound selection and more than one selection 
-     *         item has the same assigned alias
+     * @param selection  クエリーの結果に返される項目を指定するSelection
+     * @return 変更されたクエリー
+     * @throws IllegalArgumentException 選択項目が複合選択項目であり、複数の選択項目に同じ別名が割り当てられた場合
      */
     CriteriaQuery<T> select(Selection<? extends T> selection);
 
