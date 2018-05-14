@@ -18,57 +18,51 @@ package javax.persistence.criteria;
 import java.util.Collection;
 
 /**
- * Type for query expressions.
+ * クエリーの式を表す型です。
  *
- * @param <T> the type of the expression
+ * @param <T> 式の型
  *
  * @since Java Persistence 2.0
  */
 public interface Expression<T> extends Selection<T> {
 
     /**
-     *  Create a predicate to test whether the expression is null.
-     *  @return predicate testing whether the expression is null
+     *  式がnullかどうかを検証する述語を作成します。
+     *  @return 式がnullかどうかを検証する述語
      */
     Predicate isNull();
 
     /**
-     *  Create a predicate to test whether the expression is 
-     *  not null.
-     *  @return predicate testing whether the expression is not null
+     *  式がnullでないかどうかを検証する述語を作成します。
+     *  @return 式がnullでないかどうかを検証する述語
      */
     Predicate isNotNull();
 
     /**
-     * Create a predicate to test whether the expression is a member
-     * of the argument list.
-     * @param values  values to be tested against
-     * @return predicate testing for membership
+     * 式が引数のリストに含まれるかどうかを検証する述語を作成します。
+     * @param values  検証される値
+     * @return 含まれることを検証する述語
      */
     Predicate in(Object... values);
 
     /**
-     * Create a predicate to test whether the expression is a member
-     * of the argument list.
-     * @param values  expressions to be tested against
-     * @return predicate testing for membership
+     * 式が引数のリストに含まれるかどうかを検証する述語を作成します。
+     * @param values  検証される式
+     * @return 含まれることを検証する述語
      */
     Predicate in(Expression<?>... values);
 
     /**
-     * Create a predicate to test whether the expression is a member
-     * of the collection.
-     * @param values  collection of values to be tested against
-     * @return predicate testing for membership
+     * 式が集合に含まれるかどうかを検証する述語を作成します。
+     * @param values  検証される値の集合
+     * @return 含まれることを検証する述語
      */
     Predicate in(Collection<?> values);
 
     /**
-     * Create a predicate to test whether the expression is a member
-     * of the collection.
-     * @param values expression corresponding to collection to be
-     *        tested against
-     * @return predicate testing for membership
+     * 式が集合に含まれるかどうかを検証する述語を作成します。
+     * @param values 検証される集合に対応する式
+     * @return 含まれることを検証する述語
      */
     Predicate in(Expression<Collection<?>> values);
 

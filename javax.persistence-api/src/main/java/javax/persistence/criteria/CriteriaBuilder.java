@@ -1166,9 +1166,7 @@ public interface CriteriaBuilder {
 
          /**
           * 値の一覧に対して検証される式を返します。
-          * Return the expression to be tested against the
-          * list of values.
-          * @return expression
+          * @return 式
           */
          Expression<T> getExpression();
 	
