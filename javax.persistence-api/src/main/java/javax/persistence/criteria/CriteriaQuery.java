@@ -79,7 +79,7 @@ public interface CriteriaQuery<T> extends AbstractQuery<T> {
      * <li> 
      * クライテリアクエリーの型がユーザーが定義したとあるクラスXのための<code>CriteriaQuery&#060;X[]&#062;</code>である場合、
      * X[]型のインスタンスが行ごとに返されます。
-     * 配列の要素は指定された順序でcode>multiselect</code>メソッドの引数に対応します。
+     * 配列の要素は指定された順序で<code>multiselect</code>メソッドの引数に対応します。
      *
      * <li> 
      * クライテリアクエリーの型が<code>CriteriaQuery&#060;Object&#062;</code>であるかクライテリアクエリーが型の指定なしに作られ、
