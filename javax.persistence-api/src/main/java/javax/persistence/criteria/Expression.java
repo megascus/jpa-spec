@@ -67,13 +67,12 @@ public interface Expression<T> extends Selection<T> {
     Predicate in(Expression<Collection<?>> values);
 
     /**
-     * Perform a typecast upon the expression, returning a new
-     * expression object.
-     * This method does not cause type conversion:
-     * the runtime type is not changed.
-     * Warning: may result in a runtime failure.
-     * @param type  intended type of the expression
-     * @return new expression of the given type
+     * 式の型キャストを行い、新しい式オブジェクトを返します。
+     * 
+     * このメソッドは型の変換は行いません、実行時の型は変更されません。
+     * 警告：実行時の失敗の原因となります。
+     * @param type  式の意図する型
+     * @return 与えられた型の新しい式
      */
     <X> Expression<X> as(Class<X> type);
 }
