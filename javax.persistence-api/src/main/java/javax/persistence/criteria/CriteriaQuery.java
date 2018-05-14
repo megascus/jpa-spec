@@ -65,28 +65,21 @@ public interface CriteriaQuery<T> extends AbstractQuery<T> {
      * <p>このメソッドのセマンティックスは以下のとおりです。: 
      * <ul> 
      * <li> 
-     * If the type of the criteria query is
-     * <code>CriteriaQuery&#060;Tuple&#062;</code> (i.e., a criteria
-     * query object created by either the
-     * <code>createTupleQuery</code> method or by passing a
-     * <code>Tuple</code> class argument to the
-     * <code>createQuery</code> method), a <code>Tuple</code> object
-     * corresponding to the arguments of the <code>multiselect</code>
-     * method, in the specified order, will be instantiated and
-     * returned for each row that results from the query execution.
+     * クライテリアクエリーの型が<code>CriteriaQuery&#060;Tuple&#062;</code>である
+     * (つまり、クライテリアクエリーオブジェクトが<code>createTupleQuery</code>メソッドもしくは
+     * <code>createQuery</code>メソッドに<code>Tuple</code>クラスを引数として渡されて作られた)場合、
+     * <code>multiselect</code>メソッドの引数に関連する<code>Tuple</code>オブジェクトは指定された順序でインスタンス化され、
+     * クエリーの実行から結果の行ごとに返されます。
      *
-     * <li> If the type of the criteria query is <code>CriteriaQuery&#060;X&#062;</code> for
-     * some user-defined class X (i.e., a criteria query object
-     * created by passing a X class argument to the <code>createQuery</code> 
-     * method), the arguments to the <code>multiselect</code> method will be 
-     * passed to the X constructor and an instance of type X will be 
-     * returned for each row.  
+     * <li> 
+     * クライテリアクエリーの型がユーザーが定義したとあるクラスXのための<code>CriteriaQuery&#060;X&#062;</code>である
+     * (つまり、クライテリアクエリーオブジェクトが<code>createQuery</code> メソッドにXクラスを引数として渡されて作られた)場合、
+     * <code>multiselect</code>メソッドの引数はXのコンストラクタに渡され、X型のインスタンスが行ごとに返されます。 
      *
-     * <li> If the type of the criteria query is <code>CriteriaQuery&#060;X[]&#062;</code> for
-     * some class X, an instance of type X[] will be returned for 
-     * each row.   The elements of the array will correspond to the 
-     * arguments of the <code>multiselect</code> method, in the
-     * specified order.  
+     * <li> 
+     * クライテリアクエリーの型がユーザーが定義したとあるクラスXのための<code>CriteriaQuery&#060;X[]&#062;</code>である場合、
+     * X[]型のインスタンスが行ごとに返されます。
+     * 配列の要素は指定された順序でcode>multiselect</code>メソッドの引数に対応します。
      *
      * <li> If the type of the criteria query is <code>CriteriaQuery&#060;Object&#062;</code>
      * or if the criteria query was created without specifying a 
