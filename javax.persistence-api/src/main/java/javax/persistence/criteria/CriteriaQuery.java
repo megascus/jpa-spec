@@ -103,20 +103,17 @@ public interface CriteriaQuery<T> extends AbstractQuery<T> {
      * in the specified order.
      * </ul>
      *
-     * @param selections  selection items corresponding to the
-     *        results to be returned by the query
+     * @param selections  クエリーによって返される結果に対応する選択項目
      * @return 変更されたクエリー
-     * @throws IllegalArgumentException if a selection item is
-     *         not valid or if more than one selection item has
-     *         the same assigned alias
+     * @throws IllegalArgumentException 選択項目が不正である、もしくは二つ以上の選択項目に同じエイリアスが指定されていた場合
      */
     CriteriaQuery<T> multiselect(Selection<?>... selections);
 
 
     /**
-     * Specify the selection items that are to be returned in the 
-     * query result.
-     * Replaces the previously specified selection(s), if any.
+     * クエリーの結果から返される選択項目を指定します。
+     * 
+     * 以前に指定された項目があれば置き換えます。
      *
      * <p> The type of the result of the query execution depends on
      * the specification of the type of the criteria query object 
@@ -162,12 +159,9 @@ public interface CriteriaQuery<T> extends AbstractQuery<T> {
      * the <code>multiselect</code> method, in the specified order.
      * </ul>
      *
-     * @param selectionList  list of selection items corresponding 
-     *        to the results to be returned by the query
+     * @param selectionList  クエリーによって返される結果に対応する選択項目の一覧
      * @return 変更されたクエリー
-     * @throws IllegalArgumentException if a selection item is
-     *         not valid or if more than one selection item has
-     *         the same assigned alias
+     * @throws IllegalArgumentException 選択項目が不正である、もしくは二つ以上の選択項目に同じエイリアスが指定されていた場合
      */
     CriteriaQuery<T> multiselect(List<Selection<?>> selectionList);
 
