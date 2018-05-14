@@ -105,7 +105,7 @@ public interface CriteriaQuery<T> extends AbstractQuery<T> {
      *
      * @param selections  selection items corresponding to the
      *        results to be returned by the query
-     * @return the modified query
+     * @return 変更されたクエリー
      * @throws IllegalArgumentException if a selection item is
      *         not valid or if more than one selection item has
      *         the same assigned alias
@@ -164,7 +164,7 @@ public interface CriteriaQuery<T> extends AbstractQuery<T> {
      *
      * @param selectionList  list of selection items corresponding 
      *        to the results to be returned by the query
-     * @return the modified query
+     * @return 変更されたクエリー
      * @throws IllegalArgumentException if a selection item is
      *         not valid or if more than one selection item has
      *         the same assigned alias
@@ -172,121 +172,99 @@ public interface CriteriaQuery<T> extends AbstractQuery<T> {
     CriteriaQuery<T> multiselect(List<Selection<?>> selectionList);
 
     /**
-     * Modify the query to restrict the query result according
-     * to the specified boolean expression.
-     * Replaces the previously added restriction(s), if any.
-     * This method only overrides the return type of the 
-     * corresponding <code>AbstractQuery</code> method.
-     * @param restriction  a simple or compound boolean expression
-     * @return the modified query
+     * 指定されたブール式に従ってクエリ結果を制限するようにクエリを変更します。
+     * 
+     * 以前に追加された制限があれば置き換えます。
+     * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
+     * @param restriction  単純な、もしくは複合したブール式
+     * @return 変更されたクエリー
      */
     CriteriaQuery<T> where(Expression<Boolean> restriction);
 
     /**
-     * Modify the query to restrict the query result according 
-     * to the conjunction of the specified restriction predicates.
-     * Replaces the previously added restriction(s), if any.
-     * If no restrictions are specified, any previously added
-     * restrictions are simply removed.
-     * This method only overrides the return type of the 
-     * corresponding <code>AbstractQuery</code> method.
-     * @param restrictions  zero or more restriction predicates
-     * @return the modified query
+     * 指定されたブール式に従ってクエリ結果を制限するようにクエリを変更します。
+     * 
+     * 以前に追加された制限があれば置き換えます。
+     * 制限が指定されていない場合は以前に追加された制限は単純に削除されます。
+     * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
+     * @param restrictions  0個以上の制限の述語
+     * @return 変更されたクエリー
      */
     CriteriaQuery<T> where(Predicate... restrictions);
 
     /**
-     * Specify the expressions that are used to form groups over
-     * the query results.
-     * Replaces the previous specified grouping expressions, if any.
-     * If no grouping expressions are specified, any previously 
-     * added grouping expressions are simply removed.
-     * This method only overrides the return type of the 
-     * corresponding <code>AbstractQuery</code> method.
-     * @param grouping  zero or more grouping expressions
-     * @return the modified query
+     * クエリーの結果に対してグループを形成するために使用される式を指定します。
+     * 
+     * 以前に追加されたグループ化式があれば置き換えます。
+     * グループ化式が指定されていない場合は以前に追加されたグループ化式は単純に削除されます。
+     * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
+     * @param grouping  0個以上のグループ化式
+     * @return 変更されたクエリー
      */
     CriteriaQuery<T> groupBy(Expression<?>... grouping);
 
     /**
-     * Specify the expressions that are used to form groups over
-     * the query results.
-     * Replaces the previous specified grouping expressions, if any.
-     * If no grouping expressions are specified, any previously 
-     * added grouping expressions are simply removed.
-     * This method only overrides the return type of the 
-     * corresponding <code>AbstractQuery</code> method.
-     * @param grouping  list of zero or more grouping expressions
-     * @return the modified query
+     * クエリーの結果に対してグループを形成するために使用される式を指定します。
+     * 
+     * 以前に追加されたグループ化式があれば置き換えます。
+     * グループ化式が指定されていない場合は以前に追加されたグループ化式は単純に削除されます。
+     * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
+     * @param grouping  0個以上のグループ化式の一覧
+     * @return 変更されたクエリー
      */
     CriteriaQuery<T> groupBy(List<Expression<?>> grouping);
 
     /**
-     * Specify a restriction over the groups of the query.
-     * Replaces the previous having restriction(s), if any.
-     * This method only overrides the return type of the 
-     * corresponding <code>AbstractQuery</code> method.
-     * @param restriction  a simple or compound boolean expression
-     * @return the modified query
+     * クエリーのグループに対応する制限を指定します。
+     * 
+     * 以前に追加されたhaving制限があれば置き換えます。
+     * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
+     * @param restriction  単純な、もしくは複合したブール式
+     * @return 変更されたクエリー
      */
     CriteriaQuery<T> having(Expression<Boolean> restriction);
 
     /**
-     * Specify restrictions over the groups of the query
-     * according the conjunction of the specified restriction 
-     * predicates.
-     * Replaces the previously added having restriction(s), if any.
-     * If no restrictions are specified, any previously added
-     * restrictions are simply removed.
-     * This method only overrides the return type of the 
-     * corresponding <code>AbstractQuery</code> method.
-     * @param restrictions  zero or more restriction predicates
-     * @return the modified query
+     * 指定された制限述語の結合に従ってクエリーのグループに対応する制限を指定します。
+     *
+     * 以前に追加されたhaving制限があれば置き換えます。
+     * 制限が指定されていない場合は以前に追加された制限は単純に削除されます。
+     * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
+     * @param restrictions  0個以上の制限の述語
+     * @return 変更されたクエリー
      */
     CriteriaQuery<T> having(Predicate... restrictions);
 
     /**
-     * Specify the ordering expressions that are used to
-     * order the query results.
-     * Replaces the previous ordering expressions, if any.
-     * If no ordering expressions are specified, the previous
-     * ordering, if any, is simply removed, and results will
-     * be returned in no particular order.
-     * The left-to-right sequence of the ordering expressions
-     * determines the precedence, whereby the leftmost has highest
-     * precedence.
-     * @param o  zero or more ordering expressions
-     * @return the modified query
+     * クエリーの結果を順序付けするのに使用される順序付け式を指定します。
+     * 
+     * 以前に追加された順序付け式があれば置き換えます。
+     * 順序付け式が指定されていない場合は以前に追加された順序付け式は単純に削除され、結果は不特定の順序で返されます。
+     * 順序付け式の左から右の順序で優先順位が決定され、最も左の優先順位が最も高くなります。
+     * @param o  0個以上の順序付け式
+     * @return 変更されたクエリー
      */
     CriteriaQuery<T> orderBy(Order... o);
 
     /**
-     * Specify the ordering expressions that are used to
-     * order the query results.
-     * Replaces the previous ordering expressions, if any.
-     * If no ordering expressions are specified, the previous
-     * ordering, if any, is simply removed, and results will
-     * be returned in no particular order.
-     * The order of the ordering expressions in the list
-     * determines the precedence, whereby the first element in the
-     * list has highest precedence.
-     * @param o  list of zero or more ordering expressions
-     * @return the modified query
+     * クエリーの結果を順序付けするのに使用される順序付け式を指定します。
+     * 
+     * 以前に追加された順序付け式があれば置き換えます。
+     * 順序付け式が指定されていない場合は以前に追加された順序付け式は単純に削除され、結果は不特定の順序で返されます。
+     * リスト内の順序付け式の順序によって優先順位が決定され、リスト内の最初の要素の優先順位が最も高くなります。
+     * @param o  0個以上の順序付け式のList
+     * @return 変更されたクエリー
      */
     CriteriaQuery<T> orderBy(List<Order> o);
 
     /**
-     * Specify whether duplicate query results will be eliminated.
-     * A true value will cause duplicates to be eliminated.
-     * A false value will cause duplicates to be retained.
-     * If distinct has not been specified, duplicate results must
-     * be retained.
-     * This method only overrides the return type of the 
-     * corresponding <code>AbstractQuery</code> method.
-     * @param distinct  boolean value specifying whether duplicate
-     *        results must be eliminated from the query result or
-     *        whether they must be retained
-     * @return the modified query.
+     * 重複するクエリーの結果を除去するかどうかを指定します。
+     * 
+     * trueの値は重複を排除します。falseの値を指定すると重複が保持されます。
+     * distinctが指定されていない場合は重複した結果を保持する必要があります。
+     * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
+     * @param distinct  クエリーの結果から重複した結果を取り除くべきか、保持するべきかを指定するブール値
+     * @return 変更されたクエリー
      */
     CriteriaQuery<T> distinct(boolean distinct);
     

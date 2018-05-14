@@ -89,7 +89,7 @@ public interface AbstractQuery<T> extends CommonAbstractCriteria {
     /**
      * クエリーのグループに対応する制限を指定します。
      * 
-     * 以前に追加された制限があれば置き換えます。
+     * 以前に追加されたhaving制限があれば置き換えます。
      * @param restriction  単純な、もしくは複合したブール式
      * @return 変更されたクエリー
      */
@@ -98,7 +98,7 @@ public interface AbstractQuery<T> extends CommonAbstractCriteria {
     /**
      * 指定された制限述語の結合に従ってクエリーのグループに対応する制限を指定します。
      *
-     * 以前に追加された制限があれば置き換えます。
+     * 以前に追加されたhaving制限があれば置き換えます。
      * 制限が指定されていない場合は以前に追加された制限は単純に削除されます。
      * @param restrictions  0個以上の制限の述語
      * @return 変更されたクエリー
