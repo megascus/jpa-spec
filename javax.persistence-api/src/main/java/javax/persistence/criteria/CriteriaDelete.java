@@ -56,7 +56,7 @@ public interface CriteriaDelete<T> extends CommonAbstractCriteria {
    Root<T> getRoot();
 
     /**
-     * 削除クエリを変更して、指定されたブール式に従って削除する対象を制限します。
+     * 削除クエリーを変更して、指定されたブール式に従って削除する対象を制限します。
      * 
      * 以前に追加された制限があれば置き換えます。
      * @param restriction  単純な、もしくは複合したブール式
@@ -65,7 +65,7 @@ public interface CriteriaDelete<T> extends CommonAbstractCriteria {
    CriteriaDelete<T> where(Expression<Boolean> restriction);
 
     /**
-     * 削除クエリを変更して、指定されたブール式に従って削除する対象を制限します。
+     * 削除クエリーを変更して、指定されたブール式に従って削除する対象を制限します。
      * 
      * 以前に追加された制限があれば置き換えます。
      * 制限が指定されていない場合は以前に追加された制限は単純に削除されます。

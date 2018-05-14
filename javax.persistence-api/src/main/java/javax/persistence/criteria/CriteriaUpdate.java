@@ -18,110 +18,100 @@ import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.EntityType;
 
 /**
- * The <code>CriteriaUpdate</code> interface defines functionality for performing
- * bulk update operations using the Criteria API.
+ * <code>CriteriaUpdate</code>インターフェイスはCriteria APIを使用して一括更新操作を実行するための機能を定義します。
  *
- * <p>Criteria API bulk update operations map directly to database update
- * operations, bypassing any optimistic locking checks.  Portable 
- * applications using bulk update operations must manually update the 
- * value of the version column, if desired, and/or manually validate 
- * the value of the version column.
- * The persistence context is not synchronized with the result of the
- * bulk update.
+ * <p>Criteria APIの一括更新操作はいかなる楽観ロックチェックも迂回し、データベースの更新操作に直接対応します。
+ * 一括更新処理を使用する移植性のあるアプリケーションでは必要に応じてバージョン列の値を手動で更新したり、
+ * バージョン列の値を手動で検証する必要があります。 永続化コンテキストは一括更新の結果と同期化されません。
  *
- * <p> A <code>CriteriaUpdate</code> object must have a single root.
+ * <p> <code>CriteriaUpdate</code>オブジェクトは必ず単一のルートのみを持ちます。
  *
- * @param <T>  the entity type that is the target of the update
+ * @param <T>  更新される対象のエンティティ型
  *
  * @since Java Persistence 2.1
  */
 public interface CriteriaUpdate<T> extends CommonAbstractCriteria {
 
    /**
-    * Create and add a query root corresponding to the entity
-    * that is the target of the update.
-    * A <code>CriteriaUpdate</code> object has a single root, the entity that
-    * is being updated.
-    * @param entityClass  the entity class
-    * @return query root corresponding to the given entity
+    * 更新の対象になるエンティティに対応するクエリールートを作成して追加します。
+    * 
+    * <code>CriteriaUpdate</code>オブジェクトは削除されるエンティティを示す単一のルートのみを持ちます。
+    * @param entityClass  エンティティクラス
+    * @return 与えられたエンティティに対応するクエリールート
     */
    Root<T> from(Class<T> entityClass);
 
    /**
-    * Create and add a query root corresponding to the entity
-    * that is the target of the update.
-    * A <code>CriteriaUpdate</code> object has a single root, the entity that
-    * is being updated.
-    * @param entity  metamodel entity representing the entity
-    *                of type X
-    * @return query root corresponding to the given entity
+     * 更新の対象となるエンティティに対応するクエリールートを作成して追加します。
+     * 
+     * <code>CriteriaUpdate</code>オブジェクトは削除されるエンティティを示す単一のルートのみを持ちます。
+     * @param entity  タイプ T のエンティティに対応するメタモデルエンティティ
+     * @return 与えられたエンティティに対応するクエリールート
     */
    Root<T> from(EntityType<T> entity);
 
    /**
-    * Return the query root.
-    * @return the query root
+    * クエリールートを返します。
+    * @return クエリールート
     */
    Root<T> getRoot();
 
    /**
-    * Update the value of the specified attribute.
-    * @param attribute  attribute to be updated
-    * @param value  new value
-    * @return  the modified update query
+    * 指定された属性の値を更新します。
+    * @param attribute  更新される属性
+    * @param value  新しい値
+    * @return  変更された更新クエリー
     */
    <Y, X extends Y> CriteriaUpdate<T> set( SingularAttribute<? super T, Y> attribute, X value);
 
    /**
-    * Update the value of the specified attribute.
-    * @param attribute  attribute to be updated
-    * @param value  new value
-    * @return  the modified update query
+    * 指定された属性の値を更新します。
+    * @param attribute  更新される属性
+    * @param value  新しい値
+    * @return  変更された更新クエリー
     */
    <Y> CriteriaUpdate<T> set( SingularAttribute<? super T, Y> attribute, Expression<? extends Y> value);
 
    /**
-    * Update the value of the specified attribute.
-    * @param attribute  attribute to be updated
-    * @param value  new value
-    * @return  the modified update query
+    * 指定された属性の値を更新します。
+    * @param attribute  更新される属性
+    * @param value  新しい値
+    * @return  変更された更新クエリー
     */
    <Y, X extends Y> CriteriaUpdate<T> set(Path<Y> attribute, X value);
 
    /**
-    * Update the value of the specified attribute.
-    * @param attribute  attribute to be updated
-    * @param value  new value
-    * @return  the modified update query
+    * 指定された属性の値を更新します。
+    * @param attribute  更新される属性
+    * @param value  新しい値
+    * @return  変更された更新クエリー
     */
    <Y> CriteriaUpdate<T> set(Path<Y> attribute, Expression<? extends Y> value);
 
    /**
-    * Update the value of the specified attribute.
-    * @param attributeName  name of the attribute to be updated
-    * @param value  new value
-    * @return  the modified update query
+    * 指定された属性の値を更新します。
+    * @param attributeName  更新される属性の名前
+    * @param value  新しい値
+    * @return  変更された更新クエリー
     */
    CriteriaUpdate<T> set(String attributeName, Object value);
 
     /**
-     * Modify the update query to restrict the target of the update
-     * according to the specified boolean expression.
-     * Replaces the previously added restriction(s), if any.
-     * @param restriction  a simple or compound boolean expression
-     * @return the modified update query
+     * 更新クエリーを変更して、指定されたブール式に従って更新する対象を制限します。
+     * 
+     * 以前に追加された制限があれば置き換えます。
+     * @param restriction  単純な、もしくは複合したブール式
+     * @return 変更された更新クエリー
      */    
    CriteriaUpdate<T> where(Expression<Boolean> restriction);
 
     /**
-     * Modify the update query to restrict the target of the update
-     * according to the conjunction of the specified restriction 
-     * predicates.
-     * Replaces the previously added restriction(s), if any.
-     * If no restrictions are specified, any previously added
-     * restrictions are simply removed.
-     * @param restrictions  zero or more restriction predicates
-     * @return the modified update query
+     * 更新クエリーを変更して、指定されたブール式に従って更新する対象を制限します。
+     * 
+     * 以前に追加された制限があれば置き換えます。
+     * 制限が指定されていない場合は以前に追加された制限は単純に削除されます。
+     * @param restrictions  0個以上の制限の述語
+     * @return 変更された更新クエリー
      */
    CriteriaUpdate<T> where(Predicate... restrictions);
 }
