@@ -56,17 +56,13 @@ public interface CriteriaQuery<T> extends AbstractQuery<T> {
     CriteriaQuery<T> select(Selection<? extends T> selection);
 
     /**
-     * Specify the selection items that are to be returned in the 
-     * query result.
-     * Replaces the previously specified selection(s), if any.
+     * クエリーの結果から返される選択項目を指定します。
+     * 
+     * 以前に指定された項目があれば置き換えます。
+     * クエリーの実行結果の型は、作成されたクライテリアクエリーオブジェクトの型の指定だけではなく<code>multiselect</code>メソッドの引数にも依存します。
+     * <p> <code>multiselect</code>メソッドの引数はタプルや配列値の複合選択項目であってはなりません。
      *
-     * The type of the result of the query execution depends on
-     * the specification of the type of the criteria query object 
-     * created as well as the arguments to the multiselect method.
-     * <p> An argument to the multiselect method must not be a tuple-
-     * or array-valued compound selection item. 
-     *
-     * <p>The semantics of this method are as follows: 
+     * <p>このメソッドのセマンティックスは以下のとおりです。: 
      * <ul> 
      * <li> 
      * If the type of the criteria query is
