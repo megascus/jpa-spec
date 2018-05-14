@@ -81,19 +81,16 @@ public interface CriteriaQuery<T> extends AbstractQuery<T> {
      * X[]型のインスタンスが行ごとに返されます。
      * 配列の要素は指定された順序でcode>multiselect</code>メソッドの引数に対応します。
      *
-     * <li> If the type of the criteria query is <code>CriteriaQuery&#060;Object&#062;</code>
-     * or if the criteria query was created without specifying a 
-     * type, and only a single argument is passed to the <code>multiselect</code>
-     * method, an instance of type <code>Object</code> will be returned for 
-     * each row.
+     * <li> 
+     * クライテリアクエリーの型が<code>CriteriaQuery&#060;Object&#062;</code>であるかクライテリアクエリーが型の指定なしに作られ、
+     * <code>multiselect</code>メソッドに一つの引数しか渡されない場合、
+     * <code>Object</code>型のインスタンスが行ごとに返されます。
      *
-     * <li> If the type of the criteria query is <code>CriteriaQuery&#060;Object&#062;</code>
-     * or if the criteria query was created without specifying a 
-     * type, and more than one argument is passed to the <code>multiselect</code>
-     * method, an instance of type <code>Object[]</code> will be instantiated 
-     * and returned for each row.  The elements of the array will 
-     * correspond to the arguments to the <code> multiselect</code>  method,
-     * in the specified order.
+     * <li>
+     * クライテリアクエリーの型が<code>CriteriaQuery&#060;Object&#062;</code>であるかクライテリアクエリーが型の指定なしに作られ、
+     * <code>multiselect</code>メソッドに二つ以上の引数が渡された場合、
+     * <code>Object[]</code>型のインスタンスが行ごとに返されます。
+     * 配列の要素は指定された順序でcode>multiselect</code>メソッドの引数に対応します。
      * </ul>
      *
      * @param selections  クエリーによって返される結果に対応する選択項目
