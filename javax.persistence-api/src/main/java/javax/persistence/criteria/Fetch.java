@@ -18,31 +18,30 @@ package javax.persistence.criteria;
 import javax.persistence.metamodel.Attribute;
 
 /**
- * Represents a join-fetched association or attribute.
+ * フェッチ結合(JOIN FETCH)された関連もしくは属性を表します。
  *
- * @param <Z>  the source type of the fetch
- * @param <X>  the target type of the fetch
+ * @param <Z>  フェッチの元の型
+ * @param <X>  フェッチの対象の型
  *
  * @since Java Persistence 2.0
  */
 public interface Fetch<Z, X> extends FetchParent<Z, X> {
 
     /**
-     * Return the metamodel attribute corresponding to the 
-     * fetch join.
-     * @return metamodel attribute for the join
+     * フェッチ結合に対応するメタモデル属性を返します。
+     * @return 結合のメタモデル属性
      */
     Attribute<? super Z, ?> getAttribute();
 
     /**
-     * Return the parent of the fetched item.
-     * @return fetch parent
+     * フェッチされた項目の親を返します。
+     * @return フェッチ親
      */
     FetchParent<?, Z> getParent();
 
     /**
-     * Return the join type used in the fetch join.
-     * @return join type
+     * フェッチ結合に使用される結合型を返します。
+     * @return 結合型
      */
     JoinType getJoinType();
 }
