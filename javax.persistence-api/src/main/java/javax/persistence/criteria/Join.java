@@ -28,7 +28,7 @@ import javax.persistence.metamodel.Attribute;
 public interface Join<Z, X> extends From<Z, X> {
 
     /**
-     *  結合を変更して、指定されたON条件に従って結果を制限する結合オブジェクトを戻します。
+     *  結合を変更して、指定されたON条件に従って結果を制限する結合オブジェクトを返します。
      * 
      *  以前のON条件があれば置き換えます。
      *  @param restriction  単純な、もしくは複合したブール式
@@ -38,7 +38,7 @@ public interface Join<Z, X> extends From<Z, X> {
     Join<Z, X> on(Expression<Boolean> restriction);
 
     /**
-     *  結合を変更して、指定されたON条件に従って結果を制限する結合オブジェクトを戻します。
+     *  結合を変更して、指定されたON条件に従って結果を制限する結合オブジェクトを返します。
      * 
      *  以前のON条件があれば置き換えます。
      *  @param restrictions  0個以上の制限述語
@@ -61,7 +61,7 @@ public interface Join<Z, X> extends From<Z, X> {
     Attribute<? super Z, ?> getAttribute();
 
     /**
-     * 結合の親を帰します。
+     * 結合の親を返します。
      * @return 結合の親
      */
     From<?, Z> getParent();
