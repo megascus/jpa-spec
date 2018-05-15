@@ -57,21 +57,22 @@ public interface MapJoin<Z, K, V>
     MapAttribute<? super Z, K, V> getModel();
     
     /**
-     * Create a path expression that corresponds to the map key.
-     * @return path corresponding to map key
+     * マップのキーに対応するパス式を作ります。
+     * @return マップのキーに対応するパス
      */
     Path<K> key();
     
     /**
-     * Create a path expression that corresponds to the map value.
-     * This method is for stylistic use only: it just returns this.
-     * @return path corresponding to the map value
+     * マップの値に対応するパス式を作ります。
+     * 
+     * このメソッドは形式的な使用のためのみに使われます。それはこれそのものを返します。
+     * @return マップの値に対応するパス
      */
     Path<V> value(); 
     
     /**
-     * Create an expression that corresponds to the map entry.
-     * @return expression corresponding to the map entry
+     * マップのエントリーに対応する式を作ります。
+     * @return マップのエントリーに対応する式
      */
     Expression<Map.Entry<K, V>> entry();
 }
