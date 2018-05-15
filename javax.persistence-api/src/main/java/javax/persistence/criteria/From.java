@@ -23,15 +23,12 @@ import javax.persistence.metamodel.SetAttribute;
 import java.util.Set;
 
 /**
- * Represents a bound type, usually an entity that appears in
- * the from clause, but may also be an embeddable belonging to
- * an entity in the from clause. 
- * <p> Serves as a factory for Joins of associations, embeddables, and 
- * collections belonging to the type, and for Paths of attributes 
- * belonging to the type.
+ * 境界型を現します。通常、from句に表されるエンティティですが、from句のエンティティに属する組み込み型の可能性もあります。
+ * 
+ * <p> 関連や組み込み、型に属するコレクションの結合のファクトリー及びに型に属する属性へのパスとして機能します。
  *
- * @param <Z>  the source type
- * @param <X>  the target type
+ * @param <Z>  ソースの型
+ * @param <X>  ターゲットの型
  *
  * @since Java Persistence 2.0
  */
