@@ -61,16 +61,14 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     From<Z, X> getCorrelationParent();
 
     /**
-     *  Create an inner join to the specified single-valued 
-     *  attribute.
+     *  指定された単一の値の属性への内部結合を作成します。
      *  @param attribute  結合のターゲット
      *  @return 結果の結合
      */
     <Y> Join<X, Y> join(SingularAttribute<? super X, Y> attribute);
 
     /**
-     *  Create a join to the specified single-valued attribute 
-     *  using the given join type.
+     *  指定された単一の値の属性への与えられた結合の型を使用した結合を作成します。
      *  @param attribute  結合のターゲット
      *  @param jt  結合の型
      *  @return 結果の結合
@@ -78,37 +76,35 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     <Y> Join<X, Y> join(SingularAttribute<? super X, Y> attribute, JoinType jt);
 
     /**
-     *  Create an inner join to the specified Collection-valued 
-     *  attribute.
+     *  指定されたCollectionの値の属性への内部結合を作成します。
      *  @param collection  結合のターゲット
      *  @return 結果の結合
      */
     <Y> CollectionJoin<X, Y> join(CollectionAttribute<? super X, Y> collection);
 
     /**
-     *  Create an inner join to the specified Set-valued attribute.
+     *  指定されたSetの値の属性への内部結合を作成します。
      *  @param set  結合のターゲット
      *  @return 結果の結合
      */
     <Y> SetJoin<X, Y> join(SetAttribute<? super X, Y> set);
 
     /**
-     *  Create an inner join to the specified List-valued attribute.
+     *  指定されたListの値の属性への内部結合を作成します。
      *  @param list  結合のターゲット
      *  @return 結果の結合
      */
     <Y> ListJoin<X, Y> join(ListAttribute<? super X, Y> list);
 
     /**
-     *  Create an inner join to the specified Map-valued attribute.
+     *  指定されたMapの値の属性への内部結合を作成します。
      *  @param map  結合のターゲット
      *  @return 結果の結合
      */
     <K, V> MapJoin<X, K, V> join(MapAttribute<? super X, K, V> map);
 
     /**
-     *  Create a join to the specified Collection-valued attribute 
-     *  using the given join type.
+     *  指定されたCollectionの値の属性への与えられた結合の型を使用した結合を作成します。
      *  @param collection  結合のターゲット
      *  @param jt  結合の型
      *  @return 結果の結合
@@ -116,8 +112,7 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     <Y> CollectionJoin<X, Y> join(CollectionAttribute<? super X, Y> collection, JoinType jt);
 
     /**
-     *  Create a join to the specified Set-valued attribute using 
-     *  the given join type.
+     *  指定されたSetの値の属性への与えられた結合の型を使用した結合を作成します。
      *  @param set  結合のターゲット
      *  @param jt  結合の型
      *  @return 結果の結合
@@ -125,8 +120,7 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     <Y> SetJoin<X, Y> join(SetAttribute<? super X, Y> set, JoinType jt);
 
     /**
-     *  Create a join to the specified List-valued attribute using 
-     *  the given join type.
+     *  指定されたListの値の属性への与えられた結合の型を使用した結合を作成します。
      *  @param list  結合のターゲット
      *  @param jt  結合の型
      *  @return 結果の結合
@@ -134,8 +128,7 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     <Y> ListJoin<X, Y> join(ListAttribute<? super X, Y> list, JoinType jt);
 
     /**
-     *  Create a join to the specified Map-valued attribute using 
-     *  the given join type.
+     *  指定されたMapの値の属性への与えられた結合の型を使用した結合を作成します。
      *  @param map  結合のターゲット
      *  @param jt  結合の型
      *  @return 結果の結合
@@ -146,7 +139,7 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     //String-based:
 
     /**
-     *  Create an inner join to the specified attribute.
+     *  指定された属性への内部結合を作成します。
      *  @param attributeName  結合のターゲットの属性の名前
      *  @return 結果の結合
      *  @throws IllegalArgumentException 与えられた名前の属性が存在しない場合
@@ -154,8 +147,7 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     <X, Y> Join<X, Y> join(String attributeName);	
 
     /**
-     *  Create an inner join to the specified Collection-valued 
-     *  attribute.
+     *  指定されたCollectionの値の属性への内部結合を作成します。
      *  @param attributeName  結合のターゲットの属性の名前
      *  @return 結果の結合
      *  @throws IllegalArgumentException 与えられた名前の属性が存在しない場合
@@ -163,7 +155,7 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     <X, Y> CollectionJoin<X, Y> joinCollection(String attributeName);	
 
     /**
-     *  Create an inner join to the specified Set-valued attribute.
+     *  指定されたSetの値の属性への内部結合を作成します。
      *  @param attributeName  結合のターゲットの属性の名前
      *  @return 結果の結合
      *  @throws IllegalArgumentException 与えられた名前の属性が存在しない場合
@@ -171,7 +163,7 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     <X, Y> SetJoin<X, Y> joinSet(String attributeName);	
 
     /**
-     *  Create an inner join to the specified List-valued attribute.
+     *  指定されたListの値の属性への内部結合を作成します。
      *  @param attributeName  結合のターゲットの属性の名前
      *  @return 結果の結合
      *  @throws IllegalArgumentException 与えられた名前の属性が存在しない場合
@@ -179,7 +171,7 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     <X, Y> ListJoin<X, Y> joinList(String attributeName);		
     
     /**
-     *  Create an inner join to the specified Map-valued attribute.
+     *  指定されたMapの値の属性への内部結合を作成します。
      *  @param attributeName  結合のターゲットの属性の名前
      *  @return 結果の結合
      *  @throws IllegalArgumentException 与えられた名前の属性が存在しない場合
