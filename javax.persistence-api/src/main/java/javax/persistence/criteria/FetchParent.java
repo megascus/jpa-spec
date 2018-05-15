@@ -74,7 +74,7 @@ public interface FetchParent<Z, X> {
      *  指定された属性への内部結合を使用したフェッチ結合を作成します。
      *  @param attributeName  結合のターゲットの属性の名前
      *  @return 結果のフェッチ結合
-     *  @throws IllegalArgumentException 与えられた属性の名前が存在しない場合
+     *  @throws IllegalArgumentException 与えられた名前の属性が存在しない場合
      */	
     @SuppressWarnings("hiding")
     <X, Y> Fetch<X, Y> fetch(String attributeName);
@@ -84,7 +84,7 @@ public interface FetchParent<Z, X> {
      *  @param attributeName  結合のターゲットの属性の名前
      *  @param jt  結合の型
      *  @return 結果のフェッチ結合
-     *  @throws IllegalArgumentException 与えられた属性の名前が存在しない場合
+     *  @throws IllegalArgumentException 与えられた名前の属性が存在しない場合
      */	
     @SuppressWarnings("hiding")
     <X, Y> Fetch<X, Y> fetch(String attributeName, JoinType jt);
