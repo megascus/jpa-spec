@@ -187,8 +187,7 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     <X, K, V> MapJoin<X, K, V> joinMap(String attributeName);	
 
     /**
-     *  Create a join to the specified attribute using the given
-     *  join type.
+     *  指定された属性への与えられた結合の型を使用した結合を作成します。
      *  @param attributeName  結合のターゲットの属性の名前
      *  @param jt  結合の型
      *  @return 結果の結合
@@ -197,8 +196,7 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     <X, Y> Join<X, Y> join(String attributeName, JoinType jt);	
     
     /**
-     *  Create a join to the specified Collection-valued attribute 
-     *  using the given join type.
+     *  指定されたCollectionの値の属性への与えられた結合の型を使用した結合を作成します。
      *  @param attributeName  結合のターゲットの属性の名前
      *  @param jt  結合の型
      *  @return 結果の結合
@@ -207,8 +205,7 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     <X, Y> CollectionJoin<X, Y> joinCollection(String attributeName, JoinType jt);	
 
     /**
-     *  Create a join to the specified Set-valued attribute using 
-     *  the given join type.
+     *  指定されたSetの値の属性への与えられた結合の型を使用した結合を作成します。
      *  @param attributeName  結合のターゲットの属性の名前
      *  @param jt  結合の型
      *  @return 結果の結合
@@ -217,8 +214,7 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     <X, Y> SetJoin<X, Y> joinSet(String attributeName, JoinType jt);	
 
     /**
-     *  Create a join to the specified List-valued attribute using 
-     *  the given join type.
+     *  指定されたListの値の属性への与えられた結合の型を使用した結合を作成します。
      *  @param attributeName  結合のターゲットの属性の名前
      *  @param jt  結合の型
      *  @return 結果の結合
@@ -227,8 +223,7 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     <X, Y> ListJoin<X, Y> joinList(String attributeName, JoinType jt);	
 
     /**
-     *  Create a join to the specified Map-valued attribute using 
-     *  the given join type.
+     *  指定されたMapの値の属性への与えられた結合の型を使用した結合を作成します。
      *  @param attributeName  結合のターゲットの属性の名前
      *  @param jt  結合のターゲット
      *  @return 結果の結合
