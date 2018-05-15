@@ -16,22 +16,21 @@
 package javax.persistence.criteria;
 
 /**
- * Defines the three types of joins.
+ * 結合の3つの型を定義します。
  *
- * Right outer joins and right outer fetch joins are not required
- * to be supported. Applications that use <code>RIGHT</code> join
- * types will not be portable.
+ * 右外部結合と右外部フェッチ結合のサポートは必須ではありません。
+ * <code>RIGHT</code>結合型を使用したアプリケーションは可搬的ではありません。
  *
  * @since Java Persistence 2.0
  */
 public enum JoinType {
 
-    /** Inner join. */
+    /** 内部結合。 */
     INNER, 
 
-    /** Left outer join. */
+    /** 左外部結合。 */
     LEFT, 
 
-    /** Right outer join. */
+    /** 右外部結合。 */
     RIGHT
 }
