@@ -51,12 +51,9 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     boolean isCorrelated();
 
     /**
-     *  Returns the parent <code>From</code> object from which the correlated
-     *  <code>From</code> object has been obtained through correlation (use
-     *  of a <code>Subquery</code> <code>correlate</code> method).
-     *  @return  the parent of the correlated From object
-     *  @throws IllegalStateException if the From object has
-     *          not been obtained through correlation 
+     *  (<code>Subquery</code> <code>correlate</code>メソッドを使用して)相関の結果として取得された相関した<code>From</code>オブジェクトから親の<code>From</code>オブジェクトを返します。
+     *  @return  相関したFromオブジェクトの親
+     *  @throws IllegalStateException このFromオブジェクトが相関によって取得されていない場合
      */
     From<Z, X> getCorrelationParent();
 
