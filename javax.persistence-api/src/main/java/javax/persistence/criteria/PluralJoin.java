@@ -18,23 +18,21 @@ package javax.persistence.criteria;
 import javax.persistence.metamodel.PluralAttribute;
 
 /**
- * The <code>PluralJoin</code> interface defines functionality
- * that is common to joins to all collection types.  It is
- * not intended to be used directly in query construction.
+ * <code>PluralJoin</code>インターフェースはすべてのコレクション型への結合に共通の機能を定義します。
+ * 
+ * これはクエリーの構築に直接使用するためのものではありません。
  *
- * @param <Z> the source type
- * @param <C> the collection type
- * @param <E> the element type of the collection 
+ * @param <Z> ソースの型
+ * @param <C> コレクションの型
+ * @param <E> コレクションの要素の型 
  *
  * @since Java Persistence 2.0
  */
 public interface PluralJoin<Z, C, E> extends Join<Z, E> {
 
     /**
-     * Return the metamodel representation for the collection-valued 
-     * attribute corresponding to the join.
-     * @return metamodel collection-valued attribute corresponding
-     *         to the target of the join
+     * 結合に対応するコレクションの値を持つ属性を表すメタモデルを返します。
+     * @return 結合に対応するコレクションの値を持つ属性を表すメタモデル
      */
     PluralAttribute<? super Z, C, E> getModel();
 }
