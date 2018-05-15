@@ -19,56 +19,51 @@ import javax.persistence.metamodel.PluralAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 
 /**
- * Represents an element of the from clause which may
- * function as the parent of Fetches.
+ * Fetchの親として機能するfrom句の要素を表します。
  *
- * @param <Z>  the source type
- * @param <X>  the target type
+ * @param <Z>  元の型
+ * @param <X>  対象の型
  *
  * @since Java Persistence 2.0
  */
 public interface FetchParent<Z, X> {
 
     /**
-     *  Return the fetch joins that have been made from this type.
-     *  Returns empty set if no fetch joins have been made from
-     *  this type.
-     *  Modifications to the set do not affect the query.
-     *  @return fetch joins made from this type
+     *  この型から作成されたフェッチ結合を返します。
+     * 
+     *  この型からフェッチ結合が行われていない場合は空のセットを返します。
+     *  セットへの変更はクエリに影響しません。
+     *  @return この型から作成されたフェッチ結合
      */
     java.util.Set<Fetch<X, ?>> getFetches();
 
     /**
-     *  Create a fetch join to the specified single-valued attribute 
-     *  using an inner join.
-     *  @param attribute  target of the join
-     *  @return the resulting fetch join
+     *  指定された単一値属性への内部結合を使用したフェッチ結合を作成します。
+     *  @param attribute  結合のターゲット
+     *  @return 結果のフェッチ結合
      */	
     <Y> Fetch<X, Y> fetch(SingularAttribute<? super X, Y> attribute);
 
     /**
-     *  Create a fetch join to the specified single-valued attribute 
-     *  using the given join type.
-     *  @param attribute  target of the join
-     *  @param jt  join type
-     *  @return the resulting fetch join
+     *  指定された単一値属性への与えられた結合の型を使用したフェッチ結合を作成します。
+     *  @param attribute  結合のターゲット
+     *  @param jt  結合の型
+     *  @return 結果のフェッチ結合
      */	
     <Y> Fetch<X, Y> fetch(SingularAttribute<? super X, Y> attribute, JoinType jt);
 
     /**
-     *  Create a fetch join to the specified collection-valued 
-     *  attribute using an inner join. 
-     *  @param attribute  target of the join
-     *  @return the resulting join
+     *  指定されたコレクション値の属性への内部結合を使用したフェッチ結合を作成します。
+     *  @param attribute  結合のターゲット
+     *  @return 結果の結合
      */
     <Y> Fetch<X, Y> fetch(PluralAttribute<? super X, ?, Y> attribute);
 	
     /**
-     *  Create a fetch join to the specified collection-valued 
-     *  attribute using the given join type.
-     *  @param attribute  target of the join
-     *  @param jt  join type
-     *  @return the resulting join
+     *  指定されたコレクション値の属性への与えられた結合の型を使用したフェッチ結合を作成します。
+     *  @param attribute  結合のターゲット
+     *  @param jt  結合の型
+     *  @return 結果の結合
      */
     <Y> Fetch<X, Y> fetch(PluralAttribute<? super X, ?, Y> attribute, JoinType jt);
 	
@@ -76,26 +71,20 @@ public interface FetchParent<Z, X> {
     //String-based:
 	
     /**
-     *  Create a fetch join to the specified attribute using an 
-     *  inner join.
-     *  @param attributeName  name of the attribute for the
-     *         target of the join
-     *  @return the resulting fetch join
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name does not exist
+     *  指定された属性への内部結合を使用したフェッチ結合を作成します。
+     *  @param attributeName  結合のターゲットの属性の名前
+     *  @return 結果のフェッチ結合
+     *  @throws IllegalArgumentException 与えられた属性の名前が存在しない場合
      */	
     @SuppressWarnings("hiding")
     <X, Y> Fetch<X, Y> fetch(String attributeName);
 
     /**
-     *  Create a fetch join to the specified attribute using 
-     *  the given join type.
-     *  @param attributeName  name of the attribute for the
-     *               target of the join
-     *  @param jt  join type
-     *  @return the resulting fetch join
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name does not exist
+     *  指定された属性への与えられた結合の型を使用したフェッチ結合を作成します。
+     *  @param attributeName  結合のターゲットの属性の名前
+     *  @param jt  結合の型
+     *  @return 結果のフェッチ結合
+     *  @throws IllegalArgumentException 与えられた属性の名前が存在しない場合
      */	
     @SuppressWarnings("hiding")
     <X, Y> Fetch<X, Y> fetch(String attributeName, JoinType jt);
