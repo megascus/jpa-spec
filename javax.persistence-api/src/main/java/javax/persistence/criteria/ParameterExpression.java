@@ -18,9 +18,9 @@ package javax.persistence.criteria;
 import javax.persistence.Parameter;
 
 /**
- * Type of criteria query parameter expressions.
+ * クライテリアクエリーのパラメーターの式の型です。
  *
- * @param <T> the type of the parameter expression
+ * @param <T> パラメーターの式の型
  *
  * @since Java Persistence 2.0
  */

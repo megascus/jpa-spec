@@ -16,27 +16,27 @@
 package javax.persistence.criteria;
 
 /**
- * An object that defines an ordering over the query results.
+ * クエリーの結果の順序付けを定義するオブジェクトです。
  *
  * @since Java Persistence 2.0
  */
 public interface Order {
 
    /**
-    * Switch the ordering.
-    * @return a new <code>Order</code> instance with the reversed ordering
+    * 順序を入れ替えます。
+    * @return 順序を反転させた新しい<code>Order</code>インスタンス
     */
     Order reverse();
 
    /**
-    * Whether ascending ordering is in effect.
-    * @return boolean indicating whether ordering is ascending
+    * 昇順が有効かどうか。
+    * @return 昇順かどうかを示すブール式
     */
     boolean isAscending();
 
    /**
-    * Return the expression that is used for ordering.
-    * @return expression used for ordering
+    * 順序付けに使用される式を返します。
+    * @return 順序付けに使用される式
     */
    Expression<?> getExpression();
 }
