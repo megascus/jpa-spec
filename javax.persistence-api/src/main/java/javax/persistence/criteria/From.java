@@ -45,7 +45,7 @@ public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
     Set<Join<X, ?>> getJoins();
 	
     /**
-     *  このFromオブジェクトが(code>Subquery</code> <code>correlate</code>メソッドを使用して)相関の結果として取得されたかどうか。
+     *  このFromオブジェクトが(<code>Subquery</code> <code>correlate</code>メソッドを使用して)相関の結果として取得されたかどうか。
      *  @return このオブジェクトが相関によって取得されたかを示すブール値
      */
     boolean isCorrelated();
