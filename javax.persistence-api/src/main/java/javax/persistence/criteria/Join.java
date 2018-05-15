@@ -18,59 +18,57 @@ package javax.persistence.criteria;
 import javax.persistence.metamodel.Attribute;
 
 /**
- * A join to an entity, embeddable, or basic type.
+ * エンティティや組み込み型、基本形への結合です。
  *
- * @param <Z> the source type of the join
- * @param <X> the target type of the join
+ * @param <Z> 結合のソースの型
+ * @param <X> 結合のターゲットの型
  *
  * @since Java Persistence 2.0
  */
 public interface Join<Z, X> extends From<Z, X> {
 
     /**
-     *  Modify the join to restrict the result according to the
-     *  specified ON condition and return the join object.  
-     *  Replaces the previous ON condition, if any.
-     *  @param restriction  a simple or compound boolean expression
-     *  @return the modified join object
+     *  結合を変更して、指定されたON条件に従って結果を制限する結合オブジェクトを戻します。
+     * 
+     *  以前のON条件があれば置き換えます。
+     *  @param restriction  単純な、もしくは複合したブール式
+     *  @return 変更された結合オブジェクト
      *  @since Java Persistence 2.1
      */
     Join<Z, X> on(Expression<Boolean> restriction);
 
     /**
-     *  Modify the join to restrict the result according to the
-     *  specified ON condition and return the join object.  
-     *  Replaces the previous ON condition, if any.
-     *  @param restrictions  zero or more restriction predicates
-     *  @return the modified join object
+     *  結合を変更して、指定されたON条件に従って結果を制限する結合オブジェクトを戻します。
+     * 
+     *  以前のON条件があれば置き換えます。
+     *  @param restrictions  0個以上の制限述語
+     *  @return 変更された結合オブジェクト
      *  @since Java Persistence 2.1
      */
     Join<Z, X> on(Predicate... restrictions);
 
     /** 
-     *  Return the predicate that corresponds to the ON 
-     *  restriction(s) on the join, or null if no ON condition 
-     *  has been specified.
-     *  @return the ON restriction predicate
+     *  結合のON制約に対応する述語、もしくはON条件が指定されていない場合はnullを返します。
+     *  @return ON制約の述語
      *  @since Java Persistence 2.1
      */
     Predicate getOn();
 
     /**
-     * Return the metamodel attribute corresponding to the join.
-     * @return metamodel attribute corresponding to the join
+     * この結合に対応するメタモデル属性を返します。
+     * @return この結合に対応するメタモデル属性
      */
     Attribute<? super Z, ?> getAttribute();
 
     /**
-     * Return the parent of the join.
-     * @return join parent
+     * 結合の親を帰します。
+     * @return 結合の親
      */
     From<?, Z> getParent();
 
     /**
-     * Return the join type.
-     * @return join type
+     * 結合の型を返します。
+     * @return 結合の型
      */
     JoinType getJoinType();
 }
