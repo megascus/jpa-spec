@@ -36,20 +36,17 @@ import java.util.Set;
 public interface From<Z, X> extends Path<X>, FetchParent<Z, X> {
 
     /**
-     *  Return the joins that have been made from this bound type.
-     *  Returns empty set if no joins have been made from this
-     *  bound type.
-     *  Modifications to the set do not affect the query.
-     *  @return joins made from this type
+     *  この境界型から作られた結合を返します。
+     * 
+     *  この境界型から結合が作られていない場合は空のセットを返します。
+     *  返されたセットへの変更はクエリーには影響を与えません。
+     *  @return この型から作られた結合
      */
     Set<Join<X, ?>> getJoins();
 	
     /**
-     *  Whether the <code>From</code> object has been obtained as a result of
-     *  correlation (use of a <code>Subquery</code> <code>correlate</code> 
-     *  method).
-     *  @return boolean indicating whether the object has been
-     *          obtained through correlation
+     *  このFromオブジェクトが(code>Subquery</code> <code>correlate</code>メソッドを使用して)相関の結果として取得されたかどうか。
+     *  @return このオブジェクトが相関によって取得されたかを示すブール値
      */
     boolean isCorrelated();
 
