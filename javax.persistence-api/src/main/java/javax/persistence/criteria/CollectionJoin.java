@@ -21,7 +21,7 @@ import javax.persistence.metamodel.CollectionAttribute;
 /**
  * <code>CollectionJoin</code>インターフェイスは<code>java.util.Collection</code>として指定された関連や要素コレクションを介してコレクションに結合した結果の型です。
  *
- * @param <Z> 結合のソースタイプ
+ * @param <Z> 結合のソースの型
  * @param <E> ターゲット<code>Collection</code>の要素型
  *
  * @since Java Persistence 2.0

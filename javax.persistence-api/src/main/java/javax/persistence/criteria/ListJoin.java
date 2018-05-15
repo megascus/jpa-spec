@@ -19,12 +19,10 @@ import java.util.List;
 import javax.persistence.metamodel.ListAttribute;
 
 /**
- * The <code>ListJoin</code> interface is the type of the result of
- * joining to a collection over an association or element 
- * collection that has been specified as a <code>java.util.List</code>.
+ * <code>ListJoin</code>インターフェイスは<code>java.util.List</code>として指定された関連や要素コレクションを介してコレクションに結合した結果の型です。
  *
- * @param <Z> the source type of the join
- * @param <E> the element type of the target List
+ * @param <Z> 結合のソースの型
+ * @param <E> ターゲット<code>List</code>の要素型
  *
  * @since Java Persistence 2.0
  */
@@ -32,40 +30,36 @@ public interface ListJoin<Z, E>
 		extends PluralJoin<Z, List<E>, E> {
 
     /**
-     *  Modify the join to restrict the result according to the
-     *  specified ON condition and return the join object.  
-     *  Replaces the previous ON condition, if any.
-     *  @param restriction  a simple or compound boolean expression
-     *  @return the modified join object
+     * 結合を変更して指定されたON条件に従って結果を制限した結合オブジェクトを戻します。
+     * 
+     * 以前のON条件があれば置き換えます。
+     *  @param restriction  単純な、もしくは複合したブール式
+     *  @return 変更された結合オブジェクト
      *  @since Java Persistence 2.1
      */
     ListJoin<Z, E> on(Expression<Boolean> restriction);
 
     /**
-     *  Modify the join to restrict the result according to the
-     *  specified ON condition and return the join object.  
-     *  Replaces the previous ON condition, if any.
-     *  @param restrictions  zero or more restriction predicates
-     *  @return the modified join object
+     * 結合を変更して指定されたON条件に従って結果を制限した結合オブジェクトを戻します。
+     * 
+     * 以前のON条件があれば置き換えます。
+     *  @param restrictions  0個以上の制限の述語
+     *  @return 変更された結合オブジェクト
      *  @since Java Persistence 2.1
      */
     ListJoin<Z, E> on(Predicate... restrictions);
 
     /**
-     * Return the metamodel representation for the list attribute.
-     * @return metamodel type representing the <code>List</code> that is
-     *         the target of the join
+     * リスト属性のメタモデル表現を返します。
+     * @return 結合のターゲットである<code>List</code>を表すメタモデル型
      */
     ListAttribute<? super Z, E> getModel();
 
     /**
-     * Create an expression that corresponds to the index of
-     * the object in the referenced association or element
-     * collection.
-     * This method must only be invoked upon an object that
-     * represents an association or element collection for
-     * which an order column has been defined.
-     * @return expression denoting the index
+     * 参照された関連付けまたは要素コレクション内のオブジェクトのインデックスに対応する式を作ります。
+     * 
+     * このメソッドは順序列が定義されている関連付けまたは要素コレクションを表すオブジェクトに対してのみ呼び出される必要があります。
+     * @return インデックスを表す式
      */
     Expression<Integer> index();
 }
