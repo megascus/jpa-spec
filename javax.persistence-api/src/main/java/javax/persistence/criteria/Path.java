@@ -21,55 +21,50 @@ import javax.persistence.metamodel.Bindable;
 import javax.persistence.metamodel.MapAttribute;
 
 /**
- * Represents a simple or compound attribute path from a 
- * bound type or collection, and is a "primitive" expression.
+ * 境界型やコレクションからの単純な、もしくは複合した属性のパスを表す"プリミティブ"な式です。
  *
- * @param <X>  the type referenced by the path
+ * @param <X>  パスによって参照される型
  *
  * @since Java Persistence 2.0
  */
 public interface Path<X> extends Expression<X> {
 
     /** 
-     * Return the bindable object that corresponds to the
-     * path expression.
-     * @return bindable object corresponding to the path
+     * パス式に対応する束縛可能なオブジェクトを返します。
+     * @return パス式に対応する束縛可能なオブジェクト
      */
     Bindable<X> getModel(); 
     
     /**
-     *  Return the parent "node" in the path or null if no parent.
-     *  @return parent
+     * パスの親"ノード"を返します。親が存在しない場合はnullです。
+     *  @return 親
      */
     Path<?> getParentPath();
 	
     /**
-     *  Create a path corresponding to the referenced 
-     *  single-valued attribute.
-     *  @param attribute single-valued attribute
-     *  @return path corresponding to the referenced attribute
+     * 参照された単独の値を持つ属性に対応するパスを作ります。
+     *  @param attribute 単独の値持つ属性
+     *  @return 参照された属性に対応するパス
      */
     <Y> Path<Y> get(SingularAttribute<? super X, Y> attribute);
 
     /**
-     *  Create a path corresponding to the referenced 
-     *  collection-valued attribute.
-     *  @param collection collection-valued attribute
-     *  @return expression corresponding to the referenced attribute
+     * 参照されたコレクション値の属性に対応するパスを作ります。
+     *  @param collection コレクション値の属性
+     *  @return 参照された属性に対応するパス
      */
     <E, C extends java.util.Collection<E>> Expression<C> get(PluralAttribute<X, C, E> collection);
 
     /**
-     *  Create a path corresponding to the referenced 
-     *  map-valued attribute.
-     *  @param map map-valued attribute
-     *  @return expression corresponding to the referenced attribute
+     *  参照されたマップ値の属性に対応するパスを作ります。
+     *  @param map マップ値の属性
+     *  @return 参照された属性に対応するパス
      */
     <K, V, M extends java.util.Map<K, V>> Expression<M> get(MapAttribute<X, K, V> map);
 
     /**
-     *  Create an expression corresponding to the type of the path.
-     *  @return expression corresponding to the type of the path
+     *  パスの型に対応する式を作ります。
+     *  @return パスの型に対応する式
      */
     Expression<Class<? extends X>> type();
 
@@ -77,14 +72,13 @@ public interface Path<X> extends Expression<X> {
     //String-based:
 	
     /**
-     *  Create a path corresponding to the referenced attribute.
+     *  参照された属性に対応するパスを作ります。
      * 
-     *  <p> Note: Applications using the string-based API may need to 
-     *  specify the type resulting from the <code>get</code> operation in order
-     *  to avoid the use of <code>Path</code> variables.
+     *  <p> 注意：文字列ベースのAPIを使用するアプリケーションでは<code>Path</code>変数の使用を避けるために
+     * <code>get</code>操作の結果の型を指定する必要があります。
      *
      *  <pre>
-     *     For example:
+     *     良い例:
      *
      *     CriteriaQuery&#060;Person&#062; q = cb.createQuery(Person.class);
      *     Root&#060;Person&#062; p = q.from(Person.class);
@@ -92,7 +86,7 @@ public interface Path<X> extends Expression<X> {
      *      .where(cb.isMember("joe",
      *                         p.&#060;Set&#060;String&#062;&#062;get("nicknames")));
      *
-     *     rather than:
+     *     良くない例:
      * 
      *     CriteriaQuery&#060;Person&#062; q = cb.createQuery(Person.class);
      *     Root&#060;Person&#062; p = q.from(Person.class);
@@ -101,12 +95,10 @@ public interface Path<X> extends Expression<X> {
      *      .where(cb.isMember("joe", nicknames));
      *  </pre>
      *
-     *  @param attributeName  name of the attribute
-     *  @return path corresponding to the referenced attribute
-     *  @throws IllegalStateException if invoked on a path that
-     *          corresponds to a basic type
-     *  @throws IllegalArgumentException if attribute of the given
-     *           name does not otherwise exist
+     *  @param attributeName  属性の名前
+     *  @return 参照された属性に対応するパス
+     *  @throws IllegalStateException 基本型に対応するパスで呼び出された場合
+     *  @throws IllegalArgumentException 指定された名前の属性が存在しない場合
      */
     <Y> Path<Y> get(String attributeName);
 }
