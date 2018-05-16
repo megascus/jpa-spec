@@ -162,16 +162,17 @@ public interface Subquery<T> extends AbstractQuery<T>, Expression<T> {
     <X, K, V> MapJoin<X, K, V> correlate(MapJoin<X, K, V> parentMap);
 
     /**
-     * Return the query of which this is a subquery.
-     * This must be a CriteriaQuery or a Subquery.
+     * これがサブクエリーであるクエリーを返します。
+     * 
+     * これはCriteriaQueryもしくはSubqueryである必要があります。
      * @return 囲んだクエリーもしくはサブクエリー
      */
     AbstractQuery<?> getParent();
 
     /**
-     * Return the query of which this is a subquery.
-     * This may be a CriteriaQuery, CriteriaUpdate, CriteriaDelete,
-     * or a Subquery.
+     * これがサブクエリーであるクエリーを返します。
+     * 
+     * これはCriteriaQuery、CriteriaUpdate、CriteriaDelete、Subqueryである可能性があります。
      * @return 囲んだクエリーもしくはサブクエリー
      * @since Java Persistence 2.1
      */
