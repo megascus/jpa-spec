@@ -55,7 +55,7 @@ public interface Subquery<T> extends AbstractQuery<T>, Expression<T> {
      * 以前に追加された制限があれば置き換えます。
      * 制限が指定されていない場合は以前に追加された制限は単純に削除されます。
      * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
-     * @param restriction  単純な、もしくは複合したブール式
+     * @param restrictions  単純な、もしくは複合したブール式
      * @return 変更されたサブクエリー
      */
     Subquery<T> where(Predicate... restrictions);
@@ -184,9 +184,9 @@ public interface Subquery<T> extends AbstractQuery<T>, Expression<T> {
     Expression<T> getSelection();
 
     /**
-     *  Return the correlated joins of the subquery.
-     *  Returns empty set if the subquery has no correlated
-     *  joins.
+     *  サブクエリーの相関結合を返します。
+     * 
+     *  サブクエリーが相関結合をもたない場合は空のセットを返します。
      *  セットへの変更はクエリーには影響を与えません。
      *  @return サブクエリーの相関結合
      */
