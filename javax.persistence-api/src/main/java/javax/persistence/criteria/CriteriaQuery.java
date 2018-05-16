@@ -146,7 +146,7 @@ public interface CriteriaQuery<T> extends AbstractQuery<T> {
     CriteriaQuery<T> multiselect(List<Selection<?>> selectionList);
 
     /**
-     * 指定されたブール式に従ってクエリ結果を制限するようにクエリを変更します。
+     * 指定されたブール式に従ってクエリーの結果を制限するようにクエリーを変更します。
      * 
      * 以前に追加された制限があれば置き換えます。
      * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
@@ -156,7 +156,7 @@ public interface CriteriaQuery<T> extends AbstractQuery<T> {
     CriteriaQuery<T> where(Expression<Boolean> restriction);
 
     /**
-     * 指定されたブール式に従ってクエリ結果を制限するようにクエリを変更します。
+     * 指定されたブール式に従ってクエリーの結果を制限するようにクエリーを変更します。
      * 
      * 以前に追加された制限があれば置き換えます。
      * 制限が指定されていない場合は以前に追加された制限は単純に削除されます。
@@ -183,7 +183,7 @@ public interface CriteriaQuery<T> extends AbstractQuery<T> {
      * 以前に追加されたグループ化式があれば置き換えます。
      * グループ化式が指定されていない場合は以前に追加されたグループ化式は単純に削除されます。
      * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
-     * @param grouping  0個以上のグループ化式の一覧
+     * @param grouping  0個以上のグループ化式のリスト
      * @return 変更されたクエリー
      */
     CriteriaQuery<T> groupBy(List<Expression<?>> grouping);

@@ -19,37 +19,36 @@ import javax.persistence.TupleElement;
 import java.util.List;
 
 /**
- * The <code>Selection</code> interface defines an item that is to be
- * returned in a query result.
+ * <code>Selection</code>インターフェースはクエリーの結果から返されるだろう項目を定義します。
  *
- * @param <X> the type of the selection item
+ * @param <X> 選択項目の型
  *
  * @since Java Persistence 2.0
  */
 public interface Selection<X> extends TupleElement<X> {
 
     /**
-     * Assigns an alias to the selection item.
-     * Once assigned, an alias cannot be changed or reassigned.
-     * Returns the same selection item.
-     * @param name  alias
-     * @return selection item 
+     * 選択項目にエイリアスを割り当てます。
+     * 
+     * 一度割り当てると、変更や再割り当てはできません。
+     * 同じ選択項目を返します。
+     * @param name  エイリアス
+     * @return 選択項目 
      */
     Selection<X> alias(String name);
 
     /**
-     * Whether the selection item is a compound selection.
-     * @return boolean indicating whether the selection is a compound
-     *         selection
+     * 選択項目が複合選択かどうかを返します。
+     * @return 選択項目が複合選択項目かどうかを示すブール値
      */
     boolean isCompoundSelection();
 
     /**
-     * Return the selection items composing a compound selection.
-     * Modifications to the list do not affect the query.
-     * @return list of selection items
-     * @throws IllegalStateException if selection is not a 
-     *         compound selection
+     * 複合選択を構成する選択項目を返します。
+     * 
+     * リストへの変更はクエリーに影響しません。
+     * @return 選択項目のリスト
+     * @throws IllegalStateException このオブジェクトが複合選択でない場合
      */
     List<Selection<?>> getCompoundSelectionItems();
 }

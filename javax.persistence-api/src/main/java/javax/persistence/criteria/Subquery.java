@@ -19,168 +19,152 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * The <code>Subquery</code> interface defines functionality that is 
- * specific to subqueries.
+ * <code>Subquery</code>インターフェイスはサブクエリーに固有の機能を定義します。
  *
- * A subquery has an expression as its selection item.
+ * サブクエリーは選択項目として一つの式を持ちます。
  *
- * @param <T> the type of the selection item.
+ * @param <T> 選択項目の型
  *
  * @since Java Persistence 2.0
  */
 public interface Subquery<T> extends AbstractQuery<T>, Expression<T> {
 	
     /**
-     * Specify the item that is to be returned as the subquery 
-     * result.
-     * Replaces the previously specified selection, if any.
-     * @param expression  expression specifying the item that
-     *        is to be returned as the subquery result
-     * @return the modified subquery
+     * サブクエリーの結果として返される項目を指定します。
+     * 
+     * 前に指定された選択項目があれば置き換えます。
+     * @param expression  サブクエリーが返す項目を指定する式
+     * @return 変更されたサブクエリー
      */
     Subquery<T> select(Expression<T> expression);
 	
     /**
-     * Modify the subquery to restrict the result according
-     * to the specified boolean expression.
-     * Replaces the previously added restriction(s), if any.
-     * This method only overrides the return type of the 
-     * corresponding <code>AbstractQuery</code> method.
-     * @param restriction  a simple or compound boolean expression
-     * @return the modified subquery
+     * 指定されたブール式に従って結果を制限するようにサブクエリーを変更します。
+     * 
+     * 
+     * 以前に追加された制限があれば置き換えます。
+     * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
+     * @param restriction  単純な、もしくは複合したブール式
+     * @return 変更されたサブクエリー
      */
     Subquery<T> where(Expression<Boolean> restriction);
 
     /**
-     * Modify the subquery to restrict the result according 
-     * to the conjunction of the specified restriction predicates.
-     * Replaces the previously added restriction(s), if any.
-     * If no restrictions are specified, any previously added
-     * restrictions are simply removed.
-     * This method only overrides the return type of the 
-     * corresponding <code>AbstractQuery</code> method.
-     * @param restrictions  zero or more restriction predicates
-     * @return the modified subquery
+     * 指定された制限述語の論理積に従って結果を制限するようにサブクエリを変更します。
+     * 
+     * 以前に追加された制限があれば置き換えます。
+     * 制限が指定されていない場合は以前に追加された制限は単純に削除されます。
+     * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
+     * @param restriction  単純な、もしくは複合したブール式
+     * @return 変更されたサブクエリー
      */
     Subquery<T> where(Predicate... restrictions);
 
     /**
-     * Specify the expressions that are used to form groups over
-     * the subquery results.
-     * Replaces the previous specified grouping expressions, if any.
-     * If no grouping expressions are specified, any previously 
-     * added grouping expressions are simply removed.
-     * This method only overrides the return type of the 
-     * corresponding <code>AbstractQuery</code> method.
-     * @param grouping  zero or more grouping expressions
-     * @return the modified subquery
+     * サブクエリーの結果に対してグループを形成するために使用される式を指定します。
+     * 
+     * 以前に追加されたグループ化式があれば置き換えます。
+     * グループ化式が指定されていない場合は以前に追加されたグループ化式は単純に削除されます。
+     * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
+     * @param grouping  0個以上のグループ化式
+     * @return 変更されたサブクエリー
      */
     Subquery<T> groupBy(Expression<?>... grouping);
 
     /**
-     * Specify the expressions that are used to form groups over
-     * the subquery results.
-     * Replaces the previous specified grouping expressions, if any.
-     * If no grouping expressions are specified, any previously 
-     * added grouping expressions are simply removed.
-     * This method only overrides the return type of the 
-     * corresponding <code>AbstractQuery</code> method.
-     * @param grouping  list of zero or more grouping expressions
-     * @return the modified subquery
+     * サブクエリーの結果に対してグループを形成するために使用される式を指定します。
+     * 
+     * 以前に追加されたグループ化式があれば置き換えます。
+     * グループ化式が指定されていない場合は以前に追加されたグループ化式は単純に削除されます。
+     * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
+     * @param grouping  0個以上のグループ化式のリスト
+     * @return 変更されたサブクエリー
      */
     Subquery<T> groupBy(List<Expression<?>> grouping);
 
     /**
-     * Specify a restriction over the groups of the subquery.
-     * Replaces the previous having restriction(s), if any.
-     * This method only overrides the return type of the 
-     * corresponding <code>AbstractQuery</code> method.
-     * @param restriction  a simple or compound boolean expression
-     * @return the modified subquery
+     * サブクエリーのグループに対応する制限を指定します。
+     * 
+     * 以前に追加されたhaving制限があれば置き換えます。
+     * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
+     * @param restriction  単純な、もしくは複合したブール式
+     * @return 変更されたサブクエリー
      */
     Subquery<T> having(Expression<Boolean> restriction);
 
     /**
-     * Specify restrictions over the groups of the subquery
-     * according the conjunction of the specified restriction 
-     * predicates.
-     * Replaces the previously added having restriction(s), if any.
-     * If no restrictions are specified, any previously added
-     * restrictions are simply removed.
-     * This method only overrides the return type of the 
-     * corresponding <code>AbstractQuery</code> method.
-     * @param restrictions  zero or more restriction predicates
-     * @return the modified subquery
+     * 指定された制限述語の結合に従ってサブクエリーのグループに対応する制限を指定します。
+     *
+     * 以前に追加されたhaving制限があれば置き換えます。
+     * 制限が指定されていない場合は以前に追加された制限は単純に削除されます。
+     * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
+     * @param restrictions  0個以上の制限の述語
+     * @return 変更されたサブクエリー
      */
     Subquery<T> having(Predicate... restrictions);
 
     /**
-     * Specify whether duplicate query results will be eliminated.
-     * A true value will cause duplicates to be eliminated.
-     * A false value will cause duplicates to be retained.
-     * If distinct has not been specified, duplicate results must
-     * be retained.
-     * This method only overrides the return type of the 
-     * corresponding <code>AbstractQuery</code> method.
-     * @param distinct  boolean value specifying whether duplicate
-     *        results must be eliminated from the subquery result or
-     *        whether they must be retained
-     * @return the modified subquery.
+     * 重複するクエリーの結果を除去するかどうかを指定します。
+     * 
+     * trueの値は重複を排除します。falseの値を指定すると重複が保持されます。
+     * distinctが指定されていない場合は重複した結果を保持する必要があります。
+     * このクエリーは対応する<code>AbstractQuery</code>のメソッドの結果型を上書きするだけです。
+     * @param distinct  サブクエリーの結果から重複した結果を取り除くべきか、保持するべきかを指定するブール値
+     * @return 変更されたサブクエリー.
      */
     Subquery<T> distinct(boolean distinct);
 	
     /**
-     * Create a subquery root correlated to a root of the 
-     * enclosing query.
-     * @param parentRoot  a root of the containing query
-     * @return subquery root
+     * 囲んだクエリーのルートに相関したサブクエリーのルートを作ります。
+     * @param parentRoot  含んだクエリーのルート
+     * @return サブクエリーのルート
      */
     <Y> Root<Y> correlate(Root<Y> parentRoot);
 
     /**
      * Create a subquery join object correlated to a join object
      * of the enclosing query.
-     * @param parentJoin  join object of the containing query
-     * @return subquery join
+     * @param parentJoin  含んだクエリーの結合オブジェクト
+     * @return サブクエリーの結合
      */
     <X, Y> Join<X, Y> correlate(Join<X, Y> parentJoin);
 
     /**
      * Create a subquery collection join object correlated to a 
      * collection join object of the enclosing query.
-     * @param parentCollection  join object of the containing query
-     * @return subquery join
+     * @param parentCollection  含んだクエリーの結合オブジェクト
+     * @return サブクエリーの結合
      */
     <X, Y> CollectionJoin<X, Y> correlate(CollectionJoin<X, Y> parentCollection);
 
     /**
      * Create a subquery set join object correlated to a set join
      * object of the enclosing query.
-     * @param parentSet  join object of the containing query
-     * @return subquery join
+     * @param parentSet  含んだクエリーの結合オブジェクト
+     * @return サブクエリーの結合
      */
     <X, Y> SetJoin<X, Y> correlate(SetJoin<X, Y> parentSet);
 
     /**
      * Create a subquery list join object correlated to a list join
      * object of the enclosing query.
-     * @param parentList join object of the containing query
-     * @return subquery join
+     * @param parentList 含んだクエリーの結合オブジェクト
+     * @return サブクエリーの結合
      */
     <X, Y> ListJoin<X, Y> correlate(ListJoin<X, Y> parentList);
 
     /**
      * Create a subquery map join object correlated to a map join
      * object of the enclosing query.
-     * @param parentMap join object of the containing query
-     * @return subquery join
+     * @param parentMap 含んだクエリーの結合オブジェクト
+     * @return サブクエリーの結合
      */
     <X, K, V> MapJoin<X, K, V> correlate(MapJoin<X, K, V> parentMap);
 
     /**
      * Return the query of which this is a subquery.
      * This must be a CriteriaQuery or a Subquery.
-     * @return the enclosing query or subquery
+     * @return 囲んだクエリーもしくはサブクエリー
      */
     AbstractQuery<?> getParent();
 
@@ -188,14 +172,14 @@ public interface Subquery<T> extends AbstractQuery<T>, Expression<T> {
      * Return the query of which this is a subquery.
      * This may be a CriteriaQuery, CriteriaUpdate, CriteriaDelete,
      * or a Subquery.
-     * @return the enclosing query or subquery
+     * @return 囲んだクエリーもしくはサブクエリー
      * @since Java Persistence 2.1
      */
     CommonAbstractCriteria getContainingQuery();
 	
     /**
-     * Return the selection expression.
-     * @return the item to be returned in the subquery result
+     * 選択式を返します。
+     * @return サブクエリーの結果として返される項目
      */
     Expression<T> getSelection();
 
@@ -203,8 +187,8 @@ public interface Subquery<T> extends AbstractQuery<T>, Expression<T> {
      *  Return the correlated joins of the subquery.
      *  Returns empty set if the subquery has no correlated
      *  joins.
-     *  Modifications to the set do not affect the query.
-     *  @return the correlated joins of the subquery
+     *  セットへの変更はクエリーには影響を与えません。
+     *  @return サブクエリーの相関結合
      */
     Set<Join<?, ?>> getCorrelatedJoins();
 
