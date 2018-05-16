@@ -122,40 +122,35 @@ public interface Subquery<T> extends AbstractQuery<T>, Expression<T> {
     <Y> Root<Y> correlate(Root<Y> parentRoot);
 
     /**
-     * Create a subquery join object correlated to a join object
-     * of the enclosing query.
+     * 囲んだクエリーの結合オブジェクトと相関したサブクエリーの結合オブジェクトを作ります。
      * @param parentJoin  含んだクエリーの結合オブジェクト
      * @return サブクエリーの結合
      */
     <X, Y> Join<X, Y> correlate(Join<X, Y> parentJoin);
 
     /**
-     * Create a subquery collection join object correlated to a 
-     * collection join object of the enclosing query.
+     * 囲んだクエリーのコレクション結合オブジェクトと相関するサブクエリーのコレクション結合オブジェクトを作ります。
      * @param parentCollection  含んだクエリーの結合オブジェクト
      * @return サブクエリーの結合
      */
     <X, Y> CollectionJoin<X, Y> correlate(CollectionJoin<X, Y> parentCollection);
 
     /**
-     * Create a subquery set join object correlated to a set join
-     * object of the enclosing query.
+     * 囲んだクエリーのセット結合オブジェクトと相関するサブクエリーのセット結合オブジェクトを作ります。
      * @param parentSet  含んだクエリーの結合オブジェクト
      * @return サブクエリーの結合
      */
     <X, Y> SetJoin<X, Y> correlate(SetJoin<X, Y> parentSet);
 
     /**
-     * Create a subquery list join object correlated to a list join
-     * object of the enclosing query.
+     * 囲んだクエリーのリスト結合オブジェクトと相関するサブクエリーのリスト結合オブジェクトを作ります。
      * @param parentList 含んだクエリーの結合オブジェクト
      * @return サブクエリーの結合
      */
     <X, Y> ListJoin<X, Y> correlate(ListJoin<X, Y> parentList);
 
     /**
-     * Create a subquery map join object correlated to a map join
-     * object of the enclosing query.
+     * 囲んだクエリーのマップ結合オブジェクトと相関するサブクエリーのマップ結合オブジェクトを作ります。
      * @param parentMap 含んだクエリーの結合オブジェクト
      * @return サブクエリーの結合
      */
