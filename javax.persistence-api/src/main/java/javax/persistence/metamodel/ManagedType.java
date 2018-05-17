@@ -78,9 +78,8 @@ public interface ManagedType<X> extends Type<X> {
     /**
      *  Return the Collection-valued attribute of the managed type 
      *  that corresponds to the specified name and Java element type.
-     *  @param name  the name of the represented attribute
-     *  @param elementType  the element type of the represented 
-     *                      attribute
+     *  @param name  表現された属性の名前
+     *  @param elementType  表現された属性の要素の型
      *  @return CollectionAttribute of the given name and element
      *          type
      *  @throws IllegalArgumentException if attribute of the given
@@ -92,9 +91,8 @@ public interface ManagedType<X> extends Type<X> {
      *  Return the Collection-valued attribute declared by the 
      *  managed type that corresponds to the specified name and Java 
      *  element type.
-     *  @param name  the name of the represented attribute
-     *  @param elementType  the element type of the represented 
-     *                      attribute
+     *  @param name  表現された属性の名前
+     *  @param elementType  表現された属性の要素の型
      *  @return declared <code>CollectionAttribute</code> of the given name and 
      *          element type
      *  @throws IllegalArgumentException if attribute of the given
@@ -105,9 +103,8 @@ public interface ManagedType<X> extends Type<X> {
     /**
      *  Return the Set-valued attribute of the managed type that
      *  corresponds to the specified name and Java element type.
-     *  @param name  the name of the represented attribute
-     *  @param elementType  the element type of the represented 
-     *                      attribute
+     *  @param name  表現された属性の名前
+     *  @param elementType  表現された属性の要素の型
      *  @return SetAttribute of the given name and element type
      *  @throws IllegalArgumentException if attribute of the given
      *          name and type is not present in the managed type
@@ -117,9 +114,8 @@ public interface ManagedType<X> extends Type<X> {
     /**
      *  Return the Set-valued attribute declared by the managed type 
      *  that corresponds to the specified name and Java element type.
-     *  @param name  the name of the represented attribute
-     *  @param elementType  the element type of the represented 
-     *                      attribute
+     *  @param name  表現された属性の名前
+     *  @param elementType  表現された属性の要素の型
      *  @return declared SetAttribute of the given name and 
      *          element type
      *  @throws IllegalArgumentException if attribute of the given
@@ -130,9 +126,8 @@ public interface ManagedType<X> extends Type<X> {
     /**
      *  Return the List-valued attribute of the managed type that
      *  corresponds to the specified name and Java element type.
-     *  @param name  the name of the represented attribute
-     *  @param elementType  the element type of the represented 
-     *                      attribute
+     *  @param name  表現された属性の名前
+     *  @param elementType  表現された属性の要素の型
      *  @return ListAttribute of the given name and element type
      *  @throws IllegalArgumentException if attribute of the given
      *          name and type is not present in the managed type
@@ -143,9 +138,8 @@ public interface ManagedType<X> extends Type<X> {
      *  Return the List-valued attribute declared by the managed 
      *  type that corresponds to the specified name and Java 
      *  element type.
-     *  @param name  the name of the represented attribute
-     *  @param elementType  the element type of the represented 
-     *                      attribute
+     *  @param name  表現された属性の名前
+     *  @param elementType  表現された属性の要素の型
      *  @return declared ListAttribute of the given name and 
      *          element type
      *  @throws IllegalArgumentException if attribute of the given
@@ -157,9 +151,9 @@ public interface ManagedType<X> extends Type<X> {
      *  Return the Map-valued attribute of the managed type that
      *  corresponds to the specified name and Java key and value
      *  types.
-     *  @param name  the name of the represented attribute
-     *  @param keyType  the key type of the represented attribute
-     *  @param valueType  the value type of the represented attribute
+     *  @param name  表現された属性の名前
+     *  @param keyType  表現された属性のキーの型
+     *  @param valueType  表現された属性の値の型
      *  @return MapAttribute of the given name and key and value
      *  types
      *  @throws IllegalArgumentException if attribute of the given
@@ -173,9 +167,9 @@ public interface ManagedType<X> extends Type<X> {
      *  Return the Map-valued attribute declared by the managed 
      *  type that corresponds to the specified name and Java key 
      *  and value types.
-     *  @param name  the name of the represented attribute
-     *  @param keyType  the key type of the represented attribute
-     *  @param valueType  the value type of the represented attribute
+     *  @param name  表現された属性の名前
+     *  @param keyType  表現された属性のキーの型
+     *  @param valueType  表現された属性の値の型
      *  @return declared MapAttribute of the given name and key 
      *          and value types
      *  @throws IllegalArgumentException if attribute of the given
@@ -211,7 +205,7 @@ public interface ManagedType<X> extends Type<X> {
     /**
      *  Return the attribute of the managed
      *  type that corresponds to the specified name.
-     *  @param name  the name of the represented attribute
+     *  @param name  表現された属性の名前
      *  @return attribute with given name
      *  @throws IllegalArgumentException if attribute of the given
      *          name is not present in the managed type
@@ -221,7 +215,7 @@ public interface ManagedType<X> extends Type<X> {
     /**
      *  Return the attribute declared by the managed
      *  type that corresponds to the specified name.
-     *  @param name  the name of the represented attribute
+     *  @param name  表現された属性の名前
      *  @return attribute with given name
      *  @throws IllegalArgumentException if attribute of the given
      *          name is not declared in the managed type
@@ -231,7 +225,7 @@ public interface ManagedType<X> extends Type<X> {
     /**
      *  Return the single-valued attribute of the managed type that
      *  corresponds to the specified name.
-     *  @param name  the name of the represented attribute
+     *  @param name  表現された属性の名前
      *  @return single-valued attribute with the given name
      *  @throws IllegalArgumentException if attribute of the given
      *          name is not present in the managed type
@@ -241,7 +235,7 @@ public interface ManagedType<X> extends Type<X> {
     /**
      *  Return the single-valued attribute declared by the managed
      *  type that corresponds to the specified name.
-     *  @param name  the name of the represented attribute
+     *  @param name  表現された属性の名前
      *  @return declared single-valued attribute of the given 
      *          name
      *  @throws IllegalArgumentException if attribute of the given
@@ -252,7 +246,7 @@ public interface ManagedType<X> extends Type<X> {
     /**
      *  Return the Collection-valued attribute of the managed type 
      *  that corresponds to the specified name.
-     *  @param name  the name of the represented attribute
+     *  @param name  表現された属性の名前
      *  @return CollectionAttribute of the given name
      *  @throws IllegalArgumentException if attribute of the given
      *          name is not present in the managed type
@@ -262,7 +256,7 @@ public interface ManagedType<X> extends Type<X> {
     /**
      *  Return the Collection-valued attribute declared by the 
      *  managed type that corresponds to the specified name.
-     *  @param name  the name of the represented attribute
+     *  @param name  表現された属性の名前
      *  @return declared CollectionAttribute of the given name
      *  @throws IllegalArgumentException if attribute of the given
      *          name is not declared in the managed type
@@ -272,7 +266,7 @@ public interface ManagedType<X> extends Type<X> {
     /**
      *  Return the Set-valued attribute of the managed type that
      *  corresponds to the specified name.
-     *  @param name  the name of the represented attribute
+     *  @param name  表現された属性の名前
      *  @return SetAttribute of the given name
      *  @throws IllegalArgumentException if attribute of the given
      *          name is not present in the managed type
@@ -282,7 +276,7 @@ public interface ManagedType<X> extends Type<X> {
     /**
      *  Return the Set-valued attribute declared by the managed type 
      *  that corresponds to the specified name.
-     *  @param name  the name of the represented attribute
+     *  @param name  表現された属性の名前
      *  @return declared SetAttribute of the given name
      *  @throws IllegalArgumentException if attribute of the given
      *          name is not declared in the managed type
@@ -292,7 +286,7 @@ public interface ManagedType<X> extends Type<X> {
     /**
      *  Return the List-valued attribute of the managed type that
      *  corresponds to the specified name.
-     *  @param name  the name of the represented attribute
+     *  @param name  表現された属性の名前
      *  @return ListAttribute of the given name
      *  @throws IllegalArgumentException if attribute of the given
      *          name is not present in the managed type
@@ -302,7 +296,7 @@ public interface ManagedType<X> extends Type<X> {
     /**
      *  Return the List-valued attribute declared by the managed 
      *  type that corresponds to the specified name.
-     *  @param name  the name of the represented attribute
+     *  @param name  表現された属性の名前
      *  @return declared ListAttribute of the given name
      *  @throws IllegalArgumentException if attribute of the given
      *          name is not declared in the managed type
@@ -312,7 +306,7 @@ public interface ManagedType<X> extends Type<X> {
     /**
      *  Return the Map-valued attribute of the managed type that
      *  corresponds to the specified name.
-     *  @param name  the name of the represented attribute
+     *  @param name  表現された属性の名前
      *  @return MapAttribute of the given name
      *  @throws IllegalArgumentException if attribute of the given
      *          name is not present in the managed type
@@ -322,7 +316,7 @@ public interface ManagedType<X> extends Type<X> {
     /**
      *  Return the Map-valued attribute declared by the managed 
      *  type that corresponds to the specified name.
-     *  @param name  the name of the represented attribute
+     *  @param name  表現された属性の名前
      *  @return declared MapAttribute of the given name
      *  @throws IllegalArgumentException if attribute of the given
      *          name is not declared in the managed type
