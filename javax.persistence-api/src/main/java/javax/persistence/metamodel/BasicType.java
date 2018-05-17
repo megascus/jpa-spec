@@ -16,10 +16,9 @@
 package javax.persistence.metamodel;
 
 /**
- * Instances of the type <code>BasicType</code> represent basic types (including
- * temporal and enumerated types).
+ * <code>BasicType</code>型のインスタンスは基本型(時間型および列挙型を含む)を表します。
  *
- * @param <X> The type of the represented basic type
+ * @param <X> 表現される基本型の型
  *
  * @since Java Persistence 2.0
  */
