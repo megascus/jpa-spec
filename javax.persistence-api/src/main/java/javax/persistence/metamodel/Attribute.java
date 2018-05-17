@@ -56,43 +56,38 @@ public interface Attribute<X, Y> {
     String getName();
 
     /**
-     *  Return the persistent attribute type for the attribute.
-     *  @return persistent attribute type
+     *  この属性の永続化属性型を返します。
+     *  @return 永続化属性型
      */
     PersistentAttributeType getPersistentAttributeType();
 
     /**
-     *  Return the managed type representing the type in which 
-     *  the attribute was declared.
-     *  @return declaring type
+     *  属性が宣言された型を表すマネージド型を返します。
+     *  @return 宣言型
      */
     ManagedType<X> getDeclaringType();
 
     /**
-     *  Return the Java type of the represented attribute.
-     *  @return Java type
+     *  表現された属性のJava型を返します。
+     *  @return Java型
      */
     Class<Y> getJavaType();
 
     /**
-     *  Return the <code>java.lang.reflect.Member</code> for the represented 
-     *  attribute.
-     *  @return corresponding <code>java.lang.reflect.Member</code>
+     *  表現された属性の<code>java.lang.reflect.Member</code>を返します。
+     *  @return 対応する<code>java.lang.reflect.Member</code>
      */
     java.lang.reflect.Member getJavaMember();
 
     /**
-     *  Is the attribute an association.
-     *  @return boolean indicating whether the attribute 
-     *          corresponds to an association
+     *  この属性が関連かどうか。
+     *  @return 属性が関連に対応するかどうかを示すブール値
      */
     boolean isAssociation();
 
     /**
-     *  Is the attribute collection-valued (represents a Collection,
-     *  Set, List, or Map).
-     *  @return boolean indicating whether the attribute is 
-     *          collection-valued
+     *  この属性がコレクション値(コレクション、セット、リスト、マップを代表する)かどうか。
+     *  @return この属性がコレクション値かどうかを示すブール値
      */
     boolean isCollection();
 }
