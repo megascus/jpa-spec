@@ -18,10 +18,9 @@ package javax.persistence.metamodel;
 import java.util.Set;
 
 /**
- *  Instances of the type <code>ManagedType</code> represent entity, mapped 
- *  superclass, and embeddable types.
+ *  <code>ManagedType</code>型のインスタンスはエンティティやマップドスーパークラス、組み込み型を表します。
  *
- *  @param <X> The represented type.
+ *  @param <X> 表される型
  *
  *  @since Java Persistence 2.0
  *
@@ -29,57 +28,50 @@ import java.util.Set;
 public interface ManagedType<X> extends Type<X> {
 
     /**
-     *  Return the attributes of the managed type.
-     *  @return attributes of the managed type
+     *  マネージド型の属性を返します。
+     *  @return マネージド型の属性
      */
      Set<Attribute<? super X, ?>> getAttributes();
 
     /**
-     *  Return the attributes declared by the managed type.
-     *  Returns empty set if the managed type has no declared
-     *  attributes.
-     *  @return declared attributes of the managed type
+     *  マネージド型によって宣言された属性を返します。
+     * 
+     *  マネージド型に宣言された属性がない場合は空のセットを返します。
+     *  @return マネージド型によって宣言された属性
      */
      Set<Attribute<X, ?>> getDeclaredAttributes();
 
     /**
-     *  Return the single-valued attribute of the managed 
-     *  type that corresponds to the specified name and Java type.
-     *  @param name  the name of the represented attribute
-     *  @param type  the type of the represented attribute
-     *  @return single-valued attribute with given name and type
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name and type is not present in the managed type
+     *  指定された名前とJava型に対応するマネージド型の単一値の属性を返します。
+     *  @param name  表現された属性の名前
+     *  @param type 表現された属性の型
+     *  @return 指定された名前と型の単一値の属性
+     *  @throws IllegalArgumentException 指定された名前と型の属性がマネージド型に存在しない場合
      */
     <Y> SingularAttribute<? super X, Y> getSingularAttribute(String name, Class<Y> type);
 
     /**
-     *  Return the single-valued attribute declared by the 
-     *  managed type that corresponds to the specified name and 
-     *  Java type.
-     *  @param name  the name of the represented attribute
-     *  @param type  the type of the represented attribute
-     *  @return declared single-valued attribute of the given 
-     *          name and type
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name and type is not declared in the managed type
+     *  指定された名前とJava型に対応するマネージド型によって宣言された単一値の属性を返します。
+     *  @param name  表現された属性の名前
+     *  @param type 表現された属性の型
+     *  @return 指定された名前と型の宣言された単一値の属性
+     *  @throws IllegalArgumentException 指定された名前と型の宣言された属性がマネージド型に存在しない場合
      */
     <Y> SingularAttribute<X, Y> getDeclaredSingularAttribute(String name, Class<Y> type);
 
     /**
-     *  Return the single-valued attributes of the managed type.
-     *  Returns empty set if the managed type has no single-valued
-     *  attributes.
-     *  @return single-valued attributes
+     *  マネージド型の単一値の属性を返します。
+     * 
+     *  マネージド型に単一値の属性がない場合は空のセットを返します。
+     *  @return 単一値の属性
      */
     Set<SingularAttribute<? super X, ?>> getSingularAttributes();
 
     /**
-     *  Return the single-valued attributes declared by the managed
-     *  type.
-     *  Returns empty set if the managed type has no declared
-     *  single-valued attributes.
-     *  @return declared single-valued attributes
+     *  マネージド型によって宣言された単一値の属性を返します。
+     * 
+     *  マネージド型に宣言された単一値の属性がない場合は空のセットを返します。
+     *  @return 宣言された単一値の属性
      */
     Set<SingularAttribute<X, ?>> getDeclaredSingularAttributes();
 
