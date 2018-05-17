@@ -16,10 +16,10 @@
 package javax.persistence.metamodel;
 
 /**
- * Represents an attribute of a Java type.
+ * Java型の属性を表します。
  *
- * @param <X> The represented type that contains the attribute
- * @param <Y> The type of the represented attribute
+ * @param <X> 属性を含む表現された型
+ * @param <Y> 表現された属性の型
  *
  * @since Java Persistence 2.0
  */
@@ -27,31 +27,31 @@ public interface Attribute<X, Y> {
 
 	public static enum PersistentAttributeType {
 	    
-	     /** Many-to-one association */
+	     /** 多対1関連 */
 	     MANY_TO_ONE, 
 
-     	 /** One-to-one association */
+     	 /** 1対1関連 */
 	     ONE_TO_ONE, 
 	     
-	     /** Basic attribute */
+	     /** 基本属性 */
 	     BASIC, 
 
-	     /** Embeddable class attribute */
+	     /** 組み込み型属性 */
 	     EMBEDDED,
 
-	     /** Many-to-many association */
+	     /** 多対多関連 */
 	     MANY_TO_MANY, 
 
-	     /** One-to-many association */
+	     /** 1対多関連 */
 	     ONE_TO_MANY, 
 
-	     /** Element collection */
+	     /** 要素コレクション */
 	     ELEMENT_COLLECTION
 	}
 
     /**
-     * Return the name of the attribute.
-     * @return name
+     * 属性の名前を返します。
+     * @return 名前
      */
     String getName();
 
