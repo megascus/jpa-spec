@@ -45,8 +45,8 @@ public interface ManagedType<X> extends Type<X> {
      *  指定された名前とJava型に対応するマネージド型の単一値の属性を返します。
      *  @param name  表現された属性の名前
      *  @param type 表現された属性の型
-     *  @return 指定された名前と型の単一値の属性
-     *  @throws IllegalArgumentException 指定された名前と型の属性がマネージド型に存在しない場合
+     *  @return 与えられた名前と型の単一値の属性
+     *  @throws IllegalArgumentException 与えられた名前と型の属性がマネージド型に存在しない場合
      */
     <Y> SingularAttribute<? super X, Y> getSingularAttribute(String name, Class<Y> type);
 
@@ -54,8 +54,8 @@ public interface ManagedType<X> extends Type<X> {
      *  指定された名前とJava型に対応するマネージド型によって宣言された単一値の属性を返します。
      *  @param name  表現された属性の名前
      *  @param type 表現された属性の型
-     *  @return 指定された名前と型の宣言された単一値の属性
-     *  @throws IllegalArgumentException 指定された名前と型の宣言された属性がマネージド型に存在しない場合
+     *  @return 与えられた名前と型の宣言された単一値の属性
+     *  @throws IllegalArgumentException 与えられた名前と型の宣言された属性がマネージド型に宣言されていない場合
      */
     <Y> SingularAttribute<X, Y> getDeclaredSingularAttribute(String name, Class<Y> type);
 
@@ -81,8 +81,7 @@ public interface ManagedType<X> extends Type<X> {
      *  @param name  表現された属性の名前
      *  @param elementType  表現された属性の要素の型
      *  @return 与えられた名前と要素型のCollectionAttribute
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name and type is not present in the managed type
+     *  @throws IllegalArgumentException 与えられた名前と型の属性がマネージド型に存在しない場合
      */    
     <E> CollectionAttribute<? super X, E> getCollection(String name, Class<E> elementType);
 
@@ -93,8 +92,7 @@ public interface ManagedType<X> extends Type<X> {
      *  @param name  表現された属性の名前
      *  @param elementType  表現された属性の要素の型
      *  @return 与えられた名前と要素型の宣言された<code>CollectionAttribute</code>
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name and type is not declared in the managed type
+     *  @throws IllegalArgumentException 与えられた名前と型の宣言された属性がマネージド型に宣言されていない場合
      */
     <E> CollectionAttribute<X, E> getDeclaredCollection(String name, Class<E> elementType);
 
@@ -104,8 +102,7 @@ public interface ManagedType<X> extends Type<X> {
      *  @param name  表現された属性の名前
      *  @param elementType  表現された属性の要素の型
      *  @return 与えられた名前と要素型のSetAttribute
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name and type is not present in the managed type
+     *  @throws IllegalArgumentException 与えられた名前と型の属性がマネージド型に存在しない場合
      */
     <E> SetAttribute<? super X, E> getSet(String name, Class<E> elementType);
 
@@ -115,8 +112,7 @@ public interface ManagedType<X> extends Type<X> {
      *  @param name  表現された属性の名前
      *  @param elementType  表現された属性の要素の型
      *  @return 与えられた名前と要素型の宣言されたSetAttribute
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name and type is not declared in the managed type
+     *  @throws IllegalArgumentException 与えられた名前と型の宣言された属性がマネージド型に宣言されていない場合
      */
     <E> SetAttribute<X, E> getDeclaredSet(String name, Class<E> elementType);
 
@@ -126,8 +122,7 @@ public interface ManagedType<X> extends Type<X> {
      *  @param name  表現された属性の名前
      *  @param elementType  表現された属性の要素の型
      *  @return 与えられた名前と要素型のListAttribute
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name and type is not present in the managed type
+     *  @throws IllegalArgumentException 与えられた名前と型の属性がマネージド型に存在しない場合
      */
     <E> ListAttribute<? super X, E> getList(String name, Class<E> elementType);
 
@@ -138,8 +133,7 @@ public interface ManagedType<X> extends Type<X> {
      *  @param name  表現された属性の名前
      *  @param elementType  表現された属性の要素の型
      *  @return 与えられた名前と要素型の宣言されたListAttribute
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name and type is not declared in the managed type
+     *  @throws IllegalArgumentException 与えられた名前と型の宣言された属性がマネージド型に宣言されていない場合
      */
     <E> ListAttribute<X, E> getDeclaredList(String name, Class<E> elementType);
 
@@ -151,8 +145,7 @@ public interface ManagedType<X> extends Type<X> {
      *  @param keyType  表現された属性のキーの型
      *  @param valueType  表現された属性の値の型
      *  @return 与えられた名前と要素型のMapAttribute
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name and type is not present in the managed type
+     *  @throws IllegalArgumentException 与えられた名前と型の属性がマネージド型に存在しない場合
      */
     <K, V> MapAttribute<? super X, K, V> getMap(String name, 
                                                 Class<K> keyType, 
@@ -166,8 +159,7 @@ public interface ManagedType<X> extends Type<X> {
      *  @param keyType  表現された属性のキーの型
      *  @param valueType  表現された属性の値の型
      *  @return 与えられた名前と要素型の宣言されたMapAttribute
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name and type is not declared in the managed type
+     *  @throws IllegalArgumentException 与えられた名前と型の宣言された属性がマネージド型に宣言されていない場合
      */
     <K, V> MapAttribute<X, K, V> getDeclaredMap(String name, 
                                                 Class<K> keyType, 
