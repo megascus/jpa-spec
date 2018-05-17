@@ -200,8 +200,7 @@ public interface ManagedType<X> extends Type<X> {
      *  type that corresponds to the specified name.
      *  @param name  表現された属性の名前
      *  @return 与えられた名前の属性
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name is not present in the managed type
+     *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型に存在しない場合
      */
     Attribute<? super X, ?> getAttribute(String name); 
 
@@ -210,8 +209,7 @@ public interface ManagedType<X> extends Type<X> {
      *  type that corresponds to the specified name.
      *  @param name  表現された属性の名前
      *  @return 与えられた名前の属性
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name is not declared in the managed type
+     *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型で宣言されていない場合
      */
     Attribute<X, ?> getDeclaredAttribute(String name); 
 
@@ -220,8 +218,7 @@ public interface ManagedType<X> extends Type<X> {
      *  corresponds to the specified name.
      *  @param name  表現された属性の名前
      *  @return 与えられた名前の単一の値の属性
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name is not present in the managed type
+     *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型に存在しない場合
      */
     SingularAttribute<? super X, ?> getSingularAttribute(String name);
 
@@ -230,8 +227,7 @@ public interface ManagedType<X> extends Type<X> {
      *  type that corresponds to the specified name.
      *  @param name  表現された属性の名前
      *  @return 与えられた名前の宣言された単一の値の属性
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name is not declared in the managed type
+     *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型で宣言されていない場合
      */
     SingularAttribute<X, ?> getDeclaredSingularAttribute(String name);
 
@@ -240,8 +236,7 @@ public interface ManagedType<X> extends Type<X> {
      *  that corresponds to the specified name.
      *  @param name  表現された属性の名前
      *  @return 与えられた名前のCollectionAttribute
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name is not present in the managed type
+     *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型に存在しない場合
      */    
     CollectionAttribute<? super X, ?> getCollection(String name); 
 
@@ -250,8 +245,7 @@ public interface ManagedType<X> extends Type<X> {
      *  managed type that corresponds to the specified name.
      *  @param name  表現された属性の名前
      *  @return 与えられた名前の宣言されたCollectionAttribute
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name is not declared in the managed type
+     *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型で宣言されていない場合
      */
     CollectionAttribute<X, ?> getDeclaredCollection(String name); 
 
@@ -260,8 +254,7 @@ public interface ManagedType<X> extends Type<X> {
      *  corresponds to the specified name.
      *  @param name  表現された属性の名前
      *  @return 与えられた名前のSetAttribute
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name is not present in the managed type
+     *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型に存在しない場合
      */
     SetAttribute<? super X, ?> getSet(String name);
 
@@ -270,8 +263,7 @@ public interface ManagedType<X> extends Type<X> {
      *  that corresponds to the specified name.
      *  @param name  表現された属性の名前
      *  @return 与えられた名前の宣言されたSetAttribute
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name is not declared in the managed type
+     *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型で宣言されていない場合
      */
     SetAttribute<X, ?> getDeclaredSet(String name);
 
@@ -280,8 +272,7 @@ public interface ManagedType<X> extends Type<X> {
      *  corresponds to the specified name.
      *  @param name  表現された属性の名前
      *  @return 与えられた名前のListAttribute
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name is not present in the managed type
+     *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型に存在しない場合
      */
     ListAttribute<? super X, ?> getList(String name);
 
@@ -290,8 +281,7 @@ public interface ManagedType<X> extends Type<X> {
      *  type that corresponds to the specified name.
      *  @param name  表現された属性の名前
      *  @return 与えられた名前の宣言されたListAttribute
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name is not declared in the managed type
+     *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型で宣言されていない場合
      */
     ListAttribute<X, ?> getDeclaredList(String name);
 
@@ -300,8 +290,7 @@ public interface ManagedType<X> extends Type<X> {
      *  corresponds to the specified name.
      *  @param name  表現された属性の名前
      *  @return 与えられた名前のMapAttribute
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name is not present in the managed type
+     *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型に存在しない場合
      */
     MapAttribute<? super X, ?, ?> getMap(String name); 
 
@@ -310,8 +299,7 @@ public interface ManagedType<X> extends Type<X> {
      *  type that corresponds to the specified name.
      *  @param name  表現された属性の名前
      *  @return 与えられた名前の宣言されたMapAttribute
-     *  @throws IllegalArgumentException if attribute of the given
-     *          name is not declared in the managed type
+     *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型で宣言されていない場合
      */
     MapAttribute<X, ?, ?> getDeclaredMap(String name);
 }
