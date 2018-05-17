@@ -171,8 +171,7 @@ public interface ManagedType<X> extends Type<X> {
 //String-based:
 
     /**
-     *  Return the attribute of the managed
-     *  type that corresponds to the specified name.
+     *  指定された名前に対応するマネージド型の属性を返します。
      *  @param name  表現された属性の名前
      *  @return 与えられた名前の属性
      *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型に存在しない場合
@@ -180,8 +179,7 @@ public interface ManagedType<X> extends Type<X> {
     Attribute<? super X, ?> getAttribute(String name); 
 
     /**
-     *  Return the attribute declared by the managed
-     *  type that corresponds to the specified name.
+     *  指定された名前に対応するマネージド型によって宣言された属性を返します。
      *  @param name  表現された属性の名前
      *  @return 与えられた名前の属性
      *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型で宣言されていない場合
@@ -189,8 +187,7 @@ public interface ManagedType<X> extends Type<X> {
     Attribute<X, ?> getDeclaredAttribute(String name); 
 
     /**
-     *  Return the single-valued attribute of the managed type that
-     *  corresponds to the specified name.
+     *  指定された名前に対応するマネージド型の単一値の属性を返します。
      *  @param name  表現された属性の名前
      *  @return 与えられた名前の単一の値の属性
      *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型に存在しない場合
@@ -198,8 +195,7 @@ public interface ManagedType<X> extends Type<X> {
     SingularAttribute<? super X, ?> getSingularAttribute(String name);
 
     /**
-     *  Return the single-valued attribute declared by the managed
-     *  type that corresponds to the specified name.
+     *  指定された名前に対応するマネージド型によって宣言された単一値の属性を返します。
      *  @param name  表現された属性の名前
      *  @return 与えられた名前の宣言された単一の値の属性
      *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型で宣言されていない場合
@@ -207,8 +203,7 @@ public interface ManagedType<X> extends Type<X> {
     SingularAttribute<X, ?> getDeclaredSingularAttribute(String name);
 
     /**
-     *  Return the Collection-valued attribute of the managed type 
-     *  that corresponds to the specified name.
+     *  指定された名前に対応するマネージド型のコレクション値の属性を返します。
      *  @param name  表現された属性の名前
      *  @return 与えられた名前のCollectionAttribute
      *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型に存在しない場合
@@ -216,8 +211,7 @@ public interface ManagedType<X> extends Type<X> {
     CollectionAttribute<? super X, ?> getCollection(String name); 
 
     /**
-     *  Return the Collection-valued attribute declared by the 
-     *  managed type that corresponds to the specified name.
+     *  指定された名前に対応するマネージド型によって宣言されたコレクション値の属性を返します。
      *  @param name  表現された属性の名前
      *  @return 与えられた名前の宣言されたCollectionAttribute
      *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型で宣言されていない場合
@@ -225,8 +219,7 @@ public interface ManagedType<X> extends Type<X> {
     CollectionAttribute<X, ?> getDeclaredCollection(String name); 
 
     /**
-     *  Return the Set-valued attribute of the managed type that
-     *  corresponds to the specified name.
+     *  指定された名前に対応するマネージド型のセット値の属性を返します。
      *  @param name  表現された属性の名前
      *  @return 与えられた名前のSetAttribute
      *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型に存在しない場合
@@ -234,8 +227,7 @@ public interface ManagedType<X> extends Type<X> {
     SetAttribute<? super X, ?> getSet(String name);
 
     /**
-     *  Return the Set-valued attribute declared by the managed type 
-     *  that corresponds to the specified name.
+     *  指定された名前に対応するマネージド型によって宣言されたセット値の属性を返します。
      *  @param name  表現された属性の名前
      *  @return 与えられた名前の宣言されたSetAttribute
      *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型で宣言されていない場合
@@ -243,8 +235,7 @@ public interface ManagedType<X> extends Type<X> {
     SetAttribute<X, ?> getDeclaredSet(String name);
 
     /**
-     *  Return the List-valued attribute of the managed type that
-     *  corresponds to the specified name.
+     *  指定された名前に対応するマネージド型のリスト値の属性を返します。
      *  @param name  表現された属性の名前
      *  @return 与えられた名前のListAttribute
      *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型に存在しない場合
@@ -252,8 +243,7 @@ public interface ManagedType<X> extends Type<X> {
     ListAttribute<? super X, ?> getList(String name);
 
     /**
-     *  Return the List-valued attribute declared by the managed 
-     *  type that corresponds to the specified name.
+     *  指定された名前に対応するマネージド型によって宣言されたリスト値の属性を返します。
      *  @param name  表現された属性の名前
      *  @return 与えられた名前の宣言されたListAttribute
      *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型で宣言されていない場合
@@ -261,8 +251,7 @@ public interface ManagedType<X> extends Type<X> {
     ListAttribute<X, ?> getDeclaredList(String name);
 
     /**
-     *  Return the Map-valued attribute of the managed type that
-     *  corresponds to the specified name.
+     *  指定された名前に対応するマネージド型のマップ値の属性を返します。
      *  @param name  表現された属性の名前
      *  @return 与えられた名前のMapAttribute
      *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型に存在しない場合
@@ -270,8 +259,7 @@ public interface ManagedType<X> extends Type<X> {
     MapAttribute<? super X, ?, ?> getMap(String name); 
 
     /**
-     *  Return the Map-valued attribute declared by the managed 
-     *  type that corresponds to the specified name.
+     *  指定された名前に対応するマネージド型によって宣言されたマップ値の属性を返します。
      *  @param name  表現された属性の名前
      *  @return 与えられた名前の宣言されたMapAttribute
      *  @throws IllegalArgumentException 与えられた名前の属性がマネージド型で宣言されていない場合
