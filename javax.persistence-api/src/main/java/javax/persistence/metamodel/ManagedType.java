@@ -76,8 +76,7 @@ public interface ManagedType<X> extends Type<X> {
     Set<SingularAttribute<X, ?>> getDeclaredSingularAttributes();
 
     /**
-     *  Return the Collection-valued attribute of the managed type 
-     *  that corresponds to the specified name and Java element type.
+     *  指定された名前とJava型に対応するマネージド型のコレクション値の属性を返します。
      *  @param name  表現された属性の名前
      *  @param elementType  表現された属性の要素の型
      *  @return 与えられた名前と要素型のCollectionAttribute
@@ -86,9 +85,7 @@ public interface ManagedType<X> extends Type<X> {
     <E> CollectionAttribute<? super X, E> getCollection(String name, Class<E> elementType);
 
     /**
-     *  Return the Collection-valued attribute declared by the 
-     *  managed type that corresponds to the specified name and Java 
-     *  element type.
+     *  指定された名前とJava型に対応するマネージド型によって宣言されたコレクション値の属性を返します。
      *  @param name  表現された属性の名前
      *  @param elementType  表現された属性の要素の型
      *  @return 与えられた名前と要素型の宣言された<code>CollectionAttribute</code>
@@ -97,8 +94,7 @@ public interface ManagedType<X> extends Type<X> {
     <E> CollectionAttribute<X, E> getDeclaredCollection(String name, Class<E> elementType);
 
     /**
-     *  Return the Set-valued attribute of the managed type that
-     *  corresponds to the specified name and Java element type.
+     *  指定された名前とJava型に対応するマネージド型のセット値の属性を返します。
      *  @param name  表現された属性の名前
      *  @param elementType  表現された属性の要素の型
      *  @return 与えられた名前と要素型のSetAttribute
@@ -107,8 +103,7 @@ public interface ManagedType<X> extends Type<X> {
     <E> SetAttribute<? super X, E> getSet(String name, Class<E> elementType);
 
     /**
-     *  Return the Set-valued attribute declared by the managed type 
-     *  that corresponds to the specified name and Java element type.
+     *  指定された名前とJava型に対応するマネージド型によって宣言されたセット値の属性を返します。
      *  @param name  表現された属性の名前
      *  @param elementType  表現された属性の要素の型
      *  @return 与えられた名前と要素型の宣言されたSetAttribute
@@ -117,8 +112,7 @@ public interface ManagedType<X> extends Type<X> {
     <E> SetAttribute<X, E> getDeclaredSet(String name, Class<E> elementType);
 
     /**
-     *  Return the List-valued attribute of the managed type that
-     *  corresponds to the specified name and Java element type.
+     *  指定された名前とJava型に対応するマネージド型のリスト値の属性を返します。
      *  @param name  表現された属性の名前
      *  @param elementType  表現された属性の要素の型
      *  @return 与えられた名前と要素型のListAttribute
@@ -127,9 +121,7 @@ public interface ManagedType<X> extends Type<X> {
     <E> ListAttribute<? super X, E> getList(String name, Class<E> elementType);
 
     /**
-     *  Return the List-valued attribute declared by the managed 
-     *  type that corresponds to the specified name and Java 
-     *  element type.
+     *  指定された名前とJava型に対応するマネージド型によって宣言されたリスト値の属性を返します。
      *  @param name  表現された属性の名前
      *  @param elementType  表現された属性の要素の型
      *  @return 与えられた名前と要素型の宣言されたListAttribute
@@ -138,9 +130,7 @@ public interface ManagedType<X> extends Type<X> {
     <E> ListAttribute<X, E> getDeclaredList(String name, Class<E> elementType);
 
     /**
-     *  Return the Map-valued attribute of the managed type that
-     *  corresponds to the specified name and Java key and value
-     *  types.
+     *  指定された名前とJavaのキーと値の型に対応するマネージド型のマップ値の属性を返します。
      *  @param name  表現された属性の名前
      *  @param keyType  表現された属性のキーの型
      *  @param valueType  表現された属性の値の型
@@ -152,9 +142,7 @@ public interface ManagedType<X> extends Type<X> {
                                                 Class<V> valueType);
 
     /**
-     *  Return the Map-valued attribute declared by the managed 
-     *  type that corresponds to the specified name and Java key 
-     *  and value types.
+     *  指定された名前とJavaのキーと値の型に対応するマネージド型によって宣言されたマップ値の属性を返します。
      *  @param name  表現された属性の名前
      *  @param keyType  表現された属性のキーの型
      *  @param valueType  表現された属性の値の型
@@ -166,20 +154,15 @@ public interface ManagedType<X> extends Type<X> {
                                                 Class<V> valueType);
     
     /**
-     *  Return all multi-valued attributes (Collection-, Set-,
-     *  List-, and Map-valued attributes) of the managed type.
-     *  Returns empty set if the managed type has no multi-valued
-     *  attributes.
+     *  マネージド型のすべての複数の値を持つ属性(コクレクション値、セット値、リスト値もしくはマップ値の属性)を返します。
+     *  マネージド型に複数の値を持つ属性が存在しない場合は空のセットを返します。
      *  @return コレクション値、セット値、リスト値、マップ値のいずれかの属性
      */
     Set<PluralAttribute<? super X, ?, ?>> getPluralAttributes();
 
     /**
-     *  Return all multi-valued attributes (Collection-, Set-,
-     *  List-, and Map-valued attributes) declared by the 
-     *  managed type.
-     *  Returns empty set if the managed type has no declared
-     *  multi-valued attributes.
+     *  マネージド型によって宣言されたすべての複数の値を持つ属性(コクレクション値、セット値、リスト値もしくはマップ値の属性)を返します。
+     *  マネージド型によって複数の値を持つ属性が宣言されていない場合は空のセットを返します。
      *  @return 宣言されたコレクション値、セット値、リスト値、マップ値のいずれかの属性
      */
     Set<PluralAttribute<X, ?, ?>> getDeclaredPluralAttributes();
