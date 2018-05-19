@@ -16,11 +16,10 @@
 package javax.persistence.metamodel;
 
 /**
- * Instances of the type <code>ListAttribute</code> represent persistent 
- * <code>javax.util.List</code>-valued attributes.
+ * <code>ListAttribute</code>型のインスタンスは永続化された<code>javax.util.List</code>の値の属性を表します。
  *
- * @param <X> The type the represented List belongs to
- * @param <E> The element type of the represented List
+ * @param <X> 表されるリストが属する型
+ * @param <E> 表されるリストの要素の型
  *
  * @since Java Persistence 2.0
  *
