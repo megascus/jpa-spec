@@ -27,7 +27,7 @@ public interface EntityType<X>
             extends IdentifiableType<X>, Bindable<X>{
 
     /**
-     *  エンティティの名前を貸します。
+     *  エンティティの名前を返します。
      *  @return エンティティの名前
      */
     String getName();
