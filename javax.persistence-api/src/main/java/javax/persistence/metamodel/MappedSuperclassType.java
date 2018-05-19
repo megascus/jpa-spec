@@ -16,10 +16,10 @@
 package javax.persistence.metamodel;
 
 /**
- *  Instances of the type <code>MappedSuperclassType</code> represent mapped
- *  superclass types.
+ *  <code>MappedSuperclassType</code>型のインスタンスはマップドスーパークラスの型を表します。
+
  *
- *  @param <X> The represented entity type
+ *  @param <X> 表されるエンティティの型
  *  @since Java Persistence 2.0
  */
 public interface MappedSuperclassType<X> extends IdentifiableType<X> {}
