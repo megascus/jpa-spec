@@ -16,9 +16,9 @@
 package javax.persistence.metamodel;
 
 /**
- *  Instances of the type <code>EmbeddableType</code> represent embeddable types.
+ *  <code>EmbeddableType</code>型のインスタンスは組み込み型を表します。
  *
- *  @param <X> The represented type.
+ *  @param <X> 型を表す
  *
  *  @since Java Persistence 2.0
  *

@@ -16,6 +16,7 @@
 package javax.persistence.metamodel;
 
 /**
+ * <code>CollectionAttribute</code>型のインスタンスは永続化された<code>java.util.Collection</code>の属性を表します。
  * Instances of the type <code>CollectionAttribute</code> represent persistent 
  * <code>java.util.Collection</code>-valued attributes.
  *

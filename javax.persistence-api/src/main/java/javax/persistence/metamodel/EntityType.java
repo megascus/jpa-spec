@@ -16,9 +16,9 @@
 package javax.persistence.metamodel;
 
 /**
- *  Instances of the type <code>EntityType</code> represent entity types.
+ * <code>EntityType</code>型のインスタンスはエンティティ型を表します。
  *
- *  @param <X> The represented entity type.
+ *  @param <X> エンティティ型を表す
  *
  * @since Java Persistence 2.0
  *
@@ -27,8 +27,8 @@ public interface EntityType<X>
             extends IdentifiableType<X>, Bindable<X>{
 
     /**
-     *  Return the entity name.
-     *  @return entity name
+     *  エンティティの名前を貸します。
+     *  @return エンティティの名前
      */
     String getName();
 }
