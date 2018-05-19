@@ -16,10 +16,9 @@
 package javax.persistence.metamodel;
 
 /**
- * Instances of the type <code>Bindable</code> represent object or attribute types 
- * that can be bound into a {@link javax.persistence.criteria.Path Path}.
+ * <code>Bindable</code>型のインスタンスは{@link javax.persistence.criteria.Path Path}にバインド可能なオブジェクトもしくは属性の型を表します。
  *
- * @param <T>  The type of the represented object or attribute
+ * @param <T>  オブジェクトもしくは属性を表す型
  *
  * @since Java Persistence 2.0
  *
@@ -28,30 +27,28 @@ public interface Bindable<T> {
 	
 	public static enum BindableType { 
 
-	    /** Single-valued attribute type */
+	    /** 単一値の属性の型 */
 	    SINGULAR_ATTRIBUTE, 
 
-	    /** Multi-valued attribute type */
+	    /** 複数値の属性の型 */
 	    PLURAL_ATTRIBUTE, 
 
-	    /** Entity type */
+	    /** エンティティ型 */
 	    ENTITY_TYPE
 	}
 
     /**
-     *  Return the bindable type of the represented object.
-     *  @return bindable type
+     *  表されるオブジェクトのバインド可能な型を返します。
+     *  @return バインド可能な型
      */	
     BindableType getBindableType();
 	
     /**
-     * Return the Java type of the represented object.
-     * If the bindable type of the object is <code>PLURAL_ATTRIBUTE</code>,
-     * the Java element type is returned. If the bindable type is
-     * <code>SINGULAR_ATTRIBUTE</code> or <code>ENTITY_TYPE</code>, 
-     * the Java type of the
-     * represented entity or attribute is returned.
-     * @return Java type
+     * 表されるオブジェクトのJava型を返します。
+     * 
+     * オブジェクトのバインド可能な型が<code>PLURAL_ATTRIBUTE</code>の場合、Java要素の型が返されます。
+     * オブジェクトのバインド可能な型が<code>SINGULAR_ATTRIBUTE</code>もしくは<code>ENTITY_TYPE</code>の場合、エンティティや属性を表すJava型が返されます。
+     * @return Java型
      */
     Class<T> getBindableJavaType();
 }
