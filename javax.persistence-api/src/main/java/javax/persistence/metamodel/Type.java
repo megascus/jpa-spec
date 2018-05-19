@@ -16,10 +16,9 @@
 package javax.persistence.metamodel;
 
 /**
- * Instances of the type <code>Type</code> represent persistent object 
- * or attribute types.
+ * <code>Type</code>型のインスタンスは永続化オブジェクトもしくは属性型を表します。
  *
- * @param <X>  The type of the represented object or attribute
+ * @param <X>  オブジェクトもしくは属性を表す型
  *
  * @since Java Persistence 2.0
  */
@@ -27,28 +26,28 @@ public interface Type<X> {
 
        public static enum PersistenceType {
 
-	   /** Entity */
+	   /** エンティティ */
            ENTITY, 
 
-	   /** Embeddable class */
+	   /** 組み込みクラス */
 	   EMBEDDABLE, 
 
-	   /** Mapped superclass */
+	   /** マップドスーパークラス */
 	   MAPPED_SUPERCLASS, 
 
-	   /** Basic type */
+	   /** 基本型 */
 	   BASIC
        }
 
     /**
-     *  Return the persistence type.
-     *  @return persistence type
+     *  永続化型を返します。
+     *  @return 永続化型
      */	
     PersistenceType getPersistenceType();
 
     /**
-     *  Return the represented Java type.
-     *  @return Java type
+     *  表されたJava型を返します。
+     *  @return Java型
      */
     Class<X> getJavaType();
 }
