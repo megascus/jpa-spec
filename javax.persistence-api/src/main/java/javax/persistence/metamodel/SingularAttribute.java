@@ -16,11 +16,10 @@
 package javax.persistence.metamodel;
 
 /**
- * Instances of the type <code>SingularAttribute</code> represents persistent 
- * single-valued properties or fields.
+ * <code>SingularAttribute</code>型のインスタンスは永続化された単一の値の値の属性を表します。
  *
- * @param <X> The type containing the represented attribute
- * @param <T> The type of the represented attribute
+ * @param <X> 表される属性を含む型
+ * @param <T> 表される属性の型
  *
  * @since Java Persistence 2.0
  */
@@ -28,30 +27,28 @@ public interface SingularAttribute<X, T>
 		extends Attribute<X, T>, Bindable<T> {
 	
     /**
-     *  Is the attribute an id attribute.  This method will return
-     *  true if the attribute is an attribute that corresponds to
-     *  a simple id, an embedded id, or an attribute of an id class.
-     *  @return boolean indicating whether the attribute is an id
+     *  属性がID属性かどうか。
+     * 
+     *  このメソッドは、属性が単純なIDもしくは組み込みID、IDクラスの属性に対応する属性である場合にtrueを返します。
+     *  @return 属性がIDかどうかを示すブール値
      */
     boolean isId();
 
     /**
-     *  Is the attribute a version attribute.
-     *  @return boolean indicating whether the attribute is 
-     *          a version attribute
+     *  この属性がバージョン属性かどうか。
+     *  @return 属性がバージョン属性かどうかを示すブール値
      */
     boolean isVersion();
 
     /** 
-     *  Can the attribute be null.
-     *  @return boolean indicating whether the attribute can
-     *          be null
+     *  この属性をnullにできるかどうか。
+     *  @return 属性をnullにできるかどうかを示すブール値
      */
     boolean isOptional();
 
     /**
-     * Return the type that represents the type of the attribute.
-     * @return type of attribute
+     * 属性の型を表す型を返します。
+     * @return 属性の型
      */
     Type<T> getType();
 }

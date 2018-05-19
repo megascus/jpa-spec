@@ -16,11 +16,10 @@
 package javax.persistence.metamodel;
 
 /**
- * Instances of the type <code>SetAttribute</code> represent
- * persistent <code>java.util.Set</code>-valued attributes.
+ * <code>SetAttribute</code>型のインスタンスは永続化された<code>java.util.Set</code>の値の属性を表します。
  *
- * @param <X> The type the represented Set belongs to
- * @param <E> The element type of the represented Set
+ * @param <X> 表されるセットが属する型
+ * @param <E> 表されるセットの要素の型
  *
  * @since Java Persistence 2.0
  */
