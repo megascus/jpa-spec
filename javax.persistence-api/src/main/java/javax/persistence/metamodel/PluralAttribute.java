@@ -16,12 +16,11 @@
 package javax.persistence.metamodel;
 
 /**
- * Instances of the type <code>PluralAttribute</code> represent 
- * persistent collection-valued attributes.
+ * <code>PluralAttribute</code>型のインスタンスは永続化されたコレクションの値の属性を表します。
  *
- * @param <X> The type the represented collection belongs to
- * @param <C> The type of the represented collection
- * @param <E> The element type of the represented collection
+ * @param <X> 表されるコレクションが属する型
+ * @param <C> 表されるコレクションの型
+ * @param <E> 表されるコレクションの要素の型
  *
  * @since Java Persistence 2.0
  */
@@ -30,29 +29,28 @@ public interface PluralAttribute<X, C, E>
 	
 	public static enum CollectionType {
 
-	    /** Collection-valued attribute */
+	    /** コレクションの値の属性 */
 	    COLLECTION, 
 
-	    /** Set-valued attribute */
+	    /** セットの値の属性 */
 	    SET, 
 
-	    /** List-valued attribute */
+	    /** リストの値の属性 */
 	    LIST, 
 
-	    /** Map-valued attribute */
+	    /** マップの値の属性 */
 	    MAP
 	}
 		
     /**
-     * Return the collection type.
-     * @return collection type
+     * コレクションの型を返します。
+     * @return コレクションの型
      */
     CollectionType getCollectionType();
 
     /**
-     * Return the type representing the element type of the 
-     * collection.
-     * @return element type
+     * コレクションの要素型を表す型を返します。
+     * @return 属性の型
      */
     Type<E> getElementType();
 }
