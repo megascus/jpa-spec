@@ -16,12 +16,11 @@
 package javax.persistence.metamodel;
 
 /**
- * Instances of the type <code>MapAttribute</code> represent
- * persistent <code>java.util.Map</code>-valued attributes.
+ * <code>MapAttribute</code>型のインスタンスは永続化された<code>java.util.Map</code>の値の属性を表します。
  *
- * @param <X> The type the represented Map belongs to
- * @param <K> The type of the key of the represented Map
- * @param <V> The type of the value of the represented Map
+ * @param <X> 表されるマップが属する型
+ * @param <K> 表されるマップのキーの型
+ * @param <V> 表されるマップの値の型
  *
  * @since Java Persistence 2.0
  *
@@ -30,14 +29,14 @@ public interface MapAttribute<X, K, V>
 	extends PluralAttribute<X, java.util.Map<K, V>, V> {
 
     /**
-     * Return the Java type of the map key.
-     * @return Java key type
+     * マップのキーのJava型を返します。
+     * @return Javaのキー型
      */
     Class<K> getKeyJavaType();
 
     /**
-     * Return the type representing the key type of the map.
-     * @return type representing key type
+     * マップのキーの型を表す型を返します。
+     * @return キー型を表す型
      */
     Type<K> getKeyType();
 }
