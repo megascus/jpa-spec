@@ -18,10 +18,9 @@ package javax.persistence.metamodel;
 import java.util.Set;
 
 /**
- *  Instances of the type <code>IdentifiableType</code> represent entity or 
- *  mapped superclass types.
+ *  <code>IdentifiableType</code>型のインスタンスはエンティティもしくはマップドスーパークラスの型を表します。
  *
- *  @param <X> The represented entity or mapped superclass type.
+ *  @param <X> 表されるエンティティもしくはマップドスーパークラスの型
  *
  *  @since Java Persistence 2.0
  *
