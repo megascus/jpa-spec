@@ -25,16 +25,15 @@ import java.util.Set;
 public interface Metamodel {
 
     /**
-     *  Return the metamodel entity type representing the entity.
-     *  @param cls  the type of the represented entity
-     *  @return the metamodel entity type
-     *  @throws IllegalArgumentException if not an entity
+     * エンティティを表すメタモデルのエンティティ型を返します。
+     *  @param cls  表されたエンティティの型
+     *  @return メタモデルのエンティティ型
+     *  @throws IllegalArgumentException エンティティでない場合
      */
     <X> EntityType<X> entity(Class<X> cls);
 
     /**
-     *  Return the metamodel managed type representing the 
-     *  entity, mapped superclass, or embeddable class.
+     *  エンティティ、マップドスーパークラス、組み込みクラスを表すメタモデルのマネージド型を返します。
      *  @param cls 表されたマネージドクラスの型
      *  @return メタモデルのマネージド型
      *  @throws IllegalArgumentException マネージドクラスでない場合
