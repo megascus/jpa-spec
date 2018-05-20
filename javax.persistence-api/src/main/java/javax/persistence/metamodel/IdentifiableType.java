@@ -60,20 +60,17 @@ public interface IdentifiableType<X> extends ManagedType<X> {
     <Y> SingularAttribute<X, Y> getDeclaredVersion(Class<Y> type);
 	
     /**
-     *  Return the identifiable type that corresponds to the most
-     *  specific mapped superclass or entity extended by the entity 
-     *  or mapped superclass. 
-     *  @return supertype of identifiable type or null if no 
-     *          such supertype
+     *  このエンティティまたはマップドスーパークラスによって拡張された最も特化されたマップドスーパークラスまたはエンティティに対応する識別可能な型を返します。
+     *  @return 識別可能型のスーパータイプ、スーパータイプがない場合はnull
      */
     IdentifiableType<? super X> getSupertype();
 
     /**
-     *  Whether the identifiable type has a single id attribute.
-     *  Returns true for a simple id or embedded id; returns false
-     *  for an idclass.
-     *  @return boolean indicating whether the identifiable
-     *          type has a single id attribute
+     *  識別可能型が単一のID属性を持つかどうか。
+     * 
+     *  単純なIDまたは組み込みIDの場合はtrueを返します。
+     *  IDクラスの場合はfalseを返します。
+     *  @return 識別可能な型が単一のID属性を持つかどうかを示すブール値
      */
     boolean hasSingleIdAttribute();
 
