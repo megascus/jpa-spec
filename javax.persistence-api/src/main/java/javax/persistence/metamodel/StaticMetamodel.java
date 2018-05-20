@@ -21,10 +21,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * The <code>StaticMetamodel</code> annotation specifies that the class
- * is a metamodel class that represents the entity, mapped 
- * superclass, or embeddable class designated by the value
- * element.
+ * クラスがvalue要素で指定されたエンティティ、マップドスーパークラス、組み込みクラスを表すメタモデルクラスであることを<code>StaticMetamodel</code>アノテーションは指定します。
  *
  * @since Java Persistence 2.0
  */
@@ -32,8 +29,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface StaticMetamodel {
 
-    /** 
-     * Class being modelled by the annotated class.
+    /**
+     * アノテーションの付けられたクラスによってモデル化されるクラス。
      */
     Class<?> value();
 }
