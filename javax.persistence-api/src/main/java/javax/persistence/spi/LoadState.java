@@ -16,15 +16,15 @@
 package javax.persistence.spi;
 
 /**
- * Load states returned by the {@link ProviderUtil} SPI methods.
+ * {@link ProviderUtil} SPIメソッドによって返されたロード状態です。
  * @since Java Persistence 2.0
  *
  */
 public enum LoadState {
-    /** The state of the element is known to have been loaded. */
+    /** 要素はロードされている状態だと知られています。 */
     LOADED,
-    /** The state of the element is known not to have been loaded. */
+    /** 要素はロードされていない状態だと知られています。 */
     NOT_LOADED,
-    /** The load state of the element cannot be determined. */
+    /** 要素のロード状態は決定できません。 */
     UNKNOWN
 }
