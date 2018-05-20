@@ -91,24 +91,21 @@ public interface IdentifiableType<X> extends ManagedType<X> {
     boolean hasSingleIdAttribute();
 
     /**
-     *  Whether the identifiable type has a version attribute.
-     *  @return boolean indicating whether the identifiable
-     *          type has a version attribute
+     *  識別可能型がバージョン属性を持っているかどうか。
+     *  @return 識別可能型がバージョン属性を持っているかどうかを示すブール値
      */
     boolean hasVersionAttribute();
 
     /**
-     *   Return the attributes corresponding to the id class of the
-     *   identifiable type.
-     *   @return id attributes
-     *   @throws IllegalArgumentException if the identifiable type
-     *           does not have an id class
+     *   識別可能型のIDクラスに対応する属性を返します。
+     *   @return ID属性
+     *   @throws IllegalArgumentException 識別可能型にIDクラスが存在しない場合
      */
      Set<SingularAttribute<? super X, ?>> getIdClassAttributes();
 
     /**
-     *  Return the type that represents the type of the id.
-     *  @return type of id
+     *  IDの型を表す型を返します。
+     *  @return IDの型
      */
     Type<?> getIdType();
 }
