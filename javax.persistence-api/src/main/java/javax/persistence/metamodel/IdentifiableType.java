@@ -28,46 +28,34 @@ import java.util.Set;
 public interface IdentifiableType<X> extends ManagedType<X> {
 	
     /**
-     *  Return the attribute that corresponds to the id attribute of 
-     *  the entity or mapped superclass.
-     *  @param type  the type of the represented id attribute
-     *  @return id attribute
-     *  @throws IllegalArgumentException if id attribute of the given
-     *          type is not present in the identifiable type or if
-     *          the identifiable type has an id class
+     *  エンティティまたはマップドスーパークラスのID属性に対応する属性を返します。
+     *  @param type  表されたID属性の型
+     *  @return ID属性
+     *  @throws IllegalArgumentException 指定された型のID属性が識別可能な型に存在しない場合、または識別可能な型がIDクラスを持つ場合
      */
     <Y> SingularAttribute<? super X, Y> getId(Class<Y> type);
 
     /**
-     *  Return the attribute that corresponds to the id attribute 
-     *  declared by the entity or mapped superclass.
-     *  @param type  the type of the represented declared 
-     *               id attribute
-     *  @return declared id attribute
-     *  @throws IllegalArgumentException if id attribute of the given
-     *          type is not declared in the identifiable type or if
-     *          the identifiable type has an id class
+     *  エンティティまたはマップドスーパークラスによって宣言されたID属性に対応する属性を返します。
+     *  @param type  表された宣言されたID属性の型
+     *  @return 宣言されたID属性
+     *  @throws IllegalArgumentException 指定された型のID属性が識別可能な型で宣言されていない場合、または識別可能な型がIDクラスを持つ場合
      */
     <Y> SingularAttribute<X, Y> getDeclaredId(Class<Y> type);
 
     /**
-     *  Return the attribute that corresponds to the version 
-     *  attribute of the entity or mapped superclass.
-     *  @param type  the type of the represented version attribute
-     *  @return version attribute
-     *  @throws IllegalArgumentException if version attribute of the 
-     * 	        given type is not present in the identifiable type
+     *  エンティティまたはマップドスーパークラスのバージョン属性に対応する属性を返します。
+     *  @param type  表されたバージョン属性の型
+     *  @return バージョン属性
+     *  @throws IllegalArgumentException 指定された型のバージョン属性が識別可能な型に存在しない場合
      */
     <Y> SingularAttribute<? super X, Y> getVersion(Class<Y> type);
 
     /**
-     *  Return the attribute that corresponds to the version 
-     *  attribute declared by the entity or mapped superclass.
-     *  @param type  the type of the represented declared version 
-     *               attribute
-     *  @return declared version attribute
-     *  @throws IllegalArgumentException if version attribute of the 
-     *          type is not declared in the identifiable type
+     *  エンティティまたはマップドスーパークラスによって宣言されたバージョン属性に対応する属性を返します。
+     *  @param type  表された宣言されたバージョン属性の型
+     *  @return 宣言されたバージョン属性
+     *  @throws IllegalArgumentException 型のバージョン属性が識別可能な型で宣言されていない場合
      */
     <Y> SingularAttribute<X, Y> getDeclaredVersion(Class<Y> type);
 	
