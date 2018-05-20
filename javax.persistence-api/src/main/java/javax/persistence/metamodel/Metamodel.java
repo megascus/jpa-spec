@@ -18,8 +18,7 @@ package javax.persistence.metamodel;
 import java.util.Set;
 
 /**
- * Provides access to the metamodel of persistent
- * entities in the persistence unit. 
+ * 永続化ユニット内の永続化エンティティのメタモデルへのアクセスを提供します。
  *
  * @since Java Persistence 2.0
  */
@@ -36,37 +35,35 @@ public interface Metamodel {
     /**
      *  Return the metamodel managed type representing the 
      *  entity, mapped superclass, or embeddable class.
-     *  @param cls  the type of the represented managed class
-     *  @return the metamodel managed type
-     *  @throws IllegalArgumentException if not a managed class
+     *  @param cls 表されたマネージドクラスの型
+     *  @return メタモデルのマネージド型
+     *  @throws IllegalArgumentException マネージドクラスでない場合
      */
     <X> ManagedType<X> managedType(Class<X> cls);
     
     /**
-     *  Return the metamodel embeddable type representing the
-     *  embeddable class.
-     *  @param cls  the type of the represented embeddable class
-     *  @return the metamodel embeddable type
-     *  @throws IllegalArgumentException if not an embeddable class
+     *  組み込み可能型を表すメタモデルの組み込み型を返します。
+     *  @param cls  表された組み込みクラスの型
+     *  @return the メタモデルの組み込み型
+     *  @throws IllegalArgumentException 組み込みクラスでない場合
      */
     <X> EmbeddableType<X> embeddable(Class<X> cls);
 
     /**
-     *  Return the metamodel managed types.
-     *  @return the metamodel managed types
+     *  メタモデルのマネージド型を返します。
+     *  @return メタモデルのマネージド型
      */
     Set<ManagedType<?>> getManagedTypes();
 
     /**
-     * Return the metamodel entity types.
-     * @return the metamodel entity types
+     * メタモデルのエンティティ型を返します。
+     * @return メタモデルのエンティティ型
      */
     Set<EntityType<?>> getEntities();
 
     /**
-     * Return the metamodel embeddable types.  Returns empty set
-     * if there are no embeddable types.
-     * @return the metamodel embeddable types
+     * メタモデルの組み込み型を返します。 組み込み型がない場合は空のセットを返します。
+     * @return メタモデルの組み込み型
      */
     Set<EmbeddableType<?>> getEmbeddables();
 }
