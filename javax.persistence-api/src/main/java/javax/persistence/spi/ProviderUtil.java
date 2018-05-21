@@ -43,21 +43,17 @@ public interface ProviderUtil {
     public LoadState isLoadedWithoutReference(Object entity, String attributeName);
 
     /**
-     * If the provider determines that the entity has been provided
-     * by itself and that the state of the specified attribute has
-     * been loaded, this method returns <code>LoadState.LOADED</code>.
-     * <p> If a provider determines that the entity has been provided
-     * by itself and that either the entity attributes with <code>FetchType.EAGER</code>
-     * have not been loaded or that the state of the specified
-     * attribute has not been loaded, this method returns
-     * return <code>LoadState.NOT_LOADED</code>.
-     * <p> If the provider cannot determine the load state, this method
-     * returns <code>LoadState.UNKNOWN</code>.
-     * <p> The provider's implementation of this method is permitted to
-     * obtain a reference to the attribute value.  (This access is
-     * safe because providers which might trigger the loading of the
-     * attribute state will have already been determined by
-     * <code>isLoadedWithoutReference</code>. )
+     * エンティティがそれ自身により提供されており、指定された属性がロードされている状態だとプロバイダが測定した場合、
+     * このメソッドは<code>LoadState.LOADED</code>を返します。
+     * 
+     * <p> エンティティがそれ自身により提供されており、<code>FetchType.EAGER</code>を持つエンティティの属性がロードされていないか、
+     * 指定された属性がロードされていない状態だとプロバイダが測定した場合、このメソッドは<code>LoadState.NOT_LOADED</code>を返します。
+     * 
+     * <p> プロバイダがロード状態を測定できない場合、このメソッドは<code>LoadState.UNKNOWN</code>を返します。
+     * 
+     * <p> エンティティが別のプロバイダーによって提供された場合、エンティティの状態のローディングをトリガーしてしまう可能性があるため、
+     * このメソッドのプロバイダの実装では、属性値への参照を取得してはなりません。
+     * (このアクセスは属性ステートのロードをトリガーしてもよいプロバイダーが<code>isLoadedWithoutReference</code>によって既に測定されているため安全です。)
      *
      * @param entity エンティティのインスタンス
      * @param attributeName  ロード状態を測定される属性の名前
@@ -66,19 +62,16 @@ public interface ProviderUtil {
     public LoadState isLoadedWithReference(Object entity, String attributeName);
 
     /**
-     * If the provider determines that the entity has been provided
-     * by itself and that the state of all attributes for which
-     * <code>FetchType.EAGER</code> has been specified have been loaded, this 
-     * method returns <code>LoadState.LOADED</code>.
-     * <p> If the provider determines that the entity has been provided
-     * by itself and that not all attributes with <code>FetchType.EAGER</code> 
-     * have been loaded, this method returns <code>LoadState.NOT_LOADED</code>.
-     * <p> If the provider cannot determine if the entity has been
-     * provided by itself, this method returns <code>LoadState.UNKNOWN</code>.
-     * <p> The provider's implementation of this method must not obtain
-     * a reference to any attribute value, as this could trigger the
-     * loading of entity state if the entity has been provided by a
-     * different provider.
+     * エンティティがそれ自身により提供されており、<code>FetchType.EAGER</code>が指定されているすべての属性がロードされている状態だとプロバイダが判断した場合、
+     * このメソッドは<code>LoadState.LOADED</code>を返します。
+     * 
+     * <p> エンティティがそれ自身により提供されており、<code>FetchType.EAGER</code>を指定された属性の一つでもロードされていないとプロバイダが判断した場合、
+     * このメソッドは<code>LoadState.NOT_LOADED</code>を返します。
+     * 
+     * <p> プロバイダがエンティティがそれ自身により提供されているかどうかを判断できない場合、このメソッドは<code>LoadState.UNKNOWN</code>を返します。
+     * 
+     * <p> エンティティが別のプロバイダーによって提供された場合、エンティティの状態のローディングをトリガーしてしまう可能性があるため、
+     * このメソッドのプロバイダの実装では、任意の属性値への参照を取得してはなりません。
      * @param entity ロード状態を測定されるエンティティ
      * @return エンティティのロード状態
      */
