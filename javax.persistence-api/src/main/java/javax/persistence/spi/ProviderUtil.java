@@ -36,10 +36,9 @@ public interface ProviderUtil {
      * 
      * <p> エンティティが別のプロバイダーによって提供された場合、エンティティの状態のローディングをトリガーしてしまう可能性があるため、
      * このメソッドのプロバイダの実装では、属性値への参照を取得してはなりません。
-     * @param entity  entity instance
-     * @param attributeName  name of attribute whose load status is
-     *        to be determined
-     * @return load status of the attribute
+     * @param entity エンティティのインスタンス
+     * @param attributeName  ロード状態を測定される属性の名前
+     * @return 属性のロード状態
      */
     public LoadState isLoadedWithoutReference(Object entity, String attributeName);
 
@@ -60,10 +59,9 @@ public interface ProviderUtil {
      * attribute state will have already been determined by
      * <code>isLoadedWithoutReference</code>. )
      *
-     * @param entity  entity instance
-     * @param attributeName  name of attribute whose load status is
-     *        to be determined
-     * @return load status of the attribute
+     * @param entity エンティティのインスタンス
+     * @param attributeName  ロード状態を測定される属性の名前
+     * @return 属性のロード状態
      */
     public LoadState isLoadedWithReference(Object entity, String attributeName);
 
@@ -81,8 +79,8 @@ public interface ProviderUtil {
      * a reference to any attribute value, as this could trigger the
      * loading of entity state if the entity has been provided by a
      * different provider.
-     * @param entity whose loaded status is to be determined
-     * @return load status of the entity
+     * @param entity ロード状態を測定されるエンティティ
+     * @return エンティティのロード状態
      */
     public LoadState isLoaded(Object entity);
 }
