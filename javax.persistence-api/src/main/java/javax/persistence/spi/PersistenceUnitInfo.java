@@ -97,34 +97,24 @@ public interface PersistenceUnitInfo {
     public URL getPersistenceUnitRootUrl();
 
     /**
-     * Returns the list of the names of the classes that the
-     * 永続化プロバイダ must add to its set of managed
-     * classes. Each name corresponds to a named <code>class</code> element in the
-     * <code>persistence.xml</code> file.
-     * @return the list of the names of the classes that the 
-     * 永続化プロバイダ must add to its set of managed 
-     * classes 
+     * 永続化プロバイダが管理対象クラスのセットに追加する必要があるクラスの名称のリストを返します。
+     * 
+     * 各名称は<code>persistence.xml</code>の名前付き<code>class</code>要素に対応しています。
+     * @return 永続化プロバイダが管理対象クラスのセットに追加する必要があるクラスの名前のリスト
      */
     public List<String> getManagedClassNames();
 
     /**
-     * Returns whether classes in the root of the persistence unit
-     * that have not been explicitly listed are to be included in the
-     * set of managed classes. This value corresponds to the
-     * <code>exclude-unlisted-classes</code> element in the <code>persistence.xml</code> file.
-     * @return whether classes in the root of the persistence
-     * unit that have not been explicitly listed are to be
-     * included in the set of managed classes
+     * 永続化ユニットのルートに存在するが明示的にリスト化されていないクラスを管理対象クラスのセットに含めるかどうかを返します。
+     * @return 永続化ユニットのルートに存在するが明示的にリスト化されていないクラスを管理対象クラスのセットに含めるかどうか
      */
     public boolean excludeUnlistedClasses();
 
     /**
-     * Returns the specification of how the provider must use
-     * a second-level cache for the persistence unit.
-     * The result of this method corresponds to the <code>shared-cache-mode</code>
-     * element in the <code>persistence.xml</code> file.
-     * @return the second-level cache mode that must be used by the
-     * provider for the persistence unit
+     * プロバイダが永続化ユニットにL2キャッシュを使用する必要がある方法の仕様を返します。
+     * 
+     * このメソッドの結果は<code>persistence.xml</code>の<code>shared-cache-mode</code>要素に対応します。
+     * @return プロバイダが永続化ユニットにL2キャッシュを使用する必要がある方法の仕様
      *
      * @since Java Persistence 2.0
      */
