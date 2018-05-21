@@ -88,15 +88,11 @@ public interface PersistenceUnitInfo {
     public List<URL> getJarFileUrls();
 
     /**
-     * Returns the URL for the jar file or directory that is the
-     * root of the persistence unit. (If the persistence unit is
-     * rooted in the WEB-INF/classes directory, this will be the 
-     * URL of that directory.)
-     * The URL will either be a file: URL referring to a jar file 
-     * or referring to a directory that contains an exploded jar
-     * file, or some other URL from which an InputStream in jar
-     * format can be obtained.
-     * @return a URL referring to a jar file or directory
+     * 永続化ユニットのルートであるjarファイルまたはディレクトリのURLを返します。
+     * 
+     * (永続化ユニットがWEB-INF/classesディレクトリにルートされている場合、これはそのディレクトリのURLになります。)
+     * URLは、jarファイルを参照するURLまたは展開されたjarファイルを含むディレクトリ、またはjar形式のInputStreamを取得するためのその他のURLを参照するURLです。
+     * @return jarファイルやディレクトリを参照するURL
      */
     public URL getPersistenceUnitRootUrl();
 
