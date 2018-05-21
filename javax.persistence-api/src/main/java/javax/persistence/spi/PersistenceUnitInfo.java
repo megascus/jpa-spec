@@ -70,16 +70,11 @@ public interface PersistenceUnitInfo {
     public DataSource getNonJtaDataSource();
 
     /**
-     * Returns the list of the names of the mapping files that the
-     * 永続化プロバイダ must load to determine the mappings for
-     * the entity classes. The mapping files must be in the standard
-     * XML mapping format, be uniquely named and be resource-loadable
-     * from the application classpath.  Each mapping file name
-     * corresponds to a <code>mapping-file</code> element in the
-     * <code>persistence.xml</code> file.
-     * @return the list of mapping file names that the persistence
-     * provider must load to determine the mappings for the entity
-     * classes 
+     * エンティティクラスのマッピングを決定するために永続化プロバイダがロードする必要があるマッピングファイルの名前のリストを返します。
+     * 
+     * マッピングファイルは標準のXMLマッピング形式であり、アプリケーションクラスパスで一意の名前を持ち、リソースとして読み込み可能でなければなりません。
+     * 各マッピングファイル名は<code>persistence.xml</code>ファイルの<code>mapping-file</code>要素に対応します。
+     * @return エンティティクラスのマッピングを決定するために永続化プロバイダがロードする必要があるマッピングファイルの名前のリスト
      */
     public List<String> getMappingFileNames();
 
