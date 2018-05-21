@@ -25,6 +25,6 @@ public enum LoadState {
     LOADED,
     /** 要素はロードされていない状態だと知られています。 */
     NOT_LOADED,
-    /** 要素のロード状態は決定できません。 */
+    /** 要素のロード状態は測定できません。 */
     UNKNOWN
 }
