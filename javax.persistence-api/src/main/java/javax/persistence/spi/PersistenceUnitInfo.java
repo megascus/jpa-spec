@@ -147,40 +147,28 @@ public interface PersistenceUnitInfo {
     public String getPersistenceXMLSchemaVersion();
 
     /**
-     * Returns ClassLoader that the provider may use to load any
-     * classes, resources, or open URLs.
-     * @return ClassLoader that the provider may use to load any 
-     * classes, resources, or open URLs 
+     * クラスやリソース、開かれたURLをロードするためにプロバイダが使用するClassLoaderを返します。
+     * @return クラスやリソース、開かれたURLをロードするためにプロバイダが使用するClassLoader
      */
     public ClassLoader getClassLoader();
 
     /**
-     * Add a transformer supplied by the provider that will be 
-     * called for every new class definition or class redefinition
-     * that gets loaded by the loader returned by the
-     * {@link PersistenceUnitInfo#getClassLoader} method. The transformer 
-     * has no effect on the result returned by the
-     * {@link PersistenceUnitInfo#getNewTempClassLoader} method.
-     * Classes are only transformed once within the same classloading
-     * scope, regardless of how many persistence units they may be 
-     * a part of.
-     * @param transformer   provider-supplied transformer that the
-     * container invokes at class-(re)definition time
+     * {@link PersistenceUnitInfo#getClassLoader}メソッドによって返されたローダーによってロードされる新しいクラス定義やクラスの再定義のたびに呼び出される
+     * プロバイダが提供するトランスフォーマーを追加します。
+     * 
+     * トランスフォーマーは{@link PersistenceUnitInfo#getNewTempClassLoader}メソッドによって返される結果には影響しません。
+     * クラスはそれらが一部である可能性のある永続化ユニットの数にかかわらず同じクラスローディングスコープ内では一度だけ変換されます。
+     * @param transformer   コンテナがクラスの(再)定義時に呼び出されるプロバイダが提供するトランスフォーマー
      */
     public void addTransformer(ClassTransformer transformer);
 
     /**
-     * Return a new instance of a ClassLoader that the provider may
-     * use to temporarily load any classes, resources, or open
-     * URLs. The scope and classpath of this loader is exactly the
-     * same as that of the loader returned by {@link
-     * PersistenceUnitInfo#getClassLoader}. None of the classes loaded
-     * by this class loader will be visible to application
-     * components. The provider may only use this ClassLoader within
-     * the scope of the {@link
-     * PersistenceProvider#createContainerEntityManagerFactory} call.
-     * @return temporary ClassLoader with same visibility as current
-     * loader
+     * クラスやリソース、開かれたURLを一時的にロードするためにプロバイダが使用するClassLoaderを返します。
+     * 
+     * このローダーのスコープとクラスパスは{@link PersistenceUnitInfo#getClassLoader}によって返されるローダーのスコープとクラスパスと完全に同じです。
+     * このクラスローダーによってロードされたクラスはアプリケーションコンポーネントからは参照できません。
+     * プロバイダはこのClassLoaderを{@link PersistenceProvider#createContainerEntityManagerFactory}の呼び出し内でのみ使用できます。
+     * @return 現在のローダーと同じ可視性を持つ一時的なClassLoader
      */
     public ClassLoader getNewTempClassLoader();
 }
