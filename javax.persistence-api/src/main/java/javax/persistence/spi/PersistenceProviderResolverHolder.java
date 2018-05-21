@@ -32,11 +32,11 @@ import java.util.logging.Logger;
 
 
 /**
- * Holds the global {@link javax.persistence.spi.PersistenceProviderResolver}
- * instance. If no <code>PersistenceProviderResolver</code> is set by the
- * environment, the default <code>PersistenceProviderResolver</code> is used.
+ * グローバルな{@link javax.persistence.spi.PersistenceProviderResolver}インスタンスを保持します。
  * 
- * Implementations must be thread-safe.
+ * 環境から<code>PersistenceProviderResolver</code>が設定されていない場合は、デフォルトのPersistenceProviderResolverが使用されます。
+ * 
+ * 実装はスレッドセーフでなければなりません。
  * 
  * @since Java Persistence 2.0
  */
@@ -45,18 +45,18 @@ public class PersistenceProviderResolverHolder {
     private static PersistenceProviderResolver singleton = new DefaultPersistenceProviderResolver();
 
     /**
-     * Returns the current persistence provider resolver.
+     * 現在の永続化プロバイダリゾルバを返します。
      * 
-     * @return the current persistence provider resolver
+     * @return 現在の永続化プロバイダリゾルバ
      */
     public static PersistenceProviderResolver getPersistenceProviderResolver() {
         return singleton;
     }
 
     /**
-     * Defines the persistence provider resolver used.
+     * 使用される永続化プロバイダリゾルバを定義します。
      * 
-     * @param resolver persistence provider resolver to be used.
+     * @param resolver 使用される永続化プロバイダリゾルバ
      */
     public static void setPersistenceProviderResolver(PersistenceProviderResolver resolver) {
         if (resolver == null) {
