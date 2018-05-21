@@ -111,7 +111,7 @@ public interface PersistenceUnitInfo {
     public boolean excludeUnlistedClasses();
 
     /**
-     * プロバイダが永続化ユニットにL2キャッシュを使用する必要がある方法の仕様を返します。
+     * プロバイダが永続化ユニットでL2キャッシュを使用する必要がある方法の仕様を返します。
      * 
      * このメソッドの結果は<code>persistence.xml</code>の<code>shared-cache-mode</code>要素に対応します。
      * @return プロバイダが永続化ユニットにL2キャッシュを使用する必要がある方法の仕様
@@ -121,28 +121,26 @@ public interface PersistenceUnitInfo {
     public SharedCacheMode getSharedCacheMode();
 
     /**
-     * Returns the validation mode to be used by the persistence
-     * provider for the persistence unit.  The validation mode
-     * corresponds to the <code>validation-mode</code> element in the
-     * <code>persistence.xml</code> file.
-     * @return the validation mode to be used by the 
-     * 永続化プロバイダ for the persistence unit
+     * 永続化ユニットで永続化プロバイダが使用する検証モードを返します。
+     * 
+     * 検証モードは<code>persistence.xml</code>の<code>validation-mode</code>要素に対応します。
+     * @return 永続化ユニットで永続化プロバイダが使用する検証モード
      * 
      * @since Java Persistence 2.0
      */
     public ValidationMode getValidationMode();
 
     /**
-     * Returns a properties object. Each property corresponds to a
-     * <code>property</code> element in the <code>persistence.xml</code> file
-     * or to a property set by the container.
-     * @return Properties object 
+     * プロパティオブジェクトを返します。
+     * 
+     * 各プロパティは<code>persistence.xml</code>の<code>property</code>要素やコンテナによって設定されたプロパティに対応します。
+     * @return プロパティオブジェクト
      */
     public Properties getProperties();
     
     /**
-     * Returns the schema version of the <code>persistence.xml</code> file.
-     * @return persistence.xml schema version
+     * <code>persistence.xml</code>のスキーマバージョンを返します。
+     * @return <code>persistence.xml</code>のスキーマバージョン
      *
      * @since Java Persistence 2.0
      */
