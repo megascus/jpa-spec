@@ -79,16 +79,11 @@ public interface PersistenceUnitInfo {
     public List<String> getMappingFileNames();
 
     /**
-     * Returns a list of URLs for the jar files or exploded jar
-     * file directories that the 永続化プロバイダ must examine
-     * for managed classes of the persistence unit. Each URL
-     * corresponds to a <code>jar-file</code> element in the
-     * <code>persistence.xml</code> file. A URL will either be a 
-     * file: URL referring to a jar file or referring to a directory
-     * that contains an exploded jar file, or some other URL from
-     * which an InputStream in jar format can be obtained.
-     * @return a list of URL objects referring to jar files or
-     * directories 
+     * 永続化プロバイダが永続化ユニットの管理対象クラスを調べる必要があるjarファイルまたは展開されたjarファイルディレクトリのURLのリストを返します。
+     * 
+     * 各URLは<code>persistence.xml</code>ファイルの<code>jar-file</code>要素に対応しています。
+     * URLは、jarファイルを参照するURLまたは展開されたjarファイルを含むディレクトリ、またはjar形式のInputStreamを取得するためのその他のURLを参照するURLです。
+     * @return jarファイルやディレクトリを参照するURLオブジェクトのリスト
      */
     public List<URL> getJarFileUrls();
 
