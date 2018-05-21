@@ -20,12 +20,10 @@ import javax.persistence.PersistenceException;
 import java.util.Map;
 
 /**
- * Interface implemented by the persistence provider.
- *
- * <p> It is invoked by the container in Java EE environments and
- * by the {@link javax.persistence.Persistence} class in Java SE environments to
- * create an {@link javax.persistence.EntityManagerFactory} and/or to cause
- * schema generation to occur.
+ * 永続化プロバイダによって実装されるインタフェースです。
+ * 
+ * <p> これは、Java EE環境のコンテナと、Java SE環境の{@link javax.persistence.Persistence}クラスによって呼び出され、
+ * {@link javax.persistence.EntityManagerFactory}を作成したり、スキーマの生成を行います。
  *
  * @since Java Persistence 1.0
  */
@@ -69,50 +67,37 @@ public interface PersistenceProvider {
 
 
     /**
-     * Create database schemas and/or tables and/or create DDL
-     * scripts as determined by the supplied properties.
+     * データベーススキーマやテーブルを作成し、提供されたプロパティによって決定されるDDLスクリプトを作成します。
+     * 
      * <p>
-     * Called by the container when schema generation is to
-     * occur as a separate phase from creation of the entity
-     * manager factory.
+     * スキーマ生成がエンティティマネージャーファクトリーの作成とは別のフェーズとして実行されるときにコンテナによって呼び出されます。
      * <p>
-     * @param info metadata for use by the persistence provider
-     * @param map properties for schema generation;  these may
-     *             also include provider-specific properties
-     * @throws PersistenceException if insufficient or inconsistent
-     *         configuration information is provided of if schema
-     *         generation otherwise fails
+     * @param info 永続化プロバイダによって使用されるメタデータ
+     * @param map スキーマ生成のためのプロパティ、これらにはプロバイダ固有のプロパティも含まれる。
+     * @throws PersistenceException 構成情報が不十分または不正確な場合、またはスキーマ生成が失敗した場合
      *
      * @since Java Persistence 2.1
      */
     public void generateSchema(PersistenceUnitInfo info, Map map);
 
     /**
-     * Create database schemas and/or tables and/or create DDL
-     * scripts as determined by the supplied properties.
+     * データベーススキーマやテーブルを作成し、提供されたプロパティによって決定されるDDLスクリプトを作成します。
+     * 
      * <p>
-     * Called by the Persistence class when schema generation is to
-     * occur as a separate phase from creation of the entity
-     * manager factory.
+     * スキーマ生成がエンティティマネージャーファクトリーの作成とは別のフェーズとして実行されるときにPersistenceクラスによって呼び出されます。
      * <p>
-     * @param persistenceUnitName the name of the persistence unit
-     * @param map properties for schema generation;  these may
-     *             also contain provider-specific properties.  The
-     *             value of these properties override any values that
-     *             may have been configured elsewhere.
-     * @return true  if schema was generated, otherwise false
-     * @throws PersistenceException if insufficient or inconsistent
-     *         configuration information is provided or if schema
-     *         generation otherwise fails
+     * @param persistenceUnitName 永続化ユニットの名前
+     * @param map スキーマ生成のためのプロパティ、これらにはプロバイダ固有のプロパティも含まれる。このプロパティの値は他の場所で設定されている値を上書きします。
+     * @return スキーマが生成された場合はtrue、そうでない場合はfalse
+     * @throws PersistenceException 構成情報が不十分または不正確な場合、またはスキーマ生成が失敗した場合
      *
      * @since Java Persistence 2.1
      */
     public boolean generateSchema(String persistenceUnitName, Map map); 
 
     /**
-     * Return the utility interface implemented by the persistence
-     * provider.
-     * @return ProviderUtil interface
+     * 永続化プロバイダによって実装されたユーティリティインタフェースを返します。
+     * @return ProviderUtilインターフェース
      *
      * @since Java Persistence 2.0
      */
