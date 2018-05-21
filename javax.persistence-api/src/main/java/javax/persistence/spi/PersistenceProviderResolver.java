@@ -18,14 +18,12 @@ package javax.persistence.spi;
 import java.util.List;
 
 /**
- * Determine the list of persistence providers available in the 
- * runtime environment.
+ * 実行環境で利用可能な永続化プロバイダのリストを測定します。
  * 
- * <p> Implementations must be thread-safe.
- *
- * <p> Note that the <code>getPersistenceProviders</code> method can potentially
- * be called many times: it is recommended that the implementation
- * of this method make use of caching.
+ * <p> 実装はスレッドセーフでなければなりません。
+ * 
+ *  <p> <code>getPersistenceProviders</code>メソッドは何度も呼び出される可能性があることに注意してください。
+ * このメソッドの実装ではキャッシュを活用することをお勧めします。
  *
  * @see PersistenceProvider
  * @since Java Persistence 2.0
@@ -33,16 +31,14 @@ import java.util.List;
 public interface PersistenceProviderResolver {
 
     /**
-     * Returns a list of the <code>PersistenceProvider</code> implementations 
-     * available in the runtime environment.
+     * 実行環境で利用可能な<code>PersistenceProvider</code>の実装のリストを返します。
      *
-     * @return list of the persistence providers available 
-     *         in the environment
+     * @return 実行環境で利用可能な永続化プロバイダのリスト
      */
     List<PersistenceProvider> getPersistenceProviders();
 
     /**
-     * Clear cache of providers.
+     * プロバイダのキャッシュをクリアします。
      *
      */
     void clearCachedProviders();
