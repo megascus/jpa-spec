@@ -34,13 +34,7 @@ public interface PersistenceProvider {
      *
      * @param emName  永続化ユニットの名前
      * @param map  永続化プロバイダによって使用されるプロパティのマップ。このプロパティを使用して<code>persistence.xml</code>ファイル内の対応する要素の値を上書きしたり、
-     * <code>persistence.xml</code>で指定されていないプロパティの値を指定することができます。(プロパティを指定しない場合はnullにします)
-     * a Map of properties for use by the 
-     * persistence provider. These properties may be used to
-     * override the values of the corresponding elements in 
-     * the <code>persistence.xml</code> file or specify values for 
-     * properties not specified in the <code>persistence.xml</code>
-     * (and may be null if no properties are specified).
+     * <code>persistence.xml</code>で指定されていないプロパティの値を指定することができます。(プロパティを指定しない場合はnullにできます。)
      * @return 永続化ユニットのためのEntityManagerFactory、プロバイダが適切なプロバイダでない場合はnull
      */
     public EntityManagerFactory createEntityManagerFactory(String emName, Map map);
@@ -49,16 +43,11 @@ public interface PersistenceProvider {
      * <code>EntityManagerFactory</code>を作成するときにコンテナによって呼び出されます。
      *
      * @param info  永続化プロバイダによって使用されるメタデータ
-     * @param map  a Map of integration-level properties for use 
-     * by the persistence provider (may be null if no properties
-     * are specified).  These properties may include properties to
-     * control schema generation.
-     * If a Bean Validation provider is present in the classpath,
-     * the container must pass the <code>ValidatorFactory</code> instance in
-     * the map with the key <code>"javax.persistence.validation.factory"</code>.
-     * If the containing archive is a bean archive, the container
-     * must pass the BeanManager instance in the map with the key
-     * <code>"javax.persistence.bean.manager"</code>.
+     * @param map  永続化プロバイダが使用するインテグレーションレベルのプロパティのマップです。(プロパティを指定しない場合はnullにできます。)
+     * これらのプロパティにはスキーマの生成を制御するプロパティが含まれる場合があります。
+     * Bean Validationプロバイダがクラスパスに存在する場合、コンテナはキーを<code>"javax.persistence.validation.factory"</code>としてマップに含めて
+     * <code>ValidatorFactory</code>のインスタンスを渡す必要があります。
+     * 格納されているアーカイブがBeanアーカイブの場合、コンテナはBeanManagerインスタンスをキーを<code>"javax.persistence.bean.manager"</code>としてマップに含めて渡す必要があります。
      * @return メタデータによって指定された永続化ユニットのためのEntityManagerFactory
      */
     public EntityManagerFactory createContainerEntityManagerFactory(PersistenceUnitInfo info, Map map);
