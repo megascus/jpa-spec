@@ -19,38 +19,27 @@ import java.security.ProtectionDomain;
 import java.lang.instrument.IllegalClassFormatException;
 
 /**
- * A persistence provider supplies an instance of this 
- * interface to the {@link PersistenceUnitInfo#addTransformer 
- * PersistenceUnitInfo.addTransformer}
- * method. The supplied transformer instance will get 
- * called to transform entity class files when they are 
- * loaded or redefined. The transformation occurs before  
- * the class is defined by the JVM.
+ * 永続性プロバイダーはこのインタフェースのインスタンスを{@link PersistenceUnitInfo#addTransformer PersistenceUnitInfo.addTransformer}メソッドに提供します。
+ * 
+ * 提供されたトランスフォーマーインスタンスはエンティティクラスのファイルがロードまたは再定義されたときに変換するために呼び出されます。
+ * 変換はクラスがJVMによって定義される前に行われます。
  *
  * @since Java Persistence 1.0
  */
 public interface ClassTransformer {
 
     /**
-     * Invoked when a class is being loaded or redefined.
-     * The implementation of this method may transform the 
-     * supplied class file and return a new replacement class 
-     * file.
+     * クラスがロードまたは再定義されるときに呼び出されます。
+     * 
+     * このメソッドの実装は与えられたクラスファイルを変換し、新しい変換されたクラスファイルを返すことがあります。
      *
-     * @param loader  the defining loader of the class to be 
-     *        transformed, may be null if the bootstrap loader
-     * @param className  the name of the class in the internal form 
-     *        of fully qualified class and interface names 
-     * @param classBeingRedefined  if this is a redefine, the 
-     *        class being redefined, otherwise null
-     * @param protectionDomain  the protection domain of the 
-     *        class being defined or redefined
-     * @param classfileBuffer  the input byte buffer in class 
-     *        file format - must not be modified 
-     * @return a well-formed class file buffer (the result of 
-     *         the transform), or null if no transform is performed
-     * @throws IllegalClassFormatException  if the input does 
-     *         not represent a well-formed class file
+     * @param loader  変換されるクラスの定義されたローダー、ブートストラップローダーの場合はnullでも良い
+     * @param className  内部形式の完全修飾されたクラスおよびインタフェース名のクラスの名前
+     * @param classBeingRedefined  再定義の場合は再定義されるクラス、そうでない場合はnull
+     * @param protectionDomain  定義または再定義されるクラスの保護ドメイン
+     * @param classfileBuffer  クラスファイル形式の入力バイトバッファー - 変換してはならない
+     * @return (変換の結果)正常な形式のクラスファイルのバッファー、変換が行われなかった場合はnull
+     * @throws IllegalClassFormatException  入力が正常な形式のクラスファイルを表していない場合
      */
     byte[] transform(ClassLoader loader,
                      String className,
