@@ -16,30 +16,26 @@
 package javax.persistence.spi;
 
 /**
- * Utility interface implemented by the persistence provider.  This
- * interface is invoked by the {@link
- * javax.persistence.PersistenceUtil} implementation to determine
- * the load status of an entity or entity attribute.
+ * 永続化プロバイダによって実装されるユーティリティインタフェース。
+ * 
+ * このインタフェースは{@link javax.persistence.PersistenceUtil}の実装によって呼び出され、
+ * エンティティまたはエンティティの属性のロード状態を測定します。
  *
  * @since Java Persistence 2.0
  */
 public interface ProviderUtil { 
 
     /**
-     * If the provider determines that the entity has been provided
-     * by itself and that the state of the specified attribute has
-     * been loaded, this method returns <code>LoadState.LOADED</code>.
-     * <p> If the provider determines that the entity has been provided
-     * by itself and that either entity attributes with <code>FetchType.EAGER</code> 
-     * have not been loaded or that the state of the specified
-     * attribute has not been loaded, this methods returns
-     * <code>LoadState.NOT_LOADED</code>.
-     * <p> If a provider cannot determine the load state, this method
-     * returns <code>LoadState.UNKNOWN</code>.
-     * <p> The provider's implementation of this method must not obtain
-     * a reference to an attribute value, as this could trigger the
-     * loading of entity state if the entity has been provided by a
-     * different provider.
+     * エンティティがそれ自身により提供されており、指定された属性がロードされている状態だとプロバイダが測定した場合、
+     * このメソッドは<code>LoadState.LOADED</code>を返します。
+     * 
+     * <p> エンティティがそれ自身により提供されており、<code>FetchType.EAGER</code>を持つエンティティの属性がロードされていないか、
+     * 指定された属性がロードされていない状態だとプロバイダが測定した場合、このメソッドは<code>LoadState.NOT_LOADED</code>を返します。
+     * 
+     * <p> プロバイダがロード状態を測定できない場合、このメソッドは<code>LoadState.UNKNOWN</code>を返します。
+     * 
+     * <p> エンティティが別のプロバイダーによって提供された場合、エンティティの状態のローディングをトリガーしてしまう可能性があるため、
+     * このメソッドのプロバイダの実装では、属性値への参照を取得してはなりません。
      * @param entity  entity instance
      * @param attributeName  name of attribute whose load status is
      *        to be determined
