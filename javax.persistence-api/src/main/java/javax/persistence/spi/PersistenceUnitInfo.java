@@ -23,63 +23,61 @@ import javax.persistence.SharedCacheMode;
 import javax.persistence.ValidationMode;
 
 /**
- * Interface implemented by the container and used by the
- * persistence provider when creating an {@link javax.persistence.EntityManagerFactory}.
+ * コンテナによって実装され、{@link javax.persistence.EntityManagerFactory}作成時に永続化プロバイダによって使用されるインタフェースです。
  *
  * @since Java Persistence 1.0
  */
 public interface PersistenceUnitInfo {
 	
     /**
-     * Returns the name of the persistence unit. Corresponds to the
-     * <code>name</code> attribute in the <code>persistence.xml</code> file.
-     * @return  the name of the persistence unit 
+     * 永続化ユニットの名前を返します。
+     * 
+     * <code>persistence.xml</code>ファイルの<code>name</code>属性に対応します。
+     * @return  永続化ユニットの名前
      */
     public String getPersistenceUnitName();
 
     /**
-     * Returns the fully qualified name of the persistence provider
-     * implementation class. Corresponds to the <code>provider</code> element in
-     * the <code>persistence.xml</code> file.
-     * @return  the fully qualified name of the persistence provider 
-     * implementation class
+     * 永続化プロバイダの実装クラスの完全修飾名(FQCN)を返します。
+     * 
+     * <code>persistence.xml</code>ファイルの<code>provider</code>要素に対応します。
+     * @return  永続化プロバイダの実装クラスの完全修飾名(FQCN)
      */
     public String getPersistenceProviderClassName();
 
     /**
-     * Returns the transaction type of the entity managers created by
-     * the <code>EntityManagerFactory</code>. The transaction type corresponds to
-     * the <code>transaction-type</code> attribute in the <code>persistence.xml</code> file.
-     * @return  transaction type of the entity managers created
-     * by the EntityManagerFactory
+     * <code>EntityManagerFactory</code>によって作成されたエンティティマネージャーのトランザクションタイプを返します。
+     * 
+     * トランザクションタイプは<code>persistence.xml</code>ファイルの<code>transaction-type</code>属性に対応します。
+     * @return  EntityManagerFactoryによって作成されたエンティティマネージャーのトランザクションタイプ
      */
     public PersistenceUnitTransactionType getTransactionType();
 
     /**
      * Returns the JTA-enabled data source to be used by the
-     * persistence provider. The data source corresponds to the
+     * 永続化プロバイダ. The data source corresponds to the
      * <code>jta-data-source</code> element in the <code>persistence.xml</code> file or is
      * provided at deployment or by the container.
      * @return the JTA-enabled data source to be used by the 
-     * persistence provider
+     * 永続化プロバイダ
      */
     public DataSource getJtaDataSource();
 
     /**
      * Returns the non-JTA-enabled data source to be used by the
-     * persistence provider for accessing data outside a JTA
+     * 永続化プロバイダ for accessing data outside a JTA
      * transaction. The data source corresponds to the named
      * <code>non-jta-data-source</code> element in the <code>persistence.xml</code> file or
      * provided at deployment or by the container.
      * @return the non-JTA-enabled data source to be used by the 
-     * persistence provider for accessing data outside a JTA 
+     * 永続化プロバイダ for accessing data outside a JTA 
      * transaction
      */
     public DataSource getNonJtaDataSource();
 
     /**
      * Returns the list of the names of the mapping files that the
-     * persistence provider must load to determine the mappings for
+     * 永続化プロバイダ must load to determine the mappings for
      * the entity classes. The mapping files must be in the standard
      * XML mapping format, be uniquely named and be resource-loadable
      * from the application classpath.  Each mapping file name
@@ -93,7 +91,7 @@ public interface PersistenceUnitInfo {
 
     /**
      * Returns a list of URLs for the jar files or exploded jar
-     * file directories that the persistence provider must examine
+     * file directories that the 永続化プロバイダ must examine
      * for managed classes of the persistence unit. Each URL
      * corresponds to a <code>jar-file</code> element in the
      * <code>persistence.xml</code> file. A URL will either be a 
@@ -120,11 +118,11 @@ public interface PersistenceUnitInfo {
 
     /**
      * Returns the list of the names of the classes that the
-     * persistence provider must add to its set of managed
+     * 永続化プロバイダ must add to its set of managed
      * classes. Each name corresponds to a named <code>class</code> element in the
      * <code>persistence.xml</code> file.
      * @return the list of the names of the classes that the 
-     * persistence provider must add to its set of managed 
+     * 永続化プロバイダ must add to its set of managed 
      * classes 
      */
     public List<String> getManagedClassNames();
@@ -158,7 +156,7 @@ public interface PersistenceUnitInfo {
      * corresponds to the <code>validation-mode</code> element in the
      * <code>persistence.xml</code> file.
      * @return the validation mode to be used by the 
-     * persistence provider for the persistence unit
+     * 永続化プロバイダ for the persistence unit
      * 
      * @since Java Persistence 2.0
      */
