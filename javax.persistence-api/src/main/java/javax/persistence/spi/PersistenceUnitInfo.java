@@ -54,24 +54,18 @@ public interface PersistenceUnitInfo {
     public PersistenceUnitTransactionType getTransactionType();
 
     /**
-     * Returns the JTA-enabled data source to be used by the
-     * 永続化プロバイダ. The data source corresponds to the
-     * <code>jta-data-source</code> element in the <code>persistence.xml</code> file or is
-     * provided at deployment or by the container.
-     * @return the JTA-enabled data source to be used by the 
-     * 永続化プロバイダ
+     * 永続化プロバイダによって使用されるJTA対応のデータソースを返します。
+     * 
+     * データソースは<code>persistence.xml</code>ファイルの<code>jta-data-source</code>要素もしくはデプロイ時やコンテナにより提供されるものに対応します。
+     * @return 永続化プロバイダによって使用されるJTA対応のデータソース
      */
     public DataSource getJtaDataSource();
 
     /**
-     * Returns the non-JTA-enabled data source to be used by the
-     * 永続化プロバイダ for accessing data outside a JTA
-     * transaction. The data source corresponds to the named
-     * <code>non-jta-data-source</code> element in the <code>persistence.xml</code> file or
-     * provided at deployment or by the container.
-     * @return the non-JTA-enabled data source to be used by the 
-     * 永続化プロバイダ for accessing data outside a JTA 
-     * transaction
+     * 永続化プロバイダがJTAトランザクションの外のデータにアクセスするために使用する非JTA対応のデータソースを返します。
+     * 
+     * データソースは<code>persistence.xml</code>ファイルの<code>non-jta-data-source</code>要素もしくはデプロイ時やコンテナにより提供されるものに対応します。
+     * @return 永続化プロバイダがJTAトランザクションの外のデータにアクセスするために使用する非JTA対応のデータソース
      */
     public DataSource getNonJtaDataSource();
 
