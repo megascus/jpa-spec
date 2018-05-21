@@ -27,7 +27,7 @@ import javax.persistence.metamodel.EntityType;
  * <p> すべてのクエリーは(joinを所有している可能性のある)ルートエンティティを持つ必要があります。
  * <p> すべてのクエリーは制限の論理積を持つ可能性があります。
  *
- * @param <T>  the type of the result
+ * @param <T> 結果の型
  *
  * @since Java Persistence 2.0
  */
