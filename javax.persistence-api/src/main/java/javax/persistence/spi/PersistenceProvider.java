@@ -30,26 +30,25 @@ import java.util.Map;
 public interface PersistenceProvider {
 
     /**
-     * Called by <code>Persistence</code> class when an
-     * <code>EntityManagerFactory</code> is to be created.
+     * <code>EntityManagerFactory</code>を作成するときに<code>Persistence</code>クラスによって呼び出されます。
      *
-     * @param emName  the name of the persistence unit
-     * @param map  a Map of properties for use by the 
+     * @param emName  永続化ユニットの名前
+     * @param map  永続化プロバイダによって使用されるプロパティのマップ。このプロパティを使用して<code>persistence.xml</code>ファイル内の対応する要素の値を上書きしたり、
+     * <code>persistence.xml</code>で指定されていないプロパティの値を指定することができます。(プロパティを指定しない場合はnullにします)
+     * a Map of properties for use by the 
      * persistence provider. These properties may be used to
      * override the values of the corresponding elements in 
      * the <code>persistence.xml</code> file or specify values for 
      * properties not specified in the <code>persistence.xml</code>
      * (and may be null if no properties are specified).
-     * @return EntityManagerFactory for the persistence unit, 
-     * or null if the provider is not the right provider 
+     * @return 永続化ユニットのためのEntityManagerFactory、プロバイダが適切なプロバイダでない場合はnull
      */
     public EntityManagerFactory createEntityManagerFactory(String emName, Map map);
 
     /**
-     * Called by the container when an <code>EntityManagerFactory</code>
-     * is to be created. 
+     * <code>EntityManagerFactory</code>を作成するときにコンテナによって呼び出されます。
      *
-     * @param info  metadata for use by the persistence provider
+     * @param info  永続化プロバイダによって使用されるメタデータ
      * @param map  a Map of integration-level properties for use 
      * by the persistence provider (may be null if no properties
      * are specified).  These properties may include properties to
@@ -60,8 +59,7 @@ public interface PersistenceProvider {
      * If the containing archive is a bean archive, the container
      * must pass the BeanManager instance in the map with the key
      * <code>"javax.persistence.bean.manager"</code>.
-     * @return EntityManagerFactory for the persistence unit 
-     * specified by the metadata
+     * @return メタデータによって指定された永続化ユニットのためのEntityManagerFactory
      */
     public EntityManagerFactory createContainerEntityManagerFactory(PersistenceUnitInfo info, Map map);
 
