@@ -1,0 +1,8 @@
+/javax.persistence-api/target/
+javax.persistence-api/.classpath
+javax.persistence-api/.project
+javax.persistence-api/.settings/org.eclipse.core.resources.prefs
+javax.persistence-api/.settings/org.eclipse.jdt.core.prefs
+javax.persistence-api/.settings/org.eclipse.m2e.core.prefs
+.vscode/
+
