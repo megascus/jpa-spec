@@ -15,6 +15,6 @@
  ******************************************************************************/ 
 
 /**
- * Java Persistence クライテリア API
+ * Java永続化クライテリアAPI
  */
 package javax.persistence.criteria;
