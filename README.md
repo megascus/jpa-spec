@@ -3,7 +3,7 @@
 これはJPA2.2仕様(Java EE8)のjavadocの日本語版を作成するプロジェクトです。
 javaソースコードのjavadocを日本語に書き換えると自動ビルドされます。
 
-成果物は以下から参照することが出来ます。(現状2/3程度終了済み)
+成果物は以下から参照することが出来ます。(完了)
 
 https://megascus.github.io/jpa-spec/docs/apidocs/
 
